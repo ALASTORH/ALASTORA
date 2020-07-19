@@ -177,7 +177,7 @@ print(t)
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
-sudo_users = {SUDO,689087834}
+sudo_users = {SUDO,879123322}
 function SudoBot(msg)  
 local MARCOS = false  
 for k,v in pairs(sudo_users) do  
@@ -236,7 +236,7 @@ return false
 end 
 end
 function Can_or_NotCan(user_id,chat_id)
-if tonumber(user_id) == tonumber(689087834) then  
+if tonumber(user_id) == tonumber(879123322) then  
 var = true  
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = true  
@@ -259,7 +259,7 @@ return var
 end 
 
 function Rutba(user_id,chat_id)
-if tonumber(user_id) == tonumber(689087834) then  
+if tonumber(user_id) == tonumber(879123322) then  
 var = 'مطور السورس👨‍🔧'
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = 'المطور الاساسي👨‍💻'  
@@ -3123,7 +3123,7 @@ send(msg.chat_id_, msg.id_,t)
 end
 if text == "متجر الملفات" or text == 'المتجر' then
 if SudoBot(msg) then
-local Get_Files, res = https.request("https://raw.githubusercontent.com/ALASTORH/Files_MARCOS/master/getfile.json")
+local Get_Files, res = https.request("https://raw.githubusercontent.com/MARCOSBOT1/Files_MARCOS/master/getfile.json")
 if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
@@ -3161,7 +3161,7 @@ t = "📁| الملف ← "..file.."\n🔰| تم تعطيل ملف \n"
 else
 t = "🔖| بالتاكيد تم تعطيل ملف → "..file.."\n"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/ALASTORH/Files_MARCOS/master/File_Bot/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/MARCOSBOT1/Files_MARCOS/master/File_Bot/"..file)
 if res == 200 then
 os.execute("rm -fr File_Bot/"..file)
 send(msg.chat_id_, msg.id_,t) 
@@ -3181,7 +3181,7 @@ t = "🔖| بالتاكيد تم تفعيل ملف → "..file.." \n"
 else
 t = "📁| الملف ← "..file.."\n🔰| تم تفعيل ملف \n"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/ALASTORH/Files_MARCOS/master/File_Bot/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/MARCOSBOT1/Files_MARCOS/master/File_Bot/"..file)
 if res == 200 then
 local chek = io.open("File_Bot/"..file,'w+')
 chek:write(json_file)
@@ -6438,7 +6438,7 @@ local text =
 ' }\n'..'📮| الايدي ← { '..idgp..
 ' }\n'..'📮| الايدي بالصوره ← { '..idph..
 ' }\n'..'📮| الرفع ← { '..setadd..
-' }\n'..'📮| الحظر ← { '..banm..' }\n\n┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉  ┉  ┉\n🔖| CH » [Channel MARCOS 🦅](https://t.me/ASTORHBOTS)\n'
+' }\n'..'📮| الحظر ← { '..banm..' }\n\n┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉  ┉  ┉\n🔖| CH » [Channel ALASTORA](https://t.me/ASTORHBOTS)\n'
 send(msg.chat_id_, msg.id_,text)     
 end    
 if text ==('تثبيت') and msg.reply_to_message_id_ ~= 0 and Mod(msg) then  
@@ -7026,7 +7026,7 @@ for i,lock in pairs(list) do
 database:set(bot_id..lock..msg.chat_id_,'del')    
 end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
-send(msg.chat_id_, msg.id_,'👤| العضو ← ['..utf8.sub(data.first_name_,0,60)..'](T.ME/'..(data.username_ or 'sajad13p')..') \n🔘| تـم قفـل التفليش\n🚸| الحاله ← المسح ')  
+send(msg.chat_id_, msg.id_,'👤| العضو ← ['..utf8.sub(data.first_name_,0,60)..'](T.ME/'..(data.username_ or 'ASTORHBOTS')..') \n🔘| تـم قفـل التفليش\n🚸| الحاله ← المسح ')  
 end,nil)   
 end
 if text == 'فتح التفليش' and msg.reply_to_message_id_ == 0 and Mod(msg) then 
@@ -7036,7 +7036,7 @@ for i,lock in pairs(list) do
 database:del(bot_id..lock..msg.chat_id_)    
 end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
-send(msg.chat_id_, msg.id_,'👤| العضو ← ['..utf8.sub(data.first_name_,0,60)..'](T.ME/'..(data.username_ or 'sajad13p')..') \n🔘| تـم فـتح التفليش\n🚸| الحاله ← المسح ')  
+send(msg.chat_id_, msg.id_,'👤| العضو ← ['..utf8.sub(data.first_name_,0,60)..'](T.ME/'..(data.username_ or 'ASTORHBOTS')..') \n🔘| تـم فـتح التفليش')  
 end,nil)   
 end
 if text == 'طرد المحذوفين' or text == 'مسح المحذوفين' then  
@@ -8985,7 +8985,7 @@ Text = [[
 🔖| م7 » اوامر مطورين البوت
 🔖| م8 » اوامر الاعضاء
 ء━━━━━━━━━━━━━━
-📮| [Channel MARCOS 🦅](t.me/ASTORHBOTS)
+📮| [Channel ALASTORA](t.me/ASTORHBOTS)
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
@@ -9041,7 +9041,7 @@ Text = [[
 🔒| قفل ⇚ فتح التكرار
 🔒| قفل ⇚ فتح التفليش
 ء━━━━━━━━━━━━━━
-📮| [Channel MARCOS 🦅](t.me/ASTORHBOTS)
+📮| [Channel ALASTORA](t.me/ASTORHBOTS)
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
@@ -9109,7 +9109,7 @@ Text = [[
 🔺| رابط ، ترحيب ، قوانين
 🔺|صوره ، وصف
 ء━━━━━━━━━━━━━━
-📮| [Channel MARCOS 🦅](t.me/ASTORHBOTS)
+📮| [Channel ALASTORA](t.me/ASTORHBOTS)
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
@@ -9174,7 +9174,7 @@ Text = [[
 🔴| تعطيل/تفعيل ضافني
 🔴| تعطيل / تفعيل الرابط 
 ء━━━━━━━━━━━━━━
-📮| [Channel MARCOS 🦅](t.me/ASTORHBOTS)
+📮| [Channel ALASTORA](t.me/ASTORHBOTS)
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
@@ -9219,7 +9219,7 @@ Text = [[
 🔷| تفعيل/تعطيل الحظر
 🔷| تفعيل/تعطيل الرفع 
 ء━━━━━━━━━━━━━━
-📮| [Channel MARCOS 🦅](t.me/ASTORHBOTS)
+📮| [Channel ALASTORA](t.me/ASTORHBOTS)
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
@@ -9296,7 +9296,7 @@ Text = [[
 🔆| تنظيف المشتركين
 🔆| تنظيف الكروبات
 ء━━━━━━━━━━━━━━
-📮| [Channel MARCOS 🦅](t.me/ASTORHBOTS)
+📮| [Channel ALASTORA](t.me/ASTORHBOTS)
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
@@ -9359,7 +9359,7 @@ Text = [[
 🐭| تاك لجريذيه
 🐭| تنزيل جريذيه
 ء━━━━━━━━━━━━━━
-📮| [Channel MARCOS 🦅](t.me/ASTORHBOTS)
+📮| [Channel ALASTORA](t.me/ASTORHBOTS)
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
@@ -9392,7 +9392,7 @@ Text = [[
 🔹| اذاعه / اذا كان مطور اساسي مفعلها
 🔹| ردود المطور 
 ء━━━━━━━━━━━━━━
-📮| [Channel MARCOS 🦅](t.me/ASTORHBOTS)
+📮| [Channel ALASTORA](t.me/ASTORHBOTS)
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
@@ -9426,7 +9426,7 @@ Text = [[
 🚸| شنو رئيك بهاي بالرد
 🚸| تحب هذا
 ء━━━━━━━━━━━━━━
-📮| [Channel MARCOS 🦅](t.me/ASTORHBOTS)
+📮| [Channel ALASTORA](t.me/ASTORHBOTS)
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
@@ -9671,7 +9671,7 @@ local taha ={
 '\n شكو غيرت معرفك  يا حلو 😹🌚',
 '\n  ها ها شو غيرت معرفك 🤔😹',
 '\n شكو غيرت معرفك شنو قطيت وحده جديده 😹😹🌚',
-'\n شو غيرت معرفك شنو تعاركت ويه الحب ؟😹🌞',
+'\n شو غيرت معرفك شنو تعاركت ويه الحب ؟😹??',
 '\n ها ولك مو جان  معرفك   '..tahan..'  شكو غيرته ',
 '\n شكو غيرت معرفك شسالفه ؟؟ 🤔🌞'
 }
