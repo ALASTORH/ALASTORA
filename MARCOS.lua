@@ -163,8 +163,8 @@ io.popen("mkdir File_Bot")
 io.popen("cd File_Bot && rm -rf games.lua.1") 
 io.popen("cd File_Bot && rm -rf games.lua.2") 
 io.popen("cd File_Bot && rm -rf games.lua.3") 
-io.popen("cd File_Bot && wget https://raw.githubusercontent.com/ALASTORH/Files_MARCOS/master/File_Bot/games.lua") 
-io.popen("cd File_Bot && wget https://raw.githubusercontent.com/ALASTORH/Files_MARCOS/master/File_Bot/Reply.lua") 
+io.popen("cd File_Bot && wget https://raw.githubusercontent.com/MARCOSBOT1/Files_MARCOS/master/File_Bot/games.lua") 
+io.popen("cd File_Bot && wget https://raw.githubusercontent.com/MARCOSBOT1/Files_MARCOS/master/File_Bot/Reply.lua") 
 t = "\27[35m".."\nAll Files Started : \n____________________\n"..'\27[m'
 i = 0
 for v in io.popen('ls File_Bot'):lines() do
@@ -9671,7 +9671,7 @@ local taha ={
 '\n شكو غيرت معرفك  يا حلو 😹🌚',
 '\n  ها ها شو غيرت معرفك 🤔😹',
 '\n شكو غيرت معرفك شنو قطيت وحده جديده 😹😹🌚',
-'\n شو غيرت معرفك شنو تعاركت ويه الحب ؟😹??',
+'\n شو غيرت معرفك شنو تعاركت ويه الحب ؟😹🌞',
 '\n ها ولك مو جان  معرفك   '..tahan..'  شكو غيرته ',
 '\n شكو غيرت معرفك شسالفه ؟؟ 🤔🌞'
 }
