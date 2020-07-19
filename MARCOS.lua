@@ -137,20 +137,9 @@ end
 _redis = load_redis()  
 --------------------------------------------------------------------------------------------------------------
 print([[
-____________________________________________________________
-__ℳ_________🦅________𝕄𝔸ℝℂ𝕆𝕊_𝕋𝕖𝔸𝕞_🦅_________ᔕ ____
-_____ᗩ_______Ꮦ____________________Ե ___________Ꮢ________
-______尺_______Ꮛ____🦅_______ℰ _____🦅_____a̶ ________
-_______Ç________卂___________ᗰ ______ᑕ _____🦅_____
-_________Ꭷ________ᗰ_______🦅___________________Ꭷ____
-____🦅_______ꌗ____________________ℛ _________🦅_____
-____________________________________________________________
-
 ⇓⇓⇓⇓⇓⇓⇓⇓
-DEV ➲ @Ra_m9
-DEV ➲ @Mi_20
+DEV ➲ @AST0RH
 CH ➠ @ASTORHBOTS
-CH ➠ @THE_M2RK
 ]])
 sudos = dofile("./Info.lua") 
 SUDO = tonumber(sudos.SUDO)
@@ -900,7 +889,7 @@ send(msg.chat_id_, msg.id_,'🔖|تم حذف كليشه ستارت')
 end
 if text == 'الاصدار 📟' and SudoBot(msg) then 
 database:del(bot_id..'Srt:Bot') 
-send(msg.chat_id_, msg.id_,'📡| اصدار سورس الاسطورة \n📟| الاصدار ←{ 1.1v}') 
+send(msg.chat_id_, msg.id_,'📡| اصدار سورس الاسطورة \n📟| الاصدار ←{ 1.2v}') 
 end
 if text == 'معلومات السيرفر 📊' and SudoBot(msg) then 
  local text2 = 'Info Server : \n'
@@ -917,8 +906,8 @@ send(msg.chat_id_, msg.id_,'📮| اهلا عزيزى مطور اساسي \n🔰
 end
 if text == 'تحديث السورس ™' and SudoBot(msg) then 
 os.execute('rm -rf MARCOS.lua')
-os.execute('wget https://raw.githubusercontent.com/ALASTORH/ALASTORA/master/MARCOS.lua')
-send(msg.chat_id_, msg.id_,'🔭| تم تحديث البوت \n📮| لديك اخر اصدار سورس الاسطورة\n📡| الاصدار ← { 1.1v}')
+os.execute('wget https://raw.githubusercontent.com/MARCOSBOT1/MARCOS/master/MARCOS.lua')
+send(msg.chat_id_, msg.id_,'🔭| تم تحديث البوت \n📮| لديك اخر اصدار سورس الاسطورة\n📡| الاصدار ← { 1.2v}')
 dofile('MARCOS.lua')  
 end
 if text == "ضع اسم للبوت ®" and SudoBot(msg) then  
@@ -2100,8 +2089,8 @@ end
 return false
 end
 os.execute('rm -rf MARCOS.lua')
-os.execute('wget https://raw.githubusercontent.com/ALASTORH/ALASTORA/master/MARCOS.lua')
-send(msg.chat_id_, msg.id_,'🔭| تم تحديث البوت \n📮| لديك اخر اصدار سورس الاسطورة\n📡| الاصدار ← { 1.1v}')
+os.execute('wget https://raw.githubusercontent.com/MARCOSBOT1/MARCOS/master/MARCOS.lua')
+send(msg.chat_id_, msg.id_,'🔭| تم تحديث البوت \n📮| لديك اخر اصدار سورس الاسطورة\n📡| الاصدار ← { 1.2v}')
 dofile('MARCOS.lua')  
 end
 
@@ -6438,7 +6427,7 @@ local text =
 ' }\n'..'📮| الايدي ← { '..idgp..
 ' }\n'..'📮| الايدي بالصوره ← { '..idph..
 ' }\n'..'📮| الرفع ← { '..setadd..
-' }\n'..'📮| الحظر ← { '..banm..' }\n\n┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉  ┉  ┉\n🔖| CH » [Channel ALASTORA](https://t.me/ASTORHBOTS)\n'
+' }\n'..'📮| الحظر ← { '..banm..' }\n\n┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉  ┉  ┉\n🔖| CH » [Channel ALASTORH](https://t.me/ASTORHBOTS)\n'
 send(msg.chat_id_, msg.id_,text)     
 end    
 if text ==('تثبيت') and msg.reply_to_message_id_ ~= 0 and Mod(msg) then  
@@ -7026,7 +7015,7 @@ for i,lock in pairs(list) do
 database:set(bot_id..lock..msg.chat_id_,'del')    
 end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
-send(msg.chat_id_, msg.id_,'👤| العضو ← ['..utf8.sub(data.first_name_,0,60)..'](T.ME/'..(data.username_ or 'ASTORHBOTS')..') \n🔘| تـم قفـل التفليش\n🚸| الحاله ← المسح ')  
+send(msg.chat_id_, msg.id_,'👤| العضو ← ['..utf8.sub(data.first_name_,0,60)..'](T.ME/'..(data.username_ or 'sajad13p')..') \n🔘| تـم قفـل التفليش\n🚸| الحاله ← المسح ')  
 end,nil)   
 end
 if text == 'فتح التفليش' and msg.reply_to_message_id_ == 0 and Mod(msg) then 
@@ -7036,7 +7025,7 @@ for i,lock in pairs(list) do
 database:del(bot_id..lock..msg.chat_id_)    
 end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
-send(msg.chat_id_, msg.id_,'👤| العضو ← ['..utf8.sub(data.first_name_,0,60)..'](T.ME/'..(data.username_ or 'ASTORHBOTS')..') \n🔘| تـم فـتح التفليش')  
+send(msg.chat_id_, msg.id_,'👤| العضو ← ['..utf8.sub(data.first_name_,0,60)..'](T.ME/'..(data.username_ or 'sajad13p')..') \n🔘| تـم فـتح التفليش\n🚸| الحاله ← المسح ')  
 end,nil)   
 end
 if text == 'طرد المحذوفين' or text == 'مسح المحذوفين' then  
@@ -8985,7 +8974,7 @@ Text = [[
 🔖| م7 » اوامر مطورين البوت
 🔖| م8 » اوامر الاعضاء
 ء━━━━━━━━━━━━━━
-📮| [Channel ALASTORA](t.me/ASTORHBOTS)
+📮| [Channel ALASTORH](t.me/ASTORHBOTS)
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
@@ -9041,7 +9030,7 @@ Text = [[
 🔒| قفل ⇚ فتح التكرار
 🔒| قفل ⇚ فتح التفليش
 ء━━━━━━━━━━━━━━
-📮| [Channel ALASTORA](t.me/ASTORHBOTS)
+📮| [Channel ALASTORH](t.me/ASTORHBOTS)
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
@@ -9094,8 +9083,8 @@ Text = [[
 💠| مسح صلاحيه + اسم الصلاحيه
 💠| تعطيل اوامر التحشيش
 💠| تفعيل اوامر التحشيش
-🔮| تفعيل تعطيل صورتي
-🔮| صورتي لجلب صورت حسابك
+🔮| تفعيل/تعطيل صورتي
+🔮| صورتي لجلب صورة حسابك
 📁| تاك للكل
 📁| اعدادات المجموعه
 📁| عدد الكروب
@@ -9109,7 +9098,7 @@ Text = [[
 🔺| رابط ، ترحيب ، قوانين
 🔺|صوره ، وصف
 ء━━━━━━━━━━━━━━
-📮| [Channel ALASTORA](t.me/ASTORHBOTS)
+📮| [Channel ALASTORH](t.me/ASTORHBOTS)
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
@@ -9174,7 +9163,7 @@ Text = [[
 🔴| تعطيل/تفعيل ضافني
 🔴| تعطيل / تفعيل الرابط 
 ء━━━━━━━━━━━━━━
-📮| [Channel ALASTORA](t.me/ASTORHBOTS)
+📮| [Channel ALASTORH](t.me/ASTORHBOTS)
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
@@ -9219,7 +9208,7 @@ Text = [[
 🔷| تفعيل/تعطيل الحظر
 🔷| تفعيل/تعطيل الرفع 
 ء━━━━━━━━━━━━━━
-📮| [Channel ALASTORA](t.me/ASTORHBOTS)
+📮| [Channel ALASTORH](t.me/ASTORHBOTS)
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
@@ -9296,7 +9285,7 @@ Text = [[
 🔆| تنظيف المشتركين
 🔆| تنظيف الكروبات
 ء━━━━━━━━━━━━━━
-📮| [Channel ALASTORA](t.me/ASTORHBOTS)
+📮| [Channel ALASTORH](t.me/ASTORHBOTS)
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
@@ -9359,7 +9348,7 @@ Text = [[
 🐭| تاك لجريذيه
 🐭| تنزيل جريذيه
 ء━━━━━━━━━━━━━━
-📮| [Channel ALASTORA](t.me/ASTORHBOTS)
+📮| [Channel ALASTORH](t.me/ASTORHBOTS)
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
@@ -9392,7 +9381,7 @@ Text = [[
 🔹| اذاعه / اذا كان مطور اساسي مفعلها
 🔹| ردود المطور 
 ء━━━━━━━━━━━━━━
-📮| [Channel ALASTORA](t.me/ASTORHBOTS)
+📮| [Channel ALASTORH](t.me/ASTORHBOTS)
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
@@ -9426,7 +9415,7 @@ Text = [[
 🚸| شنو رئيك بهاي بالرد
 🚸| تحب هذا
 ء━━━━━━━━━━━━━━
-📮| [Channel ALASTORA](t.me/ASTORHBOTS)
+📮| [Channel ALASTORH](t.me/ASTORHBOTS)
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
