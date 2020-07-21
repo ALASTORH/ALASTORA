@@ -4634,7 +4634,7 @@ function start_function(extra, result, success)
 database:sadd(bot_id..'Motee:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n👤| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..')'
-local  statuss  = '\n📮| الايدي » `'..result.sender_user_id_..'`\n🔘| ⚡| تم رفع العضو قرد\n بل كروب تعال حبي ستلم لموز'
+local  statuss  = '\n📮| الايدي » `'..result.sender_user_id_..'`\n🔘| ⚡| تم رفع العضو قرد\n بل قروب تعال حبي ستلم لموز'
 send(msg.chat_id_, msg.id_, usertext..statuss)
 end,nil)
 end
@@ -8284,7 +8284,7 @@ send(msg.chat_id_, msg.id_,'⚠| لا اسطيع صيح معرفات المجم�
 return false  
 end
 if result.id_ then
-send(msg.chat_id_, msg.id_,'👤| تعال حبي يصيحونك بل كروب [@'..username..']') 
+send(msg.chat_id_, msg.id_,'👤| تعال حبي يصيحونك بل قروب [@'..username..']') 
 return false
 end
 end
