@@ -420,23 +420,23 @@ MARCOS_Msg = 'شبه متفاعل😗👻'
 elseif msgs < 700 then 
 MARCOS_Msg = 'متفاعل😍🙊' 
 elseif msgs < 1200 then 
-MARCOS_Msg = 'متفاعل قوي😍✔️' 
+MARCOS_Msg = 'ممتاز😍✔️' 
 elseif msgs < 2000 then 
 MARCOS_Msg = 'متفاعل جدا😍💘' 
 elseif msgs < 3500 then 
-MARCOS_Msg = 'اقوى تفاعل🙊👻'  
+MARCOS_Msg = 'تفاعل خورافي🙊👻'  
 elseif msgs < 4000 then 
 MARCOS_Msg = 'متفاعل نار😍🔥' 
-elseif msgs < 4500 then 
+elseif msgs < 5000 then 
 MARCOS_Msg = 'قمة التفاعل🤸‍♂️😻' 
-elseif msgs < 5500 then 
-MARCOS_Msg = 'اقوى متفاعل😳😻' 
 elseif msgs < 7000 then 
+MARCOS_Msg = ' اسطوري😳😻' 
+elseif msgs < 10000 then 
 MARCOS_Msg = 'ملك التفاعل🤴😍' 
-elseif msgs < 9500 then 
-MARCOS_Msg = 'امبروطور التفاعل💂‍♀️😻' 
-elseif msgs < 10000000000 then 
-MARCOS_Msg = 'اسطوره✔️😍'  
+elseif msgs < 15000 then 
+MARCOS_Msg = 'امبراطور التفاعل💂‍♀️😻' 
+elseif msgs < 1000000 then 
+MARCOS_Msg = 'جنيرال التفاعل✔️😍'  
 end 
 return MARCOS_Msg 
 end
@@ -8284,7 +8284,7 @@ send(msg.chat_id_, msg.id_,'⚠| لا اسطيع صيح معرفات المجم�
 return false  
 end
 if result.id_ then
-send(msg.chat_id_, msg.id_,'👤| تعال حبي يصيحونك بل قروب [@'..username..']') 
+send(msg.chat_id_, msg.id_,'👤| تعال حبي يبونك بل قروب [@'..username..']') 
 return false
 end
 end
@@ -8310,7 +8310,7 @@ Text = '👤| الشخص الذي قام باضافتك هو » '..Name
 sendText(msg.chat_id_,Text,msg.id_/2097152/0.5,'md')
 end,nil)
 else
-send(msg.chat_id_, msg.id_,'📌| انت دخلت عبر الرابط لتلح') 
+send(msg.chat_id_, msg.id_,'📌| انت دخلت عبر الرابط لتكذب') 
 end
 end,nil)
 else
