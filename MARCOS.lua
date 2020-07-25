@@ -7499,11 +7499,6 @@ end
 end,nil) 
 end
 
-if Text== "اسكت" or Text== "نجب" or Text=="جب" then
-if msg.Sudo then   
-send(msg.chat_id_,msg.id_,"حاضر مو تدلل حضرة المطور  😇 ")
-return else
-
 if text == "تاك للكل" and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
