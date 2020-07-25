@@ -7500,7 +7500,7 @@ end,nil)
 end
 
 elseif Text== "انجب" or Text== "نجب" or Text=="جب" then
-if msg.Sudo:User then  
+if msg.SudoUser then  
 return sendMsg(msg.chat_id_,msg.id_,"حاضر مو تدلل حضرة المطور  😇 ")
 
 if text == "تاك للكل" and Mod(msg) then
