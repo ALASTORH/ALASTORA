@@ -410,35 +410,35 @@ local function sendPhoto(chat_id, reply_to_message_id, disable_notification, fro
 tdcli_function ({ ID = "SendMessage",   chat_id_ = chat_id,   reply_to_message_id_ = reply_to_message_id,   disable_notification_ = disable_notification,   from_background_ = from_background,   reply_markup_ = reply_markup,   input_message_content_ = {   ID = "InputMessagePhoto",   photo_ = getInputFile(photo),   added_sticker_file_ids_ = {},   width_ = 0,   height_ = 0,   caption_ = caption  },   }, dl_cb, nil)  
 end
 function Total_Msg(msgs)  
-local MARCOS_Msg = ''  
+local ALYAFAE_Msg = ''  
 if msgs < 100 then 
-MARCOS_Msg = 'مـيـت😔💔' 
+ALYAFAE_Msg = 'مـيـت😔💔' 
 elseif msgs < 200 then 
-MARCOS_Msg = 'في امل تتفاعل😕💔' 
+ALYAFAE_Msg = 'في امل تتفاعل😕💔' 
 elseif msgs < 400 then 
-MARCOS_Msg = 'شبه متفاعل😗👻' 
+ALYAFAE_Msg = 'شبه متفاعل😗👻' 
 elseif msgs < 700 then 
-MARCOS_Msg = 'متفاعل😍🙊' 
+ALYAFAE_Msg = 'متفاعل😍🙊' 
 elseif msgs < 1200 then 
-MARCOS_Msg = 'ممتاز😍✔️' 
+ALYAFAE_Msg = 'ممتاز😍✔️' 
 elseif msgs < 2000 then 
-MARCOS_Msg = 'متفاعل جدا😍💘' 
+ALYAFAE_Msg = 'متفاعل جدا😍💘' 
 elseif msgs < 3500 then 
-MARCOS_Msg = 'تفاعل خورافي🙊👻'  
+ALYAFAE_Msg = 'تفاعل خورافي🙊👻'  
 elseif msgs < 4000 then 
-MARCOS_Msg = 'متفاعل نار😍🔥' 
+ALYAFAE_Msg = 'متفاعل نار😍🔥' 
 elseif msgs < 5000 then 
-MARCOS_Msg = 'قمة التفاعل🤸‍♂️😻' 
+ALYAFAE_Msg = 'قمة التفاعل🤸‍♂️😻' 
 elseif msgs < 7000 then 
-MARCOS_Msg = ' اسطوري😳😻' 
+ALYAFAE_Msg = ' اسطوري😳😻' 
 elseif msgs < 10000 then 
-MARCOS_Msg = 'ملك التفاعل🤴😍' 
+ALYAFAE_Msg = 'ملك التفاعل🤴😍' 
 elseif msgs < 15000 then 
-MARCOS_Msg = 'امبراطور التفاعل💂‍♀️😻' 
+ALYAFAE_Msg = 'امبراطور التفاعل💂‍♀️😻' 
 elseif msgs < 1000000 then 
-MARCOS_Msg = 'جنيرال التفاعل✔️😍'  
+ALYAFAE_Msg = 'جنيرال التفاعل✔️😍'  
 end 
-return MARCOS_Msg 
+return ALYAFAE_Msg 
 end
 function GetFile_Bot(msg)
 local list = database:smembers(bot_id..'Chek:Groups') 
@@ -787,8 +787,8 @@ end
 tdcli_function({ID='GetChat',chat_id_ = id_user},function(arg,dataq)
 tdcli_function ({ ID = "SendChatAction",chat_id_ = id_user, action_ = {  ID = "SendMessageTypingAction", progress_ = 100} },function(arg,ta) 
 if ta.code_ == 400 or ta.code_ == 5 then
-local MARCOS_Msg = '\n⚠| فشل ارسال رسالتك لان العضو قام بحظر البوت'
-send(msg.chat_id_, msg.id_,MARCOS_Msg) 
+local ALYAFAE_Msg = '\n⚠| فشل ارسال رسالتك لان العضو قام بحظر البوت'
+send(msg.chat_id_, msg.id_,ALYAFAE_Msg) 
 return false  
 end 
 if text then    
@@ -1419,14 +1419,14 @@ return false
 end
 end 
 --------------------------------------------------------------------------------------------------------------
-if MARCOS_Msg and not Special(msg) then  
-local MARCOS_Msg = database:get(bot_id.."Add:Filter:Rp2"..text..msg.chat_id_)   
-if MARCOS_Msg then    
+if ALYAFAE_Msg and not Special(msg) then  
+local ALYAFAE_Msg = database:get(bot_id.."Add:Filter:Rp2"..text..msg.chat_id_)   
+if ALYAFAE_Msg then    
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 if data.username_ ~= false then
-send(msg.chat_id_,0,"⚠¦العضو : {["..data.first_name_.."](T.ME/"..data.username_..")}\n📛¦["..MARCOS_Msg.."] \n") 
+send(msg.chat_id_,0,"⚠¦العضو : {["..data.first_name_.."](T.ME/"..data.username_..")}\n📛¦["..ALYAFAE_Msg.."] \n") 
 else
-send(msg.chat_id_,0,"⚠¦العضو : {["..data.first_name_.."](T.ME/ASTORHBOTS)}\n📛¦["..MARCOS_Msg.."] \n") 
+send(msg.chat_id_,0,"⚠¦العضو : {["..data.first_name_.."](T.ME/ASTORHBOTS)}\n📛¦["..ALYAFAE_Msg.."] \n") 
 end
 end,nil)   
 DeleteMessage(msg.chat_id_, {[0] = msg.id_})     
@@ -6662,8 +6662,8 @@ if text == "قائمه المنع" and Mod(msg) then
 local list = database:smembers(bot_id.."List:Filter"..msg.chat_id_)  
 t = "\n🔘| قائمة المنع \nء━━━━━━━━━━━━\n"
 for k,v in pairs(list) do  
-local MARCOS_Msg = database:get(bot_id.."Add:Filter:Rp2"..v..msg.chat_id_)   
-t = t..''..k..'- '..v..' » {'..MARCOS_Msg..'}\n'    
+local ALYAFAE_Msg = database:get(bot_id.."Add:Filter:Rp2"..v..msg.chat_id_)   
+t = t..''..k..'- '..v..' » {'..ALYAFAE_Msg..'}\n'    
 end  
 if #list == 0 then  
 t = "⚠️|لا يوجد كلمات ممنوعه"  
