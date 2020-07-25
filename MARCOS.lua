@@ -7499,6 +7499,10 @@ end
 end,nil) 
 end
 
+elseif Text== "انجب" or Text== "نجب" or Text=="جب" then
+if msg.Sudo:User then  
+return sendMsg(msg.chat_id_,msg.id_,"حاضر مو تدلل حضرة المطور  😇 ")
+
 if text == "تاك للكل" and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -7700,7 +7704,7 @@ database:srem(bot_id..'List:Rd:Sudo', text)
 return false
 end
 end
-if text == 'اضف رد للكل' and SudoBot(msg) then 
+if text == 'اضف رد عام' and SudoBot(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -7714,7 +7718,7 @@ send(msg.chat_id_, msg.id_,'📥| تمام الحين ارسل الكلمه ال
 database:set(bot_id..'Set:Rd'..msg.sender_user_id_..':'..msg.chat_id_,true)
 return false 
 end
-if text == 'حذف رد للكل' and SudoBot(msg) then 
+if text == 'حذف رد عام' and SudoBot(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9264,7 +9268,7 @@ Text = [[
 🔹| تفعيل/تعطيل البوت الخدمي
 🔹| تفعيل/تعطيل التواصل
 🔰| تغير اسم البوت
-🔰| اضف/حذف رد للكل
+🔰| اضف/حذف رد عام
 🔰| ردود المطور
 🔰| مسح ردود المطور
 ء━━━━━━━━━━━━━━
