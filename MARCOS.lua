@@ -7499,9 +7499,9 @@ end
 end,nil) 
 end
 
-elseif Text== "انجب" or Text== "نجب" or Text=="جب" then
-if msg.SudoUser then  
-return sendMsg(msg.chat_id_,msg.id_,"حاضر مو تدلل حضرة المطور  😇 ")
+elseif Text== "اسكت" or Text== "نجب" or Text=="جب" then
+if msg.Sudo then  
+return send(msg.chat_id_,msg.id_,"حاضر مو تدلل حضرة المطور  😇 ")
 
 if text == "تاك للكل" and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
