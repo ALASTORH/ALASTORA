@@ -9443,6 +9443,20 @@ local texting = {"دور حلوين 🤕😹","جكمه وصخه عوفها ☹�
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
+if text == "هلو" or text == "هاي" or text == "هلاو" then  
+local HALA = {
+"\nهلوات اذا عندك قروبات ضيفني🤷🏼‍♀️❤️",
+"\nهلوات عمري ☺😘",
+"\nهله بريحه هلي🤗",
+"\nكافي قبل شويه سلمت😌",
+"\nهلا تاج راسي 🤷🏼‍♀️",
+"\nهلووات 😊🌹",
+"\n🌹 هــلــℌelℓoووات🌹عمـ°🌺°ــري🙊😋",
+"\nۿۿـ℘ﹻۧـ๋͜ـﻶٌُوٰ୭ًٌَّّٳټٴ ͢⁽✨☻₎♤ عمري 🙊😍😘",
+}
+send(msg.chat_id_, msg.id_,'['..HALA[math.random(#HALA)]..']') 
+return false
+end
 if text == "مع السلامه" or text == "باي" then
 local MHMD = {
 "\nالله وياك والتكسي ع حساب المدير😂😂",
