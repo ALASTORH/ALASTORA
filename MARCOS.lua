@@ -6657,6 +6657,11 @@ database:srem(bot_id.."List:Filter"..msg.chat_id_,v)
 end  
 send(msg.chat_id_, msg.id_,"🖇️| تم مسح قائمه المنع")  
 end
+if Text == 'time' or Text == 'الوقت' and is_JoinChannel(msg) then
+local colors = {'blue','green','yellow','magenta','Orange','DarkOrange','red'}
+local fonts = {'mathbf','mathit','mathfrak','mathrm'}
+local url1 = 'http://latex.codecogs.com/png.download?'..'\\dpi{600}%20\\huge%20\\'..fonts[math.random(#fonts)]..'{{\\color{'..colors[math.random(#colors)]..'}'..os.date("%H:%M")..'}}'	
+file = download_to_file(url1,'time.webp')
 
 if text == "قائمه المنع" and Mod(msg) then   
 local list = database:smembers(bot_id.."List:Filter"..msg.chat_id_)  
