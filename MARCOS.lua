@@ -9436,22 +9436,22 @@ if not database:get(bot_id..'lock:add'..msg.chat_id_) then
 local texting = {"ادب سسز يباوع علي بنات 😂🥺"," نشبه وماعنده سالفه😂😶","زاحف وما احبه 😾😹"}
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
-elseif msg.SudoBot and Text=="hi" then 
-local sh = {
-,"اهلا عزيزي المطور 😽❤️n\"
-,"هلوات نورت مطوري 😍n\"
-,"هلا سيدي المطور 😍n\"
-,,"هلا تاج راسي المطور 😎n\"
-,"هلا عافيتي المطور مالي 😘n\"
-}
-return send(msg.chat_id_,msg.id_, "..sh[math.random(#sh)]..")
-end
 end
 if text == "شنو رئيك بهاي" or text == "شنو رئيك بهايي" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
 local texting = {"دور حلوين 🤕😹","جكمه وصخه عوفها ☹️😾","حقيره ومنتكبره 😶😂"}
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
+end
+if text == "هلو" or text == "هاي"  and SudoBot(msg) then  
+local RAADEV = {
+"\nهلوات نورت مطوري 😍",
+"\nاهلا سيدي المطور 😍",
+"\nهلا عزيزي المطور 😽❤️",
+"\nهلا تاج راسي المطور 😎",
+}
+send(msg.chat_id_, msg.id_, [ ..RAADEV[math.random(#RAADEV)].. ] ) 
+return false
 end
 if text == "مع السلامه" or text == "باي" then
 local MHMD = {
