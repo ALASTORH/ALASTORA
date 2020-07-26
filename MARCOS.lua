@@ -9454,7 +9454,7 @@ local HALADV = {
 "\n🌹 هــلــℌelℓoووات🌹عمـ°🌺°ــري🙊😋",
 "\nۿۿـ℘ﹻۧـ๋͜ـﻶٌُوٰ୭ًٌَّّٳټٴ ͢⁽✨☻₎♤ عمري 🙊😍😘",
 }
-send(msg.chat_id_, msg.id_, [ ..HALADV[math.random(#HALADV)].. ] ) 
+send(msg.chat_id_, msg.id_,'['..HALADV[math.random(#HALADV)]..']') 
 return false
 end
 if text == "بووت" or text == "hi"  and SudoBot(msg) then  
@@ -9464,7 +9464,7 @@ local RAADEV = {
 "\nهلا عزيزي المطور 😽❤️",
 "\nهلا تاج راسي المطور 😎",
 }
-send(msg.chat_id_, msg.id_, [ ..RAADEV[math.random(#RAADEV)].. ] ) 
+send(msg.chat_id_, msg.id_,'['..RAADEV[math.random(#RAADEV)]..']') 
 return false
 end
 if text == "مع السلامه" or text == "باي" then
