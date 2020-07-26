@@ -9443,30 +9443,6 @@ local texting = {"دور حلوين 🤕😹","جكمه وصخه عوفها ☹�
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
-if text == "هلو" or text == "هلاو" and Member(msg) then
-local HALADV = {
-"\nهلوات اذا عندك قروبات ضيفني🤷🏼‍♀️❤️",
-"\nهلوات عمري ☺😘",
-"\nهله بريحه هلي🤗",
-"\nكافي قبل شويه سلمت😌",
-"\nهلا تاج راسي 🤷🏼‍♀️",
-"\nهلووات 😊",
-"\n🌹 هــلــℌelℓoووات🌹عمـ°🌺°ــري🙊😋",
-"\nۿۿـ℘ﹻۧـ๋͜ـﻶٌُوٰ୭ًٌَّّٳټٴ ͢⁽✨☻₎♤ عمري 🙊😍😘",
-}
-send(msg.chat_id_, msg.id_,'['..HALADV[math.random(#HALADV)]..']') 
-return false
-end
-if text == "بووت" or text == "hi"  and SudoBot(msg) then  
-local RAADEV = {
-"\nهلوات نورت مطوري 😍",
-"\nاهلا سيدي المطور 😍",
-"\nهلا عزيزي المطور 😽❤️",
-"\nهلا تاج راسي المطور 😎",
-}
-send(msg.chat_id_, msg.id_,'['..RAADEV[math.random(#RAADEV)]..']') 
-return false
-end
 if text == "مع السلامه" or text == "باي" then
 local MHMD = {
 "\nالله وياك والتكسي ع حساب المدير😂😂",
