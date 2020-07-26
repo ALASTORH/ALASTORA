@@ -9443,7 +9443,7 @@ local texting = {"دور حلوين 🤕😹","جكمه وصخه عوفها ☹�
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
-if text == "هلو" or text == "هاي" or text == "هلاو" then  
+if text == "هلو" or text == "هلاو" then  
 local HALA = {
 "\nهلوات اذا عندك قروبات ضيفني🤷🏼‍♀️❤️",
 "\nهلوات عمري ☺😘",
