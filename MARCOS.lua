@@ -9457,7 +9457,7 @@ local MHMD = {
 "\nيلا اذلف 😆",
 "\nوين رايح ",
 }
-send(msg.chat_id_, msg.id_, [ ..MHMD[math.random(#MHMD)].. ] ) 
+send(msg.chat_id_, msg.id_,'['..MHMD[math.random(#MHMD)]..']') 
 return false
 end
 if text == "هينه" or text == "رزله" then
