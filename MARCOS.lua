@@ -2148,7 +2148,6 @@ Text = [[
 ء… … … … … … … … … … …
 📮︙⇚ [قناة السورس](t.me/ASTORHBOTS)
 
-
 👲︙⇚ [مطور السورس](t.me/AST0RH)
 
 💌︙⇚ [كليشة التنصيب](t.me/ASTORHBOTS/947)
@@ -7795,7 +7794,7 @@ local list = database:smembers(bot_id..'List:Manager'..msg.chat_id_..'')
 text = "💠| قائمه ردود المدير \n━━━━━━━━━━━━━\n"
 for k,v in pairs(list) do
 if database:get(bot_id.."Add:Rd:Manager:Gif"..v..msg.chat_id_) then
-db = 'متحركه 🎭'
+db = 'متحركه ??'
 elseif database:get(bot_id.."Add:Rd:Manager:Vico"..v..msg.chat_id_) then
 db = 'بصمه 📢'
 elseif database:get(bot_id.."Add:Rd:Manager:Stekrs"..v..msg.chat_id_) then
