@@ -7404,8 +7404,7 @@ local MARCOS_Msg = {
 'هلا قلبي',
 'ياليل النشبه',
 'هلا وغلا',
-'سمعني سكوتك',
-}
+'سمعني سكوتك'}
 
 send(msg.chat_id_, msg.id_,'['..MARCOS_Msg[math.random(#MARCOS_Msg)]..']') 
 return false
@@ -8004,8 +8003,7 @@ local ASTORH_Msg = {
 'بوت بعينك عندي اسم',
 'ياخوي عندي اسم شفيك تقول بوت?',
 ' انــYOUــت البوت',
-'لو تناديني بوت اطلعك برا القروب',
-}
+'لا تناديني بوت اطلعك برا القروب'}
 
 send(msg.chat_id_, msg.id_,'['..ASTORH_Msg[math.random(#ASTORH_Msg)]..']') 
 return false
