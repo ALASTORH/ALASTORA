@@ -7390,7 +7390,7 @@ end
 
 if text == ""..(database:get(bot_id..'Name:Bot') or 'الاسطورة').."" then  
 Namebot = (database:get(bot_id..'Name:Bot') or 'الاسطورة')
-local MARCOS_Msg = {
+local MARCOSMsg = {
 'مازا تريد مني😌؟',
 '♥️ لبى من يصوت ♥️',
 '🙄ما عندكم غير اسمي ؟',
@@ -7405,7 +7405,7 @@ local MARCOS_Msg = {
 'شتبي??',
 'ياكثر هرجك😒',
 }
-send(msg.chat_id_, msg.id_,'['..MARCOS_Msg[math.random(#MARCOS_Msg)]..']') 
+send(msg.chat_id_, msg.id_,'['..MARCOSMsg[math.random(#MARCOSMsg)]..']') 
 return false
 end
 if text == "هلو" and SudoBot(msg) or text == "هلاو" and SudoBot(msg) then  
@@ -7416,6 +7416,24 @@ local RAADEV = {
 "\nهلوات نورت مطوري 😍",
 }
 send(msg.chat_id_, msg.id_,'['..RAADEV[math.random(#RAADEV)]..']') 
+return false
+end
+if text == "هلو" and Member(msg) or text == "هلاو" and Member(msg) then  
+local YAFAE = {
+"🌹 هــلــℌelℓoووات🌹عمـ°🌺°ــري🙊😋",
+"هلووات 😊🌹",
+"هلا تاج راسي 🤷🏼‍♀️",
+"كافي قبل شويه سلمت😌",
+"هله بريحه هلي🤗",
+"هلوات اذا عندك قروبات ضيفني🤷🏼‍♀️❤️",
+"ۿۿـ℘ﹻۧـ๋͜ـﻶٌُوٰ୭ًٌَّّٳټٴ ͢⁽✨☻₎♤ عمري 🙊😍😘",
+"هــلــℌelℓoووات عمـ°😻°ــري🙊😋",
+": ٰٰهٌٰــٌـٓٓٓ:ــٰـٰـٰ😍ــٰـٰـٰلـٰـٰوُٰـوُٰـوُات",
+"هْـٌﮩٌﮧٌ﴿🙃﴾ﮩٌـ୭ٌ୭ـْلوُّات†😻☝️",
+"كل الهلاهل 😻نورتنا 👐",
+"هلوات عمري ☺😘",
+}
+send(msg.chat_id_, msg.id_,'['..YAFAE[math.random(#YAFAE)]..']') 
 return false
 end
 if text=="اذاعه خاص" and msg.reply_to_message_id_ == 0 and Sudo(msg) then 
@@ -7993,13 +8011,13 @@ end
 if text == ""..(database:get(bot_id..'Name:Bot') or 'الاسطورة').."مغادره" or text == 'مغادره' or text == 'مغادرة' then  
 if Sudo(msg) and not database:get(bot_id..'Left:Bot'..msg.chat_id_)  then 
 tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
-send(msg.chat_id_, msg.id_,'طبكم مرض حغادر 😹😿') 
+send(msg.chat_id_, msg.id_,'رح اغادر اذا تحتاجني ضيفني  😹😿') 
 database:srem(bot_id..'Chek:Groups',msg.chat_id_)  
 end
 return false  
 end
 if text == "بوت" or text == "الاسطورة"  then  
-local ASTORH_Msg = {
+local ASTORHMsg = {
 'ها عمري ♥',
 'عيونه 👀 وخشمه 👃🏻واذانه👂',
 'هوه غير يسكت عاد ها شتبي 😷',
@@ -8013,7 +8031,7 @@ local ASTORH_Msg = {
 'بوت بعينك يالهطف',
 'تبي نظاره عشان تشوف اسمي?',
 }
-send(msg.chat_id_, msg.id_,'['..ASTORH_Msg[math.random(#ASTORH_Msg)]..']') 
+send(msg.chat_id_, msg.id_,'['..ASTORHMsg[math.random(#ASTORHMsg)]..']') 
 return false
 end
 if text == 'الاحصائيات' or text == 'المجموعات' or text == 'المشتركين' then
@@ -8283,7 +8301,7 @@ send(msg.chat_id_, msg.id_,'⚠| عذرا لا استطيع طرد ادمنية 
 return false  
 end
 if data and data.ID and data.ID == 'Ok' then
-send(msg.chat_id_, msg.id_,'📌| تم طردك من المجموعه ') 
+send(msg.chat_id_, msg.id_,'📌| تم تنفيذ طلبك بنجاح وتم طردك 😛 ') 
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = msg.sender_user_id_, status_ = { ID = "ChatMemberStatusLeft" },},function(arg,ban) end,nil)   
 return false
 end
@@ -8458,7 +8476,7 @@ local tahaa = {
 "شهل الصورة يالبيه😘🌷",
 "يالغرام العف يالوجه السموح❤️❥",
 "احلى يا الكشخه جوي يالحب❤️",
-"ممكن رقمك خاص💞😻",
+"عـجـبـتـنـي الـصـورة😍♥",
 "تزيد عيناي جمالآ حين اراك 🤭",
 "اطلق من كتب ايدي 🥰",
 }
