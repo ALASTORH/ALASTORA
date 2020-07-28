@@ -7400,12 +7400,22 @@ local MARCOS_Msg = {
 'عـيون '..Namebot..'',
 'لبيه 🤕',
 'شعندك !؟ 👀',
-'ياروح '..Namebot..'آمر',
+'ياروح '..Namebot..' امر',
 'هلا يالنشبه',
 'شتبي??',
 'ياكثر هرجك😒',
 }
 send(msg.chat_id_, msg.id_,'['..MARCOS_Msg[math.random(#MARCOS_Msg)]..']') 
+return false
+end
+if text == "بووت" and SudoBot(msg) or text == "احم" and SudoBot(msg) then  
+local RAADEV = {
+"\nهلا تاج راسي المطور 😎",
+"\nهلا عزيزي المطور 😽❤️",
+"\nاهلا سيدي المطور 😍",
+"\nهلوات نورت مطوري 😍",
+}
+send(msg.chat_id_, msg.id_,'['..RAADEV[math.random(#RAADEV)]..']') 
 return false
 end
 if text=="اذاعه خاص" and msg.reply_to_message_id_ == 0 and Sudo(msg) then 
