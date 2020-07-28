@@ -7390,7 +7390,7 @@ end
 
 if text == ""..(database:get(bot_id..'Name:Bot') or 'الاسطورة').."" then  
 Namebot = (database:get(bot_id..'Name:Bot') or 'الاسطورة')
-local MARCOSMsg = {
+local MARCOS_Msg = {
 'مازا تريد مني😌؟',
 '♥️ لبى من يصوت ♥️',
 '🙄ما عندكم غير اسمي ؟',
@@ -7405,7 +7405,7 @@ local MARCOSMsg = {
 'شتبي??',
 'ياكثر هرجك😒',
 }
-send(msg.chat_id_, msg.id_,'['..MARCOSMsg[math.random(#MARCOSMsg)]..']') 
+send(msg.chat_id_, msg.id_,'['..MARCOS_Msg[math.random(#MARCOS_Msg)]..']') 
 return false
 end
 if text == "هلو" and SudoBot(msg) or text == "هلاو" and SudoBot(msg) then  
@@ -7418,7 +7418,7 @@ local RAADEV = {
 send(msg.chat_id_, msg.id_,'['..RAADEV[math.random(#RAADEV)]..']') 
 return false
 end
-if text == "هلو" and Member(msg) or text == "هلاو" and Member(msg) then  
+if text == "هلو" and sismember(msg) or text == "هلاو" and sismember(msg) then  
 local YAFAE = {
 "🌹 هــلــℌelℓoووات🌹عمـ°🌺°ــري🙊😋",
 "هلووات 😊🌹",
@@ -8017,7 +8017,7 @@ end
 return false  
 end
 if text == "بوت" or text == "الاسطورة"  then  
-local ASTORHMsg = {
+local ASTORH_Msg = {
 'ها عمري ♥',
 'عيونه 👀 وخشمه 👃🏻واذانه👂',
 'هوه غير يسكت عاد ها شتبي 😷',
@@ -8031,7 +8031,7 @@ local ASTORHMsg = {
 'بوت بعينك يالهطف',
 'تبي نظاره عشان تشوف اسمي?',
 }
-send(msg.chat_id_, msg.id_,'['..ASTORHMsg[math.random(#ASTORHMsg)]..']') 
+send(msg.chat_id_, msg.id_,'['..ASTORH_Msg[math.random(#ASTORH_Msg)]..']') 
 return false
 end
 if text == 'الاحصائيات' or text == 'المجموعات' or text == 'المشتركين' then
