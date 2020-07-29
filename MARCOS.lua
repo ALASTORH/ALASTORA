@@ -8540,7 +8540,7 @@ local Num = tonumber(database:get(bot_id..'Add:Contact'..msg.chat_id_..':'..msg.
 if Num == 0 then 
 Text = '⚠️| لم تقم بااضافة اي احد'
 else
-Text = '📮| عدد جهاتك *» { '..Num..' } *'
+Text = '📮| عدد جهاتك *» { '..Num..' } * كفووووو ضيف اكثر😉'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
