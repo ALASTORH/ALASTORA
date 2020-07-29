@@ -9049,7 +9049,8 @@ Text = [[
 🔒| قفل ⇚ فتح التكرار
 🔒| قفل ⇚ فتح التفليش
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
-📮| المــور [SUDObot]
+📮| sendText(msg.chat_id_,Name,msg.id_/2097152/0.5,'md')
+end,nil)
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
