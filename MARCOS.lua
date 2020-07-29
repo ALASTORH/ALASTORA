@@ -8437,7 +8437,7 @@ local photps = (taha.total_count_ or 0)
 local interaction = Total_Msg(Msguser)
 local rtpg = rtpa
 local tahaa = {
-,"😍😍😍😍"
+"😍😍😍😍",
 "فديت الحلو🤗",
 "يالــبـيـه💋💘",
 " قديمه غيرها😒",
@@ -8449,6 +8449,7 @@ local tahaa = {
 "الصوره👍😊",
 "احلا ايدي🥰",
 }
+
 local rdphoto = tahaa[math.random(#tahaa)]
 if not database:get(bot_id..'Bot:Id:Photo'..msg.chat_id_) then      
 local get_id_text = database:get(bot_id.."KLISH:ID"..msg.chat_id_)
