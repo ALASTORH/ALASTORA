@@ -2150,7 +2150,7 @@ Text = [[
 
 👲︙⇚ [مطور السورس](t.me/AST0RH)
 
-💌︙⇚ [كليشة التنصيب](t.me/ASTORHBOTS/947
+💌︙⇚ [كليشة التنصيب](t.me/ASTORHBOTS/947)
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
 ]]
 send(msg.chat_id_, msg.id_,Text)
@@ -9047,7 +9047,7 @@ Text = [[
 🔒| قفل ⇚ فتح الكلايش
 🔒| قفل ⇚ فتح التكرار
 🔒| قفل ⇚ فتح التفليش
-ء━━━━━━━━━━━━━━
+●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
 📮| [Channel ALASTORH](t.me/ASTORHBOTS)
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
