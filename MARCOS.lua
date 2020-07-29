@@ -8993,7 +8993,7 @@ Text = [[
 🔖|المطور » مـطـور البـوت
 🔖| السورس » سورس البوت
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
-📮| [Channel ALASTORH](t.me/ASTORHBOTS)
+👨‍✈️| [Dev➥𝐀𝐋𝐘𝐀𝐅𝐀𝐄ᴖ♥✨ ](t.me/AST0RH)
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
@@ -9049,7 +9049,7 @@ Text = [[
 🔒| قفل ⇚ فتح التكرار
 🔒| قفل ⇚ فتح التفليش
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
-📮| 
+📮|  [Channel ALASTORH](t.me/ASTORHBOTS)
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
