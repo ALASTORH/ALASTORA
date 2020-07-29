@@ -8437,7 +8437,7 @@ local photps = (taha.total_count_ or 0)
 local interaction = Total_Msg(Msguser)
 local rtpg = rtpa
 local tahaa = {
-"اروح فدوه للحلوين🙊",
+"😍😍😍😍",
 "فديت الحلو🤗🤤",
 "يالــبـيـه💋💘",
 " قديمه غيرها😒💔",
@@ -8446,8 +8446,8 @@ local tahaa = {
 "مـنـور♥",
 "احلى يا الكشخه ❤️",
 "ممكن سلفي💞😻",
-"تزيد عيناي جمالآ حين اراك 🤭",
-"اطلق من كتب ايدي🥰",
+"الصوره👍😊",
+"احلا ايدي🥰",
 }
 
 local rdphoto = tahaa[math.random(#tahaa)]
