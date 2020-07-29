@@ -2145,13 +2145,13 @@ end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' then
 Text = [[
 🕹️︙ سورس الاسطورة 🦅
-ء… … … … … … … … … … …
+●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
 📮︙⇚ [قناة السورس](t.me/ASTORHBOTS)
 
 👲︙⇚ [مطور السورس](t.me/AST0RH)
 
-💌︙⇚ [كليشة التنصيب](t.me/ASTORHBOTS/947)
-ء… … … … … … … … … … …
+💌︙⇚ [كليشة التنصيب](t.me/ASTORHBOTS/947
+●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -9365,9 +9365,8 @@ Text = [[
 🐭| رفع + تنزيل ⇚ جريذي
 🐭| تاك لجريذيه
 🐭| تنزيل جريذيه
-ء━━━━━━━━━━━━━━
-📮| [Dev➥ ALYAFAE](t.me/AST0RH)
-]]
+ء━━━━━━━━━━━━━ 
+📮: [Channel ALASTORH](t.me/ASTORHBOTS)
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
 end
@@ -9436,7 +9435,6 @@ Text = [[
 🚸| تحب هذا
 ء━━━━━━━━━━━━━━
 📮| [Channel ALASTORH](t.me/ASTORHBOTS)
-]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
 end
