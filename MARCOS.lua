@@ -8437,7 +8437,7 @@ local photps = (taha.total_count_ or 0)
 local interaction = Total_Msg(Msguser)
 local rtpg = rtpa
 local tahaa = {
-"😍😍😍😍",
+,"😍😍😍😍"
 "فديت الحلو🤗",
 "يالــبـيـه💋💘",
 " قديمه غيرها😒",
