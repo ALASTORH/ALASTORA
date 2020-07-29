@@ -9049,7 +9049,7 @@ Text = [[
 🔒| قفل ⇚ فتح التكرار
 🔒| قفل ⇚ فتح التفليش
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
-📮| المـطـور [SUDONOT]
+📮| المــور [SUDObot]
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
