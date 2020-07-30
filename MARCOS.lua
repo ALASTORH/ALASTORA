@@ -9760,17 +9760,6 @@ send(msg.chat_id_,msg.id_,taha[math.random(#taha)])
 database:set(bot_id.."Chen:Photo"..msg.sender_user_id_, data.profile_photo_.id_) 
 return false
 end
-end
-if text == 'تعطيل تغير الصورة' and Manager(msg) then
-database:del(bot_id.."Chen:Photo"..msg.sender_user_id_, data.profile_photo_.id_) 
-send(msg.chat_id_, msg.id_,'⌯︙ تم تعطيل التعليق على تغيير الصورة')
-return false
-end
-if text == 'تفعيل تغير الصورة' and Manager(msg) then
-database:set(bot_id.."Chen:Photo"..msg.sender_user_id_, data.profile_photo_.id_) 
-send(msg.chat_id_, msg.id_,'⌯︙ تم تفعيل التعليق على تغيير الصورة')
-return false
-end
 end,nil)   
 end
 elseif (data.ID == "UpdateMessageEdited") then
