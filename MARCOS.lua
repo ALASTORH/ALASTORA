@@ -5897,7 +5897,7 @@ else
 Ban = 'غير محظور'
 end
 if database:sismember(bot_id..'GBan:User',result.sender_user_id_) then
-GBan = 'محظور عام'
+GBan = 'محظور عام'9
 else
 GBan = 'غير محظور عام'
 end
@@ -8235,7 +8235,7 @@ end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 end
-if text==('عدد القروب') and Mod(msg) then  
+if text==('عدد القروب') and Member(msg) then  
 if msg.can_be_deleted_ == false then 
 send(msg.chat_id_,msg.id_,"⚠¦ البوت ليس ادمن هنا \n") 
 return false  
