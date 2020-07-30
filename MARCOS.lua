@@ -9763,6 +9763,16 @@ end
 end
 end,nil)   
 end
+if text == 'تعطيل تغير الصورة' and Manager(msg) then
+database:del(bot_id.."Chen:Photo"..msg.sender_user_id_, data.profile_photo_.id_) 
+send(msg.chat_id_, msg.id_,'⌯︙ تم تعطيل التعليق على تغيير الصورة')
+return false
+end
+if text == 'تفعيل تغير الصورة' and Manager(msg) then
+database:set(bot_id.."Chen:Photo"..msg.sender_user_id_, data.profile_photo_.id_) 
+send(msg.chat_id_, msg.id_,'⌯︙ تم تفعيل التعليق على تغيير الصورة')
+return false
+end
 elseif (data.ID == "UpdateMessageEdited") then
 local msg = data
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.message_id_)},function(extra, result, success)
