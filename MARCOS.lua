@@ -7400,8 +7400,6 @@ local MARCOS_Msg = {
 'عـيـون '..Namebot..'',
 'لبيه 🤕',
 'شعندك !؟ 👀',
-'عيدك مبارك ياقلب '..Namebot..'',
-'مشغول مع العيد😌',
 }
 send(msg.chat_id_, msg.id_,'['..MARCOS_Msg[math.random(#MARCOS_Msg)]..']') 
 return false
