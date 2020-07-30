@@ -4456,9 +4456,9 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 -----------------------------------------------------
-if text == 'تنزيل الثيران' and Mod(msg) then
+if text == 'تنزيل ثور' and Mod(msg) then
 database:del(bot_id..'Tore:User'..msg.chat_id_)
-send(msg.chat_id_, msg.id_, '🗑| تم مسح جميع الحمير في المجموعه  ')
+send(msg.chat_id_, msg.id_, '🗑| تم مسح جميع الحمير في المجموعه  ')
 end
 if text == ("تاك للثيران") and Mod(msg) then
 local list = database:smembers(bot_id..'Tore:User'..msg.chat_id_)
@@ -4495,7 +4495,7 @@ function start_function(extra, result, success)
 database:sadd(bot_id..'Tore:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n👤| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'DEVBESSO')..')'
-local  statuss  = '\n📮| الايدي » `'..result.sender_user_id_..'`\n⚡| تم رفع العضو ثور في المجموعه \nتعال يالثور اعطيك برسيم 😂'
+local  statuss  = '\n📮| الايدي » `'..result.sender_user_id_..'`\n⚡| تم رفع العضو ثور في المجموعه \nتعال يالثور اعطيك برسيم 😂'
 send(msg.chat_id_, msg.id_, usertext..statuss)
 end,nil)
 end
@@ -4517,7 +4517,7 @@ function start_function(extra, result, success)
 database:srem(bot_id..'Tore:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n👤¦ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..')'
-status  = '\n📮| الايدي » `'..result.sender_user_id_..'`\n⚡| تم تنزيل العضو ثور في المجموعه\nها يالثور اكلت البرسيم😂'
+status  = '\n📮| الايدي » `'..result.sender_user_id_..'`\n⚡| تم تنزيل العضو ثور في المجموعه\nها يالثور اكلت البرسيم😂'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
@@ -7226,7 +7226,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'🔖| لا تستطيع استخدام البوت يرجى الاشتراك في القناة حتى تتمكن من استخدام الاوامر \n 📌| اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'🔖| لا تستطيع استخدام البوت يرجى الاشتراك في القناة حتى تتمكن من استخدام الاوامر \n ??| اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
