@@ -5897,7 +5897,7 @@ else
 Ban = 'غير محظور'
 end
 if database:sismember(bot_id..'GBan:User',result.sender_user_id_) then
-GBan = 'محظور عام'9
+GBan = 'محظور عام'
 else
 GBan = 'غير محظور عام'
 end
