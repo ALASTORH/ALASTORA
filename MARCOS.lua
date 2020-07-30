@@ -9760,6 +9760,7 @@ send(msg.chat_id_,msg.id_,taha[math.random(#taha)])
 database:set(bot_id.."Chen:Photo"..msg.sender_user_id_, data.profile_photo_.id_) 
 return false
 end
+end
 end,nil)   
 end
 elseif (data.ID == "UpdateMessageEdited") then
