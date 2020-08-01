@@ -9527,9 +9527,10 @@ local YAFAEVIP = {
 "\nاهلآ وسهلآ",
 "\nمرحبتين😌",
 "\nاهلا حبي 😶",
-"\nقول لبيه 😜",
+"\nهــلا ضـلـعـي😍",
 "\nُهــلُا بّـــكِـ 😌",
 "\nُهلُا وَالُلُُه نَوَرَرَتْ 😌",
+"هـلا بـكـ زووود ❤☺",
 }
 send(msg.chat_id_, msg.id_,'['..YAFAEVIP[math.random(#YAFAEVIP)]..']') 
 return false
@@ -9587,6 +9588,7 @@ local sla = {
 "وْعـلُـيَــكِـمٌ الُـــسِــــلُامٌ ❥",
 "وٍعَلْيّكَمُ ٱلْسَلآمّ وٍرٍحَمُةٌ اللَّــْـْہ ۆبُركَاتة❥",
 "عَلْيّكَمُ ٱلْسَلآمّ وٍرٍحَمُةٌ اللَّــْـْہ ۆبُركَاتة♥",
+"وعليكم السلام اغاتي🌝👋",
 }
 send(msg.chat_id_, msg.id_,'['..sla[math.random(#sla)]..']') 
 return false
@@ -9609,12 +9611,13 @@ local nor = {
 send(msg.chat_id_, msg.id_,'['..nor[math.random(#nor)]..']') 
 return false
 end
-if text == "اشكرك" or text == "شكرا" or text == "شكرآ" or text == "مشكور" then
+if text == "اشكرك" or text == "شكرا" or text == "شكرآ" or text == "مشكور" or text == "تسلم" or text == "يسلمو" or text  == "يسلموو" then
 local skr = {
 "بخدمتك/ج حبي ❤",
 "عــــفٌوِاًً .. ",
 "الـعـفـو❥",
 "ولو تحت امركـ ❥",
+ "•• الـّ~ـعـفو ••", 
 }
 send(msg.chat_id_, msg.id_,'['..skr[math.random(#skr)]..']') 
 return false
@@ -9632,18 +9635,40 @@ local askt = {
 send(msg.chat_id_, msg.id_,'['..askt[math.random(#askt)]..']') 
 return false
 end
-if text == "اكو احد" or text == " في احد" or text == "موجود" then
+if text == "كفو" or text == "كفوو" or text == "كفووو" then
+local kfo = {
+"كـفـوك الـطـيـب🤭",
+"كـــفـوكـ الــطـيـب🤗",
+"اها كـفـو يبو الضلوع☺",
+"كـفـوكـ الطيب يبعدي ♥☺",
+"كـفـوكـ الـطـيـب ي ضلعي ♥😜",
+}
+send(msg.chat_id_, msg.id_,'['..askt[math.random(#askt)]..']') 
+return false
+end
+if text == "اكو احد" or text == "في احد" or text == "موجود" then
 local ahd = {
 "تفضل عزيزي 🌝🌸",
 "انـا مـوجـود 😍",
 "تُفَـــــٌــــضْل ...😌",
 "لا مافي احـد شعندك 😒",
 "نـعـم انا موجود 🧐",
+"يي عيني انـي موجـود🌝🌿",
 }
 send(msg.chat_id_, msg.id_,'['..ahd[math.random(#ahd)]..']') 
 return false
 end
-if text == "كيفك" or text == "كيف الحال" or text == "كيفكم" or text == "اخبارك" or text == "اخباركم" or text == "علومك" or text == "علومكم" or text == "كيف الحال" then
+if text == "حلو" or text == "حلوو" or text == "حلووو" or text == "حلوه" or text == "حلووه" then
+local hlo = {
+"مو بحلاتكـ🤭",
+"انت الاحلى 🌚❤️",
+"عـيـونـكـ الـحلــوه ♥☻",
+"انت الحلوووو♥",
+}
+send(msg.chat_id_, msg.id_,'['..hlo[math.random(#hlo)]..']') 
+return false
+end
+if text == "كيفك" or text == "كيف الحال" or text == "كيفكم" or text == "اخبارك" or text == "اخباركم" or text == "علومك" or text == "علومكم" or text == "كيف الحال" 
 local kifk = {
 "بـّخـْيرٌ دامـّگ بـْخـّيرٌ يـّٱلـّغـٌالـّے",
 "تمامــــ الحمـ لله ـــد",
