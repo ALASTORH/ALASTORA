@@ -9504,16 +9504,6 @@ local RAADLOVE = {
 send(msg.chat_id_, msg.id_,'['..RAADLOVE[math.random(#RAADLOVE)]..']') 
 return false
 end
-if text == "هلو" and SudoBot(ms) then  
-local RAADEV = {
-"\nهلا تاج راسي المطور 😎",
-"\nهلا عزيزي المطور 😽❤️",
-"\nاهلا سيدي المطور 😍",
-"\nهلوات نورت مطوري 😍",
-}
-send(msg.chat_id_, msg.id_,'['..RAADEV[math.random(#RAADEV)]..']') 
-return false
-end
 if text == "هلا" or text == "مرحبا" then  
 local YAFAEVIP = {
 "\nنوووورت حبي",
