@@ -9583,7 +9583,7 @@ local sss = {
 send(msg.chat_id_, msg.id_,'['..sss[math.random(#sss)]..']') 
 return false
 end
-if text == "سلام" or text == "السلام عليكم" or text == "سلام عليكم" then
+if text == "سلام" or text == "السلام عليكم" or text == "سلام عليكم" or text == "اسلام عليكم" or text == "السلام عليكم ورحمة الله وبركاته" then
 local sla = {
 "وْعـلُـيَــكِـمٌ الُـــسِــــلُامٌ ❥",
 "وٍعَلْيّكَمُ ٱلْسَلآمّ وٍرٍحَمُةٌ اللَّــْـْہ ۆبُركَاتة❥",
@@ -9602,7 +9602,7 @@ local ant = {
 send(msg.chat_id_, msg.id_,'['..ant[math.random(#ant)]..']') 
 return false
 end
-if text == "نورت" or text == "نورتي" or text == "منور" then
+if text == "نورت" or text == "نورتي" or text == "منور" or text == "منوره" then
 local nor = {
 "نـ﴿💡﴾ـورك/ج ؏ـمـ😲ـآني وحہـ(🔥)ـہرگ بيـ🏡ـت جيہـْ✍ـہرآنيًٍِ😘",
 "بنورك حب....♥",
@@ -9617,12 +9617,12 @@ local skr = {
 "عــــفٌوِاًً .. ",
 "الـعـفـو❥",
 "ولو تحت امركـ ❥",
- "•• الـّ~ـعـفو ••", 
+ "•• الـّ~ـعـفو ••",
 }
 send(msg.chat_id_, msg.id_,'['..skr[math.random(#skr)]..']') 
 return false
 end
-if Text== "انجب" or Text== "نجب" or Text=="جب" or text == "اسكت" then
+if text == "انجب" or text == "نجب" or text =="جب" or text == "اسكت" then
 local askt = {
 "لخاطرك راح اسكت 😌❤",
 "انجب انته لاتندفر 😏",
@@ -9643,10 +9643,10 @@ local kfo = {
 "كـفـوكـ الطيب يبعدي ♥☺",
 "كـفـوكـ الـطـيـب ي ضلعي ♥😜",
 }
-send(msg.chat_id_, msg.id_,'['..askt[math.random(#askt)]..']') 
+send(msg.chat_id_, msg.id_,'['..kfo[math.random(#kfo)]..']') 
 return false
 end
-if text == "اكو احد" or text == "في احد" or text == "موجود" then
+if text == "اكو احد" or text == "في احد" or text == "موجود" or text == "موجوده" then
 local ahd = {
 "تفضل عزيزي 🌝🌸",
 "انـا مـوجـود 😍",
@@ -9668,7 +9668,7 @@ local hlo = {
 send(msg.chat_id_, msg.id_,'['..hlo[math.random(#hlo)]..']') 
 return false
 end
-if text == "كيفك" or text == "كيف الحال" or text == "كيفكم" or text == "اخبارك" or text == "اخباركم" or text == "علومك" or text == "علومكم" or text == "كيف الحال" 
+if text == "كيفك" or text == "كيف الحال" or text == "كيفكم" or text == "اخبارك" or text == "اخباركم" or text == "علومك" or text == "علومكم" or text == "كيف الحال" then
 local kifk = {
 "بـّخـْيرٌ دامـّگ بـْخـّيرٌ يـّٱلـّغـٌالـّے",
 "تمامــــ الحمـ لله ـــد",
