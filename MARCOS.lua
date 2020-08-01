@@ -8915,7 +8915,6 @@ database:del(bot_id..'help5_text')
 database:del(bot_id..'help6_text')
 database:del(bot_id..'help7_text')
 database:del(bot_id..'help8_text')
-database:del(bot_id..'help9_text')
 send(msg.chat_id_, msg.id_, '🔘| تم استعادة الاوامر القديمه')
 end
 if text == 'تغير امر الاوامر' and SudoBot(msg) then
@@ -8968,12 +8967,6 @@ end
 if text == 'تغير امر م8' and SudoBot(msg) then
 send(msg.chat_id_, msg.id_, '🔘| الان يمكنك ارسال الكليشه م8')
 database:set(bot_id..'help8'..msg.sender_user_id_,'true')
-return false 
-end
-
-if text == 'تغير امر الالعاب' and SudoBot(msg) then
-send(msg.chat_id_, msg.id_, '🎗️| الان يمكنك ارسال الكليشة الالعاب')
-database:set(bot_id..'help9'..msg.sender_user_id_,'true')
 return false 
 end
 
@@ -9528,7 +9521,7 @@ local RAADEV = {
 send(msg.chat_id_, msg.id_,'['..RAADEV[math.random(#RAADEV)]..']') 
 return false
 end
-if text == "هلا" and member(msg) or text == "مرحبا"  and member(msg) then  
+if text == "هلا" or text == "مرحبا" then  
 local YAFAEVIP = {
 "\nنوووورت حبي",
 "\nاهلآ وسهلآ",
