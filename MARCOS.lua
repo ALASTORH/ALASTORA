@@ -9490,7 +9490,7 @@ send(msg.chat_id_, msg.id_,'['..RAAD[math.random(#RAAD)]..']')
 return false
 end
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-if text == "تحبني" or text == "احبك" or text == "تحبيني" then  
+if text == "تحبني" or text == "احبك"  then  
 local RAADLOVE = {
 "\nااهواك🖤",
 "\nمتيم بك",
@@ -9725,7 +9725,8 @@ local taha ={
 send(msg.chat_id_,msg.id_,taha[math.random(#taha)])
 database:set(bot_id.."Chen:Name"..msg.sender_user_id_, data.first_name_) 
 return false
-end 
+end  
+end
 --------------------------------------------------------------------------------------------------------------
 local Getredis = database:get(bot_id.."Chen:User:Name"..msg.sender_user_id_)
 if data.username_ then  
@@ -9759,6 +9760,7 @@ send(msg.chat_id_,msg.id_,taha[math.random(#taha)])
 database:set(bot_id.."Chen:Photo"..msg.sender_user_id_, data.profile_photo_.id_) 
 return false
 end
+end
 if text == 'تعطيل تغير الصورة' and Manager(msg) then
 database:del(bot_id.."Chen:Photo"..msg.sender_user_id_, data.profile_photo_.id_) 
 send(msg.chat_id_, msg.id_,'⌯︙ تم تعطيل التعليق على تغيير الصورة')
@@ -9768,7 +9770,6 @@ if text == 'تفعيل تغير الصورة' and Manager(msg) then
 database:set(bot_id.."Chen:Photo"..msg.sender_user_id_, data.profile_photo_.id_) 
 send(msg.chat_id_, msg.id_,'⌯︙ تم تفعيل التعليق على تغيير الصورة')
 return false
-end
 end
 end,nil)   
 end
