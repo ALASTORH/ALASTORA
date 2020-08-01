@@ -9503,7 +9503,7 @@ local RAADLOVE = {
 send(msg.chat_id_, msg.id_,'['..RAADLOVE[math.random(#RAADLOVE)]..']') 
 return false
 end
-if text == "هلو" and SudoBot(msg) or text == "هاي" and SudoBot(msg) then  
+if text == "هلو" and SudoBot(msg) or text == "ها" and SudoBot(msg) then  
 local RAADEV = {
 "\nهلا تاج راسي المطور 😎",
 "\nهلا عزيزي المطور 😽❤️",
