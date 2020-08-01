@@ -8896,6 +8896,14 @@ database:set(bot_id..'help8_text',text)
 return false
 end
 end
+if text and text:match("^(.*)$") then
+if database:get(bot_id..'help1'..msg.sender_user_id_) == 'true' then
+send(msg.chat_id_, msg.id_, '📮| تم حفظ الكليشه بنجاح')
+database:del(bot_id..'help9'..msg.sender_user_id_)
+database:set(bot_id..'help9_text',text)
+return false
+end
+end
 
 if text == 'استعاده الاوامر' and SudoBot(msg) then
 database:del(bot_id..'help_text')
@@ -8907,6 +8915,7 @@ database:del(bot_id..'help5_text')
 database:del(bot_id..'help6_text')
 database:del(bot_id..'help7_text')
 database:del(bot_id..'help8_text')
+database:del(bot_id..'help9_text')
 send(msg.chat_id_, msg.id_, '🔘| تم استعادة الاوامر القديمه')
 end
 if text == 'تغير امر الاوامر' and SudoBot(msg) then
@@ -8962,6 +8971,11 @@ database:set(bot_id..'help8'..msg.sender_user_id_,'true')
 return false 
 end
 
+if text == 'تغير امر الالعاب' and SudoBot(msg) then
+send(msg.chat_id_, msg.id_, '🎗️| الان يمكنك ارسال الكليشة الالعاب')
+database:set(bot_id..'help9'..msg.sender_user_id_,'true')
+return false 
+end
 
 if text == 'الاوامر' then
 if not Mod(msg) then
