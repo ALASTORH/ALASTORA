@@ -9511,7 +9511,7 @@ local RAADLOVE = {
 send(msg.chat_id_, msg.id_,'['..RAADLOVE[math.random(#RAADLOVE)]..']') 
 return false
 end
-if text == "هلو" and SudoBot(msg) or text == "هاي" and SudoBot(msg) then  
+if text == "هلو" and SudoBot(msg) or text == "هااي" and SudoBot(msg) then  
 local RAADEV = {
 "\nهلا تاج راسي المطور 😎",
 "\nهلا عزيزي المطور 😽❤️",
@@ -9552,7 +9552,25 @@ local ns = {
 send(msg.chat_id_, msg.id_,'['..ns[math.random(#ns)]..']') 
 return false
 end
-if text == "شلونك" or text == "شلونكم" then
+if text == "هاي" then
+local hai = {
+"🌹 هــايــات🌹عمـ°🌺°ــري🙊😋",
+"هايات يرووووحي😊🌹",
+"هاي تاج راسي 🤷🏼‍♀️",
+"كافي قبل شويه سلمت😌",
+"هله بريحه هلي🤗",
+"هايـات اذا عندك كروبات ضيفني🤷🏼‍♀️❤️",
+"ۿۿـ℘ﹻۧـ๋͜ايـٳټٴ ͢⁽✨☻₎♤ عمري 🙊😍😘",
+"هــايـات عمـ°😻°ــري🙊😋",
+": ٰٰهٌٰــٌـٓٓٓ:hand:ــٰـٰـٰ😍ــٰـٰـٰلـٰـٰوُٰـوُٰـوُات",
+"هْـٌﮩٌﮧٌ﴿🙃﴾ـايات†😻☝️",
+"كل الهلاهل 😻نورتنة 👐",
+"هايات عمري ☺😘",
+}
+send(msg.chat_id_, msg.id_,'['..hai[math.random(#hai)]..']') 
+return false
+end
+if text == "شلونك" or text == "شلونكم" or text == "شخباركم" then
 local sss = {
 "احســن مــن انتهــــہ شــلونـــك شــخــبـارك يـــول مۂــــشتـــاقـــلك 😹🌚",
 "تمام وانت يكيوت ؟ 💕",
