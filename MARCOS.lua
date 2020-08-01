@@ -9614,7 +9614,7 @@ local skr = {
 send(msg.chat_id_, msg.id_,'['..skr[math.random(#skr)]..']') 
 return false
 end
-if text == "انجب" or text == "نجب" or text =="جب" or text == "اسكت" then
+if text == "انجب" or text == "نجب" or text =="جب" then
 local askt = {
 "لخاطرك راح اسكت 😌❤",
 "انجب انته لاتندفر 😏",
@@ -9668,6 +9668,14 @@ local kifk = {
 "الُحُـمٌـدِالُلُُه أٌنــُتَ ڳُــــيّفُڳً",
 }
 send(msg.chat_id_, msg.id_,'['..kifk[math.random(#kifk)]..']') 
+return false
+end
+if text == "اسكت" and SudoBot(msg) or text == "انطم" and SudoBot(msg) then  
+local STO = {
+"\nحاضر مو تدلل حضرة المطور😇",
+"\nلخاطرك راح اسكت لانك مطوري😌",
+}
+send(msg.chat_id_, msg.id_,'['..STO[math.random(#STO)]..']') 
 return false
 end
 if text == "مصه" or text == "بوسه" then
