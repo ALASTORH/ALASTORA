@@ -9515,7 +9515,7 @@ send(msg.chat_id_, msg.id_,'['..RAADEV[math.random(#RAADEV)]..']')
 return false
 end
 if text == "هلا" and member(msg) or text == "مرحبا"  and member(msg) then  
-local YAFEVIP = {
+local YAFAEVIP = {
 "\nنوووورت حبي",
 "\nاهلآ وسهلآ",
 "\nمرحبتين😌",
