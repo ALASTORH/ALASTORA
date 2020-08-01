@@ -9514,7 +9514,7 @@ local RAADEV = {
 send(msg.chat_id_, msg.id_,'['..RAADEV[math.random(#RAADEV)]..']') 
 return false
 end
-if text == "هلا" or text == "مرحبا"  then  
+if text == "هلا" and member(msg) or text == "مرحبا"  and member(msg) then  
 local YAFEVIP = {
 "\nنوووورت حبي",
 "\nاهلآ وسهلآ",
