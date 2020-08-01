@@ -9511,7 +9511,7 @@ local RAADLOVE = {
 send(msg.chat_id_, msg.id_,'['..RAADLOVE[math.random(#RAADLOVE)]..']') 
 return false
 end
-if text == "هلو" and SudoBot(msg) or text == "هاي" and SudoBot(msg) or text == "هلاو" SudoBot(msg) or text == "هلا" SudoBot(msg) then  
+if text == "هلو" and SudoBot(msg) or text == "هاي" and SudoBot(msg) or text == "هلاو" SudoBot(msg) then  
 local RAADEV = {
 "\nهلا تاج راسي المطور 😎",
 "\nهلا عزيزي المطور 😽❤️",
@@ -9521,17 +9521,7 @@ local RAADEV = {
 send(msg.chat_id_, msg.id_,'['..RAADEV[math.random(#RAADEV)]..']') 
 return false
 end
-if text == "بوت" and SudoBot(msg) or text == "'..Namebot..'" and SudoBot(msg) then
-local Boot = {
-"\nهلا تاج راسي المطور 😎",
-"\nهلا عزيزي المطور 😽❤️",
-"\nاهلا سيدي المطور 😍",
-"\nهلوات نورت مطوري 😍",
-}
-send(msg.chat_id_, msg.id_,'['..Boot[math.random(#Boot)]..']') 
-return false
-end
-if text == "نجب" and SudoBot(msg) or text == "انجب" and SudoBot(msg) or text == "كل تبن" and SudoBot(msg) or text == "جب" SudoBot(msg) or text == "اسكت" SudoBot(msg) then  
+if text == "اسكت" and SudoBot(msg) or text == "انجب" and SudoBot(msg) or text == "كل تبن" and SudoBot(msg) then  
 local tbn = {
 "حاضر مو تدلل حضرة المطور  😇",
 "ع راسي تدلل انته المطور تاج راسي 😌",
