@@ -9582,6 +9582,43 @@ local sss = {
 send(msg.chat_id_, msg.id_,'['..sss[math.random(#sss)]..']') 
 return false
 end
+if text == "سلام" or text == "السلام عليكم" or text == "سلام عليكم" then
+local sla = {
+"وْعـلُـيَــكِـمٌ الُـــسِــــلُامٌ ❥",
+"وٍعَلْيّكَمُ ٱلْسَلآمّ وٍرٍحَمُةٌ اللَّــْـْہ ۆبُركَاتة❥",
+"عَلْيّكَمُ ٱلْسَلآمّ وٍرٍحَمُةٌ اللَّــْـْہ ۆبُركَاتة♥",
+}
+send(msg.chat_id_, msg.id_,'['..sla[math.random(#sla)]..']') 
+return false
+end
+if text == "انا" or text =="اني" then
+local ant = {
+"انت│ واحــد😒 ملطلـــط??مــــا تـقـعـــد وتسكت😂😘",
+"💔 انتى وبس اللي حبيبي 👈🏻♥",
+"انتى حبيبي انا وبس🙈♥",
+}
+send(msg.chat_id_, msg.id_,'['..ant[math.random(#ant)]..']') 
+return false
+end
+if text == "نورت" or text == "نورتي" or text == "منور" then
+local nor = {
+"نـ﴿💡﴾ـورك/ج ؏ـمـ😲ـآني وحہـ(🔥)ـہرگ بيـ🏡ـت جيہـْ✍ـہرآنيًٍِ😘",
+"بنورك حب....♥",
+"بّـوَجْـوَدِكِ♥",
+}
+send(msg.chat_id_, msg.id_,'['..nro[math.random(#nor)]..']') 
+return false
+end
+if text == "كيفك" or text == "كيف الحال" or text == "كيفكم" or text == "اخبارك" or text == "اخباركم" or text == "علومك" or text == "علومكم" or text == "كيف الحال" then
+local kifk = {
+"بـّخـْيرٌ دامـّگ بـْخـّيرٌ يـّٱلـّغـٌالـّے",
+"تمامــــ الحمـ لله ـــد",
+"بّخــــَيِرً أَلًحّمِـــــدِلٌلِه❥",
+"الُحُـمٌـدِالُلُُه أٌنــُتَ ڳُــــيّفُڳً",
+}
+send(msg.chat_id_, msg.id_,'['..kifk[math.random(#kifk)]..']') 
+return false
+end
 if text == "مصه" or text == "بوسه" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
 local texting = {"مووووووووواححح💋😘","ريحته يـــــعععععع😌😹","خدك نضيف 😂","البوسه بالف حبي 🌝💋","خلي يزحفلي وابوسه ??😻","كل شوي ابوسه كافي 😏","ماابوسه والله هذا خروف🐏","امووووووووح بوسه اسلاميه😂😚💋"}
