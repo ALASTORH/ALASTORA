@@ -9511,7 +9511,7 @@ local RAADLOVE = {
 send(msg.chat_id_, msg.id_,'['..RAADLOVE[math.random(#RAADLOVE)]..']') 
 return false
 end
-if text == "هلو" and SudoBot(msg) or text == "هاي" and SudoBot(msg) or text == "هلاو" SudoBot(msg) then  
+if text == "هلو" and SudoBot(msg) or text == "هاااي" and SudoBot(msg) or text == "هلاو" SudoBot(msg) then  
 local RAADEV = {
 "\nهلا تاج راسي المطور 😎",
 "\nهلا عزيزي المطور 😽❤️",
@@ -9521,7 +9521,7 @@ local RAADEV = {
 send(msg.chat_id_, msg.id_,'['..RAADEV[math.random(#RAADEV)]..']') 
 return false
 end
-if text == "اسكت" and SudoBot(msg) or text == "انجب" and SudoBot(msg) or text == "كل تبن" and SudoBot(msg) then  
+if text == "اسكت" and SudoBot(msg) or text == "انجب" and SudoBot(msg) then  
 local tbn = {
 "حاضر مو تدلل حضرة المطور  😇",
 "ع راسي تدلل انته المطور تاج راسي 😌",
@@ -9551,7 +9551,7 @@ local ns = {
 "هلووات 😊🌹",
 "هلا تاج راسي 🤷🏼‍♀️",
 "كافي قبل شويه سلمت😌",
-"هله بريحه هلي🤗",
+"هله بريحه هلي??",
 "هلوات اذا عندك كروبات ضيفني🤷🏼‍♀️❤️",
 "ۿۿـ℘ﹻۧـ๋͜ـﻶٌُوٰ୭ًٌَّّٳټٴ ͢⁽✨☻₎♤ عمري 🙊😍😘",
 "هــلــℌelℓoووات عمـ°😻°ــري🙊😋",
