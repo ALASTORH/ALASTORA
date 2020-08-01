@@ -9737,6 +9737,8 @@ send(msg.chat_id_, msg.id_,'⌯︙ تم تفعيل التعليق على تغي�
 return false
 end
 end
+end,nil)   
+end
 --------------------------------------------------------------------------------------------------------------
 local Getredis = database:get(bot_id.."Chen:User:Name"..msg.sender_user_id_)
 if data.username_ then  
@@ -9764,6 +9766,8 @@ database:set(bot_id.."Chen:User:Name"..msg.sender_user_id_, data.profile_photo_.
 send(msg.chat_id_, msg.id_,'⌯︙ تم تفعيل التعليق على تغيير المعرف')
 return false
 end
+end
+end,nil)   
 end
 --------------------------------------------------------------------------------------------------------------
 local Getredis = database:get(bot_id.."Chen:Photo"..msg.sender_user_id_)
