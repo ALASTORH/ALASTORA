@@ -9513,7 +9513,6 @@ local YAFAEVIP = {
 send(msg.chat_id_, msg.id_,'['..YAFAEVIP[math.random(#YAFAEVIP)]..']') 
 return false
 end
-end
 if text == "هلاو" or text == "هلو" or text == "الو" then
 local ns = {
 "🌹 هــلــℌelℓoووات🌹عمـ°🌺°ــري🙊😋",
@@ -9549,6 +9548,7 @@ local hai = {
 }
 send(msg.chat_id_, msg.id_,'['..hai[math.random(#hai)]..']') 
 return false
+end
 end
 if text == "مصه" or text == "بوسه" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
