@@ -4397,7 +4397,7 @@ t = "\n🔘| قائمة حمير المجموعه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
-t = t..""..k.."← الحمار[@"..username.."]\n"
+t = t..""..k.."← الحمار [@"..username.."]\n"
 else
 t = t..""..k.."← الحمار`"..v.."`\n"
 end
