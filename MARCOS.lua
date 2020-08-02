@@ -9511,7 +9511,7 @@ Text = [[
 🔆| تنظيف القروبات
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
 💭*│*راسلني للاستفسار 💡↭ ]]..SUDO:USERNAME
-send(msg.chat_id_,msg.id_,text)
+send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
 end
 if text == 'م6' then
@@ -9737,7 +9737,7 @@ if text == "هلاو" or text == "هلو" or text == "الو" then
 local ns = {
 "🌹 هــلــℌelℓoووات🌹عمـ°🌺°ــري🙊😋",
 "هلووات 😊🌹",
-"هلا تاج راسي 🤷🏼‍♀️",
+"هلا تاج راسي 🤷??‍♀️",
 " قبل شويه سلمت😌",
 "هله بريحه هلي🤗",
 "هلوات اذا عندك قروبات ضيفني🤷🏼‍♀️❤️",
