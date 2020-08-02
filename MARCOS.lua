@@ -9511,7 +9511,7 @@ Text = [[
 🔆| تنظيف القروبات
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
 💭*│*راسلني للاستفس
-💡↭ ]]..SUDO:USERNAME
+]]..SUDO:USERNAME
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
 end
