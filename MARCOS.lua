@@ -4871,7 +4871,7 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 -----------------------------------------------------
-if text == 'تنزيل الزوجات' and Mod(msg) then
+if text == 'تنزيل زوجاتي' and Mod(msg) then
 database:del(bot_id..'Mrti:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, '🗑|  تم تنزيل جميع الزوجات بالمجموعه ')
 end
@@ -4887,7 +4887,7 @@ t = t..""..k.."← الزوجة "..v.."\n"
 end
 end
 if #list == 0 then
-t = "⚠️| لا يوجد زوجات"
+t = "⚠️| لم تقم بالزواج من احد"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -4932,7 +4932,7 @@ function start_function(extra, result, success)
 database:srem(bot_id..'Mrti:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n👤| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..')'
-status  = '\n📮| الايدي » `'..result.sender_user_id_..'`\n🙋🏻‍♂╿اهــلا عزيزي\n🎫│تم تنزيل الجقمه مرتك بنجاح✔️\nالآن انتم مفترقان☹️💔'
+status  = '\n📮| الايدي » `'..result.sender_user_id_..'`\n🙋🏻‍♂╿اهــلا عزيزي\n🎫│تم تنزيل الرمه زوجتك بنجاح✔️\nالآن انتم مفترقان☹️💔'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
@@ -5147,28 +5147,28 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 -----------------------------------------------------
-if text == 'تنزيل جريذيه' and Mod(msg) then
-database:del(bot_id..'Jred:User'..msg.chat_id_)
-send(msg.chat_id_, msg.id_, '🗑| تم تنزيل جميع جريزي بالمجموعه  ')
+if text == 'تنزيل الدجاج' and Mod(msg) then
+database:del(bot_id..'Djajh:User'..msg.chat_id_)
+send(msg.chat_id_, msg.id_, '🗑| تم تنزيل جميع الدجاج بالمجموعه ')
 end
-if text == ("تاك لجريذيه") and Mod(msg) then
-local list = database:smembers(bot_id..'Jred:User'..msg.chat_id_)
-t = "\n🔘| قائمة الجريذيه المجموعه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
+if text == ("تاك لدجاج") and Mod(msg) then
+local list = database:smembers(bot_id..'Djajh:User'..msg.chat_id_)
+t = "\n🔘| قائمة دجـاج المجموعه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
-t = t..""..k.."← الجريذي [@"..username.."]\n"
+t = t..""..k.."← الدجاجه [@"..username.."]\n"
 else
-t = t..""..k.."← الجريذي "..v.."\n"
+t = t..""..k.."← الدجاجه "..v.."\n"
 end
 end
 if #list == 0 then
-t = "⚠️| لا يوجد جريذي"
+t = "⚠️| لا يوجد دجاج"
 end
 send(msg.chat_id_, msg.id_, t)
 end
 ---------
-if text == ("رفع جريذي") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
+if text == ("رفع دجاجه") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -5183,10 +5183,10 @@ send(msg.chat_id_, msg.id_,'⚠️| تم تعطيل الرفع من قبل ال�
 return false
 end
 function start_function(extra, result, success)
-database:sadd(bot_id..'Jred:User'..msg.chat_id_, result.sender_user_id_)
+database:sadd(bot_id..'Djajh:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n👤| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..')'
-local  statuss  = '\n📮| الايدي » `'..result.sender_user_id_..'`\n⚡| تم رفع العضو جريذي\nهي خايس تريد تبقه اسبح لان ريحت خيس'
+local  statuss  = '\n📮| الايدي » `'..result.sender_user_id_..'`\n⚡| تم رفع العضو دجاجه\n لاوصيـك اهم شي الـبـيـض 😂'
 send(msg.chat_id_, msg.id_, usertext..statuss)
 end,nil)
 end
@@ -5194,7 +5194,7 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 
-if (text == ("تنزيل جريذي")) and msg.reply_to_message_id_ and Mod(msg) then
+if (text == ("تنزيل دجاجه")) and msg.reply_to_message_id_ and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -5205,10 +5205,10 @@ end
 return false
 end
 function start_function(extra, result, success)
-database:srem(bot_id..'Jred:User'..msg.chat_id_, result.sender_user_id_)
+database:srem(bot_id..'Djajh:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n👤| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..')'
-status  = '\n📮| الايدي » `'..result.sender_user_id_..'`\n⚡| تن تنزيل العضو جريدي\nهاك ليفه اسبح'
+status  = '\n📮| الايدي » `'..result.sender_user_id_..'`\n⚡| تم تنزيل العضو دجاجه\n اكلنا البيض عليـك😂'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
@@ -9561,8 +9561,8 @@ Text = [[
 🐊| رفع + تنزيل ⇚ زاحف 
 🐊| تاك لزواحف ⇐ تنزيل الزواحف
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
-🐭| رفع + تنزيل ⇚ جريذي
-🐭| تاك لجريذيه ⇐ تنزيل جريذيه
+🐔| رفع + تنزيل ⇚ دجاجه
+🐔| تاك لدجاج ⇐ تنزيل الدجاج
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
 👰| رفـع + تنزيل ⇐ زوجتي
 👰| تنزيل الزوجات ⇐ تاك للزوجات
