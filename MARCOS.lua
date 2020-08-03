@@ -723,7 +723,7 @@ local keyboard = {
 {'تعطيل التواصل ✖️','تفعيل التواصل 🔛'},
 {'ضع اسم للبوت ®','المطورين 👷‍♂️','قائمه العام 📝'},
 {'ضع كليشه ستارت 📃','حذف كليشه ستارت ♻️'},
-{'اذاعه 👥','اذاعه خاص 🗣️','معلومات الكيبورد 💬'},
+{'اذاعه قروبات👥','اذاعه خاص 🗣️','معلومات الكيبورد 💬'},
 {'تغير رساله الاشتراك','حذف رساله الاشتراك 🚫','تغير الاشتراك'},
 {'اذاعه بالتوجيه 🔖','اذاعه بالتوجيه خاص 📯'},
 {'اذاعه بالتثبيت'},
@@ -894,10 +894,10 @@ end
 if text == 'معلومات السيرفر 📊' and SudoBot(msg) then 
  local text2 = 'Info Server : \n'
   local MARCOS1 = database:info()
-  text2 = text2..'1 - *Uptime Days* : `'..MARCOS1.server.uptime_in_days..'('..MARCOS1.server.uptime_in_seconds..' seconds)`\n'
-  text2 = text2..'2 - *Commands Processed* : `'..MARCOS1.stats.total_commands_processed..'`\n'
-  text2 = text2..'3 - *Expired Keys* : `'..MARCOS1.stats.expired_keys..'`\n'
-  text2 = text2..'4 - *Ops/sec* : `'..MARCOS1.stats.instantaneous_ops_per_sec..'`\n'
+  text2 = text2..'1 - *أيام التشغيل* : `'..MARCOS1.server.uptime_in_days..'('..MARCOS1.server.uptime_in_seconds..' seconds)`\n'
+  text2 = text2..'2 - *معالجة الأوامر* : `'..MARCOS1.stats.total_commands_processed..'`\n'
+  text2 = text2..'3 - *مفاتيح منتهية الصلاحية* : `'..MARCOS1.stats.expired_keys..'`\n'
+  text2 = text2..'4 - *عدد الثواني* : `'..MARCOS1.stats.instantaneous_ops_per_sec..'`\n'
 send(msg.chat_id_, msg.id_, text2)  
 end
 if text == 'معلومات الكيبورد 💬' and SudoBot(msg) then 
@@ -960,7 +960,7 @@ database:setex(bot_id.."Send:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id
 send(msg.chat_id_, msg.id_,"📥¦ ارسل لي سواء >> { ملصق, متحركه, صوره, رساله }\n📫¦ للخروج ارسل الغاء ") 
 return false
 end 
-if text=="اذاعه 👥" and msg.reply_to_message_id_ == 0 and SudoBot(msg) then 
+if text=="اذاعه قروبات👥" and msg.reply_to_message_id_ == 0 and SudoBot(msg) then 
 database:setex(bot_id.."Send:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_,"📥¦ ارسل لي سواء >> { ملصق, متحركه, صوره, رساله }\n📫¦ للخروج ارسل الغاء ") 
 return false
@@ -7605,7 +7605,7 @@ local MARCOS_Msg = {
 'هلا بعد قلبي😎',
 'مشغول حالياً ??🌸',
 'عـيـون '..Namebot..'',
-'لبيه 🤕',
+'لبيه ??',
 'شعندك !؟ 👀',
 }
 send(msg.chat_id_, msg.id_,'['..MARCOS_Msg[math.random(#MARCOS_Msg)]..']') 
@@ -9565,7 +9565,7 @@ Text = [[
 🐔| تاك لدجاج ⇐ تنزيل الدجاج
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
 👰| رفـع + تنزيل ⇐ زوجتي
-👰| تنزيل الزوجات ⇐ تاك للزوجات
+👰| تنزيل زوجاتي ⇐ تاك للزوجات
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
 🙋‍♂️| رفـع + تنزيل ⇐ زوجي
 🙋‍♂️| تنزيل ازواجي ⇐ تاك لزوجي
