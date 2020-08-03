@@ -9616,7 +9616,6 @@ local help_text = database:get(bot_id..'help8_text')
 Text = [[
 🎗️| اهلا بك عزيزي √
 ⇓⇓| اوامر الاعضاء كتالي⇓⇓
-
 🔘| عرض معلوماتك ⇓⇓
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
 🔖| قول + الكلمة
@@ -9680,6 +9679,9 @@ end
 if text == "هينه" or text == "رزله" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
 local texting = {"تعال لا اصنك لو بهاي 👞👈","ميستاهل اتعب نفسي وياه لانه دجاجه","اتركه ياقلبي هاذا  نشبه وماعنده سالفه😂🤣"}
+send(msg.chat_id_, msg.id_,'😉اوك سيدي') 
+return false
+end
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
@@ -9706,6 +9708,7 @@ local RAADLOVE = {
 "\nامـــوت فيك ☹️",
 "\nاذا قلت لك احبك شراح تستفيد 😕❤️",
 "\nماحب غيرك 🙊💔",
+",سؤال صعب خليني افكرn\"
 }
 send(msg.chat_id_, msg.id_,'['..RAADLOVE[math.random(#RAADLOVE)]..']') 
 return false
@@ -9810,7 +9813,7 @@ local nor = {
 send(msg.chat_id_, msg.id_,'['..nor[math.random(#nor)]..']') 
 return false
 end
-if text == "اشكرك" or text == "شكرا" or text == "شكرآ" or text == "مشكور" or text == "تسلم" or text == "يسلمو" or text  == "يسلموو" then
+if text == "اشكرك" or text == "شكرا" or text == "شكرآ" or text == "مشكور" or text == "تسلم" or text == "يسلمو" or text  == "يسلموو" or text == "اشكركم" then
 local skr = {
 "بخدمتك/ج حبي ❤",
 "عــــفٌوِاًً .. ",
@@ -9881,6 +9884,7 @@ if text == "اسكت" and SudoBot(msg) or text == "انطم" and SudoBot(msg) th
 local STO = {
 "\nحاضر مو تدلل حضرة المطور😇",
 "\nلخاطرك راح اسكت لانك مطوري😌",
+",😌ابـشـر يـتـاج راسـيn\"
 }
 send(msg.chat_id_, msg.id_,'['..STO[math.random(#STO)]..']') 
 return false
