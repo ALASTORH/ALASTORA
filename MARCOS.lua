@@ -892,12 +892,12 @@ database:del(bot_id..'Srt:Bot')
 send(msg.chat_id_, msg.id_,'📡| اصدار سورس الاسطورة \n📟| الاصدار ←{ 1.1v}') 
 end
 if text == 'معلومات السيرفر 📊' and SudoBot(msg) then 
- local text2 = 'Info Server : \n'
+ local text2 = 'معلومات الاشتراك : \n'
   local MARCOS1 = database:info()
-  text2 = text2..'1 - *أيام التشغيل* : `'..MARCOS1.server.uptime_in_days..'('..MARCOS1.server.uptime_in_seconds..' seconds)`\n'
+  text2 = text2..'1 - *أيام التشغيل* : `'..MARCOS1.server.uptime_in_days..'يــوم`\n'
   text2 = text2..'2 - *معالجة الأوامر* : `'..MARCOS1.stats.total_commands_processed..'`\n'
   text2 = text2..'3 - *مفاتيح منتهية الصلاحية* : `'..MARCOS1.stats.expired_keys..'`\n'
-  text2 = text2..'4 - *عدد الثواني* : `'..MARCOS1.stats.instantaneous_ops_per_sec..'`\n'
+  text2 = text2..'4 - *عدد الثواني* : `'..MARCOS1.server.uptime_in_seconds..'ثانيه`\n'
 send(msg.chat_id_, msg.id_, text2)  
 end
 if text == 'معلومات الكيبورد 💬' and SudoBot(msg) then 
