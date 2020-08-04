@@ -9889,7 +9889,7 @@ local kifk = {
 send(msg.chat_id_, msg.id_,'['..kifk[math.random(#kifk)]..']') 
 return false
 end
-if text == "اسكت" and SudoBot(msg) or text == "انطم" and SudoBot(msg) then  
+if text == "اسكت" and SudoBot(msg) or text == "انطم" and SudoBot(msg) or text == "انثبر" and SudoBot(msg) then  
 local STO = {
 "\nحاضر مو تدلل حضرة المطور😇",
 "\nلخاطرك راح اسكت لانك مطوري😌",
