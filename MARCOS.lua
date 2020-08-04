@@ -9634,7 +9634,8 @@ Text = [[
 🔘| اسم البوت + الامر ⇓⇓
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
 🚸| بوسه بالرد 
-🚸| بوسني بالرد
+🚸| بوسني للمطور
+🚸| مصني للمطور
 🚸| مصه بالرد
 🚸| رزله بالرد 
 🚸| وش رايك بهاذا بالرد
@@ -9719,6 +9720,16 @@ local RAADEV = {
 "\nهلوات نورت مطوري 😍",
 }
 send(msg.chat_id_, msg.id_,'['..RAADEV[math.random(#RAADEV)]..']') 
+return false
+end
+if text == "بوسني" and SudoBot(msg) or text == "مصني" and SudoBot(msg) then  
+local BOSNI = {
+"\nاموووووووح لخدك مطوري💋",
+"\nاموووووووح ياعشقي💋",
+"\nاموووووووح يقلبي مطوري💋",
+"\nامووووح حبيب قلبي مطوري💋",
+}
+send(msg.chat_id_, msg.id_,'['..BOSNI[math.random(#BOSNI)]..']') 
 return false
 end
 if text == "هلا" or text == "مرحبا" then  
