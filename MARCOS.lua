@@ -412,28 +412,28 @@ end
 function Total_Msg(msgs)  
 local MARCOS_Msg = ''  
 if msgs < 100 then 
-MARCOS_Msg = 'غير متفاعل😔💔' 
+MARCOS_Msg = 'مـبـتـدئ😔💔' 
 elseif msgs < 200 then 
-MARCOS_Msg = 'بدا يتحسن😕💔' 
-elseif msgs < 400 then 
-MARCOS_Msg = 'شبه متفاعل😗👻' 
-elseif msgs < 700 then 
-MARCOS_Msg = 'متفاعل😍🙊' 
-elseif msgs < 1200 then 
-MARCOS_Msg = 'كفووووو😍✔️' 
+MARCOS_Msg = 'ضـعـيـف😔💔' 
+elseif msgs < 1000 then 
+MARCOS_Msg = 'مـتـوسـط🙂💔' 
 elseif msgs < 2000 then 
-MARCOS_Msg = 'متفاعل جدا😍💘' 
-elseif msgs < 3500 then 
-MARCOS_Msg = 'اقوى تفاعل🙊👻'  
+MARCOS_Msg = 'متفاعل😍🙊' 
+elseif msgs < 3000 then 
+MARCOS_Msg = 'كفووووو😍✔️' 
 elseif msgs < 4000 then 
+MARCOS_Msg = 'متفاعل جدا😍💘' 
+elseif msgs < 5000 then 
+MARCOS_Msg = 'اقوى تفاعل🙊👻'  
+elseif msgs < 6000 then 
 MARCOS_Msg = 'متفاعل نار😍🔥' 
-elseif msgs < 4500 then 
-MARCOS_Msg = 'قمة التفاعل🤸‍♂️😻' 
-elseif msgs < 5500 then 
-MARCOS_Msg = 'اســطوري😳😻' 
 elseif msgs < 7000 then 
+MARCOS_Msg = 'قمة التفاعل🤸‍♂️😻' 
+elseif msgs < 8000 then 
+MARCOS_Msg = 'اســطوري😳😻' 
+elseif msgs < 10000 then 
 MARCOS_Msg = 'ملك التفاعل🤴😍' 
-elseif msgs < 9500 then 
+elseif msgs < 15000 then 
 MARCOS_Msg = 'امبراطور التفاعل💂‍♀️😻' 
 elseif msgs < 10000000000 then 
 MARCOS_Msg = 'جنرال التفاعل✔️😍'  
@@ -3112,7 +3112,7 @@ if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
 if Get_info then
-local TextS = "\n📁| اهلا بك في متجر ملفات الاسطورة\n🔰| ملفات السورس ↓\n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n\n"
+local TextS = "\n??| اهلا بك في متجر ملفات الاسطورة\n🔰| ملفات السورس ↓\n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n\n"
 local TextE = "\n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n🔘|  علامة تعني { ✓ } ملف مفعل\n🔘| علامة تعني { ✘ } ملف معطل\n🔖| قناة سورس الاسطورة ↓\n".."📮| [اضغط هنا لدخول](t.me/ASTORHBOTS) \n"
 local NumFile = 0
 for name,Info in pairs(res.plugins_) do
@@ -9845,14 +9845,14 @@ local kfo = {
 send(msg.chat_id_, msg.id_,'['..kfo[math.random(#kfo)]..']') 
 return false
 end
-if text == "اكو احد" or text == "في احد" or text == "موجود" or text == "موجوده" then
+if text == "اكو احد" or text == "في احد" or text == "فيه احد" or text == "موجود" or text == "موجوده" then
 local ahd = {
 "تفضل عزيزي 🌝🌸",
 "انـا مـوجـود 😍",
 "تُفَـــــٌــــضْل ...😌",
 "لا مافي احـد شعندك 😒",
 "نـعـم انا موجود 🧐",
-"يي عيني انـي موجـود🌝🌿",
+ "انا موجـود🌝🌿",
 }
 send(msg.chat_id_, msg.id_,'['..ahd[math.random(#ahd)]..']') 
 return false
