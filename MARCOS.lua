@@ -8457,15 +8457,6 @@ send(msg.chat_id_, msg.id_, taha)
 end,nil)
 end,nil)
 end 
-if text== "موقعي" then  
-local mwg = 
-'\n\n👥| عدد الاعضاء : '..data.member_count_..
-'\n\n💌| عدد رسائل القروب : '..(msg.id_/2097152/0.5)..
-'\n\n🔰| اسم المجموعه : ['..ta.title_..']'
-send(msg.chat_id_, msg.id_, mwg) 
-end,nil)
-end,nil)
-end 
 if text == 'اطردني' or text == 'طردني' then
 if not database:get(bot_id..'Cick:Me'..msg.chat_id_) then
 if Can_or_NotCan(msg.sender_user_id_, msg.chat_id_) == true then
@@ -9707,6 +9698,14 @@ send(msg.chat_id_, msg.id_,'['..RAAD[math.random(#RAAD)]..']')
 return false
 end
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+if text== "موقعي" then  
+local mwg = 
+'\n\n👥| عدد الاعضاء : '..data.member_count_..
+'\n\n💌| عدد رسائل القروب : '..(msg.id_/2097152/0.5)..
+'\n\n🔰| اسم المجموعه : ['..ta.title_..']'
+send(msg.chat_id_, msg.id_,'['..mwg[math.random(#mwg)]..']') 
+return false
+end
 if text == "تحبني" or text == "احبك"  then  
 local RAADLOVE = {
 "\nااهواك🖤",
