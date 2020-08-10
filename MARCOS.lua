@@ -9792,7 +9792,7 @@ local haha = {
 "لا تضحك مجامله 🧐",
 "عمري يالي يضحكون يا ناس 🤭",
 }
-send(msg.chat_id_, msg.id_,'['..ns[math.random(#haha)]..']') 
+send(msg.chat_id_, msg.id_,'['..haha[math.random(#haha)]..']') 
 return false
 end
 if text == "شلونك" or text == "شلونكم" or text == "شخباركم" then
