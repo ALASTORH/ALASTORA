@@ -1933,7 +1933,7 @@ end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
 if database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'🔖¦ المجموعه تم تفعيلها من قبل')
+send(msg.chat_id_, msg.id_,'🔖┇ يا عيني مفعل من زمان لا تزعجنا ♥️')
 else
 sendText(msg.chat_id_,'\n👤| بواسطه ← ['..string.sub(result.first_name_,0, 70)..'](tg://user?id='..result.id_..')\n📝|  تم تفعيل المجموعه {'..chat.title_..'}',msg.id_/2097152/0.5,'md')
 database:sadd(bot_id..'Chek:Groups',msg.chat_id_)
@@ -8925,7 +8925,7 @@ end
 local Num = database:get(bot_id..'NUM:GAMES'..msg.chat_id_..msg.sender_user_id_) or 0
 if Num == 0 then 
 Text = '* 💬╿ليس لديك نقاط ، \n 📬│للحصول ؏ النقاط ، \n📮╽ارسل الالعاب وابدأ اللعب ! *'
-Text = '📮| عدد نقود التي ربحتها هي *» { '..Num..' } نقطه *'
+Text = '📮| عدد النقاط التي ربحتها هي *» { '..Num..' } نقطه *'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
@@ -9823,7 +9823,7 @@ local ahahah = {
 send(msg.chat_id_, msg.id_,'['..ahahah[math.random(#ahahah)]..']') 
 return false
 end
-if text == "هههه" or text == "ههه" or text == "ههههههههه" or text == "هههههههه" or text == "هههههه" then
+if text == "ههههههههههههههههههههههههههه" or text == "هههههههههههههههههههههههههههههههههههههههههههههههه" or text == "ههههههههه" or text == "هههههههه" or text == "هههههه" then
 local ahahaha = {
 "دُۈۈۈمٌ يَـــآرَبّ",
 "دوَوّم يــــ غٓـاليَ ــــا",
