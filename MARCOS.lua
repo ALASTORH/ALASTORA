@@ -4655,8 +4655,8 @@ end
 function start_function(extra, result, success)
 database:srem(bot_id..'Motee:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n👤| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..')'
-status  = '\n📮| الايدي » `'..result.sender_user_id_..'`\n⚡| تم تنزيل العضو قرد\nرجع الموز 😂'
+usertext = '\n*👤| العضو* » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..')'
+status  = '\n*📮| الايدي* » `'..result.sender_user_id_..'`\n*⚡| تم تنزيل العضو قرد\nرجع الموز 😂*'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
