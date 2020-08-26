@@ -4210,11 +4210,11 @@ end
 ------------------------------------------------------------------------
 if text == 'مسح المميزين' and Mod(msg) then
 database:del(bot_id..'Special:User'..msg.chat_id_)
-send(msg.chat_id_, msg.id_, '🗑|  تم مسح  قائمة الاعضاء المميزين  ')
+send(msg.chat_id_, msg.id_, '*🗑|  تم مسح  قائمة الاعضاء المميزين  *')
 end
 if text == ("المميزين") and Mod(msg) then
 local list = database:smembers(bot_id..'Special:User'..msg.chat_id_)
-t = "\n📮| قائمة مميزين المجموعه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
+t = "\n*📮| قائمة مميزين المجموعه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n*"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -4224,7 +4224,7 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "✖| لا يوجد مميزين"
+t = "*✖| لا يوجد مميزين*"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -4393,7 +4393,7 @@ send(msg.chat_id_, msg.id_, '*🗑| تم مسح جميع الحمير في ال�
 end
 if text == ("تاك للحمير") and Mod(msg) then
 local list = database:smembers(bot_id..'Mote:User'..msg.chat_id_)
-t = "\n🔘| قائمة حمير المجموعه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
+t = "\n*🔘| قائمة حمير المجموعه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n*"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -4403,7 +4403,7 @@ t = t..""..k.."← الحمار`"..v.."`\n"
 end
 end
 if #list == 0 then
-t = "⚠️| لا يوجد حمير"
+t = "*⚠️| لا يوجد حمير*"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -4462,7 +4462,7 @@ send(msg.chat_id_, msg.id_, '*🗑|  تم تنزيل جميع صخل بالمج�
 end
 if text == ("تاك لصخوله") and Mod(msg) then
 local list = database:smembers(bot_id..'Sakl:User'..msg.chat_id_)
-t = "\n🔘| قائمة صخوله المجموعه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
+t = "\n*🔘| قائمة صخوله المجموعه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n*"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -4472,7 +4472,7 @@ t = t..""..k.."← الصخل `"..v.."`\n"
 end
 end
 if #list == 0 then
-t = "⚠️| لا يوجد صخل"
+t = "*⚠️| لا يوجد صخل*"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -4542,7 +4542,7 @@ t = t..""..k.."← الكلب `"..v.."`\n"
 end
 end
 if #list == 0 then
-t = "⚠️| لا يوجد كلب"
+t = "*⚠️| لا يوجد كلب*"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -4611,7 +4611,7 @@ t = t..""..k.."← القرد `"..v.."`\n"
 end
 end
 if #list == 0 then
-t = "⚠️| لا يوجد قرد"
+t = "*⚠️| لا يوجد قرد*"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -4670,7 +4670,7 @@ send(msg.chat_id_, msg.id_, '*🗑| تم تنزيل جميع الحصونه با
 end
 if text == ("تاك للاحصنه") and Mod(msg) then
 local list = database:smembers(bot_id..'Hors:User'..msg.chat_id_)
-t = "\n🔘| قائمة الحصونه المجموعه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
+t = "\n*🔘| قائمة الحصونه المجموعه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n*"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -4680,7 +4680,7 @@ t = t..""..k.."← الحصان `"..v.."`\n"
 end
 end
 if #list == 0 then
-t = "⚠️| لا يوجد حصان"
+t = "*⚠️| لا يوجد حصان*"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -4739,7 +4739,7 @@ send(msg.chat_id_, msg.id_, '*🗑| تم تنزيل جميع البقر بالم
 end
 if text == ("تاك للبقر") and Mod(msg) then
 local list = database:smembers(bot_id..'Bakra:User'..msg.chat_id_)
-t = "\n🔘| قائمة البقرالمجموعه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
+t = "\n*🔘| قائمة البقرالمجموعه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n*"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -4749,7 +4749,7 @@ t = t..""..k.."← البقره "..v.."\n"
 end
 end
 if #list == 0 then
-t = "⚠️|  لا يوجد البقره"
+t = "*⚠️|  لا يوجد بقر*"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -4808,7 +4808,7 @@ send(msg.chat_id_, msg.id_, '*🗑|  تم تنزيل جميع النعاج با�
 end
 if text == ("تاك لنعاج") and Mod(msg) then
 local list = database:smembers(bot_id..'Tele:User'..msg.chat_id_)
-t = "\n🔘| قائمة النعاج المجموعه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
+t = "\n*🔘| قائمة النعاج المجموعه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n*"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -4818,7 +4818,7 @@ t = t..""..k.."← النعجه "..v.."\n"
 end
 end
 if #list == 0 then
-t = "⚠️| لا يوجد نعجه"
+t = "*⚠️| لا يوجد نعاج*"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -4873,11 +4873,11 @@ end
 -----------------------------------------------------
 if text == 'تنزيل زوجاتي' and Mod(msg) then
 database:del(bot_id..'Mrti:User'..msg.chat_id_)
-send(msg.chat_id_, msg.id_, '🗑|  تم تنزيل جميع الزوجات بالمجموعه ')
+send(msg.chat_id_, msg.id_, '*🗑|  تم تنزيل جميع الزوجات بالمجموعه *')
 end
 if text == ("تاك للزوجات") and Mod(msg) then
 local list = database:smembers(bot_id..'Mrti:User'..msg.chat_id_)
-t = "\n🔘| قائمة الزوجات المجموعه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
+t = "\n*🔘| قائمة الزوجات المجموعه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n*"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -4887,7 +4887,7 @@ t = t..""..k.."← الزوجة "..v.."\n"
 end
 end
 if #list == 0 then
-t = "⚠️| لم تقم بالزواج من احد"
+t = "*⚠️| لم تقم بالزواج من احد*"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -4942,11 +4942,11 @@ end
 -----------------------------------------------------
 if text == 'تنزيل قلبي' and Mod(msg) then
 database:del(bot_id..'Qlbi:User'..msg.chat_id_)
-send(msg.chat_id_, msg.id_, '🗑|  تم تنزيل الجميع من داخل قلبك بالمجموعه ')
+send(msg.chat_id_, msg.id_, '*🗑|  تم تنزيل الجميع من داخل قلبك بالمجموعه *')
 end
 if text == ("تاك لقلبي") and Mod(msg) then
 local list = database:smembers(bot_id..'Qlbi:User'..msg.chat_id_)
-t = "\n🔘| قائمة قلبك بالمجموعه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
+t = "\n*🔘| قائمة قلبك بالمجموعه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n*"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -4956,7 +4956,7 @@ t = t..""..k.."← قـلبـي "..v.."\n"
 end
 end
 if #list == 0 then
-t = "⚠️| لا يوجد احـد بقلبكـ"
+t = "*⚠️| لا يوجد احـد بقلبكـ*"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -5025,7 +5025,7 @@ t = t..""..k.."← زوجي "..v.."\n"
 end
 end
 if #list == 0 then
-t = "⚠️| لم تقم بالزواج من احد"
+t = "*⚠️| لم تقم بالزواج من احد*"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -5084,7 +5084,7 @@ send(msg.chat_id_, msg.id_, '*🗑| تم تنزيل جميع الزواحف با
 end
 if text == ("تاك لزواحف") and Mod(msg) then
 local list = database:smembers(bot_id..'Zahf:User'..msg.chat_id_)
-t = "\n🔘| قائمة الزواحف المجموعه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
+t = "\n*🔘| قائمة الزواحف المجموعه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n*"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -5094,7 +5094,7 @@ t = t..""..k.."← الزاحف "..v.."\n"
 end
 end
 if #list == 0 then
-t = "⚠️| لا يوجد زاحف"
+t = "*⚠️| لا يوجد زاحف*"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -5153,7 +5153,7 @@ send(msg.chat_id_, msg.id_, '*🗑| تم تنزيل جميع الدجاج بال
 end
 if text == ("تاك لدجاج") and Mod(msg) then
 local list = database:smembers(bot_id..'Djajh:User'..msg.chat_id_)
-t = "\n🔘| قائمة دجـاج المجموعه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
+t = "\n*🔘| قائمة دجـاج المجموعه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n*"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -5163,7 +5163,7 @@ t = t..""..k.."← الدجاجه "..v.."\n"
 end
 end
 if #list == 0 then
-t = "⚠️| لا يوجد دجاج"
+t = "*⚠️| لا يوجد دجاج*"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -5208,7 +5208,7 @@ function start_function(extra, result, success)
 database:srem(bot_id..'Djajh:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n👤| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..')'
-status  = '\n📮| الايدي » `'..result.sender_user_id_..'`\n⚡| تم تنزيل العضو دجاجه\n اكلنا البيض عليـك😂'
+status  = '\n📮| الايدي » `'..result.sender_user_id_..'`\n*⚡| تم تنزيل العضو دجاجه\n اكلنا البيض عليـك😂*'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
@@ -5222,7 +5222,7 @@ send(msg.chat_id_, msg.id_, '\n🚷| تم مسح المحظورين')
 end
 if text == ("المحظورين") then
 local list = database:smembers(bot_id..'Ban:User'..msg.chat_id_)
-t = "\n📮| قائمة محظورين المجموعه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
+t = "\n*📮| قائمة محظورين المجموعه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n*"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -5232,7 +5232,7 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "✖| لا يوجد محظورين"
+t = "*✖| لا يوجد محظورين*"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -5307,7 +5307,7 @@ return false
 end
 database:sadd(bot_id..'Ban:User'..msg.chat_id_, result.id_)
 usertext = '\n👤| المستخدم » ['..result.title_..'](t.me/'..(username or 'GLOBLA')..')'
-status  = '\n🔘| تم حظره من المجموعه'
+status  = '\n*🔘| تم حظره من المجموعه*'
 texts = usertext..status
 chat_kick(msg.chat_id_, result.id_)
 send(msg.chat_id_, msg.id_, texts)
@@ -5357,11 +5357,11 @@ chat_kick(msg.chat_id_, userid)
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 if data.first_name_ then
 usertext = '\n👤| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..')'
-status  = '\n🔘| تم حظره من المجموعه'
+status  = '\n*🔘| تم حظره من المجموعه*'
 send(msg.chat_id_, msg.id_, usertext..status)
 else
 usertext = '\n👤| العضو » '..userid..''
-status  = '\n🔘| تم حظره من المجموعه'
+status  = '\n*🔘| تم حظره من المجموعه*'
 send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 end,nil)   
@@ -5386,7 +5386,7 @@ end
 database:srem(bot_id..'Ban:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n👤| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..')'
-status  = '\n📮| الايدي » `'..result.sender_user_id_..'`\n🔘| تم الغاء حظره من هنا'
+status  = '\n📮| الايدي » `'..result.sender_user_id_..'`\n*🔘| تم الغاء حظره من هنا*'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.sender_user_id_, status_ = { ID = "ChatMemberStatusLeft" },},function(arg,ban) end,nil)   
@@ -5446,7 +5446,7 @@ tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_i
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 if data.first_name_ then
 usertext = '\n👤| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..')'
-status  = '\n🔘| تم الغاء حظره من هنا'
+status  = '\n*🔘| تم الغاء حظره من هنا*'
 send(msg.chat_id_, msg.id_, usertext..status)
 else
 usertext = '\n👤|لعضو » '..userid..''
@@ -5458,11 +5458,11 @@ end
 ------------------------------------------------------------------------
 if text == 'مسح المكتومين' and Mod(msg) then
 database:del(bot_id..'Muted:User'..msg.chat_id_)
-send(msg.chat_id_, msg.id_, '🗑¦  تم مسح قائمه المكتومين ')
+send(msg.chat_id_, msg.id_, '*🗑¦  تم مسح قائمه المكتومين *')
 end
 if text == ("المكتومين") and Mod(msg) then
 local list = database:smembers(bot_id..'Muted:User'..msg.chat_id_)
-t = "\n🔘| قائمة المكتومين \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
+t = "\n*🔘| قائمة المكتومين \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n*"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -5472,7 +5472,7 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "✖| لا يوجد مكتومين"
+t = "*✖| لا يوجد مكتومين*"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -5489,7 +5489,7 @@ return false
 end
 function start_function(extra, result, success)
 if tonumber(result.sender_user_id_) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, "⚠| لا تسطيع كتم البوت ")
+send(msg.chat_id_, msg.id_, "*⚠| لا تسطيع كتم البوت *")
 return false 
 end
 if Can_or_NotCan(result.sender_user_id_, msg.chat_id_) == true then
@@ -5502,7 +5502,7 @@ end
 database:sadd(bot_id..'Muted:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n👤|العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..')'
-status  = '\n??| الايدي » `'..result.sender_user_id_..'`\n🔘| تم كتمه وداعا رح افتقد خواطرك 💔'
+status  = '\n??| الايدي » `'..result.sender_user_id_..'`\n*🔘| تم كتمه وداعا رح افتقد خواطرك 💔*'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
@@ -5540,7 +5540,7 @@ return false
 end      
 database:sadd(bot_id..'Muted:User'..msg.chat_id_, result.id_)
 usertext = '\n👤| العضو » ['..result.title_..'](t.me/'..(username or 'ASTORHBOTS')..')'
-status  = '\n🔘| تم كتمه وداعا رح افتقد خواطرك 💔'
+status  = '\n*🔘| تم كتمه وداعا رح افتقد خواطرك 💔*'
 texts = usertext..status
 send(msg.chat_id_, msg.id_, texts)
 end
@@ -5612,7 +5612,7 @@ if Can_or_NotCan(result.id_, msg.chat_id_) then
 send(msg.chat_id_, msg.id_, "\n⚠️| عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Rutba(result.id_,msg.chat_id_).." )")
 else
 usertext = '\n👤| العضو » ['..result.title_..'](t.me/'..(username or 'ASTORHBOTS')..')'
-status  = '\n☑| تم كتم لمدة ~ { '..TextEnd[2]..' '..TextEnd[3]..'}'
+status  = '\n*☑| تم كتم لمدة ~ { '..TextEnd[2]..' '..TextEnd[3]..'}*'
 texts = usertext..status
 send(msg.chat_id_, msg.id_,texts)
 https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..result.id_..'&until_date='..tonumber(msg.date_+Time))
