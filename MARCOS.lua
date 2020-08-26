@@ -2925,7 +2925,7 @@ chat_kick(result.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},
 function(arg,data) 
 usertext = '\n👤| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..')'
-status  = '\n🔘| تم حظره عام من المجموعات'
+status  = '\n*🔘| تم حظره عام من المجموعات*'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
@@ -3078,7 +3078,7 @@ send(msg.chat_id_, msg.id_, "\n📝|  تم مسح قائمة المطورين  "
 end
 if text == ("المطورين") and SudoBot(msg) then
 local list = database:smembers(bot_id..'Sudo:User')
-t = "\n📮| قائمة مطورين البوت \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
+t = "\n*📮| قائمة مطورين البوت \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n*"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -3088,14 +3088,14 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "✖| لا يوجد مطورين"
+t = "*✖| لا يوجد مطورين*"
 end
 send(msg.chat_id_, msg.id_, t)
 end
 
 
 if text == 'الملفات' and SudoBot(msg) then
-t = '📮| ملفات السورس الاسطورة ↓\n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n'
+t = '*📮| ملفات السورس الاسطورة ↓\n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n*'
 i = 0
 for v in io.popen('ls File_Bot'):lines() do
 if v:match(".lua$") then
@@ -8981,7 +8981,7 @@ if Json_Info.result.can_restrict_members == true then
 restrict = 'ꪜ' else restrict = '✘' end
 if Json_Info.result.can_promote_members == true then
 promote = 'ꪜ' else promote = '✘' end 
-send(msg.chat_id_,msg.id_,'\n📌| اهلا عزيزي البوت هنا ادمن'..'\n🎗️|  وصلاحياته هي ↓ \nٴ━━━━━━━━━━'..'\n📝|  تغير معلومات المجموعه ↞ ❴ '..info..' ❵'..'\n💌|  حذف الرسائل ↞ ❴ '..delete..' ❵'..'\n💠|  حظر المستخدمين ↞ ❴ '..restrict..' ❵'..'\n♻|  دعوة مستخدمين ↞ ❴ '..invite..' ❵'..'\n🔘|  تثبيت الرسائل ↞ ❴ '..pin..' ❵'..'\n🔰|  اضافة مشرفين جدد ↞ ❴ '..promote..' ❵')   
+send(msg.chat_id_,msg.id_,'\n📌| اهلا عزيزي البوت هنا ادمن'..'\n🎗️|  وصلاحياته هي ↓ \nٴ━━━━━━━━━━'..'\n📝|  تغير معلومات المجموعه ↞ ❴ '..info..' ❵'..'\n💌|  حذف الرسائل ↞ ❴ '..delete..' ❵'..'\n💠|  حظر المستخدمين ↞ ❴ '..restrict..' ❵'..'\n♻|  دعوة مستخدمين ↞ ❴ '..invite..' ❵'..'\n🔘|  تثبيت الرسائل ↞ ❴ '..pin..' ❵'..'\n🔰|  اضافة مشرفين جدد ↞ ❴ '..promote..' ❵') 
 end
 end
 end
