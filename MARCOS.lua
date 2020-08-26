@@ -8924,11 +8924,11 @@ return false
 end
 local Num = database:get(bot_id..'NUM:GAMES'..msg.chat_id_..msg.sender_user_id_) or 0
 if Num == 0 then 
-Text = '*💬╿ليس لديك نقاط ،
-📬│للحصول ؏ النقاط ،
-📮╽ارسل الالعاب وابدأ اللعب !*'
+Text = '*💬╿ليس لديك نقاط *،
+📬│* للحصول ؏ النقاط * ،
+📮╽* ارسل الالعاب وابدأ اللعب !*'
 else
-Text = '📮| عدد النقاط التي ربحتها هي *» { '..Num..' } نقطه *'
+Text = '📮|* عدد النقاط التي ربحتها هي *» { '..Num..' } نقطه *'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
@@ -8948,17 +8948,17 @@ send(msg.chat_id_,msg.id_,"\n*📮| لا استطيع البيع اقل من 1 *
 return false 
 end
 if tonumber(database:get(bot_id..'NUM:GAMES'..msg.chat_id_..msg.sender_user_id_)) == tonumber(0) then
-send(msg.chat_id_,msg.id_,'📮| ليس لديك نقاط في الالعاب\n🎗️| اذا كنت تريد ربح نقاط \n📌| ارسل الالعاب وابدأ اللعب ! ') 
+send(msg.chat_id_,msg.id_,'*📮| ليس لديك نقاط في الالعاب *\n🎗️|* اذا كنت تريد ربح نقاط *\n📌|* ارسل الالعاب وابدأ اللعب* ! ') 
 else
 local NUM_GAMES = database:get(bot_id..'NUM:GAMES'..msg.chat_id_..msg.sender_user_id_)
 if tonumber(NUMPY) > tonumber(NUM_GAMES) then
-send(msg.chat_id_,msg.id_,'\n📮| ليس لديك نقاط بهاذ العبه \n🔘| لزيادة نقاطك في اللعبه \n📌| ارسل الالعاب وابدأ اللعب !') 
+send(msg.chat_id_,msg.id_,'\n📮|* ليس لديك نقاط بهاذ العبه *\n🔘|* لزيادة نقاطك في اللعبه *\n📌|* ارسل الالعاب وابدأ اللعب !*') 
 return false 
 end
 local NUMNKO = (NUMPY * 50)
 database:decrby(bot_id..'NUM:GAMES'..msg.chat_id_..msg.sender_user_id_,NUMPY)  
 database:incrby(bot_id..'Msg_User'..msg.chat_id_..':'..msg.sender_user_id_,NUMNKO)  
-send(msg.chat_id_,msg.id_,'🚸| تم خصم *» { '..NUMPY..' }* من نقاطك \n💌| وتم اضافة* » { '..(NUMPY * 50)..' } رساله الى رسائلك *')
+send(msg.chat_id_,msg.id_,'🚸| تم خصم *» { '..NUMPY..' }* من نقاطك \n💌| وتم اضافة* » { '..(NUMPY * 50)..' }* رساله الى رسائلك ')
 end 
 return false 
 end
