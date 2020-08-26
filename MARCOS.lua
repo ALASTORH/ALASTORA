@@ -8956,7 +8956,7 @@ end
 local NUMNKO = (NUMPY * 50)
 database:decrby(bot_id..'NUM:GAMES'..msg.chat_id_..msg.sender_user_id_,NUMPY)  
 database:incrby(bot_id..'Msg_User'..msg.chat_id_..':'..msg.sender_user_id_,NUMNKO)  
-send(msg.chat_id_,msg.id_,'🚸| تم خصم *» { '..NUMPY..' }* من نقاطك \n💌| وتم اضافة* » { '..(NUMPY * 50)..' } من الرسائل\n 💌|  اصبح عدد رسائلك هنا* » { '..Msguser..' }*')
+send(msg.chat_id_,msg.id_,'🚸| تم خصم *» { '..NUMPY..' }* من نقاطك \n💌| وتم اضافة* » { '..(NUMPY * 50)..' } من الرسائل*')
 end 
 return false 
 end
@@ -9784,7 +9784,7 @@ return false
 end
 if text == "هههههههههه" or text == "ههههههه" or text == "ههههه" or text == "ههههههههههههههه" or text == "هههههههههههههه" then
 local haha = {
-"دُۈۈۈمٌ يَـــآرَبّ",
+"*دُۈۈۈمٌ يَـــآرَبّ*",
 "دوَوّم يــــ غٓـاليَ ــــا",
 "عَسَـــ دُوَوّوِوُمْ ـــآھ",
 " ضحكنا معاك 🤪",
@@ -9854,8 +9854,8 @@ if text == "سلام" or text == "السلام عليكم" or text == "سلام 
 local sla = {
 "وْعـلُـيَــكِـمٌ الُـــسِــــلُامٌ ❥",
 "وٍعَلْيّكَمُ ٱلْسَلآمّ وٍرٍحَمُةٌ اللَّــْـْہ ۆبُركَاتة❥",
-"عَلْيّكَمُ ٱلْسَلآمّ وٍرٍحَمُةٌ اللَّــْـْہ ۆبُركَاتة♥",
-"وعليكم السلام اغاتي🌝👋",
+"*عَلْيّكَمُ ٱلْسَلآمّ وٍرٍحَمُةٌ اللَّــْـْہ ۆبُركَاتة♥*",
+"*وعليكم السلام اغاتي🌝👋*",
 }
 send(msg.chat_id_, msg.id_,'['..sla[math.random(#sla)]..']') 
 return false
