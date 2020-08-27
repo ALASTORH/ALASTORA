@@ -8485,7 +8485,9 @@ send(msg.chat_id_, msg.id_,'*تم تنفيذ طلبك يلا انقلع 😂 *')
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = msg.sender_user_id_, status_ = { ID = "ChatMemberStatusLeft" },},function(arg,ban) end,nil)   
 return false
 end
-end,nil)   
+end,nil)
+end
+else
 if text and text:match("^صيح (.*)$") then
 local username = text:match("^صيح (.*)$") 
 if not database:get(bot_id..'Seh:User'..msg.chat_id_) then
