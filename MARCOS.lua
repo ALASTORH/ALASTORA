@@ -8481,7 +8481,7 @@ send(msg.chat_id_, msg.id_,'⚠| عذرا لا استطيع طرد ادمنية 
 return false  
 end
 if data and data.ID and data.ID == 'Ok' then
-send(msg.chat_id_, msg.id_,'تم تنفيذ طلبك يلا انقلع 😂 ') 
+send(msg.chat_id_, msg.id_,'*تم تنفيذ طلبك يلا انقلع 😂 *') 
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = msg.sender_user_id_, status_ = { ID = "ChatMemberStatusLeft" },},function(arg,ban) end,nil)   
 return false
 end
@@ -8537,7 +8537,7 @@ Text = '👤| الشخص الذي قام باضافتك هو » '..Name
 sendText(msg.chat_id_,Text,msg.id_/2097152/0.5,'md')
 end,nil)
 else
-send(msg.chat_id_, msg.id_,'📌| انت دخلت عبر الرابط ') 
+send(msg.chat_id_, msg.id_,'*📌| انت دخلت عبر الرابط *') 
 end
 end,nil)
 else
@@ -8590,26 +8590,26 @@ send(msg.chat_id_, msg.id_, '\n🔰| تم تنزيل الكل من الرتب ا
 end
 if text == 'تفعيل اطردني' and Manager(msg) then   
 if database:get(bot_id..'Cick:Me'..msg.chat_id_) then
-Text = '🔰| تم تفعيل امر اطردني'
+Text = '*🔰| تم تفعيل امر اطردني*'
 database:del(bot_id..'Cick:Me'..msg.chat_id_)  
 else
-Text = '💠| بالتاكيد تم تفعيل امر اطردني'
+Text = '*💠| بالتاكيد تم تفعيل امر اطردني*'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تعطيل اطردني' and Manager(msg) then  
 if not database:get(bot_id..'Cick:Me'..msg.chat_id_) then
 database:set(bot_id..'Cick:Me'..msg.chat_id_,true)  
-Text = '\n📌|  تم تعطيل امر اطردني'
+Text = '\n*📌|  تم تعطيل امر اطردني*'
 else
-Text = '\n⚠️| بالتاكيد تم تعطيل امر اطردني'
+Text = '\n*⚠️| بالتاكيد تم تعطيل امر اطردني*'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
 if text == "صورتي"  then
 local my_ph = database:get(bot_id.."my_photo:status"..msg.chat_id_)
 if not my_ph then
-send(msg.chat_id_, msg.id_,"📛┇ الصوره معطله") 
+send(msg.chat_id_, msg.id_,"*📛┇ الصوره معطله*") 
 return false  
 end
 local function getpro(extra, result, success)
@@ -8732,7 +8732,7 @@ end
 if text == 'تعديلاتي' or text == 'تعديلاتي' then 
 local Num = tonumber(database:get(bot_id..'edits'..msg.chat_id_..msg.sender_user_id_) or 0)
 if Num == 0 then 
-Text = '⚠️| لم تقم بالتعديل في الكتابه ليست لديك تعديلات'
+Text = '*⚠️| لم تقم بالتعديل في الكتابه ليست لديك تعديلات*'
 else
 Text = '🚸| عدد تعديلاتك *» { '..Num..' } *'
 end
@@ -8749,7 +8749,7 @@ end
 if text == 'جهاتي' or text == 'شكد ضفت' then 
 local Num = tonumber(database:get(bot_id..'Add:Contact'..msg.chat_id_..':'..msg.sender_user_id_) or 0) 
 if Num == 0 then 
-Text = '⚠️| لم تقم بااضافة اي احد'
+Text = '*⚠️| لم تقم بااضافة اي احد*'
 else
 Text = '📮| عدد جهاتك *» { '..Num..' } *'
 end
@@ -8863,7 +8863,7 @@ local numadded = string.match(text, "(%d+)")
 local iduserr = database:get(bot_id..'id:user'..msg.chat_id_)  
 database:del(bot_id..'Msg_User'..msg.chat_id_..':'..msg.sender_user_id_) 
 database:incrby(bot_id..'Msg_User'..msg.chat_id_..':'..iduserr,numadded)  
-send(msg.chat_id_, msg.id_,"🎗️| تم اضافة له {"..numadded..'} من الرسائل')  
+send(msg.chat_id_, msg.id_,"🎗️| تم اضافة له *{"..numadded..'}* من الرسائل')  
 end
 ------------------------------------------------------------------------
 if database:get(bot_id.."gemadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
@@ -8911,7 +8911,7 @@ local Num = text:match("^اضف رسائل (%d+)$")
 function reply(extra, result, success)
 database:del(bot_id..'Msg_User'..msg.chat_id_..':'..result.sender_user_id_) 
 database:incrby(bot_id..'Msg_User'..msg.chat_id_..':'..result.sender_user_id_,Num)  
-send(msg.chat_id_, msg.id_, "\n📥| تم اضافة له {"..Num..'} من الرسائل')  
+send(msg.chat_id_, msg.id_, "\n📥| تم اضافة له *{"..Num..'}* من الرسائل')  
 end
 tdcli_function ({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},reply, nil)
 return false
