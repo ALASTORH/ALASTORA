@@ -8477,17 +8477,19 @@ send(msg.chat_id_, msg.id_,'⚠| البوت ليس ادمن يرجى ترقيت�
 return false  
 end
 if data and data.code_ and data.code_ == 400 and data.message_ == "USER_ADMIN_INVALID" then 
-send(msg.chat_id_, msg.id_,'*⚠| عذرا لا استطيع طرد ادمنية المجموعه*') 
+send(msg.chat_id_, msg.id_,'⚠| عذرا لا استطيع طرد ادمنية المجموعه') 
 return false  
 end
 if data and data.ID and data.ID == 'Ok' then
-send(msg.chat_id_, msg.id_,'*تم تنفيذ طلبك يلا انقلع 😂 *') 
+send(msg.chat_id_, msg.id_,'*تم تنفيذ طلبك يلا انقلع|😂*') 
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = msg.sender_user_id_, status_ = { ID = "ChatMemberStatusLeft" },},function(arg,ban) end,nil)   
 return false
 end
-end,nil)
-end
+end,nil)   
 else
+send(msg.chat_id_, msg.id_,'⚠| امر اطردني تم تعطيله من قبل المدراء ') 
+end
+end
 if text and text:match("^صيح (.*)$") then
 local username = text:match("^صيح (.*)$") 
 if not database:get(bot_id..'Seh:User'..msg.chat_id_) then
