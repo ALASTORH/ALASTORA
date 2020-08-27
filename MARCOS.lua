@@ -7576,7 +7576,7 @@ for i=1,tonumber(num) do
 DeleteMessage(msg.chat_id_, {[0] = msgm})
 msgm = msgm - 1048576
 end
-send(msg.chat_id_,msg.id_,'🔘| تم حذف {'..num..'}')  
+send(msg.chat_id_,msg.id_,'🔘| تم حذف *{'..num..'}* من رسائل القروب')  
 end
 if text == "تغير اسم البوت" or text == "تغيير اسم البوت" then 
 if SudoBot(msg) then
