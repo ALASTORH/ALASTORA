@@ -8462,11 +8462,6 @@ end,nil)
 end,nil)
 end 
 if text == 'اطردني' or text == 'طردني' then
-if data and data.ID and data.ID == 'Ok' then
-send(msg.chat_id_, msg.id_,'*تم تنفيذ طلبك يلا انقلع 😂 *') 
-tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = msg.sender_user_id_, status_ = { ID = "ChatMemberStatusLeft" },},function(arg,ban) end,nil)   
-return false
-end
 if not database:get(bot_id..'Cick:Me'..msg.chat_id_) then
 if Can_or_NotCan(msg.sender_user_id_, msg.chat_id_) == true then
 send(msg.chat_id_, msg.id_, '\n*⚠| عذرا لا استطيع طرد ( '..Rutba(msg.sender_user_id_,msg.chat_id_)..' )*')
@@ -8485,10 +8480,12 @@ if data and data.code_ and data.code_ == 400 and data.message_ == "USER_ADMIN_IN
 send(msg.chat_id_, msg.id_,'*⚠| عذرا لا استطيع طرد ادمنية المجموعه*') 
 return false  
 end
-else
-send(msg.chat_id_, msg.id_,'⚠| امر اطردني تم تعطيله من قبل المدراء ') 
+if data and data.ID and data.ID == 'Ok' then
+send(msg.chat_id_, msg.id_,'*تم تنفيذ طلبك يلا انقلع 😂 *') 
+tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = msg.sender_user_id_, status_ = { ID = "ChatMemberStatusLeft" },},function(arg,ban) end,nil)   
+return false
 end
-end
+end,nil)   
 if text and text:match("^صيح (.*)$") then
 local username = text:match("^صيح (.*)$") 
 if not database:get(bot_id..'Seh:User'..msg.chat_id_) then
