@@ -154,7 +154,7 @@ io.popen("cd File_Bot && rm -rf games.lua.2")
 io.popen("cd File_Bot && rm -rf games.lua.3") 
 io.popen("cd File_Bot && wget https://raw.githubusercontent.com/ALASTORH/Files_ALASTORA/master/games.lua") 
 io.popen("cd File_Bot && wget https://raw.githubusercontent.com/ALASTORH/Files_ALASTORA/master/Reply.lua") 
-io.popen("cd File_Bot && wget https://raw.githubusercontent.com/ALASTORH/Files_ALASTORA/master/notxt.lua") 
+io.popen("cd File_Bot && wget https://raw.githubusercontent.com/ALASTORH/Files_ALASTORA/master/photock.lua") 
 t = "\27[35m".."\nAll Files Started : \n____________________\n"..'\27[m'
 i = 0
 for v in io.popen('ls File_Bot'):lines() do
