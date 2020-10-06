@@ -3929,6 +3929,22 @@ t = "✖| لا يوجد ادمنيه"
 end
 send(msg.chat_id_, msg.id_, t)
 end
+if text == "صيح للادمنيه" then
+local list = database:smembers(bot_id..'Mod:User'..msg.chat_id_)
+t = "\n📮| ياادمنيه وينكم تعالو \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
+for k,v in pairs(list) do
+local username = database:get(bot_id.."user:Name" .. v)
+if username then
+t = t..""..k.."- {[@"..username.."]}\n"
+else
+t = t..""..k.."- {`"..v.."`}\n"
+end
+end
+if #list == 0 then
+t = "✖| لا يوجد ادمنيه"
+end
+send(msg.chat_id_, msg.id_, t)
+end
 if text == ("رفع ادمن") and msg.reply_to_message_id_ and Manager(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -9975,22 +9991,6 @@ if not database:get(bot_id..'lock:add'..msg.chat_id_) then
 local texting = {"مووووووووواححح💋😘","ريحته يـــــعععععع😌😹","خدك نضيف 😂","البوسه بالف حبي 🌝💋","خلي يزحفلي وابوسه ??😻","كل شوي ابوسه كافي 😏","ماابوسه والله هذا خروف🐏","امووووووووح بوسه اسلاميه😂😚💋"}
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
-end
-if text == ("صيح للادمنيه") then
-local list = database:smembers(bot_id..'Mod:User'..msg.chat_id_)
-t = "\n📮| ياادمنيه وينكم تعالو \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
-for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name" .. v)
-if username then
-t = t..""..k.."- {[@"..username.."]}\n"
-else
-t = t..""..k.."- {`"..v.."`}\n"
-end
-end
-if #list == 0 then
-t = "✖| لا يوجد ادمنيه"
-end
-send(msg.chat_id_, msg.id_, t)
 end
 if text == 'تفعيل الردود' and Manager(msg) then   
 database:del(bot_id..'lock:reply'..msg.chat_id_)  
