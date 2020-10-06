@@ -10486,7 +10486,7 @@ local msg = data.message_
     database:del("tshake:tag:admin:"..bot_id..msg.chat_id_)
     send(msg.chat_id_, msg.id_, 1, "⚠️┇تم تعطيل تاك الادمنيه", 1, 'html')
     end
-    if (text and ( text == 'صيح الادمنيه' or text == "تاك للادمنيه" or text == "وين الادمنيه"or text == "وين الادمن"or text == "تعالوا ياادمن"or text == "صيح للادمن"or text == "تاك الادمن"or text == "كلم الادمن") and (is_vip(msg) or database:get("tshake:tag:admin:"..bot_id..msg.chat_id_))) then 
+    if (text and ( text == 'صيح الادمنيه' or text == "تاك للادمنيه" or text == "وين الادمنيه" or text == "وين الادمن" or text == "تعالوا ياادمن" or text == "صيح للادمن" or text == "تاك الادمن" or text == "كلم الادمن") and (is_vip(msg) or database:get("tshake:tag:admin:"..bot_id..msg.chat_id_))) then 
     function cb(t1,t2)
     function kekko(u1,u2)
     local id_send = msg.sender_user_id_
@@ -10519,13 +10519,13 @@ local msg = data.message_
 do
 local function pre_process(msg)
  local hash = 'muteall:'..msg.to.id
-  if redis:get(hash) and msg.to.type == 'channel' and not is_momod(msg)  then
+  if redis:get(hash) and msg.to.type == 'channel' and not mod(msg)  then
    delete_msg(msg.id, ok_cb, false)
        end
     return msg
  end 
 local function run(msg, matches)
- if matches[1] == 'muteall' or matches[1] == 'قفل المجموعه' and is_momod(msg) then
+ if matches[1] == 'muteall' or matches[1] == 'قفل المجموعه' and mod(msg) then
        local hash = 'muteall:'..msg.to.id
        if not matches[2] then
               redis:set(hash, true)
@@ -10542,7 +10542,7 @@ redis:setex(hash, num4, true)
  return "تم ✅ قفل 🔒 المجموعه 👥\n⏺ الساعات (s) : "..matches[2].."\n⏺ الدقايق (s) : "..matches[3].." \n⏺ الثواني (s) : "..matches[4]..""
  end
  end --@dev_kasper
-if matches[1] == 'unmuteall' or matches[1] == 'فتح المجموعه' and is_momod(msg) then
+if matches[1] == 'unmuteall' or matches[1] == 'فتح المجموعه' and mod(msg) then
                local hash = 'muteall:'..msg.to.id
         redis:del(hash)
           return "تم ✅ فتح 🔓 المجموعه 👥"
