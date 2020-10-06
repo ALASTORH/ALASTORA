@@ -10478,15 +10478,15 @@ local msg = data.message_
     return var 
     end
     -----------------------------
-    if text and text == "تفعيل تاك الادمنيه" and database:sismember('tshake:'..bot_id..'creator:'..msg.chat_id_, msg.sender_user_id_) then 
+    if text == "تفعيل تاك الادمنيه" and database:sismember('tshake:'..bot_id..'creator:'..msg.chat_id_, msg.sender_user_id_) then 
     database:set("tshake:tag:admin:"..bot_id..msg.chat_id_,"tshake")
     send(msg.chat_id_, msg.id_, 1, "⚠️┇تم تفعيل تاك الادمنيه", 1, 'html')
     end
-    if text and text == "تعطيل تاك الادمنيه" and database:sismember('tshake:'..bot_id..'creator:'..msg.chat_id_, msg.sender_user_id_) then 
+    if text == "تعطيل تاك الادمنيه" and database:sismember('tshake:'..bot_id..'creator:'..msg.chat_id_, msg.sender_user_id_) then 
     database:del("tshake:tag:admin:"..bot_id..msg.chat_id_)
     send(msg.chat_id_, msg.id_, 1, "⚠️┇تم تعطيل تاك الادمنيه", 1, 'html')
     end
-    if (text and ( text == 'صيح الادمنيه' or text == "تاك للادمنيه" or text == "وين الادمنيه" or text == "وين الادمن" or text == "تعالوا ياادمن" or text == "صيح للادمن" or text == "تاك الادمن" or text == "كلم الادمن") and (is_vip(msg) or database:get("tshake:tag:admin:"..bot_id..msg.chat_id_))) then 
+    if text == "صيح الادمنيه" or text == "تاك للادمنيه" or text == "وين الادمنيه" or text == "وين الادمن" or text == "تعالوا ياادمن" or text == "صيح للادمن" or text == "تاك الادمن" or text == "كلم الادمن") and (is_vip(msg) or database:get("tshake:tag:admin:"..bot_id..msg.chat_id_))) then 
     function cb(t1,t2)
     function kekko(u1,u2)
     local id_send = msg.sender_user_id_
