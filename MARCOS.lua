@@ -1343,7 +1343,7 @@ end
 
 local status_welcome = database:get(bot_id..'Chek:Welcome'..msg.chat_id_)
 if status_welcome and not database:get(bot_id..'lock:tagservr'..msg.chat_id_) then
-if msg.content_.ID == "MessageChatJoinByLink" then
+if msg.content_.ID == "MessageChatJoinByLink"  or msg.content_.ID == "MessageChatAddMembers" then 
 tdcli_function({ID = "GetUser",user_id_=msg.sender_user_id_},function(extra,result) 
 local GetWelcomeGroup = database:get(bot_id..'Get:Welcome:Group'..msg.chat_id_)  
 if GetWelcomeGroup then 
@@ -9976,6 +9976,22 @@ local texting = {"مووووووووواححح💋😘","ريحته يـــــ
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
+if text == ("صيح للادمنيه") then
+local list = database:smembers(bot_id..'Mod:User'..msg.chat_id_)
+t = "\n📮| ياادمنيه وينكم تعالو \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
+for k,v in pairs(list) do
+local username = database:get(bot_id.."user:Name" .. v)
+if username then
+t = t..""..k.."- {[@"..username.."]}\n"
+else
+t = t..""..k.."- {`"..v.."`}\n"
+end
+end
+if #list == 0 then
+t = "✖| لا يوجد ادمنيه"
+end
+send(msg.chat_id_, msg.id_, t)
+end
 if text == 'تفعيل الردود' and Manager(msg) then   
 database:del(bot_id..'lock:reply'..msg.chat_id_)  
 Text = '🔰| تم تفعيل الردود'
@@ -10356,226 +10372,3 @@ end,nil)
 end
 end -- end new msg
 end -- end callback
-
-_____________________________________
-
-#كود في حالة طرد البوت  
-
-local msg = data.message_
-    redis = (loadfile "./libs/redis.lua")()
-    database = Redis.connect('127.0.0.1', 6379)
-    sudos = dofile('sudo.lua')
-    JSON = (loadfile  "./libs/dkjson.lua")()
-    bot_id_keko = {string.match(token, "^(%d+)(:)(.*)")}
-    bot_id = tonumber(bot_id_keko[1])
-    local function openChat(chat_id,dl_cb)
-    tdcli_function ({
-    ID = "GetChat",
-    chat_id_ = chat_id
-    }, dl_cb, nil)
-    end
-    function getUser(user_id, cb)
-    tdcli_function ({
-    ID = "GetUser",
-    user_id_ = user_id
-    }, cb, nil)
-    end
-    local function send(chat_id, reply_to_message_id, disable_notification, text, disable_web_page_preview, parse_mode)
-    local TextParseMode = {ID = "TextParseModeMarkdown"}
-    tdcli_function ({
-    ID = "SendMessage",
-    chat_id_ = chat_id,
-    reply_to_message_id_ = reply_to_message_id,
-    disable_notification_ = disable_notification,
-    from_background_ = 1,
-    reply_markup_ = nil,
-    input_message_content_ = {
-    ID = "InputMessageText",
-    text_ = text,
-    disable_web_page_preview_ = disable_web_page_preview,
-    clear_draft_ = 0,
-    entities_ = {},
-    parse_mode_ = TextParseMode,
-    },
-    }, dl_cb, nil)
-    end
-    if msg.content_.ID == "MessageChatDeleteMember" and tonumber(msg.content_.user_.id_) == tonumber(bot_id) then 
-    database:srem("thsake:gog"..bot_id, msg.chat_id_)
-    database:del('tshake:'..bot_id.."charge:"..msg.chat_id_)
-    function TSby(extra,result,success)
-    function thsake_info2(k1,k2)
-    function dl_cb222(t1,t2)
-    send(tostring((database:get("tshake"..bot_id..":sudo:gr") or sudo_add)), 0, 1, "🔘┇قام بطرد البوت من المجموعه \n🎫┇ايدي الشخص ~⪼ ("..msg.sender_user_id_..")\n📜┇معرف الشخص ~⪼ @"..(result.username_ or "لا يوجد").."\n🌐┇معلومات المجموعه \n\n🎫┇ايدي المجموعه ~⪼ ("..msg.chat_id_..")\nⓂ️┇اسم المجموعه ~⪼ ("..k2.title_..")\n📎┇رابط المجموعه ~⪼ ["..(t2.invite_link_ or database:get('tshake:'..bot_id.."group:link"..msg.chat_id_) or "لا يمكنني الوصول الى الرابط").."]" , 1, 'html')
-    end
-    tdcli_function ({
-    ID = "GetChannelFull",
-    channel_id_ = getChatId(msg.chat_id_).ID
-    }, dl_cb222, nil)
-    end
-    openChat(msg.chat_id_,thsake_info2) 
-    end
-    getUser(msg.sender_user_id_, TSby)
-    end 
-    end
-   
-   _______________________________
-   
-   local msg = data.message_
-    redis = (loadfile "./libs/redis.lua")()
-    database = Redis.connect('127.0.0.1', 6379)
-    sudos = dofile('sudo.lua')
-    HTTPS = require("ssl.https")
-    JSON = (loadfile  "./libs/dkjson.lua")()
-    bot_id_keko = {string.match(token, "^(%d+)(:)(.*)")}
-    bot_id = tonumber(bot_id_keko[1])
-    msg = data.message_
-    text = msg.content_.text_
-    function getUser(user_id, cb)
-    tdcli_function ({
-    ID = "GetUser",
-    user_id_ = user_id
-    }, cb, nil)
-    end
-    local function send(chat_id, reply_to_message_id, disable_notification, text, disable_web_page_preview, parse_mode)
-    local TextParseMode = {ID = "TextParseModeMarkdown"}
-    tdcli_function ({
-    ID = "SendMessage",
-    chat_id_ = chat_id,
-    reply_to_message_id_ = reply_to_message_id,
-    disable_notification_ = disable_notification,
-    from_background_ = 1,
-    reply_markup_ = nil,
-    input_message_content_ = {
-    ID = "InputMessageText",
-    text_ = text,
-    disable_web_page_preview_ = disable_web_page_preview,
-    clear_draft_ = 0,
-    entities_ = {},
-    parse_mode_ = TextParseMode,
-    },
-    }, dl_cb, nil)
-    end
-    bot = dofile('./libs/utils.lua')
-    function is_vip(msg)
-    user_id = msg.sender_user_id_
-    chat_id = msg.chat_id_
-    local var = false
-    local mod = database:sismember('tshake:'..bot_id..'mods:'..chat_id, user_id)  
-    local admin = database:sismember('tshake:'..bot_id..'admins:', user_id)  
-    local owner = database:sismember('tshake:'..bot_id..'owners:'..chat_id, user_id)
-    local creator = database:sismember('tshake:'..bot_id..'creator:'..chat_id, user_id)  
-    local vip = database:sismember('tshake:'..bot_id..'vipgp:'..chat_id, user_id)
-    if mod then var = true end
-    if owner then var = true end
-    if creator then var = true end
-    if admin then var = true end
-    if vip then var = true end
-    for k,v in pairs(sudo_users) do
-    if user_id == v then
-    var = true end end
-    local keko_add_sudo = redis:get('tshake:'..bot_id..'sudoo'..user_id..'')
-    if keko_add_sudo then var = true end
-    return var 
-    end
-    -----------------------------
-    if text == "تفعيل تاك الادمنيه" and database:sismember('tshake:'..bot_id..'creator:'..msg.chat_id_, msg.sender_user_id_) then 
-    database:set("tshake:tag:admin:"..bot_id..msg.chat_id_,"tshake")
-    send(msg.chat_id_, msg.id_, 1, "⚠️┇تم تفعيل تاك الادمنيه", 1, 'html')
-    end
-    if text == "تعطيل تاك الادمنيه" and database:sismember('tshake:'..bot_id..'creator:'..msg.chat_id_, msg.sender_user_id_) then 
-    database:del("tshake:tag:admin:"..bot_id..msg.chat_id_)
-    send(msg.chat_id_, msg.id_, 1, "⚠️┇تم تعطيل تاك الادمنيه", 1, 'html')
-    end
-    if text == "صيح الادمنيه" or text == "تاك للادمنيه" or text == "وين الادمنيه" or text == "وين الادمن" or text == "تعالوا ياادمن" or text == "صيح للادمن" or text == "تاك الادمن" or text == "كلم الادمن") and (is_vip(msg) or database:get("tshake:tag:admin:"..bot_id..msg.chat_id_))) then 
-    function cb(t1,t2)
-    function kekko(u1,u2)
-    local id_send = msg.sender_user_id_
-    if u2.username_ then 
-    id_send = "@"..u2.username_
-    end
-    local new_text = "⚠️┇المستخدم ([ "..id_send .." ]) يصيحكم .\n\n"
-    i = 0
-    for k,v in pairs(t2.members_) do
-    if bot_id ~= v.user_id_ then 
-    i = i + 1
-    local user_info = database:hgetall('tshake:'..bot_id..'user:'..v.user_id_)
-    if user_info and user_info.username then
-    new_text = new_text .. i .. " ┇ [@"..user_info.username.."] \n"
-    else 
-    new_text = new_text .. i .. " ┇ `"..v.user_id_.."` \n"
-    end
-    end
-    end
-    send(msg.chat_id_, msg.id_, 1, new_text, 1, 'TSHAKE')
-    end
-    getUser(msg.sender_user_id_, kekko)
-    end
-    bot.channel_get_admins(msg.chat_id_,cb)
-    end   
-    end
-    
-  __________________________________________
- 
-do
-local function pre_process(msg)
- local hash = 'muteall:'..msg.to.id
-  if redis:get(hash) and msg.to.type == 'channel' and not mod(msg)  then
-   delete_msg(msg.id, ok_cb, false)
-       end
-    return msg
- end 
-local function run(msg, matches)
- if matches[1] == 'muteall' or matches[1] == 'قفل المجموعه' and mod(msg) then
-       local hash = 'muteall:'..msg.to.id
-       if not matches[2] then
-              redis:set(hash, true)
-             return "تم ✅ قفل 🔒 المجموعه 👥"
- else 
-local hour = string.gsub(matches[2], 'h', '')
- local num1 = tonumber(hour) * 3600
-local minutes = string.gsub(matches[3], 'm', '')
- local num2 = tonumber(minutes) * 60
-local second = string.gsub(matches[4], 's', '')
- local num3 = tonumber(second) 
-local num4 = tonumber(num1 + num2 + num3)
-redis:setex(hash, num4, true)
- return "تم ✅ قفل 🔒 المجموعه 👥\n⏺ الساعات (s) : "..matches[2].."\n⏺ الدقايق (s) : "..matches[3].." \n⏺ الثواني (s) : "..matches[4]..""
- end
- end --@dev_kasper
-if matches[1] == 'unmuteall' or matches[1] == 'فتح المجموعه' and mod(msg) then
-               local hash = 'muteall:'..msg.to.id
-        redis:del(hash)
-          return "تم ✅ فتح 🔓 المجموعه 👥"
-  end
-end
-return {
-   patterns = {
-      '^[/!#](muteall)$',
-      '^[/!#](unmuteall)$',
-   '^[/!#](muteall) (.*) (.*) (.*)$',
-'^(قفل المجموعه)$',
-      '^(فتح المجموعه)$',
-   '^(قفل المجموعه) (.*) (.*) (.*)$',
- }, --@dev_kasper
-run = run,
-  pre_process = pre_process
-}
-end
-
-if text == ("صيح للادمنيه") then
-local list = database:smembers(bot_id..'Mod:User'..msg.chat_id_)
-t = "\n📮| ياادمنيه وينكم تعالو \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
-for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name" .. v)
-if username then
-t = t..""..k.."- {[@"..username.."]}\n"
-else
-t = t..""..k.."- {`"..v.."`}\n"
-end
-end
-if #list == 0 then
-t = "✖| لا يوجد ادمنيه"
-end
-send(msg.chat_id_, msg.id_, t)
-end
-__________________________
