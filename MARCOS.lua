@@ -3913,7 +3913,7 @@ t = "✖| لا يوجد ادمنيه"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("صيح للادمنيه") then
+if text == ("صيح للادمنيه") or text == ("تاك للادمنيه") or text == ("وين الادمنيه") then
 local list = database:smembers(bot_id..'Mod:User'..msg.chat_id_)
 t = "\n📮| وينكم ياادمنيه\n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
 for k,v in pairs(list) do
