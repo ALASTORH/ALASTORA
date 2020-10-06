@@ -3897,7 +3897,7 @@ if text == 'مسح الادمنيه' and Manager(msg) then
 database:del(bot_id..'Mod:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, '🗑|  تم مسح  قائمة الادمنية  ')
 end
-if text == ("الادمنيه") then
+if text == ("االادمنيه") then
 local list = database:smembers(bot_id..'Mod:User'..msg.chat_id_)
 t = "\n📮| قائمة الادمنيه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
 for k,v in pairs(list) do
@@ -3913,7 +3913,7 @@ t = "✖| لا يوجد ادمنيه"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("صيح للادمنيه") or text == ("تاك للادمنيه") or text == ("وين الادمنيه") then
+if text == ("صيح للادمنيه") or text == ("تاك للادمنيه") or text == ("وين الادمنيه") or text == ("كلم الادمنيه") or text == ("تعال ياادمن") then
 local list = database:smembers(bot_id..'Mod:User'..msg.chat_id_)
 t = "\n📮| وينكم ياادمنيه\n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
 for k,v in pairs(list) do
