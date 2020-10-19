@@ -153,7 +153,8 @@ io.popen("cd File_Bot && rm -rf games.lua.1")
 io.popen("cd File_Bot && rm -rf games.lua.2") 
 io.popen("cd File_Bot && rm -rf games.lua.3") 
 io.popen("cd File_Bot && wget https://raw.githubusercontent.com/ALASTORH/Files_ALASTORA/master/games.lua") 
-io.popen("cd File_Bot && wget https://raw.githubusercontent.com/ALASTORH/Files_ALASTORA/master/Reply.lua")
+io.popen("cd File_Bot && wget https://raw.githubusercontent.com/ALASTORH/Files_ALASTORA/master/Reply.lua") 
+io.popen("cd File_Bot && wget https://raw.githubusercontent.com/ALASTORH/Files_ALASTORA/master/hms.lua") 
 t = "\27[35m".."\nAll Files Started : \n____________________\n"..'\27[m'
 i = 0
 for v in io.popen('ls File_Bot'):lines() do
@@ -3896,7 +3897,7 @@ if text == 'مسح الادمنيه' and Manager(msg) then
 database:del(bot_id..'Mod:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, '🗑|  تم مسح  قائمة الادمنية  ')
 end
-if text == ("االادمنيه") then
+if text == ("الادمنيه") then
 local list = database:smembers(bot_id..'Mod:User'..msg.chat_id_)
 t = "\n📮| قائمة الادمنيه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
 for k,v in pairs(list) do
@@ -3912,9 +3913,9 @@ t = "✖| لا يوجد ادمنيه"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("صيح للادمنيه") or text == ("تاك للادمنيه") or text == ("وين الادمنيه") or text == ("كلم الادمنيه") or text == ("تعال ياادمن") then
+if text == ("تاك لادمنيه") then
 local list = database:smembers(bot_id..'Mod:User'..msg.chat_id_)
-t = "\n📮| وينكم ياادمنيه\n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
+t = "\n📮| قائمة الادمنيه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
