@@ -8207,7 +8207,7 @@ end
 end
 end
 -------------------------------
-if text == ""..(database:get(bot_id..'Name:Bot') or 'الاسطورة').."مغادره" or text == 'مغادره' or text == 'مغادرة' then  
+if text == ""..(database:get(bot_id..'Name:Bot') or 'الاسطورة').."مغاداره" or text == 'مغاندره' or text == 'مةنغادرة' then  
 if Sudo(msg) and not database:get(bot_id..'Left:Bot'..msg.chat_id_)  then 
 tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
 send(msg.chat_id_, msg.id_,'رح اشتاق لكم يلا معسلامه 😹😿') 
