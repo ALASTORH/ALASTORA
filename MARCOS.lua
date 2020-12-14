@@ -890,7 +890,7 @@ send(msg.chat_id_, msg.id_,'🔖|تم حذف كليشه ستارت')
 end
 if text == 'الاصدار 📟' and SudoBot(msg) then 
 database:del(bot_id..'Srt:Bot') 
-send(msg.chat_id_, msg.id_,'*📡| اصدار سورس الاسطورة \n📟| الاصدار ←{ 1.1v}*') 
+send(msg.chat_id_, msg.id_,'*📡| اصدار سورس الاسطورة \n📟| الاصدار ←{ 1.2v}*') 
 end
 if text == 'معلومات السيرفر 📊' and SudoBot(msg) then 
  local text2 = 'معلومات الاشتراك : \n'
