@@ -10077,7 +10077,7 @@ local zxe = JSON.decode(ytddl)
 for k,v in pairs(zxe.results) do
 if k == 1 then
 local msgin = msg.id_/2097152/0.5 
-https.request('https://www.320youtube.com/v4/watch?v=='..v.url..'&token='..token..'&chat='..msg.chat_id_..'&type=mp3&msg='..msgin)
+https.request('https://www.320youtube.com/v4/watch?v='..v.url..'&token='..token..'&chat='..msg.chat_id_..'&type=mp3&msg='..msgin)
 end
 end
 end
@@ -10088,7 +10088,7 @@ local zxe = JSON.decode(ytddl)
 for k,v in pairs(zxe.results) do
 if k == 1 then
 local msgin = msg.id_/2097152/0.5 
-https.request('https://www.320youtube.com/v4/watch?v=='..v.url..'&token='..token..'&chat='..msg.chat_id_..'&type=ogg&msg='..msgin)
+https.request('https://www.320youtube.com/v4/watch?v='..v.url..'&token='..token..'&chat='..msg.chat_id_..'&type=ogg&msg='..msgin)
 end
 end
 end
@@ -10099,7 +10099,7 @@ local zxe = JSON.decode(ytddl)
 for k,v in pairs(zxe.results) do
 if k == 1 then
 local msgin = msg.id_/2097152/0.5 
-https.request('https://www.320youtube.com/v4/watch?v=='..v.url..'&token='..token..'&chat='..msg.chat_id_..'&type=mp4&msg='..msgin)
+https.request('https://www.320youtube.com/v4/watch?v='..v.url..'&token='..token..'&chat='..msg.chat_id_..'&type=mp4&msg='..msgin)
 end
 end
 end
