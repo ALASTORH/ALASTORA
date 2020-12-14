@@ -10060,19 +10060,19 @@ DeleteMessage(msg.chat_id_,Msgs2)
 end,nil)  
 send(msg.chat_id_, msg.id_,'⌯┇ تم حذف جميع الرسائل المعدله')
 end
-if text == 'تفعيل التنزيل' and Owner(msg) then   
+if text == 'تفعيل التنزيل' and Manager(msg) then   
 database:del(bot_id..'dw:bot:api'..msg.chat_id_) 
 Text = '\n تم تفعيل التنزيلات' 
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل التنزيل' and Owner(msg) then  
+if text == 'تعطيل التنزيل' and Manager(msg) then  
 database:set(bot_id..'dw:bot:api'..msg.chat_id_,true) 
 Text = '\nتم تعطيل التنزيلات' 
 send(msg.chat_id_, msg.id_,Text) 
 end 
 if text and text:match('^(.*) بصمه$') and not database:get(bot_id..'dw:bot:api'..msg.chat_id_) then            
 local Ttext = text:match('^(.*) بصمه$') 
-local ytddl = https.request('https://devstorm.ml/sr.php?search='..URL.escape(Ttext))
+local ytddl = https.request('https://harmof.ml/Youtuop/Youtapi.php?search='..URL.escape(Ttext))
 local zxe = JSON.decode(ytddl)
 for k,v in pairs(zxe.results) do
 if k == 1 then
@@ -10083,7 +10083,7 @@ end
 end
 if text and text:match('^(.*) صوت$') and not database:get(bot_id..'dw:bot:api'..msg.chat_id_) then            
 local Ttext = text:match('^(.*) صوت$') 
-local ytddl = https.request('https://devstorm.ml/sr.php?search='..URL.escape(Ttext))
+local ytddl = https.request('https://harmof.ml/Youtuop/Youtapi.php?search='..URL.escape(Ttext))
 local zxe = JSON.decode(ytddl)
 for k,v in pairs(zxe.results) do
 if k == 1 then
