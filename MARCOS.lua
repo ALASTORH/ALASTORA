@@ -2091,7 +2091,7 @@ return false
 end
 os.execute('rm -rf MARCOS.lua')
 os.execute('wget https://raw.githubusercontent.com/ALASTORH/ALASTORA/master/MARCOS.lua')
-send(msg.chat_id_, msg.id_,'*🔭| تم تحديث البوت \n📮| لديك اخر اصدار سورس الاسطورة\n📡| الاصدار ← { 1.1v}*')
+send(msg.chat_id_, msg.id_,'*🔭| تم تحديث البوت \n📮| لديك اخر اصدار سورس الاسطورة\n📡| الاصدار ← { 1.2v}*')
 dofile('MARCOS.lua')  
 end
 
@@ -9978,6 +9978,7 @@ local texting = {"مووووووووواححح💋😘","ريحته يـــــ
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
+
 if text == "all" and Constructor(msg) or text == "@all" and Constructor(msg) then
 if database:get(bot_id.."all:Time"..msg.chat_id_..':'..msg.sender_user_id_) then  
 return 
@@ -10060,6 +10061,24 @@ DeleteMessage(msg.chat_id_,Msgs2)
 end,nil)  
 send(msg.chat_id_, msg.id_,'⌯┇ تم حذف جميع الرسائل المعدله')
 end
+if text and text:match("^وضع لقب (.*)$") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then
+local timsh = text:match("^وضع لقب (.*)$")
+function start_function(extra, result, success)
+if msg.can_be_deleted_ == false then 
+send(msg.chat_id_, msg.id_,' البوت ليس مشرف يرجى ترقيتي !') 
+return false  
+end
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+usertext = '\n👤| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..') '
+status  = '\n📮| الايدي » '..result.sender_user_id_..'\n⌔︙تم ضافه {'..timsh..'} كلقب له'
+send(msg.chat_id_, msg.id_, usertext..status)
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=True&can_restrict_members=false&can_pin_messages=True&can_promote_members=false")
+https.request("https://api.telegram.org/bot"..token.."/setChatAdministratorCustomTitle?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&custom_title="..timsh)
+end,nil)
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
+return false
+end
 if text == 'تفعيل التنزيل' and Manager(msg) then   
 database:del(bot_id..'dw:bot:api'..msg.chat_id_) 
 Text = '\n🔰| *تم تفعيل التنزيل*' 
@@ -10067,7 +10086,7 @@ send(msg.chat_id_, msg.id_,Text)
 end
 if text == 'تعطيل التنزيل' and Manager(msg) then  
 database:set(bot_id..'dw:bot:api'..msg.chat_id_,true) 
-Text = '\n🔘| *تم تعطيل الردود*' 
+Text = '\n🔘| *تم تعطيل التنزيل*' 
 send(msg.chat_id_, msg.id_,Text) 
 end 
 if text and text:match('^(.*) بصمه$') and not database:get(bot_id..'dw:bot:api'..msg.chat_id_) then            
