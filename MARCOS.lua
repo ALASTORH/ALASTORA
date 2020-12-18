@@ -10063,14 +10063,14 @@ end
 end
 DeleteMessage(msg.chat_id_,Msgs2)
 end,nil)  
-send(msg.chat_id_, msg.id_,'✓| تم حذف جميع الرسائل المعدله')
+send(msg.chat_id_, msg.id_,'*✓| تم حذف جميع الرسائل المعدله*')
 end
 if text == "تعطيل الابراج" and Manager(msg) then
-send(msg.chat_id_, msg.id_, '✓| اهلا عزيزي تم تعطيل الابراج')
+send(msg.chat_id_, msg.id_, '*✓| اهلا عزيزي تم تعطيل الابراج*')
 database:set(bot_id.."ASTORHBOTS:brj_Bots"..msg.chat_id_,"close")
 end
 if text == "تفعيل الابراج" and Manager(msg) then
-send(msg.chat_id_, msg.id_,'✓| اهلا عزيزي تم تفعيل الابراج')
+send(msg.chat_id_, msg.id_,'*✓| اهلا عزيزي تم تفعيل الابراج*')
 database:set(bot_id.."ASTORHBOTS:brj_Bots"..msg.chat_id_,"open")
 end
 if text and text:match("^برج (.*)$") and database:get(bot_id.."ASTORHBOTS:brj_Bots"..msg.chat_id_) == "open" then
@@ -10080,11 +10080,11 @@ br = JSON.decode(gk)
 send(msg.chat_id_, msg.id_, br.ok.hso)
 end
 if text == "تعطيل حساب العمر" and Manager(msg) then
-send(msg.chat_id_, msg.id_, '✓| اهلا عزيزي تم تعطيل حساب العمر')
+send(msg.chat_id_, msg.id_, '*✓| اهلا عزيزي تم تعطيل حساب العمر*')
 database:set(bot_id.."ASTORHBOTS:age_Bots"..msg.chat_id_,"close")
 end
 if text == "تفعيل حساب العمر" and Manager(msg) then
-send(msg.chat_id_, msg.id_,'✓| اهلا عزيزي تم تفعيل حساب العمر')
+send(msg.chat_id_, msg.id_,'*✓| اهلا عزيزي تم تفعيل حساب العمر*')
 database:set(bot_id.."ASTORHBOTS:age_Bots"..msg.chat_id_,"open")
 end
 if text and text:match("^احسب (.*)$") and database:get(bot_id.."ASTORHBOTS:age_Bots"..msg.chat_id_) == "open" then
@@ -10094,14 +10094,14 @@ ag = JSON.decode(ge)
 send(msg.chat_id_, msg.id_, ag.ok.hso)
 end
 if text == "تعطيل الزخرفه" and Manager(msg) then
-send(msg.chat_id_, msg.id_, '✓| اهلا عزيزي تم تعطيل الزخرفه')
-database:set(bot_id.."BLACKBOTSS:zhrf_Bots"..msg.chat_id_,"close")
+send(msg.chat_id_, msg.id_, '*✓| اهلا عزيزي تم تعطيل الزخرفه*')
+database:set(bot_id.."ASTORHBOTS:zhrf_Bots"..msg.chat_id_,"close")
 end
 if text == "تفعيل الزخرفه" and Manager(msg) then
-send(msg.chat_id_, msg.id_,'✓|اهلا عزيزي تم تفعيل الزخرفه')
-database:set(bot_id.."BLACKBOTSS:zhrf_Bots"..msg.chat_id_,"open")
+send(msg.chat_id_, msg.id_,'*✓| اهلا عزيزي تم تفعيل الزخرفه*')
+database:set(bot_id.."ASTORHBOTS:zhrf_Bots"..msg.chat_id_,"open")
 end
-if text and text:match("^زخرفه (.*)$") and database:get(bot_id.."BLACKBOTSS:zhrf_Bots"..msg.chat_id_) == "open" then
+if text and text:match("^زخرفه (.*)$") and database:get(bot_id.."ASTORHBOTS:zhrf_Bots"..msg.chat_id_) == "open" then
 local TextZhrfa = text:match("^زخرفه (.*)$")
 zh = https.request('https://forhassan.ml/Black/hso.php?en='..URL.escape(TextZhrfa)..'')
 zx = JSON.decode(zh)
@@ -10112,6 +10112,52 @@ i = i + 1
 t = t..i.."-  `"..v.."` \n"
 end
 send(msg.chat_id_, msg.id_, t..'┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n⚡︙اضغط على الاسم ليتم نسخه')
+end
+if text == "تعطيل الانستا" and Manager(msg) then
+send(msg.chat_id_, msg.id_, '⌯ تم تعطيل الانستا')
+database:set(bot_id.."ASTORHBOTS:insta_bot"..msg.chat_id_,"close")
+end
+if text == "تفعيل الانستا" and Manager(msg) then
+send(msg.chat_id_, msg.id_,'⌯ تم تفعيل الانستا')
+database:set(bot_id.."ASTORHBOTS:insta_bot"..msg.chat_id_,"open")
+end
+if text and text:match("^معلومات (.*)$") and database:get(bot_id.."ASTORHBOTS:insta_bot"..msg.chat_id_) == "open" then
+local Textni = text:match("^معلومات (.*)$")
+data,res = https.request('https://forhassan.ml/Black/insta.php?username='..URL.escape(Textni)..'')
+if res == 200 then
+muaed = json:decode(data)
+if muaed.Info == true then
+local filee = download_to_file(muaed.ph,msg.sender_user_id_..'.jpg')
+sendPhoto(msg.chat_id_, msg.id_,'./'..msg.sender_user_id_..'.jpg',muaed.info)     
+os.execute('rm -rf ./'..msg.sender_user_id_..'.jpg') 
+end
+end
+end
+if text == "تعطيل الافلام" and Manager(msg) then
+send(msg.chat_id_, msg.id_, '⌯ تم تعطيل الافلام')
+database:set(bot_id.."ASTORHBOTS:movie_bot"..msg.chat_id_,"close")
+end
+if text == "تفعيل الافلام" and Manager(msg) then
+send(msg.chat_id_, msg.id_,'⌯ تم تفعيل الافلام')
+database:set(bot_id.."ASTORHBOTS:movie_bot"..msg.chat_id_,"open")
+end
+
+if text and text:match("^فلم (.*)$") and database:get(bot_id.."ASTORHBOTS:movie_bot"..msg.chat_id_) == "open" then
+local Textm = text:match("^فلم (.*)$")
+data,res = https.request('https://forhassan.ml/Black/movie.php?serch='..URL.escape(Textm)..'')
+if res == 200 then
+getmo = json:decode(data)
+if getmo.Info == true then
+local Text ='قصه الفلم'..getmo.info
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'مشاهده الفلم بجوده 240',url=getmo.sd}},
+{{text = 'مشاهده الفلم بجوده 480', url=getmo.Web},{text = 'مشاهده الفلم بجوده 1080', url=getmo.hd}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
 end
 if text and text:match("^وضع لقب (.*)$") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then
 local timsh = text:match("^وضع لقب (.*)$")
