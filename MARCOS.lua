@@ -10062,13 +10062,13 @@ DeleteMessage(msg.chat_id_,Msgs2)
 end,nil)  
 send(msg.chat_id_, msg.id_,'⌯┇ تم حذف جميع الرسائل المعدله')
 end
-if text and text:match("^رفع القيود @(.*)") and SudoBot(msg) then 
+if text and text:match("^رفع القيود @(.*)") and Mod(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⌔︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌔︙قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'�| عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌔︙قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -10079,29 +10079,29 @@ if DevASTORHBOTS(msg) then
 database:srem(bot_id..'GBan:User',result.id_)
 database:srem(bot_id..'Ban:User'..msg.chat_id_,result.id_)
 database:srem(bot_id..'Muted:User'..msg.chat_id_,result.id_)
-usertext = "\n⌔︙ العضو » ["..result.title_.."](t.me/"..(username or "kenwa")..")"
-status  = "\n⌔︙ تم الغاء القيود عنه"
+usertext = "\n👤| العضو » ["..result.title_.."](t.me/"..(username or "kenwa")..")"
+status  = "*\n✓| تم الغاء القيود عنه*"
 texts = usertext..status
 send(msg.chat_id_, msg.id_,texts)
 else
 database:srem(bot_id..'Ban:User'..msg.chat_id_,result.id_)
 database:srem(bot_id..'Muted:User'..msg.chat_id_,result.id_)
-Reply_Status(msg,result.id_,"reply","\n⌔︙ تم الغاء القيود عنه")  
+Reply_Status(msg,result.id_,"reply","*\n✓|تم الغاء القيود عنه*")  
 end
 else
-Text = "⌔︙ المعرف غلط"
+Text = "🚫| المعرف غلط"
 send(msg.chat_id_, msg.id_,Text)
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_ASTORHBOTS, nil)
 end
-if text == "رفع القيود" and SudoBot(msg) then
+if text == "رفع القيود" and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⌔︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌔︙قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'⚠| عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌔︙قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -10115,21 +10115,21 @@ else
 database:srem(bot_id..'Ban:User'..msg.chat_id_,result.sender_user_id_)
 database:srem(bot_id..'Muted:User'..msg.chat_id_,result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = "\n⌔︙ العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "kenwa")..")"
-status  = "\n⌔︙ تم الغاء القيود عنه"
+usertext = "\n👤| العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "kenwa")..")"
+status  = "*\n✓| تم الغاء القيود عنه*"
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_ASTORHBOTS, nil)
 end
-if text and text:match("^كشف القيود @(.*)") and SudoBot(msg) then 
+if text and text:match("^كشف القيود @(.*)") and Mod(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⌔︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌔︙قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' | عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌔︙قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -10151,15 +10151,15 @@ GBan = "محظور عام"
 else
 GBan = "غير محظور عام"
 end
-send(msg.chat_id_, msg.id_,"⌔︙ الحظر العام » "..GBan.."\n⌔︙ الحظر » "..Ban.."\n⌔︙ الكتم » "..Muted)
+send(msg.chat_id_, msg.id_,"⚠️| الحظر العام » "..GBan.."\n⚠️| الحظر » "..Ban.."\n⚠️| الكتم » "..Muted)
 else
-send(msg.chat_id_, msg.id_,"⌔︙ المعرف غلط")
+send(msg.chat_id_, msg.id_,"🚫| المعرف غلط")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_ASTORHBOTS, nil)
 end
 
-if text == "كشف القيود" and SudoBot(msg) then 
+if text == "كشف القيود" and Mod(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -10185,7 +10185,7 @@ GBan = "محظور عام"
 else
 GBan = "غير محظور عام"
 end
-Textt = "⌔︙ الحظر العام » "..GBan.."\n⌔︙ الحظر » "..Ban.."\n⌔︙ الكتم » "..Muted..""
+Textt = "⚠️| الحظر العام » "..GBan.."\n⚠️| الحظر » "..Ban.."\n⚠️| الكتم » "..Muted..""
 send(msg.chat_id_, msg.id_,Textt)
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_ASTORHBOTS, nil)
