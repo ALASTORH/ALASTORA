@@ -10062,133 +10062,33 @@ DeleteMessage(msg.chat_id_,Msgs2)
 end,nil)  
 send(msg.chat_id_, msg.id_,'⌯┇ تم حذف جميع الرسائل المعدله')
 end
-if text and text:match("^رفع القيود @(.*)") and Mod(msg) then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'�| عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌔︙قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+if text == "تعطيل الابراج" and mod(msg) then
+send(msg.chat_id_, msg.id_, '⌯ تم تعطيل الابراج')
+database:set(bot_id.."ASTORHBOTS:brj_Bots"..msg.chat_id_,"close")
 end
-return false
+if text == "تفعيل الابراج" and Mod(msg) then
+send(msg.chat_id_, msg.id_,'⌯ تم تفعيل الابراج')
+database:set(bot_id.."ASTORHBOTS:brj_Bots"..msg.chat_id_,"open")
 end
-local username = text:match("^رفع القيود @(.*)") 
-function Function_ASTORHBOTS(extra, result, success)
-if result.id_ then
-if DevASTORHBOTS(msg) then
-database:srem(bot_id..'GBan:User',result.id_)
-database:srem(bot_id..'Ban:User'..msg.chat_id_,result.id_)
-database:srem(bot_id..'Muted:User'..msg.chat_id_,result.id_)
-usertext = "\n👤| العضو » ["..result.title_.."](t.me/"..(username or "kenwa")..")"
-status  = "*\n✓| تم الغاء القيود عنه*"
-texts = usertext..status
-send(msg.chat_id_, msg.id_,texts)
-else
-database:srem(bot_id..'Ban:User'..msg.chat_id_,result.id_)
-database:srem(bot_id..'Muted:User'..msg.chat_id_,result.id_)
-Reply_Status(msg,result.id_,"reply","*\n✓|تم الغاء القيود عنه*")  
+if text and text:match("^برج (.*)$") and database:get(bot_id.."ASTORHBOTS:brj_Bots"..msg.chat_id_) == "open" then
+local Textbrj = text:match("^برج (.*)$")
+gk = https.request('https://forhassan.ml/Black/br.php?br='..URL.escape(Textbrj)..'')
+br = JSON.decode(gk)
+send(msg.chat_id_, msg.id_, br.ok.hso)
 end
-else
-Text = "🚫| المعرف غلط"
-send(msg.chat_id_, msg.id_,Text)
+if text == "تعطيل حساب العمر" and Mod(msg) then
+send(msg.chat_id_, msg.id_, '⌯ تم تعطيل حساب العمر')
+database:set(bot_id.."ASTORHBOTS:age_Bots"..msg.chat_id_,"close")
 end
+if text == "تفعيل حساب العمر" and Mod(msg) then
+send(msg.chat_id_, msg.id_,'⌯ تم تفعيل حساب العمر')
+database:set(bot_id.."ASTORHBOTS:age_Bots"..msg.chat_id_,"open")
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_ASTORHBOTS, nil)
-end
-if text == "رفع القيود" and Mod(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'⚠| عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌔︙قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-function Function_ASTORHBOTS(extra, result, success)
-if DevASTORHBOTS(msg) then
-database:srem(bot_id..'GBan:User',result.sender_user_id_)
-database:srem(bot_id..'Ban:User'..msg.chat_id_,result.sender_user_id_)
-database:srem(bot_id..'Muted:User'..msg.chat_id_,result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","\n⌔︙ تم الغاء القيود عنه")  
-else
-database:srem(bot_id..'Ban:User'..msg.chat_id_,result.sender_user_id_)
-database:srem(bot_id..'Muted:User'..msg.chat_id_,result.sender_user_id_)
-tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = "\n👤| العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "kenwa")..")"
-status  = "*\n✓| تم الغاء القيود عنه*"
-send(msg.chat_id_, msg.id_, usertext..status)
-end,nil)
-end
-end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_ASTORHBOTS, nil)
-end
-if text and text:match("^كشف القيود @(.*)") and Mod(msg) then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' | عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌔︙قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-local username = text:match("^كشف القيود @(.*)") 
-function Function_ASTORHBOTS(extra, result, success)
-if result.id_ then
-if database:sismember(bot_id..'Muted:User'..msg.chat_id_,result.id_) then
-Muted = "مكتوم"
-else
-Muted = "غير مكتوم"
-end
-if database:sismember(bot_id..'Ban:User'..msg.chat_id_,result.id_) then
-Ban = "محظور"
-else
-Ban = "غير محظور"
-end
-if database:sismember(bot_id..'GBan:User',result.id_) then
-GBan = "محظور عام"
-else
-GBan = "غير محظور عام"
-end
-send(msg.chat_id_, msg.id_,"⚠️| الحظر العام » "..GBan.."\n⚠️| الحظر » "..Ban.."\n⚠️| الكتم » "..Muted)
-else
-send(msg.chat_id_, msg.id_,"🚫| المعرف غلط")
-end
-end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_ASTORHBOTS, nil)
-end
-
-if text == "كشف القيود" and Mod(msg) then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'⌔︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌔︙قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-function Function_ASTORHBOTS(extra, result, success)
-if database:sismember(bot_id..'Muted:User'..msg.chat_id_,result.sender_user_id_) then
-Muted = "مكتوم"
-else
-Muted = "غير مكتوم"
-end
-if database:sismember(bot_id..'Ban:User'..msg.chat_id_,result.sender_user_id_) then
-Ban = "محظور"
-else
-Ban = "غير محظور"
-end
-if database:sismember(bot_id..'GBan:User',result.sender_user_id_) then
-GBan = "محظور عام"
-else
-GBan = "غير محظور عام"
-end
-Textt = "⚠️| الحظر العام » "..GBan.."\n⚠️| الحظر » "..Ban.."\n⚠️| الكتم » "..Muted..""
-send(msg.chat_id_, msg.id_,Textt)
-end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_ASTORHBOTS, nil)
+if text and text:match("^احسب (.*)$") and database:get(bot_id.."ASTORHBOTS:age_Bots"..msg.chat_id_) == "open" then
+local Textage = text:match("^احسب (.*)$")
+ge = https.request('https://forhassan.ml/Black/age.php?age='..URL.escape(Textage)..'')
+ag = JSON.decode(ge)
+send(msg.chat_id_, msg.id_, ag.ok.hso)
 end
 if text and text:match("^وضع لقب (.*)$") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then
 local timsh = text:match("^وضع لقب (.*)$")
