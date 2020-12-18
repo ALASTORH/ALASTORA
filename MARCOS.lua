@@ -9312,6 +9312,9 @@ Text = [[
 🔴| كتم/الغاء كتم
 🔴| المكتومين
 🔴| تعطيل + تفعيل الردود
+🔴| تعطيل + تفعيل الابراج
+🔴| تعطيل + تفعيل حساب العمر
+🔴| تعطيل + تفعيل الزخرفه
 🔴| تقيد + الرقم + سَـاعه
 🔴| تقيد + الرقم + يوم
 🔴| تقيد + الرقم + دقيقه
@@ -9983,7 +9986,7 @@ end
 if text == "all" and Constructor(msg) or text == "@all" and Constructor(msg) then
 if database:get(bot_id.."all:Time"..msg.chat_id_..':'..msg.sender_user_id_) then  
 return 
-send(msg.chat_id_, msg.id_,"⌯┇انتظر 5 دقائق لعمل تاك مرة اخرى 🌚💗")
+send(msg.chat_id_, msg.id_,"⚠|انتظر 5 دقائق لعمل تاك مرة اخرى 🌚💗")
 end
 database:setex(bot_id..'all:Time'..msg.chat_id_..':'..msg.sender_user_id_,300,true)
 tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub('-100','')},function(argg,dataa) 
@@ -10019,13 +10022,13 @@ local list = database:smembers(bot_id.."allM"..msg.chat_id_)
 for k,v in pairs(list) do
 local Message = v
 if Message then
-t = "⌯┇ تم مسح "..k.." من الوسائط الموجوده"
+t = "✓| تم مسح "..k.." من الوسائط الموجوده"
 DeleteMessage(msg.chat_id_,{[0]=Message})
 database:del(bot_id.."allM"..msg.chat_id_)
 end
 end
 if #list == 0 then
-t = "⌯┇ لا يوجد ميديا في المجموعه"
+t = "✓| لا يوجد ميديا في المجموعه"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -10034,11 +10037,11 @@ local num = database:smembers(bot_id.."allM"..msg.chat_id_)
 for k,v in pairs(num) do
 local numl = v
 if numl then
-l = "⌯┇ عدد الميديا الموجود هو "..k
+l = "✓| عدد الميديا الموجود هو "..k
 end
 end
 if #num == 0 then
-l = "⌯┇ لا يوجد ميديا في المجموعه"
+l = "✓| لا يوجد ميديا في المجموعه"
 end
 send(msg.chat_id_, msg.id_, l)
 end
@@ -10060,14 +10063,14 @@ end
 end
 DeleteMessage(msg.chat_id_,Msgs2)
 end,nil)  
-send(msg.chat_id_, msg.id_,'⌯┇ تم حذف جميع الرسائل المعدله')
+send(msg.chat_id_, msg.id_,'✓| تم حذف جميع الرسائل المعدله')
 end
-if text == "تعطيل الابراج" and mod(msg) then
-send(msg.chat_id_, msg.id_, '⌯ تم تعطيل الابراج')
+if text == "تعطيل الابراج" and Manager(msg) then
+send(msg.chat_id_, msg.id_, '✓| اهلا عزيزي تم تعطيل الابراج')
 database:set(bot_id.."ASTORHBOTS:brj_Bots"..msg.chat_id_,"close")
 end
-if text == "تفعيل الابراج" and Mod(msg) then
-send(msg.chat_id_, msg.id_,'⌯ تم تفعيل الابراج')
+if text == "تفعيل الابراج" and Manager(msg) then
+send(msg.chat_id_, msg.id_,'✓| اهلا عزيزي تم تفعيل الابراج')
 database:set(bot_id.."ASTORHBOTS:brj_Bots"..msg.chat_id_,"open")
 end
 if text and text:match("^برج (.*)$") and database:get(bot_id.."ASTORHBOTS:brj_Bots"..msg.chat_id_) == "open" then
@@ -10076,12 +10079,12 @@ gk = https.request('https://forhassan.ml/Black/br.php?br='..URL.escape(Textbrj).
 br = JSON.decode(gk)
 send(msg.chat_id_, msg.id_, br.ok.hso)
 end
-if text == "تعطيل حساب العمر" and Mod(msg) then
-send(msg.chat_id_, msg.id_, '⌯ تم تعطيل حساب العمر')
+if text == "تعطيل حساب العمر" and Manager(msg) then
+send(msg.chat_id_, msg.id_, '✓| اهلا عزيزي تم تعطيل حساب العمر')
 database:set(bot_id.."ASTORHBOTS:age_Bots"..msg.chat_id_,"close")
 end
-if text == "تفعيل حساب العمر" and Mod(msg) then
-send(msg.chat_id_, msg.id_,'⌯ تم تفعيل حساب العمر')
+if text == "تفعيل حساب العمر" and Manager(msg) then
+send(msg.chat_id_, msg.id_,'✓| اهلا عزيزي تم تفعيل حساب العمر')
 database:set(bot_id.."ASTORHBOTS:age_Bots"..msg.chat_id_,"open")
 end
 if text and text:match("^احسب (.*)$") and database:get(bot_id.."ASTORHBOTS:age_Bots"..msg.chat_id_) == "open" then
@@ -10089,6 +10092,26 @@ local Textage = text:match("^احسب (.*)$")
 ge = https.request('https://forhassan.ml/Black/age.php?age='..URL.escape(Textage)..'')
 ag = JSON.decode(ge)
 send(msg.chat_id_, msg.id_, ag.ok.hso)
+end
+if text == "تعطيل الزخرفه" and Manager(msg) then
+send(msg.chat_id_, msg.id_, '✓| اهلا عزيزي تم تعطيل الزخرفه')
+database:set(bot_id.."BLACKBOTSS:zhrf_Bots"..msg.chat_id_,"close")
+end
+if text == "تفعيل الزخرفه" and Manager(msg) then
+send(msg.chat_id_, msg.id_,'✓|اهلا عزيزي تم تفعيل الزخرفه')
+database:set(bot_id.."BLACKBOTSS:zhrf_Bots"..msg.chat_id_,"open")
+end
+if text and text:match("^زخرفه (.*)$") and database:get(bot_id.."BLACKBOTSS:zhrf_Bots"..msg.chat_id_) == "open" then
+local TextZhrfa = text:match("^زخرفه (.*)$")
+zh = https.request('https://forhassan.ml/Black/hso.php?en='..URL.escape(TextZhrfa)..'')
+zx = JSON.decode(zh)
+t = "\n⚡︙قائمه الزخرفه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+i = 0
+for k,v in pairs(zx.ok) do
+i = i + 1
+t = t..i.."-  `"..v.."` \n"
+end
+send(msg.chat_id_, msg.id_, t..'┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n⚡︙اضغط على الاسم ليتم نسخه')
 end
 if text and text:match("^وضع لقب (.*)$") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then
 local timsh = text:match("^وضع لقب (.*)$")
