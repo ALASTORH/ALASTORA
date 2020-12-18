@@ -9454,6 +9454,7 @@ Text = [[
 🔺| مسح الميديا
 🔺| مسح التعديل
 🔺| رفع الادمنيه
+👨‍✈️| وضع لـقـب + اللقب
 🔴| رفع ادمن بالقروب
 🔴| تنزيل ادمن بالقروب
 🔴| رفع ادمن بكل الصلاحيات
@@ -10070,7 +10071,7 @@ return false
 end
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n👤| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..') '
-status  = '\n📮| الايدي » '..result.sender_user_id_..'\n⌔︙تم ضافه {'..timsh..'} كلقب له'
+status  = '\n📮| الايدي » '..result.sender_user_id_..'*\n✅ | تم اضافـة {'..timsh..'} كلقب له*'
 send(msg.chat_id_, msg.id_, usertext..status)
 https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=True&can_restrict_members=false&can_pin_messages=True&can_promote_members=false")
 https.request("https://api.telegram.org/bot"..token.."/setChatAdministratorCustomTitle?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&custom_title="..timsh)
