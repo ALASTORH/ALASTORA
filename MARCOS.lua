@@ -6876,7 +6876,7 @@ database:del(bot_id..'Get:Welcome:Group'..msg.chat_id_)
 send(msg.chat_id_, msg.id_,'💠| تم ازالة ترحيب المجموعه') 
 end
 
-if text == "مسح قائمه المنع" and Mod(msg) then   
+if text == "مسح قائمهه المنع" and Mod(msg) then   
 local list = database:smembers(bot_id.."List:Filter"..msg.chat_id_)  
 for k,v in pairs(list) do  
 database:del(bot_id.."Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
@@ -6885,7 +6885,7 @@ database:srem(bot_id.."List:Filter"..msg.chat_id_,v)
 end  
 send(msg.chat_id_, msg.id_,"🖇️| تم مسح قائمه المنع")  
 end
-if text == "قائمه المنع" and Mod(msg) then   
+if text == "قائمه الامنع" and Mod(msg) then   
 local list = database:smembers(bot_id.."List:Filter"..msg.chat_id_)  
 t = "\n🔘| قائمة المنع \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
 for k,v in pairs(list) do  
@@ -6897,7 +6897,7 @@ t = "⚠️|لا يوجد كلمات ممنوعه"
 end  
 send(msg.chat_id_, msg.id_,t)  
 end  
-if text and text == 'منع' and msg.reply_to_message_id_ == 0 and Mod(msg) then       
+if text and text == 'منعع' and msg.reply_to_message_id_ == 0 and Mod(msg) then       
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -6933,7 +6933,7 @@ database:del(bot_id.."filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_)
 return false  end  
 end
 
-if text == 'الغاء منع' and msg.reply_to_message_id_ == 0 and Mod(msg) then    
+if text == 'الغااء منع' and msg.reply_to_message_id_ == 0 and Mod(msg) then    
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -6956,7 +6956,7 @@ database:srem(bot_id.."List:Filter"..msg.chat_id_,text)
 return false  end  
 end
 end
-if text == 'منع' and tonumber(msg.reply_to_message_id_) > 0 and Manager(msg) then     
+if text == 'منعع' and tonumber(msg.reply_to_message_id_) > 0 and Manager(msg) then     
 function cb(a,b,c) 
 textt = '📮| تم منع '
 if b.content_.sticker_ then
@@ -6983,7 +6983,7 @@ end
 end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, cb, nil)
 end
-if text == 'الغاء منع' and tonumber(msg.reply_to_message_id_) > 0 and Manager(msg) then     
+if text == 'الاغاء منع' and tonumber(msg.reply_to_message_id_) > 0 and Manager(msg) then     
 function cb(a,b,c) 
 textt = '📮| تم الغاء منع '
 if b.content_.sticker_ then
@@ -10382,6 +10382,96 @@ t = "⌔︙لا يوجد منظفين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
+if text == "مسح قائمه المنع" and Addictive(msg) then   
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⌔︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌔︙قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+local list = database:smembers(bot_id.."ASTORHBOTS:List:Filter"..msg.chat_id_)  
+for k,v in pairs(list) do  
+database:del(bot_id.."ASTORHBOTS:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+database:del(bot_id.."ASTORHBOTS:Add:Filter:Rp2"..v..msg.chat_id_)  
+database:srem(bot_id.."ASTORHBOTS:List:Filter"..msg.chat_id_,v)  
+end  
+send(msg.chat_id_, msg.id_,"⌔︙تم مسح قائمه المنع")  
+end
+
+if text == "قائمه المنع" and Addictive(msg) then  
+ if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⌔︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌔︙قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+local list = database:smembers(bot_id.."ASTORHBOTS:List:Filter"..msg.chat_id_)  
+t = "\n⌔︙قائمة المنع \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+for k,v in pairs(list) do  
+local ASTORHBOTS_Msg = database:get(bot_id.."ASTORHBOTS:Add:Filter:Rp2"..v..msg.chat_id_)   
+t = t..""..k.."- "..v.." » {"..ASTORHBOTS_Msg.."}\n"    
+end  
+if #list == 0 then  
+t = "⌔︙لا يوجد كلمات ممنوعه"  
+end  
+send(msg.chat_id_, msg.id_,t)  
+end  
+if text and text == "منع" and msg.reply_to_message_id_ == 0 and Addictive(msg) then       
+send(msg.chat_id_, msg.id_,"⌔︙ارسل الكلمه لمنعها")  
+database:set(bot_id.."ASTORHBOTS:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"rep")  
+return false  
+end    
+if text then   
+local tsssst = database:get(bot_id.."ASTORHBOTS:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+if tsssst == "rep" then   
+send(msg.chat_id_, msg.id_,"⌔︙ارسل التحذير عند ارسال الكلمه")  
+database:set(bot_id.."ASTORHBOTS:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"repp")  
+database:set(bot_id.."ASTORHBOTS:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_, text)  
+database:sadd(bot_id.."ASTORHBOTS:List:Filter"..msg.chat_id_,text)  
+return false  end  
+end
+if text then  
+local test = database:get(bot_id.."ASTORHBOTS:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+if test == "repp" then  
+send(msg.chat_id_, msg.id_,"⌔︙تم منع الكلمه مع التحذير")  
+database:del(bot_id.."ASTORHBOTS:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+local test = database:get(bot_id.."ASTORHBOTS:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_)  
+if text then   
+database:set(bot_id.."ASTORHBOTS:Add:Filter:Rp2"..test..msg.chat_id_, text)  
+end  
+database:del(bot_id.."ASTORHBOTS:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_)  
+return false  end  
+end
+
+if text == "الغاء منع" and msg.reply_to_message_id_ == 0 and Addictive(msg) then    
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⌔︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌔︙قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+send(msg.chat_id_, msg.id_,"⌔︙ارسل الكلمه الان")  
+database:set(bot_id.."ASTORHBOTS:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"reppp")  
+return false  end
+if text then 
+local test = database:get(bot_id.."ASTORHBOTS:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+if test and test == "reppp" then   
+send(msg.chat_id_, msg.id_,"⌔︙تم الغاء منعها ")  
+database:del(bot_id.."ASTORHBOTS:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+database:del(bot_id.."ASTORHBOTS:Add:Filter:Rp2"..text..msg.chat_id_)  
+database:srem(bot_id.."ASTORHBOTS:List:Filter"..msg.chat_id_,text)  
+return false  end  
+end
+
 if text == 'تفعيل الردود' and Manager(msg) then   
 database:del(bot_id..'lock:reply'..msg.chat_id_)  
 Text = '🔰| تم تفعيل الردود'
