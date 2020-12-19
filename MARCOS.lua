@@ -10382,7 +10382,7 @@ t = "⌔︙لا يوجد منظفين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == "مسح قائمه المنع" and Addictive(msg) then   
+if text == "مسح قائمه المنع" and Manager(msg) then   
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -10401,7 +10401,7 @@ end
 send(msg.chat_id_, msg.id_,"⌔︙تم مسح قائمه المنع")  
 end
 
-if text == "قائمه المنع" and Addictive(msg) then  
+if text == "قائمه المنع" and Manager(msg) then  
  if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -10422,7 +10422,7 @@ t = "⌔︙لا يوجد كلمات ممنوعه"
 end  
 send(msg.chat_id_, msg.id_,t)  
 end  
-if text and text == "منع" and msg.reply_to_message_id_ == 0 and Addictive(msg) then       
+if text and text == "منع" and msg.reply_to_message_id_ == 0 and Manager(msg) then       
 send(msg.chat_id_, msg.id_,"⌔︙ارسل الكلمه لمنعها")  
 database:set(bot_id.."ASTORHBOTS:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"rep")  
 return false  
@@ -10449,7 +10449,7 @@ database:del(bot_id.."ASTORHBOTS:filtr1:add:reply2"..msg.sender_user_id_..msg.ch
 return false  end  
 end
 
-if text == "الغاء منع" and msg.reply_to_message_id_ == 0 and Addictive(msg) then    
+if text == "الغاء منع" and msg.reply_to_message_id_ == 0 and Manager(msg) then    
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
