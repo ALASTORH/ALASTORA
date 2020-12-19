@@ -10224,7 +10224,7 @@ https.request('https://devstorm.ml/yt.php?url='..v.url..'&token='..token..'&chat
 end
 end
 end
-if text == ("رفع منظف") and tonumber(msg.reply_to_message_id_) ~= 0 and Manager(msg) then  
+if text == ("رفع منظف") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -10245,7 +10245,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_ASTORHBOTS, nil)
 return false
 end
-if text and text:match("^رفع منظف @(.*)$") and BasicConstructor(msg) then  
+if text and text:match("^رفع منظف @(.*)$") and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -10271,7 +10271,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_ASTORHBOTS, nil)
 return false
 end
-if text and text:match("^رفع منظف (%d+)$") and Manager(msg) then  
+if text and text:match("^رفع منظف (%d+)$") and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -10290,7 +10290,7 @@ database:sadd(bot_id.."ASTORHBOTS:MN:TF"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","⌔︙تم ترقيته منظف للمجموعه")  
 return false
 end
-if text == ("تنزيل منظف") and tonumber(msg.reply_to_message_id_) ~= 0 and Manager(msg) then  
+if text == ("تنزيل منظف") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -10307,7 +10307,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_ASTORHBOTS, nil)
 return false
 end
-if text and text:match("^تنزيل منظف @(.*)$") and Manager(msg) then  
+if text and text:match("^تنزيل منظف @(.*)$") and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -10329,7 +10329,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_ASTORHBOTS, nil)
 return false
 end
-if text and text:match("^تنزيل منظف (%d+)$") and Manager(msg) then  
+if text and text:match("^تنزيل منظف (%d+)$") and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -10344,7 +10344,7 @@ database:srem(bot_id.."ASTORHBOTS:MN:TF"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","⌔︙تم تنزيله من منظفيه المجموعه")  
 return false
 end
-if text == "مسح المنظفين" and Manager(msg) then  
+if text == "مسح المنظفين" and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -10357,7 +10357,7 @@ end
 database:del(bot_id.."ASTORHBOTS:MN:TF"..msg.chat_id_)
 send(msg.chat_id_, msg.id_, "🗑︙ تم مسح  قائمة المنظفين  ")
 end
-if text == ("المنظفين") and Manager(msg) then  
+if text == ("المنظفين") and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
