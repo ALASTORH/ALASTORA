@@ -9281,7 +9281,7 @@ Text = [[
 🔒| قفل ⇚ فتح التكرار
 🔒| قفل ⇚ فتح التفليش
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
-‏‎‏💭│رآسـلني للآسـتفسـآر  { ]]..SUDO_USERNAME..[[ } ✓ ]]
+‏‎‏‏‎‏💭│رآسـلني للآسـتفسـآر  { ..SUDO_USERNAME.. } ✓ ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
 end
