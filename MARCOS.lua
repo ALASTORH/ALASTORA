@@ -9223,8 +9223,7 @@ Text = [[
 🔖|المطور » مـطـور البـوت
 🔖|السورس » سورس البوت
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
-👨‍✈️ | [𝐀𝐋𝐘𝐀𝐅𝐀𝐄ᴖ♥✨](t.me/AST0RH)
-]]
+ ‏‎‏💭│رآسـلني للآسـتفسـآر ☜ { ]]..SUDO_USER..[[ } ✓ ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
 end
@@ -9281,8 +9280,7 @@ Text = [[
 🔒| قفل ⇚ فتح التكرار
 🔒| قفل ⇚ فتح التفليش
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
- ⚖│مـعـرف الـمـطـــور ↫ ]]..SUDO_USER..[[
-]]
+ ‏‎‏💭│رآسـلني للآسـتفسـآر ☜ { ]]..SUDO_USER..[[ } ✓ ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
 end
