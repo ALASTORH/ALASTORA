@@ -8715,12 +8715,40 @@ else
 username = 'لا يوجد '
 end
 if result.status_.ID == "UserStatusRecently" and result.profile_photo_ ~= false then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, taha.photos_[0].sizes_[1].photo_.persistent_id_,''..rdphoto..'\n🎟️| ايديك←'..msg.sender_user_id_..'\n🎭| معرفك←'..username..'\n📌| رتبتك بالبوت←'..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n🌟| رتبتك بالقروب←'..rtpa..'\n🎲| تفاعلك←'..Total_Msg(Msguser)..'\n💌| رسائلك← '..Msguser..'\n✏️| نسبه تفاعلك←'..string.sub(nspatfa, 1,5)..' %\n📧| التعديلات←'..edit..'\n💰| نقاطك←'..NUMPGAME..'\n')   
+sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, taha.photos_[0].sizes_[1].photo_.persistent_id_,''..rdphoto..'\n𓆰 Wᴇʟᴄᴏᴍᴇ Gʀᴏᴜᴘ
+༻┉𖦹┉┉𖦹┉┉𖦹┉┉𖦹┉༺
+\n• |𝗜𝗗  ⁞ '..msg.sender_user_id_..'
+\n• |𝗨𝗦𝗘 ⁞ '..username..'
+\n• |𝗦𝗧𝗔  ⁞ '..Rutba(msg.sender_user_id_,msg.chat_id_)..'
+\n• |𝗠𝗦𝗚  ⁞ '..Msguser..'
+\n• |𝗔𝗨𝗧𝗢 ⁞ '..Total_Msg(Msguser)..'
+\n• |𝗣𝗢𝗜𝗡𝗧𝗦 ⁞ '..NUMPGAME..'
+\n —————————————
+\n  قناة البوت ⇇@ASTORHBOTS]\n')   
 else 
 if result.status_.ID == "UserStatusEmpty" and result.profile_photo_ == false then
-send(msg.chat_id_, msg.id_,'[\n🎟| ايديك←'..msg.sender_user_id_..'\n🎭| معرفك←'..username..'\n📌| رتبتك بالبوت←'..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n🌟| رتبتك بالقروب← '..rtpa..'\n🎲| تفاعلك←'..Total_Msg(Msguser)..'\n💌| رسائلك←'..Msguser..'\n✏️| نسبه تفاعلك←'..string.sub(nspatfa, 1,5)..' %\n📧| التعديلات←'..edit..'\n💰| نقاطك←'..NUMPGAME..']\n')   
+send(msg.chat_id_, msg.id_,'[
+\n𓆰 Wᴇʟᴄᴏᴍᴇ Gʀᴏᴜᴘ
+༻┉𖦹┉┉𖦹┉┉𖦹┉┉𖦹┉༺
+\n• |𝗜𝗗  ⁞ '..msg.sender_user_id_..'
+\n• |𝗨𝗦𝗘 ⁞ '..username..'
+\n• |𝗦𝗧𝗔  ⁞ '..Rutba(msg.sender_user_id_,msg.chat_id_)..'
+\n• |𝗠𝗦𝗚  ⁞ '..Msguser..'
+\n• |𝗔𝗨𝗧𝗢 ⁞ '..Total_Msg(Msguser)..'
+\n• |𝗣𝗢𝗜𝗡𝗧𝗦 ⁞ '..NUMPGAME..'
+\n —————————————
+\n  قناة البوت ⇇@ASTORHBOTS]\n')   
 else
-send(msg.chat_id_, msg.id_, '\n⚠️| الصوره ←  ليس لديك صور في حسابك 🍃'..'[\n🎟| ايديك←'..msg.sender_user_id_..'\n🎭| معرفك←'..username..'\n📌| رتبتك بالبوت←'..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n🌟| رتبتك بالقروب← '..rtpa..'\n🎲| تفاعلك←'..Total_Msg(Msguser)..'\n💌| رسائلك←'..Msguser..'\n✏️| نسبه تفاعلك←'..string.sub(nspatfa, 1,5)..' %\n📧| التعديلات←'..edit..'\n💰| نقاطك←'..NUMPGAME..']\n')   
+send(msg.chat_id_, msg.id_, '\n⚠️| الصوره ←  ليس لديك صور في حسابك 🍃'..'[\n𓆰 Wᴇʟᴄᴏᴍᴇ Gʀᴏᴜᴘ
+༻┉𖦹┉┉𖦹┉┉𖦹┉┉𖦹┉༺
+\n• |𝗜𝗗  ⁞ '..msg.sender_user_id_..'
+\n• |𝗨𝗦𝗘 ⁞ '..username..'
+\n• |𝗦𝗧𝗔  ⁞ '..Rutba(msg.sender_user_id_,msg.chat_id_)..'
+\n• |𝗠𝗦𝗚  ⁞ '..Msguser..'
+\n• |𝗔𝗨𝗧𝗢 ⁞ '..Total_Msg(Msguser)..'
+\n• |𝗣𝗢𝗜𝗡𝗧𝗦 ⁞ '..NUMPGAME..'
+\n —————————————
+\n  قناة البوت ⇇@ASTORHBOTS]\n')   
 end 
 end
 end
@@ -8738,7 +8766,17 @@ get_id_text = get_id_text:gsub('#game',NUMPGAME)
 get_id_text = get_id_text:gsub('#photos',photps) 
 send(msg.chat_id_, msg.id_,'['..get_id_text..']')   
 else
-send(msg.chat_id_, msg.id_,'[\n🎟️| ايديك←'..msg.sender_user_id_..'\n🎭| معرفك←'..username..'\n📌| رتبتك بالبوت←'..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n🌟| رتبتك بالقروب← '..rtpa..'\n🎲| تفاعلك←'..Total_Msg(Msguser)..'\n💌| رسائلك←'..Msguser..'\n✏️| نسبه تفاعلك←'..string.sub(nspatfa, 1,5)..' %\n📧| التعديلات←'..edit..'\n💰| نقاطك←'..NUMPGAME..']\n')   
+send(msg.chat_id_, msg.id_,'[
+\n𓆰 Wᴇʟᴄᴏᴍᴇ Gʀᴏᴜᴘ
+༻┉𖦹┉┉𖦹┉┉𖦹┉┉𖦹┉༺
+\n• |𝗜𝗗  ⁞ '..msg.sender_user_id_..'
+\n• |𝗨𝗦𝗘 ⁞ '..username..'
+\n• |𝗦𝗧𝗔  ⁞ '..Rutba(msg.sender_user_id_,msg.chat_id_)..'
+\n• |𝗠𝗦𝗚  ⁞ '..Msguser..'
+\n• |𝗔𝗨𝗧𝗢 ⁞ '..Total_Msg(Msguser)..'
+\n• |𝗣𝗢𝗜𝗡𝗧𝗦 ⁞ '..NUMPGAME..'
+\n —————————————
+\n  قناة البوت ⇇@ASTORHBOTS]\n')   
 end
 end
 
@@ -9281,7 +9319,8 @@ Text = [[
 🔒| قفل ⇚ فتح التكرار
 🔒| قفل ⇚ فتح التفليش
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
-‏‎‏‏‎‏💭│رآسـلني للآسـتفسـآر  { ..SUDO_USERNAME.. } ✓ ]]
+‏‎‏‏‎‏👨‍✈️ | [Dev➥ 𝐀𝐋𝐘𝐀𝐅𝐀𝐄ᴖ♥✨](t.me/AST0RH)
+]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
 end
@@ -9706,7 +9745,7 @@ local MHMD = {
 "\nوين رايح خلينا متونسين🙁💔",
 "\nالله وياك يروحي😔💔",
 "\nانقلع😂",
-"\nراحل ورحل وفي رجعته مافي امل😂😥",
+"\nراحل ورحل وفي رجعته مافي امل??😥",
 "\nيلا اذلف😆",
 "\nوين رايح ",
 }
