@@ -8715,12 +8715,12 @@ else
 username = 'لا يوجد '
 end
 if result.status_.ID == "UserStatusRecently" and result.profile_photo_ ~= false then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, taha.photos_[0].sizes_[1].photo_.persistent_id_,'\n𓆰 Wᴇʟᴄᴏᴍᴇ Gʀᴏᴜᴘ\n༻┉𖦹┉┉𖦹┉┉𖦹┉┉𖦹┉༺\n'..rdphoto..'\n• |𝗜𝗗  ⁞ '..msg.sender_user_id_..'\n• |𝗨𝗦𝗘 ⁞ '..username..'\n• |𝗦𝗧𝗔  ⁞ '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n🌟| رتبتك بالقروب←'..rtpa..'\n• |𝗔𝗨𝗧𝗢 ⁞ '..Total_Msg(Msguser)..'\n• |𝗠𝗦𝗚  ⁞  '..Msguser..'\n• |𝗔𝗨𝗧𝗢 ⁞   '..NUMPGAME..'\n')   
+sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, taha.photos_[0].sizes_[1].photo_.persistent_id_,'\n𓆰 Wᴇʟᴄᴏᴍᴇ Gʀᴏᴜᴘ\n༻┉𖦹┉┉𖦹┉┉𖦹┉┉𖦹┉༺\n'..rdphoto..'\n• |𝗜𝗗  ⁞ '..msg.sender_user_id_..'\n• |𝗨𝗦𝗘 ⁞ '..username..'\n• |𝗦𝗧𝗔  ⁞ '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n• |𝗔𝗨𝗧𝗢 ⁞ '..Total_Msg(Msguser)..'\n• |𝗠𝗦𝗚  ⁞  '..Msguser..'\n• |𝗣𝗢𝗜𝗡𝗧𝗦 ⁞    '..NUMPGAME..'\n')   
 else 
 if result.status_.ID == "UserStatusEmpty" and result.profile_photo_ == false then
-send(msg.chat_id_, msg.id_,'[\n𓆰 Wᴇʟᴄᴏᴍᴇ Gʀᴏᴜᴘ\n༻┉𖦹┉┉𖦹┉┉𖦹┉┉𖦹┉༺\n• |𝗜𝗗  ⁞ '..msg.sender_user_id_..'\n• |𝗨𝗦𝗘 ⁞ '..username..'\n• |𝗦𝗧𝗔  ⁞ '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n• |𝗔𝗨𝗧𝗢 ⁞ '..Total_Msg(Msguser)..'\n• |𝗠𝗦𝗚  ⁞ '..Msguser..'\n• |𝗔𝗨𝗧𝗢 ⁞   '..NUMPGAME..']\n')   
+send(msg.chat_id_, msg.id_,'[\n𓆰 Wᴇʟᴄᴏᴍᴇ Gʀᴏᴜᴘ\n༻┉𖦹┉┉𖦹┉┉𖦹┉┉𖦹┉༺\n• |𝗜𝗗  ⁞ '..msg.sender_user_id_..'\n• |𝗨𝗦𝗘 ⁞ '..username..'\n• |𝗦𝗧𝗔  ⁞ '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n• |𝗔𝗨𝗧𝗢 ⁞ '..Total_Msg(Msguser)..'\n• |𝗠𝗦𝗚  ⁞ '..Msguser..'\n• |𝗣𝗢𝗜𝗡𝗧𝗦 ⁞    '..NUMPGAME..']\n')   
 else
-send(msg.chat_id_, msg.id_, '\n⚠️| الصوره ←  ليس لديك صور في حسابك 🍃'..'[\n𓆰 Wᴇʟᴄᴏᴍᴇ Gʀᴏᴜᴘ\n༻┉𖦹┉┉𖦹┉┉𖦹┉┉𖦹┉༺\n• |𝗜𝗗  ⁞ '..msg.sender_user_id_..'\n• |𝗨𝗦𝗘 ⁞ '..username..'\n• |𝗦𝗧𝗔  ⁞ '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n• |𝗔𝗨𝗧𝗢 ⁞ '..Total_Msg(Msguser)..'\n• |𝗠𝗦𝗚  ⁞ '..Msguser..'\n• |𝗔𝗨𝗧𝗢 ⁞   '..NUMPGAME..']\n')   
+send(msg.chat_id_, msg.id_, '\n⚠️| الصوره ←  ليس لديك صور في حسابك 🍃'..'[\n𓆰 Wᴇʟᴄᴏᴍᴇ Gʀᴏᴜᴘ\n༻┉𖦹┉┉𖦹┉┉𖦹┉┉𖦹┉༺\n• |𝗜𝗗  ⁞ '..msg.sender_user_id_..'\n• |𝗨𝗦𝗘 ⁞ '..username..'\n• |𝗦𝗧𝗔  ⁞ '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n• |𝗔𝗨𝗧𝗢 ⁞ '..Total_Msg(Msguser)..'\n• |𝗠𝗦𝗚  ⁞ '..Msguser..'\n• |𝗣𝗢𝗜𝗡𝗧𝗦 ⁞    '..NUMPGAME..']\n')   
 end 
 end
 end
@@ -8738,7 +8738,7 @@ get_id_text = get_id_text:gsub('#game',NUMPGAME)
 get_id_text = get_id_text:gsub('#photos',photps) 
 send(msg.chat_id_, msg.id_,'['..get_id_text..']')   
 else
-send(msg.chat_id_, msg.id_,'[\n𓆰 Wᴇʟᴄᴏᴍᴇ Gʀᴏᴜᴘ\n༻┉𖦹┉┉𖦹┉┉𖦹┉┉𖦹┉༺\n• |𝗜𝗗  ⁞ '..msg.sender_user_id_..'\n• |𝗨𝗦𝗘 ⁞ '..username..'\n• |𝗦𝗧𝗔  ⁞ '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n• |𝗔𝗨𝗧𝗢 ⁞ '..Total_Msg(Msguser)..'\n• |𝗠𝗦𝗚  ⁞ '..Msguser..'\n• |𝗔𝗨𝗧𝗢 ⁞   '..NUMPGAME..']\n')   
+send(msg.chat_id_, msg.id_,'[\n𓆰 Wᴇʟᴄᴏᴍᴇ Gʀᴏᴜᴘ\n༻┉𖦹┉┉𖦹┉┉𖦹┉┉𖦹┉༺\n• |𝗜𝗗  ⁞ '..msg.sender_user_id_..'\n• |𝗨𝗦𝗘 ⁞ '..username..'\n• |𝗦𝗧𝗔  ⁞ '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n• |𝗔𝗨𝗧𝗢 ⁞ '..Total_Msg(Msguser)..'\n• |𝗠𝗦𝗚  ⁞ '..Msguser..'\n• |𝗣𝗢𝗜𝗡𝗧𝗦 ⁞    '..NUMPGAME..']\n')   
 end
 end
 
