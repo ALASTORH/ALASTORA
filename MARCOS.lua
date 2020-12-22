@@ -10361,7 +10361,7 @@ l = "✓| لا يوجد ميديا في المجموعه"
 end
 send(msg.chat_id_, msg.id_, l)
 end
-if text == ("مسح الميديا") and Constructor(msg) or text == ("تنظيف الميديا") and cleaner(msg) or text == ("حذف الميديا") and Constructor(msg) then  
+if text == ("مسح الميديا") and cleaner(msg) or text == ("تنظيف الميديا") and cleaner(msg) or text == ("حذف الميديا") and Constructor(msg) then  
 local list = database:smembers(bot_id.."allM"..msg.chat_id_)
 for k,v in pairs(list) do
 local Message = v
@@ -10375,20 +10375,7 @@ if #list == 0 then
 t = "✓| لا يوجد ميديا في المجموعه"
 end
 send(msg.chat_id_, msg.id_, t)
-end
-if text == ("عدد الميديا") and Constructor(msg) then  
-local num = database:smembers(bot_id.."VVVZVV:allM"..msg.chat_id_)
-for k,v in pairs(num) do
-local numl = v
-if numl then
-l = "✓| عدد الميديا الموجود هو "..k
-end
-end
-if #num == 0 then
-l = "✓| لا يوجد ميديا في المجموعه"
-end
-send(msg.chat_id_, msg.id_, l)
-end
+end 
 if text == "تنظيف التعديل" and Constructor(msg) or text == "حذف التعديل" and Constructor(msg) or text == "مسح التعديل" and Constructor(msg) then
 Msgs = {[0]=msg.id_}
 local Message = msg.id_
