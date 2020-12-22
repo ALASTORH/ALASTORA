@@ -6886,19 +6886,19 @@ send(msg.chat_id_, msg.id_,'💠| تم ازالة ترحيب المجموعه')
 end
 
 if text == "مسح قائمه المنع" and Manager(msg) then   
-local list = database:smembers(bot_id.."MARCOS:List:Filter"..msg.chat_id_)  
+local list = database:smembers(bot_id.."MARCOS1:List:Filter"..msg.chat_id_)  
 for k,v in pairs(list) do  
-database:del(bot_id.."MARCOS:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
-database:del(bot_id.."MARCOS:Add:Filter:Rp2"..v..msg.chat_id_)  
-database:srem(bot_id.."MARCOS:List:Filter"..msg.chat_id_,v)  
+database:del(bot_id.."MARCOS1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+database:del(bot_id.."MARCOS1:Add:Filter:Rp2"..v..msg.chat_id_)  
+database:srem(bot_id.."MARCOS1:List:Filter"..msg.chat_id_,v)  
 end  
 send(msg.chat_id_, msg.id_,"🖇️| تم مسح قائمه المنع")  
 end
 if text == "قائمه المنع" and Manager(msg) then   
-local list = database:smembers(bot_id.."MARCOS:List:Filter"..msg.chat_id_)  
+local list = database:smembers(bot_id.."MARCOS1:List:Filter"..msg.chat_id_)  
 t = "\n🔘| قائمة المنع \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
 for k,v in pairs(list) do  
-local MARCOS_Msg = database:get(bot_id.."MARCOS:Add:Filter:Rp2"..v..msg.chat_id_)   
+local MARCOS_Msg = database:get(bot_id.."MARCOS1:Add:Filter:Rp2"..v..msg.chat_id_)   
 t = t..''..k..'- '..v..' » {'..MARCOS_Msg..'}\n'    
 end  
 if #list == 0 then  
@@ -6917,28 +6917,28 @@ end
 return false
 end
 send(msg.chat_id_, msg.id_,'🔘| ارسل الكلمه لمنعها')  
-database:set(bot_id.."MARCOS:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"rep")  
+database:set(bot_id.."MARCOS1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"rep")  
 return false  
 end    
 if text then   
-local tsssst = database:get(bot_id.."Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+local tsssst = database:get(bot_id.."MARCOS1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 if tsssst == 'rep' then   
 send(msg.chat_id_, msg.id_,"⚠️| ارسل التحذير عند ارسال الكلمه")  
-database:set(bot_id.."MARCOS:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"repp")  
-database:set(bot_id.."MARCOS:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_, text)  
-database:sadd(bot_id.."MARCOS:List:Filter"..msg.chat_id_,text)  
+database:set(bot_id.."MARCOS1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"repp")  
+database:set(bot_id.."MARCOS1:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_, text)  
+database:sadd(bot_id.."MARCOS1:List:Filter"..msg.chat_id_,text)  
 return false  end  
 end
 if text then  
-local test = database:get(bot_id.."Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+local test = database:get(bot_id.."MARCOS1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 if test == 'repp' then  
 send(msg.chat_id_, msg.id_,'🔖| تم منع الكلمه مع التحذير')  
-database:del(bot_id.."MARCOS:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
-local test = database:get(bot_id.."MARCOS:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_)  
+database:del(bot_id.."MARCOS1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+local test = database:get(bot_id.."MARCOS1:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_)  
 if text then   
-database:set(bot_id.."MARCOS:Add:Filter:Rp2"..test..msg.chat_id_, text)  
+database:set(bot_id.."MARCOS1:Add:Filter:Rp2"..test..msg.chat_id_, text)  
 end  
-database:del(bot_id.."MARCOS:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_)  
+database:del(bot_id.."MARCOS1:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_)  
 return false  end  
 end
 
@@ -6953,15 +6953,15 @@ end
 return false
 end
 send(msg.chat_id_, msg.id_,'🔖| ارسل الكلمه الان')  
-database:set(bot_id.."MARCOS:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"reppp")  
+database:set(bot_id.."MARCOS1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"reppp")  
 return false  end
 if text then 
-local test = database:get(bot_id.."MARCOS:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+local test = database:get(bot_id.."MARCOS1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 if test and test == 'reppp' then   
 send(msg.chat_id_, msg.id_,"📮| تم الغاء منعها ")  
-database:del(bot_id.."MARCOS:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
-database:del(bot_id.."MARCOS:Add:Filter:Rp2"..text..msg.chat_id_)  
-database:srem(bot_id.."MARCOS:List:Filter"..msg.chat_id_,text)  
+database:del(bot_id.."MARCOS1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+database:del(bot_id.."MARCOS1:Add:Filter:Rp2"..text..msg.chat_id_)  
+database:srem(bot_id.."MARCOS1:List:Filter"..msg.chat_id_,text)  
 return false  end  
 end
 end
@@ -8724,7 +8724,7 @@ else
 username = 'لا يوجد '
 end
 if result.status_.ID == "UserStatusRecently" and result.profile_photo_ ~= false then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, taha.photos_[0].sizes_[1].photo_.persistent_id_,''..rdphoto..'\n🎟️| ايديك←'..msg.sender_user_id_..'\n🎭| معرفك←'..username..'\n📌| رتبتك بالبوت←'..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n🌟| رتبتك بالقروب←'..rtpa..'\n🎲| تفاعلك←'..Total_Msg(Msguser)..'\n💌| رسائلك← '..Msguser..'\n✏️| نسبه تفاعلك←'..string.sub(nspatfa, 1,5)..' %\n📧| التعديلات←'..edit..'\n💰| نقاطك←'..NUMPGAME..'\n')   
+sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, taha.photos_[0].sizes_[1].photo_.persistent_id_,''..rdphoto..'\n🎟️| ايديك←'..msg.sender_user_id_..'\n🎭| معرفك←'..username..'\n📌| رتبتك بالبوت←'..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n??| رتبتك بالقروب←'..rtpa..'\n🎲| تفاعلك←'..Total_Msg(Msguser)..'\n💌| رسائلك← '..Msguser..'\n✏️| نسبه تفاعلك←'..string.sub(nspatfa, 1,5)..' %\n📧| التعديلات←'..edit..'\n💰| نقاطك←'..NUMPGAME..'\n')   
 else 
 if result.status_.ID == "UserStatusEmpty" and result.profile_photo_ == false then
 send(msg.chat_id_, msg.id_,'[\n🎟| ايديك←'..msg.sender_user_id_..'\n🎭| معرفك←'..username..'\n📌| رتبتك بالبوت←'..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n🌟| رتبتك بالقروب← '..rtpa..'\n🎲| تفاعلك←'..Total_Msg(Msguser)..'\n💌| رسائلك←'..Msguser..'\n✏️| نسبه تفاعلك←'..string.sub(nspatfa, 1,5)..' %\n📧| التعديلات←'..edit..'\n💰| نقاطك←'..NUMPGAME..']\n')   
@@ -10727,7 +10727,7 @@ return false
 end 
 end
 ------------------------------------------------------------------------
-local MARCOSbot = database:get(bot_id.."MARCOS:Add:Filter:Rp2"..text..result.chat_id_)   
+local MARCOSbot = database:get(bot_id.."MARCOS1:Add:Filter:Rp2"..text..result.chat_id_)   
 if MARCOSbot then    
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 if data.username_ ~= false then
@@ -10742,9 +10742,9 @@ end
 end
 ------------------------------------------------------------------------
 if text then
-local SARAB1_Msg = database:get(bot_id.."SARAB1:Add:Filter:Rp2"..text..result.chat_id_)   
-if SARAB1_Msg then    
-send(msg.chat_id_, msg.id_," ▫️⁝ "..SARAB1_Msg)
+local MARCOS_Msg = database:get(bot_id.."MARCOS1:Add:Filter:Rp2"..text..result.chat_id_)   
+if MARCOS_Msg then    
+send(msg.chat_id_, msg.id_," ▫️⁝ "..MARCOS_Msg)
 DeleteMessage(result.chat_id_, {[0] = data.message_id_})     
 return false
 end
