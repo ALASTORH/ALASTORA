@@ -3116,6 +3116,7 @@ send(msg.chat_id_, msg.id_, "⚠|لا تسطيع كتم البوت عام")
 return false 
 end
 database:sadd(bot_id..'GMute:User', userid)
+chat_Mute(result.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 if data.first_name_ then
 usertext = '\n👤| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..')'
