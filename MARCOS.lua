@@ -2151,9 +2151,9 @@ Text = [[
 ➥
 👲︙⇚ [مطور السورس](t.me/AST0RH)
 ➥
-💌︙⇚ [لـتـنصيب  السورس](t.em/TWSLASTBOT)
+💌︙⇚ [لـتـنصيب  السورس](t.me/TWSLASTBOT)
 ➥
-🤖︙⇚ [لصنع بوت مجاني](t.em/AST0RHVIPBOT)
+🤖︙⇚ [لصنع بوت مجاني](t.me/AST0RHVIPBOT)
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
 ]]
 send(msg.chat_id_, msg.id_,Text)
