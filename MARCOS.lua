@@ -2953,7 +2953,7 @@ end
 database:sadd(bot_id..'Gmute:User', result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},
 function(arg,data) 
-usertext = '\n ▫️⁝ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Yp1_7')..')'
+usertext = '\n ▫️⁝ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..')'
 status  = '\n ▫️⁝ تم كتمه عام من الكروبات'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -2986,7 +2986,7 @@ if result.id_ == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, " ▫️⁝ لا يمكنك كتم المطور الاساسي \n")
 return false 
 end
-usertext = '\n ▫️⁝ العضو » ['..result.title_..'](t.me/'..(username or 'Yp1_7')..')'
+usertext = '\n ▫️⁝ العضو » ['..result.title_..'](t.me/'..(username or 'ASTORHBOTS')..')'
 status  = '\n ▫️⁝ تم كتمه عام من الكروبات'
 texts = usertext..status
 database:sadd(bot_id..'Gmute:User', result.id_)
@@ -3021,7 +3021,7 @@ database:sadd(bot_id..'Gmute:User', userid)
 
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 if data.first_name_ then
-usertext = '\n ▫️⁝ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Yp1_7')..')'
+usertext = '\n ▫️⁝ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..')'
 status  = '\n ▫️⁝ تم كتمه عام من الكروبات'
 send(msg.chat_id_, msg.id_, usertext..status)
 else
