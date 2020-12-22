@@ -10361,14 +10361,14 @@ l = "✓| لا يوجد ميديا في المجموعه"
 end
 send(msg.chat_id_, msg.id_, l)
 end
-if text == ("مسح الميديا") and Constructor(msg) or text == ("تنظيف الميديا") and Constructor(msg) or text == ("حذف الميديا") and Constructor(msg) then  
+if text == ("مسح الميديا") and Constructor(msg) or text == ("تنظيف الميديا") and cleaner(msg) or text == ("حذف الميديا") and Constructor(msg) then  
 local list = database:smembers(bot_id.."allM"..msg.chat_id_)
 for k,v in pairs(list) do
 local Message = v
 if Message then
 t = "✓| تم مسح "..k.." من الوسائط الموجوده"
 DeleteMessage(msg.chat_id_,{[0]=Message})
-database:del(bot_id.."allM"..msg.chat_id_)
+database:del(bot_id.."VVVZVV:allM"..msg.chat_id_)
 end
 end
 if #list == 0 then
@@ -10377,7 +10377,7 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 if text == ("عدد الميديا") and Constructor(msg) then  
-local num = database:smembers(bot_id.."allM"..msg.chat_id_)
+local num = database:smembers(bot_id.."VVVZVV:allM"..msg.chat_id_)
 for k,v in pairs(num) do
 local numl = v
 if numl then
