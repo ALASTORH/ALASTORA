@@ -8620,7 +8620,7 @@ end
 end
 if text and text:match("^(.*)$") then
 if database:get(bot_id.."botss:NightRang:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
-send(msg.chat_id_, msg.id_, '\nارسل لي الكلمه الان : ✓')
+send(msg.chat_id_, msg.id_, '\n ✓ : ارسل لي الكلمه الان')
 database:set(bot_id.."botss:NightRang:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_, "true1")
 database:set(bot_id.."botss:NightRang:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_, text)
 database:sadd(bot_id.."botss:NightRang:List:Rd:Sudo", text)
@@ -8649,7 +8649,7 @@ send(msg.chat_id_, msg.id_,"✓ : تم حذف الردود المتعدده")
 end
 if text == ("الردود المتعدده") and SudoBot(msg) then 
 local list = database:smembers(bot_id.."botss:NightRang:List:Rd:Sudo")
-text = "\nقائمة الردود المتعدده \n━━━━━━━━\n"
+text = "\nقائمة الردود المتعدده \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
 for k,v in pairs(list) do
 db = "رساله "
 text = text..""..k.." => {"..v.."} => {"..db.."}\n"
@@ -8661,7 +8661,7 @@ send(msg.chat_id_, msg.id_,"["..text.."]")
 end
 if text == "اضف رد متعدد" and SudoBot(msg) then 
 database:set(bot_id.."botss:NightRang:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
-return send(msg.chat_id_, msg.id_," ✓ : حسنآ ارسل الرد الذي تريد اضافته يمكنك اضافة 3 ردود على رد واحد")
+return send(msg.chat_id_, msg.id_,"\n✓ : حسنآ ارسل الرد الذي تريد اضافته \nيمكنك اضافة 3 ردود على رد واحد\n")
 end
 if text == "حذف رد متعدد" and SudoBot(msg) then 
 database:set(bot_id.."botss:NightRang:Set:On"..msg.sender_user_id_..":"..msg.chat_id_,true)
@@ -8708,7 +8708,7 @@ text = text:gsub("`","")
 text = text:gsub("*","") 
 database:set(bot_id.."botss:NightRang:Add:Rd:Sudo:Text2"..test, text)  
 end  
-send(msg.chat_id_, msg.id_,"✓ : تم حفظ الرد")
+send(msg.chat_id_, msg.id_,"✓ : تم حفظ الردود")
 return false  
 end  
 end
