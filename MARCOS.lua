@@ -8628,7 +8628,7 @@ return false end
 end
 if text and text:match("^(.*)$") then
 if database:get(bot_id.."botss:NightRang:Set:On"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
-send(msg.chat_id_, msg.id_,"تم حذف الرد من ردود المتعدده : ✓")
+send(msg.chat_id_, msg.id_,"✓ : تم حذف الرد من ردود المتعدده")
 database:del(bot_id..'botss:NightRang:Add:Rd:Sudo:Text'..text)
 database:del(bot_id..'botss:NightRang:Add:Rd:Sudo:Text1'..text)
 database:del(bot_id..'botss:NightRang:Add:Rd:Sudo:Text2'..text)
@@ -8661,7 +8661,7 @@ send(msg.chat_id_, msg.id_,"["..text.."]")
 end
 if text == "اضف رد متعدد" and SudoBot(msg) then 
 database:set(bot_id.."botss:NightRang:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
-return send(msg.chat_id_, msg.id_,"\n✓ : حسنآ ارسل الرد الذي تريد اضافته \nيمكنك اضافة 3 ردود على رد واحد\n")
+return send(msg.chat_id_, msg.id_,"\n ✓ : حسنآ ارسل الرد الذي تريد اضافته\nيمكنك اضافة 3 ردود على رد واحد\n")
 end
 if text == "حذف رد متعدد" and SudoBot(msg) then 
 database:set(bot_id.."botss:NightRang:Set:On"..msg.sender_user_id_..":"..msg.chat_id_,true)
