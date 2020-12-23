@@ -8628,7 +8628,7 @@ return false end
 end
 if text and text:match("^(.*)$") then
 if database:get(bot_id.."botss:NightRang:Set:On"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
-send(msg.chat_id_, msg.id_,"*✓ : تم حذف الرد من الردود المتعدده*")
+send(msg.chat_id_, msg.id_,"✓ : تم حذف الرد من الردود المتعدده")
 database:del(bot_id..'botss:NightRang:Add:Rd:Sudo:Text'..text)
 database:del(bot_id..'botss:NightRang:Add:Rd:Sudo:Text1'..text)
 database:del(bot_id..'botss:NightRang:Add:Rd:Sudo:Text2'..text)
@@ -8645,7 +8645,7 @@ database:del(bot_id.."botss:NightRang:Add:Rd:Sudo:Text1"..v)
 database:del(bot_id.."botss:NightRang:Add:Rd:Sudo:Text2"..v)   
 database:del(bot_id.."botss:NightRang:List:Rd:Sudo")
 end
-send(msg.chat_id_, msg.id_,"*✓ : تم حذف الردود المتعدده*")
+send(msg.chat_id_, msg.id_,"✓ : تم حذف الردود المتعدده")
 end
 if text == ("الردود المتعدده") and SudoBot(msg) then 
 local list = database:smembers(bot_id.."botss:NightRang:List:Rd:Sudo")
@@ -8655,17 +8655,17 @@ db = "رساله "
 text = text..""..k.." => {"..v.."} => {"..db.."}\n"
 end
 if #list == 0 then
-text = "*لا توجد ردود متعدده*"
+text = "لا توجد ردود متعدده"
 end
 send(msg.chat_id_, msg.id_,"["..text.."]")
 end
 if text == "اضف رد متعدد" and SudoBot(msg) then 
 database:set(bot_id.."botss:NightRang:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
-return send(msg.chat_id_, msg.id_,"*\n 📩 : حسنآ ارسل الرد الذي تريد \n📩 : اضافتة يمكنك اضافـة\n📩 : 3 ردود علئ رد واحد \n*")
+return send(msg.chat_id_, msg.id_,"\n 📩 : حسنآ ارسل الرد الذي تريد\n📩 : اضافتة يمكنك اضافـة\n📩 : 3 ردود علئ رد واحد\n")
 end
 if text == "حذف رد متعدد" and SudoBot(msg) then 
 database:set(bot_id.."botss:NightRang:Set:On"..msg.sender_user_id_..":"..msg.chat_id_,true)
-return send(msg.chat_id_, msg.id_,"*✓ : ارسل الان الكلمه لحذفها*")
+return send(msg.chat_id_, msg.id_,"✓ : ارسل الان الكلمه لحذفها")
 end
 if text then  
 local test = database:get(bot_id.."botss:NightRang:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
@@ -8678,7 +8678,7 @@ text = text:gsub("`","")
 text = text:gsub("*","") 
 database:set(bot_id.."botss:NightRang:Add:Rd:Sudo:Text"..test, text)  
 end  
-send(msg.chat_id_, msg.id_,"*✓ : تم حفظ الرد الاول ارسل الرد الثاني*")
+send(msg.chat_id_, msg.id_,"✓ : تم حفظ الرد الاول ارسل الرد الثاني")
 return false  
 end  
 end
@@ -8693,7 +8693,7 @@ text = text:gsub("`","")
 text = text:gsub("*","") 
 database:set(bot_id.."botss:NightRang:Add:Rd:Sudo:Text1"..test, text)  
 end  
-send(msg.chat_id_, msg.id_,"*✓ : تم حفظ الرد الثاني ارسل الرد الثالث*")
+send(msg.chat_id_, msg.id_,"✓ : تم حفظ الرد الثاني ارسل الرد الثالث")
 return false  
 end  
 end
@@ -8708,7 +8708,7 @@ text = text:gsub("`","")
 text = text:gsub("*","") 
 database:set(bot_id.."botss:NightRang:Add:Rd:Sudo:Text2"..test, text)  
 end  
-send(msg.chat_id_, msg.id_,"*✓ : تم حفظ الردود*")
+send(msg.chat_id_, msg.id_,"✓ : تم حفظ الردود")
 return false  
 end  
 end
