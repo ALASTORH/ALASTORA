@@ -8661,7 +8661,7 @@ send(msg.chat_id_, msg.id_,"["..text.."]")
 end
 if text == "اضف رد متعدد" and SudoBot(msg) then 
 database:set(bot_id.."botss:NightRang:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
-return send(msg.chat_id_, msg.id_,"\n ✓ : حسنآ ارسل الرد الذي تريد \nاضافته يمكنك اضافة 3 ردود على رد واحد\n")
+return send(msg.chat_id_, msg.id_,"\n 📩 : حسنآ ارسل الرد الذي تريد \n 📩 : اضافتة يمكنك اضافـة\n 📩 : 3 ردود علئ رد واحد \n")
 end
 if text == "حذف رد متعدد" and SudoBot(msg) then 
 database:set(bot_id.."botss:NightRang:Set:On"..msg.sender_user_id_..":"..msg.chat_id_,true)
