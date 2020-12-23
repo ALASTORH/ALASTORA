@@ -8618,6 +8618,114 @@ database:sadd(bot_id..'Spam:Texting'..msg.sender_user_id_,text)
 end  
 end
 end
+if text and text:match("^(.*)$") then
+if database:get(bot_id.."botss:NightRang:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
+send(msg.chat_id_, msg.id_, '\nارسل لي الكلمه الان ')
+database:set(bot_id.."botss:NightRang:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_, "true1")
+database:set(bot_id.."botss:NightRang:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_, text)
+redis:sadd(bot_id.."botss:NightRang:List:Rd:Sudo", text)
+return false end
+end
+if text and text:match("^(.*)$") then
+if database:get(bot_id.."botss:NightRang:Set:On"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
+send(msg.chat_id_, msg.id_,"تم حذف الرد من ردود المتعدده")
+redis:del(bot_id..'botss:NightRang:Add:Rd:Sudo:Text'..text)
+redis:del(bot_id..'botss:NightRang:Add:Rd:Sudo:Text1'..text)
+redis:del(bot_id..'botss:NightRang:Add:Rd:Sudo:Text2'..text)
+redis:del(bot_id.."botss:NightRang:Set:On"..msg.sender_user_id_..":"..msg.chat_id_)
+redis:srem(bot_id.."botss:NightRang:List:Rd:Sudo", text)
+return false
+end
+end
+if text == ("مسح الردود المتعدده") and SudoBot(msg) then 
+local list = redis:smembers(bot_id.."botss:NightRang:List:Rd:Sudo")
+for k,v in pairs(list) do  
+redis:del(bot_id.."botss:NightRang:Add:Rd:Sudo:Text"..v) 
+redis:del(bot_id.."botss:NightRang:Add:Rd:Sudo:Text1"..v) 
+redis:del(bot_id.."botss:NightRang:Add:Rd:Sudo:Text2"..v)   
+redis:del(bot_id.."botss:NightRang:List:Rd:Sudo")
+end
+send(msg.chat_id_, msg.id_,"تم حذف ردود المتعدده")
+end
+if text == ("الردود المتعدده") and SudoBot(msg) then 
+local list = redis:smembers(bot_id.."botss:NightRang:List:Rd:Sudo")
+text = "\nقائمة ردود المتعدده \n━━━━━━━━\n"
+for k,v in pairs(list) do
+db = "رساله "
+text = text..""..k.." => {"..v.."} => {"..db.."}\n"
+end
+if #list == 0 then
+text = "لا توجد ردود متعدده"
+end
+send(msg.chat_id_, msg.id_,"["..text.."]")
+end
+if text == "اضف رد متعدد" and SudoBot(msg) then 
+database:set(bot_id.."botss:NightRang:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
+return send(msg.chat_id_, msg.id_,"ارسل الرد الذي اريد اضافته")
+end
+if text == "حذف رد متعدد" and SudoBot(msg) then 
+database:set(bot_id.."botss:NightRang:Set:On"..msg.sender_user_id_..":"..msg.chat_id_,true)
+return send(msg.chat_id_, msg.id_,"ارسل الان الكلمه لحذفها ")
+end
+if text then  
+local test = database:get(bot_id.."botss:NightRang:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
+if database:get(bot_id.."botss:NightRang:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true1" then
+database:set(bot_id.."botss:NightRang:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,'rd1')
+if text then   
+text = text:gsub('"',"") 
+text = text:gsub('"',"") 
+text = text:gsub("`","") 
+text = text:gsub("*","") 
+database:set(bot_id.."botss:NightRang:Add:Rd:Sudo:Text"..test, text)  
+end  
+send(msg.chat_id_, msg.id_,"تم حفظ الرد الاول ارسل الرد الثاني")
+return false  
+end  
+end
+if text then  
+local test = database:get(bot_id.."botss:NightRang:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
+if database:get(bot_id.."botss:NightRang:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "rd1" then
+database:set(bot_id.."botss:NightRang:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,'rd2')
+if text then   
+text = text:gsub('"',"") 
+text = text:gsub('"',"") 
+text = text:gsub("`","") 
+text = text:gsub("*","") 
+database:set(bot_id.."botss:NightRang:Add:Rd:Sudo:Text1"..test, text)  
+end  
+send(msg.chat_id_, msg.id_,"تم حفظ الرد الثاني ارسل الرد الثالث")
+return false  
+end  
+end
+if text then  
+local test = database:get(bot_id.."botss:NightRang:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
+if database:get(bot_id.."botss:NightRang:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "rd2" then
+database:set(bot_id.."botss:NightRang:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,'rd3')
+if text then   
+text = text:gsub('"',"") 
+text = text:gsub('"',"") 
+text = text:gsub("`","") 
+text = text:gsub("*","") 
+database:set(bot_id.."botss:NightRang:Add:Rd:Sudo:Text2"..test, text)  
+end  
+send(msg.chat_id_, msg.id_,"تم حفظ الرد")
+return false  
+end  
+end
+if text then
+local Text = database:get(bot_id.."botss:NightRang:Add:Rd:Sudo:Text"..text)   
+local Text1 = database:get(bot_id.."botss:NightRang:Add:Rd:Sudo:Text1"..text)   
+local Text2 = database:get(bot_id.."botss:NightRang:Add:Rd:Sudo:Text2"..text)   
+if Text or Text1 or Text2 then 
+local texting = {
+Text,
+Text1,
+Text2
+}
+Textes = math.random(#texting)
+send(msg.chat_id_, msg.id_,texting[Textes])
+end
+end
 -------------------------------
 if text == ""..(database:get(bot_id..'Name:Bot') or 'الاسطورة').."مغاداره" or text == 'مغاندره' or text == 'مةنغادرة' then  
 if Sudo(msg) and not database:get(bot_id..'Left:Bot'..msg.chat_id_)  then 
