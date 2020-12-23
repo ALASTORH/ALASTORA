@@ -328,6 +328,14 @@ Var = false
 end
 return Var
 end
+function Gmute_User(User_id) 
+if database:sismember(bot_id..'Gmute:User',User_id) then
+Var = true
+else
+Var = false
+end
+return Var
+end
 function AddChannel(User)
 local var = true
 if database:get(bot_id..'add:ch:id') then
@@ -3046,24 +3054,24 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'🔖| لا تستطيع استخدام البوت يرجى الاشتراك في القناة حتى تتمكن من استخدام الاوامر \n 📌| اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ▫️⁝ لا تستطيع استخدام البوت \n  ▫️⁝ يرجى الاشتراك بالقناه اولا \n  ▫️⁝ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 function start_function(extra, result, success)
 if result.sender_user_id_ == tonumber(SUDO) then
-send(msg.chat_id_, msg.id_, "⚠️| لا يمكنك كتم المطور الاساسي \n")
+send(msg.chat_id_, msg.id_, " ▫️⁝ لا يمكنك كتم المطور الاساسي \n")
 return false 
 end
 if tonumber(result.sender_user_id_) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, "🚸| لا تسطيع كتم البوت عام")
+send(msg.chat_id_, msg.id_, " ▫️⁝ لا تسطيع كتم البوت عام")
 return false 
 end
-database:sadd(bot_id..'GMute:User', result.sender_user_id_)
+database:sadd(bot_id..'Gmute:User', result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},
 function(arg,data) 
-usertext = '\n👤| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..')'
-status  = '\n*🔘| تم كتمه عام من المجموعات*'
+usertext = '\n ▫️⁝ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Yp1_7')..')'
+status  = '\n ▫️⁝ تم كتمه عام من الكروبات'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
@@ -3077,30 +3085,30 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'??| لا تستطيع استخدام البوت يرجى الاشتراك في القناة حتى تتمكن من استخدام الاوامر \n 📌| اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ▫️⁝ لا تستطيع استخدام البوت \n  ▫️⁝ يرجى الاشتراك بالقناه اولا \n  ▫️⁝ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 function start_function(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"⛔| عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_," ▫️⁝ عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
 return false 
 end      
 if tonumber(result.id_) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, "🔖| لا تسطيع كتم البوت عام")
+send(msg.chat_id_, msg.id_, " ▫️⁝ لا تسطيع كتم البوت عام")
 return false 
 end
 if result.id_ == tonumber(SUDO) then
-send(msg.chat_id_, msg.id_, "⚠️| لا يمكنك كتم المطور الاساسي \n")
+send(msg.chat_id_, msg.id_, " ▫️⁝ لا يمكنك كتم المطور الاساسي \n")
 return false 
 end
-usertext = '\n👤|العضو » ['..result.title_..'](t.me/'..(username or 'ASTORHBOTS')..')'
-status  = '\n🔘| تم كتمه عام من المجموعات'
+usertext = '\n ▫️⁝ العضو » ['..result.title_..'](t.me/'..(username or 'Yp1_7')..')'
+status  = '\n ▫️⁝ تم كتمه عام من الكروبات'
 texts = usertext..status
-database:sadd(bot_id..'GMute:User', result.id_)
+database:sadd(bot_id..'Gmute:User', result.id_)
 else
-texts = '⚠| لا يوجد حساب بهاذا المعرف'
+texts = ' ▫️⁝ لا يوجد حساب بهاذا المعرف'
 end
 send(msg.chat_id_, msg.id_, texts)
 end
@@ -3114,28 +3122,28 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'🔖| لا تستطيع استخدام البوت يرجى الاشتراك في القناة حتى تتمكن من استخدام الاوامر \n 📌| اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ▫️⁝ لا تستطيع استخدام البوت \n  ▫️⁝ يرجى الاشتراك بالقناه اولا \n  ▫️⁝ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 if userid == tonumber(SUDO) then
-send(msg.chat_id_, msg.id_, "⛔| لا يمكنك كتم المطور الاساسي \n")
+send(msg.chat_id_, msg.id_, " ▫️⁝ لا يمكنك كتم المطور الاساسي \n")
 return false 
 end
 if tonumber(userid) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, "⚠|لا تسطيع كتم البوت عام")
+send(msg.chat_id_, msg.id_, " ▫️⁝ لا تسطيع كتم البوت عام")
 return false 
 end
-database:sadd(bot_id..'GMute:User', userid)
-chat_Mute(result.chat_id_, result.sender_user_id_)
+database:sadd(bot_id..'Gmute:User', userid)
+
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 if data.first_name_ then
-usertext = '\n👤| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..')'
-status  = '\n🔘| تم كتمه عام من المجموعات'
+usertext = '\n ▫️⁝ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Yp1_7')..')'
+status  = '\n ▫️⁝ تم كتمه عام من الكروبات'
 send(msg.chat_id_, msg.id_, usertext..status)
 else
-usertext = '\n👤| العضو » '..userid..''
-status  = '\n🔘| تم كتمه عام من المجموعات'
+usertext = '\n ▫️⁝ العضو » '..userid..''
+status  = '\n ▫️⁝ تم كتمه عام من الكروبات'
 send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false
