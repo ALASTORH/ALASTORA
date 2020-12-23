@@ -8620,35 +8620,35 @@ end
 end
 if text and text:match("^(.*)$") then
 if database:get(bot_id.."botss:NightRang:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
-send(msg.chat_id_, msg.id_, '\nارسل لي الكلمه الان ')
+send(msg.chat_id_, msg.id_, '\nارسل لي الكلمه الان : ✓')
 database:set(bot_id.."botss:NightRang:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_, "true1")
 database:set(bot_id.."botss:NightRang:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_, text)
-redis:sadd(bot_id.."botss:NightRang:List:Rd:Sudo", text)
+database:sadd(bot_id.."botss:NightRang:List:Rd:Sudo", text)
 return false end
 end
 if text and text:match("^(.*)$") then
 if database:get(bot_id.."botss:NightRang:Set:On"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
-send(msg.chat_id_, msg.id_,"تم حذف الرد من ردود المتعدده")
-redis:del(bot_id..'botss:NightRang:Add:Rd:Sudo:Text'..text)
-redis:del(bot_id..'botss:NightRang:Add:Rd:Sudo:Text1'..text)
-redis:del(bot_id..'botss:NightRang:Add:Rd:Sudo:Text2'..text)
-redis:del(bot_id.."botss:NightRang:Set:On"..msg.sender_user_id_..":"..msg.chat_id_)
-redis:srem(bot_id.."botss:NightRang:List:Rd:Sudo", text)
+send(msg.chat_id_, msg.id_,"تم حذف الرد من ردود المتعدده : ✓")
+database:del(bot_id..'botss:NightRang:Add:Rd:Sudo:Text'..text)
+database:del(bot_id..'botss:NightRang:Add:Rd:Sudo:Text1'..text)
+database:del(bot_id..'botss:NightRang:Add:Rd:Sudo:Text2'..text)
+database:del(bot_id.."botss:NightRang:Set:On"..msg.sender_user_id_..":"..msg.chat_id_)
+database:srem(bot_id.."botss:NightRang:List:Rd:Sudo", text)
 return false
 end
 end
 if text == ("مسح الردود المتعدده") and SudoBot(msg) then 
-local list = redis:smembers(bot_id.."botss:NightRang:List:Rd:Sudo")
+local list = database:smembers(bot_id.."botss:NightRang:List:Rd:Sudo")
 for k,v in pairs(list) do  
-redis:del(bot_id.."botss:NightRang:Add:Rd:Sudo:Text"..v) 
-redis:del(bot_id.."botss:NightRang:Add:Rd:Sudo:Text1"..v) 
-redis:del(bot_id.."botss:NightRang:Add:Rd:Sudo:Text2"..v)   
-redis:del(bot_id.."botss:NightRang:List:Rd:Sudo")
+database:del(bot_id.."botss:NightRang:Add:Rd:Sudo:Text"..v) 
+database:del(bot_id.."botss:NightRang:Add:Rd:Sudo:Text1"..v) 
+database:del(bot_id.."botss:NightRang:Add:Rd:Sudo:Text2"..v)   
+database:del(bot_id.."botss:NightRang:List:Rd:Sudo")
 end
-send(msg.chat_id_, msg.id_,"تم حذف ردود المتعدده")
+send(msg.chat_id_, msg.id_,"تم حذف ردود المتعدده : ✓")
 end
 if text == ("الردود المتعدده") and SudoBot(msg) then 
-local list = redis:smembers(bot_id.."botss:NightRang:List:Rd:Sudo")
+local list = database:smembers(bot_id.."botss:NightRang:List:Rd:Sudo")
 text = "\nقائمة ردود المتعدده \n━━━━━━━━\n"
 for k,v in pairs(list) do
 db = "رساله "
@@ -8661,11 +8661,11 @@ send(msg.chat_id_, msg.id_,"["..text.."]")
 end
 if text == "اضف رد متعدد" and SudoBot(msg) then 
 database:set(bot_id.."botss:NightRang:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
-return send(msg.chat_id_, msg.id_,"ارسل الرد الذي اريد اضافته")
+return send(msg.chat_id_, msg.id_,"حسنآ ارسل الرد الذي تريد اضافته")
 end
 if text == "حذف رد متعدد" and SudoBot(msg) then 
 database:set(bot_id.."botss:NightRang:Set:On"..msg.sender_user_id_..":"..msg.chat_id_,true)
-return send(msg.chat_id_, msg.id_,"ارسل الان الكلمه لحذفها ")
+return send(msg.chat_id_, msg.id_,"ارسل الان الكلمه لحذفها : ✓")
 end
 if text then  
 local test = database:get(bot_id.."botss:NightRang:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
@@ -8678,7 +8678,7 @@ text = text:gsub("`","")
 text = text:gsub("*","") 
 database:set(bot_id.."botss:NightRang:Add:Rd:Sudo:Text"..test, text)  
 end  
-send(msg.chat_id_, msg.id_,"تم حفظ الرد الاول ارسل الرد الثاني")
+send(msg.chat_id_, msg.id_,"تم حفظ الرد الاول ارسل الرد الثاني : ✓")
 return false  
 end  
 end
@@ -8693,7 +8693,7 @@ text = text:gsub("`","")
 text = text:gsub("*","") 
 database:set(bot_id.."botss:NightRang:Add:Rd:Sudo:Text1"..test, text)  
 end  
-send(msg.chat_id_, msg.id_,"تم حفظ الرد الثاني ارسل الرد الثالث")
+send(msg.chat_id_, msg.id_,"تم حفظ الرد الثاني ارسل الرد الثالث : ✓")
 return false  
 end  
 end
@@ -8708,7 +8708,7 @@ text = text:gsub("`","")
 text = text:gsub("*","") 
 database:set(bot_id.."botss:NightRang:Add:Rd:Sudo:Text2"..test, text)  
 end  
-send(msg.chat_id_, msg.id_,"تم حفظ الرد")
+send(msg.chat_id_, msg.id_,"تم حفظ الرد : ✓")
 return false  
 end  
 end
@@ -9743,7 +9743,7 @@ Text = [[
 🔖|المطور » مـطـور البـوت
 🔖|السورس » سورس البوت
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
-👨‍✈️ | [Dev➥ 𝐀𝐋𝐘𝐀𝐅𝐀𝐄ᴖ♥✨](t.me/AST0RH)
+👨‍✈️ | [Dev➥ 𝐀𝐋𝐘𝐀??𝐀𝐄ᴖ♥✨](t.me/AST0RH)
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
@@ -10074,7 +10074,7 @@ return false
 end
 if text == 'م6' then
 if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'⚠️| هاذا الامر خاص بالادمنيه\n🔖| ارسل {م8} لعرض اوامر الاعضاء') 
+send(msg.chat_id_, msg.id_,'⚠️| هاذا الامر خاص بالادمنيه\n??| ارسل {م8} لعرض اوامر الاعضاء') 
 return false
 end
 print(AddChannel(msg.sender_user_id_))
