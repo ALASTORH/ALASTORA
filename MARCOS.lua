@@ -11116,26 +11116,13 @@ local msg = data
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.message_id_)},function(extra, result, success)
 database:incr(bot_id..'edits'..result.chat_id_..result.sender_user_id_)
 local Text = result.content_.text_
-if database:get(bot_id.."lock_edit_med"..msg.chat_id_) and not Text and not BasicConstructor(result) then
+if database:get(bot_id.."lock:edit"..msg.chat_id_) and not Text and not BasicConstructor(result) then
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 local username = data.username_
 local name = data.first_name_
 local iduser = data.id_
 local users = ('[@'..data.username_..']' or iduser)
-local list = database:smembers(bot_id..'Constructor'..msg.chat_id_)
-t = "\n ☠ ⁝ شخص ما يحاول تعديل الميديا \n"
-for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name" .. v)
-if username then
-t = t..""..k.."- ([@"..username.."])\n"
-else
-t = t..""..k.."- (`"..v.."`)\n"
-end
-end
-if #list == 0 then
-t = " ☣ ⁝ لا يوجد ادمن"
-end
-send(msg.chat_id_,0,''..t..'\n≪━━━━━━AST━━━━━━≫\n ☢ ⁝ تم التعديل على الميديا\n ☢ ⁝ الشخص الي قام بالتعديل\n ☢ ⁝ ايدي الشخص ◂ '..result.sender_user_id_..'\n ☢ ⁝ معرف الشخص»{ '..users..' }') 
+send(msg.chat_id_,0,'⚠¦ تم التعديل على الميديا \n\n📌¦ الشخص الي قام بالتعديل\n➺➺➺ •⊱{ '..users..' }⊰•') 
 end,nil)
 DeleteMessage(msg.chat_id_,{[0] = msg.message_id_}) 
 end
