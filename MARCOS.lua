@@ -3070,7 +3070,7 @@ end
 database:sadd(bot_id..'Gmute:User', result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},
 function(arg,data) 
-usertext = '\n ▫️⁝ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Yp1_7')..')'
+usertext = '\n ▫️⁝ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..')'
 status  = '\n ▫️⁝ تم كتمه عام من الكروبات'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -3103,7 +3103,7 @@ if result.id_ == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, " ▫️⁝ لا يمكنك كتم المطور الاساسي \n")
 return false 
 end
-usertext = '\n ▫️⁝ العضو » ['..result.title_..'](t.me/'..(username or 'Yp1_7')..')'
+usertext = '\n ▫️⁝ العضو » ['..result.title_..'](t.me/'..(username or 'ASTORHBOTS')..')'
 status  = '\n ▫️⁝ تم كتمه عام من الكروبات'
 texts = usertext..status
 database:sadd(bot_id..'Gmute:User', result.id_)
@@ -3138,7 +3138,7 @@ database:sadd(bot_id..'Gmute:User', userid)
 
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 if data.first_name_ then
-usertext = '\n ▫️⁝ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Yp1_7')..')'
+usertext = '\n ▫️⁝ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..')'
 status  = '\n ▫️⁝ تم كتمه عام من الكروبات'
 send(msg.chat_id_, msg.id_, usertext..status)
 else
@@ -7861,7 +7861,7 @@ return false
 end
 database:sadd(bot_id..'WZ:EE:R'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n ▫️⁝ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Yp1_7')..')'
+usertext = '\n ▫️⁝ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..')'
 status  = '\n ▫️⁝ تم ترقيته وزير'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -7891,7 +7891,7 @@ send(msg.chat_id_,msg.id_," ▫️⁝ عذرا عزيزي المستخدم ها�
 return false 
 end      
 database:sadd(bot_id..'WZ:EE:R'..msg.chat_id_, result.id_)
-usertext = '\n ▫️⁝ العضو » ['..result.title_..'](t.me/'..(username or 'Yp1_7')..')'
+usertext = '\n ▫️⁝ العضو » ['..result.title_..'](t.me/'..(username or 'ASTORHBOTS')..')'
 status  = '\n ▫️⁝ تم ترقيته وزير'
 texts = usertext..status
 else
@@ -7920,7 +7920,7 @@ end
 database:sadd(bot_id..'WZ:EE:R'..msg.chat_id_, userid)
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 if data.first_name_ then
-usertext = '\n ▫️⁝ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Yp1_7')..')'
+usertext = '\n ▫️⁝ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..')'
 status  = '\n ▫️⁝ تم ترقيته وزير'
 send(msg.chat_id_, msg.id_, usertext..status)
 else
@@ -7943,7 +7943,7 @@ end
 function start_function(extra, result, success)
 database:srem(bot_id..'WZ:EE:R'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n ▫️⁝ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Yp1_7')..')'
+usertext = '\n ▫️⁝ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..')'
 status  = '\n ▫️⁝ تم تنزيله من الوزراء'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -7965,7 +7965,7 @@ end
 function start_function(extra, result, success)
 if result.id_ then
 database:srem(bot_id..'WZ:EE:R'..msg.chat_id_, result.id_)
-usertext = '\n ▫️⁝ العضو » ['..result.title_..'](t.me/'..(username or 'Yp1_7')..')'
+usertext = '\n ▫️⁝ العضو » ['..result.title_..'](t.me/'..(username or 'ASTORHBOTS')..')'
 status  = '\n ▫️⁝ تم تنزيله من الوزراء'
 texts = usertext..status
 else
@@ -7990,7 +7990,7 @@ end
 database:srem(bot_id..'WZ:EE:R'..msg.chat_id_, userid)
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 if data.first_name_ then
-usertext = '\n ▫️⁝ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'Yp1_7')..')'
+usertext = '\n ▫️⁝ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..')'
 status  = '\n ▫️⁝ تم تنزيله من الوزراء'
 send(msg.chat_id_, msg.id_, usertext..status)
 else
