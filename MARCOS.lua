@@ -11111,11 +11111,6 @@ end
 end,nil)   
 end
 --------------------------------------------------------------------------------------------------------------
-if tonumber(data.id_) == tonumber(bot_id) then
-return false
-end
-end,nil)   
-end
 elseif (data.ID == "UpdateMessageEdited") then
 local msg = data
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.message_id_)},function(extra, result, success)
