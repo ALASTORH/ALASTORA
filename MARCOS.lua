@@ -8727,7 +8727,7 @@ send(msg.chat_id_, msg.id_,texting[Textes])
 end
 end
 -------------------------------
-if text and text:match("^انذار @(.*)$") and Admin(msg) and not database:get(bot_id..'NightRang:inthar:group'..msg.chat_id_) then
+if text and text:match("^انذار @(.*)$") and SudoBot(msg) and not database:get(bot_id..'NightRang:inthar:group'..msg.chat_id_) then
 function FunctionStatus(arg, result)
 if (result.id_) then
 if Rank_Checking(result.id_, msg.chat_id_) == true then
@@ -8751,7 +8751,7 @@ end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = text:match("^انذار @(.*)$") }, FunctionStatus, nil)
 end
-if text == ("انذار") and tonumber(msg.reply_to_message_id_) ~= 0 and Admin(msg) and not database:get(bot_id..'NightRang:inthar:group'..msg.chat_id_) then
+if text == ("انذار") and tonumber(msg.reply_to_message_id_) ~= 0 and SudoBot(msg) and not database:get(bot_id..'NightRang:inthar:group'..msg.chat_id_) then
 function FunctionStatus(arg, result)
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) == true then
 return send(msg.chat_id_, msg.id_, "\nلا تستطيع  حظر , طرد , كتم , تقييد , انذار: "..Get_Rank(result.sender_user_id_,msg.chat_id_).." ")
@@ -8771,12 +8771,12 @@ end
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, FunctionStatus, nil)
 end
-if text == 'تفعيل الانذار' and Admin(msg) then   
+if text == 'تفعيل الانذار' and SudoBot(msg) then   
 database:del(bot_id..'NightRang:inthar:group'..msg.chat_id_) 
 Text = '\n تم تفعيل الانذارات' 
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل الانذار' and Admin(msg) then  
+if text == 'تعطيل الانذار' and SudoBot(msg) then  
 database:set(bot_id..'NightRang:inthar:group'..msg.chat_id_,true) 
 Text = '\nتم تعطيل الانذارات' 
 send(msg.chat_id_, msg.id_,Text) 
