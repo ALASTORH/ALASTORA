@@ -8736,12 +8736,12 @@ end
 local numinthar = tonumber(database:get(bot_id.."NightRang:inthar"..msg.chat_id_..result.id_) or 0)
 if numinthar == 0 then
 database:set(bot_id.."NightRang:inthar"..msg.chat_id_..result.id_,'1')
-Send_Options(msg,result.id_,"reply","تم اعطائه انذار : 1")  
+send(msg,result.id_,"reply","تم اعطائه انذار : 1")  
 elseif numinthar == 1 then
-Send_Options(msg,result.id_,"reply","تم اعطائه انذار : 2")  
+send(msg,result.id_,"reply","تم اعطائه انذار : 2")  
 database:set(bot_id.."NightRang:inthar"..msg.chat_id_..result.id_,'2')
 elseif numinthar == 2 then
-Send_Options(msg,result.id_,"reply","تم اعطائه انذار : 2 وتم كتمه")  
+send(msg,result.id_,"reply","تم اعطائه انذار : 2 وتم كتمه")  
 database:del(bot_id.."NightRang:inthar"..msg.chat_id_..result.id_)
 database:sadd(bot_id.."NightRang:Silence:User:Group"..msg.chat_id_, result.id_)
 end
@@ -8759,12 +8759,12 @@ end
 local numinthar = tonumber(database:get(bot_id.."NightRang:inthar"..msg.chat_id_..result.sender_user_id_) or 0)
 if numinthar == 0 then
 database:set(bot_id.."NightRang:inthar"..msg.chat_id_..result.sender_user_id_,'1')
-Send_Options(msg,result.sender_user_id_,"reply","تم اعطائه انذار : 1")  
+send(msg,result.sender_user_id_,"reply","تم اعطائه انذار : 1")  
 elseif numinthar == 1 then
-Send_Options(msg,result.sender_user_id_,"reply","تم اعطائه انذار : 2")  
+send(msg,result.sender_user_id_,"reply","تم اعطائه انذار : 2")  
 database:set(bot_id.."NightRang:inthar"..msg.chat_id_..result.sender_user_id_,'2')
 elseif numinthar == 2 then
-Send_Options(msg,result.sender_user_id_,"reply","تم اعطائه انذار : 2 وتم كتمه")  
+send(msg,result.sender_user_id_,"reply","تم اعطائه انذار : 2 وتم كتمه")  
 database:del(bot_id.."NightRang:inthar"..msg.chat_id_..result.sender_user_id_)
 database:sadd(bot_id.."NightRang:Silence:User:Group"..msg.chat_id_, result.sender_user_id_)
 end
@@ -8772,7 +8772,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, FunctionStatus, nil)
 end
 if text == 'تفعيل الانذار' and SudoBot(msg) then   
-database:del(bot_id..'NightRang:inthar:group'..msg.chat_id_true) 
+database:del(bot_id..'NightRang:inthar:group'..msg.chat_id_) 
 Text = '\n تم تفعيل الانذارات' 
 send(msg.chat_id_, msg.id_,Text) 
 end
