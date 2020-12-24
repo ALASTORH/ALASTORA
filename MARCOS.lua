@@ -8728,7 +8728,7 @@ end
 end
 -------------------------------
 if text and text:match("^انذار @(.*)$") and SudoBot(msg) and not database:get(bot_id..'NightRang:inthar:group'..msg.chat_id_) then
-function FunctionStatus(arg, result)
+if AddChannel(msg.sender_user_id_) == false then
 if (result.id_) then
 if Can_or_NotCan(result.id_, msg.chat_id_) == true then
 return send(msg.chat_id_, msg.id_, "\nلا تستطيع  حظر , طرد , كتم , تقييد , انذار: "..Rutba(result.id_,msg.chat_id_).." ")
@@ -8752,7 +8752,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = text:match("^انذار @(.*)$") }, FunctionStatus, nil)
 end
 if text == ("انذار") and tonumber(msg.reply_to_message_id_) ~= 0 and SudoBot(msg) and not database:get(bot_id..'NightRang:inthar:group'..msg.chat_id_) then
-function FunctionStatus(arg, result)
+if AddChannel(msg.sender_user_id_) == false then
 if Can_or_NotCan(result.sender_user_id_, msg.chat_id_) == true then
 return send(msg.chat_id_, msg.id_, "\nلا تستطيع  حظر , طرد , كتم , تقييد , انذار: "..Rutba(result.sender_user_id_,msg.chat_id_).." ")
 end
