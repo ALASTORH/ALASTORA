@@ -1472,42 +1472,7 @@ end,nil)
 DeleteMessage(msg.chat_id_, {[0] = msg.id_})     
 return false
 end
-end
-if text then 
-local DelFilter = database:get(bot_id.."NightRang:Filter:Reply1"..msg.sender_user_id_..msg.chat_id_)  
-if DelFilter and DelFilter == "DelFilter" then   
-send(msg.chat_id_, msg.id_,"• تم الغاء منعها ")  
-database:del(bot_id.."NightRang:Filter:Reply1"..msg.sender_user_id_..msg.chat_id_)  
-database:del(bot_id.."NightRang:Filter:Reply2"..text..msg.chat_id_)  
-database:srem(bot_id.."NightRang:List:Filter"..msg.chat_id_,text)  
-return false 
-end  
-end
-------------------------------------------------------------------------------------------------------------
-if text then   
-local SetFilter = database:get(bot_id.."NightRang:Filter:Reply1"..msg.sender_user_id_..msg.chat_id_)  
-if SetFilter and SetFilter == "SetFilter" then   
-send(msg.chat_id_, msg.id_,"• ارسل التحذير عند ارسال الكلمه")  
-database:set(bot_id.."NightRang:Filter:Reply1"..msg.sender_user_id_..msg.chat_id_,"WirngFilter")  
-database:set(bot_id.."NightRang:Filter:Reply:Status"..msg.sender_user_id_..msg.chat_id_, text)  
-database:sadd(bot_id.."NightRang:List:Filter"..msg.chat_id_,text)  
-return false  
-end  
-end
-------------------------------------------------------------------------------------------------------------
-if text then  
-local WirngFilter = database:get(bot_id.."NightRang:Filter:Reply1"..msg.sender_user_id_..msg.chat_id_)  
-if WirngFilter and WirngFilter == "WirngFilter" then  
-send(msg.chat_id_, msg.id_,"• تم منع الكلمه مع التحذير")  
-database:del(bot_id.."NightRang:Filter:Reply1"..msg.sender_user_id_..msg.chat_id_)  
-local test = database:get(bot_id.."NightRang:Filter:Reply:Status"..msg.sender_user_id_..msg.chat_id_)  
-if text then   
-database:set(bot_id.."NightRang:Filter:Reply2"..test..msg.chat_id_, text)  
-end  
-database:del(bot_id.."NightRang:Filter:Reply:Status"..msg.sender_user_id_..msg.chat_id_)  
-return false 
-end  
-end
+end 
 --------------------------------------------------------------------------------------------------------------
 if not Special(msg) and msg.content_.ID ~= "MessageChatAddMembers" and database:hget(bot_id.."flooding:settings:"..msg.chat_id_,"flood") then 
 floods = database:hget(bot_id.."flooding:settings:"..msg.chat_id_,"flood") or 'nil'
@@ -6936,40 +6901,8 @@ if Mod(msg) then
 database:del(bot_id..'Get:Welcome:Group'..msg.chat_id_) 
 send(msg.chat_id_, msg.id_,'💠| تم ازالة ترحيب المجموعه') 
 end
-if text == "مسح قائمة المنع" and SudoBot(msg) then   
-local list = database:smembers(bot_id.."NightRang:List:Filter"..msg.chat_id_)  
-for k,v in pairs(list) do  
-database:del(bot_id.."NightRang:Filter:Reply1"..msg.sender_user_id_..msg.chat_id_)  
-database:del(bot_id.."NightRang:Filter:Reply2"..v..msg.chat_id_)  
-database:srem(bot_id.."NightRang:List:Filter"..msg.chat_id_,v)  
-end  
-send(msg.chat_id_, msg.id_,"• تم مسح قائمة المنع")  
-return false 
-end
-if text == "قائمة المنع" and SudoBot(msg) then   
-local list = database:smembers(bot_id.."NightRang:List:Filter"..msg.chat_id_)  
-t = "\n• قائمة المنع \n━━━━━━━━\n"
-for k,v in pairs(list) do  
-local FilterMsg = database:get(bot_id.."NightRang:Filter:Reply2"..v..msg.chat_id_)   
-t = t..""..k.."- "..v.." » {"..FilterMsg.."}\n"    
-end  
-if #list == 0 then  
-t = "• لا يوجد كلمات ممنوعه"  
-end  
-send(msg.chat_id_, msg.id_,t)  
-return false 
-end
-if text and text == "منع" and msg.reply_to_message_id_ == 0 and SudoBot(msg) then       
-send(msg.chat_id_, msg.id_,"• ارسل الكلمه لمنعها")  
-database:set(bot_id.."NightRang:Filter:Reply1"..msg.sender_user_id_..msg.chat_id_,"SetFilter")  
-return false  
-end
-if text == "الغاء منع" and msg.reply_to_message_id_ == 0 and SudoBot(msg) then    
-send(msg.chat_id_, msg.id_,"• ارسل الكلمه الان")  
-database:set(bot_id.."NightRang:Filter:Reply1"..msg.sender_user_id_..msg.chat_id_,"DelFilter")  
-return false 
-end
-if text == "مسح قائمه المنعا" and Manager(msg) then   
+
+if text == "مسح قائمه المنع" and Manager(msg) then   
 local list = database:smembers(bot_id.."List:Filter"..msg.chat_id_)  
 for k,v in pairs(list) do  
 database:del(bot_id.."Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
@@ -6978,7 +6911,7 @@ database:srem(bot_id.."List:Filter"..msg.chat_id_,v)
 end  
 send(msg.chat_id_, msg.id_,"🖇️| تم مسح قائمه المنع")  
 end
-if text == "قائمه المنعا" and Manager(msg) then   
+if text == "قائمه المنع" and Manager(msg) then   
 local list = database:smembers(bot_id.."List:Filter"..msg.chat_id_)  
 t = "\n🔘| قائمة المنع \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
 for k,v in pairs(list) do  
@@ -6990,7 +6923,7 @@ t = "⚠️|لا يوجد كلمات ممنوعه"
 end  
 send(msg.chat_id_, msg.id_,t)  
 end  
-if text and text == 'منعا' and msg.reply_to_message_id_ == 0 and Manager(msg) then       
+if text and text == 'منع' and msg.reply_to_message_id_ == 0 and Manager(msg) then       
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -11028,16 +10961,6 @@ if data.username_ then
 database:set(bot_id..'user:Name'..msg.sender_user_id_,(data.username_))
 end
 -----------------------------------------------
-elseif textedit then
-local Text_Filter = database:get(bot_id.."NightRang:Filter:Reply2"..textedit..result.chat_id_)   
-if Text_Filter then    
-Delete_Message(result.chat_id_, {[0] = data.message_id_})     
-Send_Options(result,result.sender_user_id_,"reply","• "..Text_Filter)  
-return false
-end
-end
-end
-end,nil)
 --------------------------------------------------------------------------------------------------------------
 if tonumber(data.id_) == tonumber(bot_id) then
 return false
