@@ -8743,7 +8743,7 @@ database:set(bot_id.."NightRang:inthar"..msg.chat_id_..result.id_,'2')
 elseif numinthar == 2 then
 send(msg,result.id_,"reply","تم اعطائه انذار : 2 وتم كتمه")  
 database:del(bot_id.."NightRang:inthar"..msg.chat_id_..result.id_)
-database:sadd(bot_id.."NightRang:Silence:User:Group"..msg.chat_id_, result.id_)
+database:sadd(bot_id.."NightRang:Mute:User:Group"..msg.chat_id_, result.id_)
 end
 else
 send(msg.chat_id_, msg.id_,"المعرف غلط ")
@@ -8766,7 +8766,7 @@ database:set(bot_id.."NightRang:inthar"..msg.chat_id_..result.sender_user_id_,'2
 elseif numinthar == 2 then
 send(msg,result.sender_user_id_,"reply","تم اعطائه انذار : 2 وتم كتمه")  
 database:del(bot_id.."NightRang:inthar"..msg.chat_id_..result.sender_user_id_)
-database:sadd(bot_id.."NightRang:Silence:User:Group"..msg.chat_id_, result.sender_user_id_)
+database:sadd(bot_id.."NightRang:Mute:User:Group"..msg.chat_id_, result.sender_user_id_)
 end
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, FunctionStatus, nil)
