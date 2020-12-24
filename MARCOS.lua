@@ -1474,7 +1474,7 @@ return false
 end
 end
 if text then 
-local DelFilter = redis:get(bot_id.."NightRang:Filter:Reply1"..msg.sender_user_id_..msg.chat_id_)  
+local DelFilter = database:get(bot_id.."NightRang:Filter:Reply1"..msg.sender_user_id_..msg.chat_id_)  
 if DelFilter and DelFilter == "DelFilter" then   
 send(msg.chat_id_, msg.id_,"• تم الغاء منعها ")  
 database:del(bot_id.."NightRang:Filter:Reply1"..msg.sender_user_id_..msg.chat_id_)  
@@ -1485,7 +1485,7 @@ end
 end
 ------------------------------------------------------------------------------------------------------------
 if text then   
-local SetFilter = redis:get(bot_id.."NightRang:Filter:Reply1"..msg.sender_user_id_..msg.chat_id_)  
+local SetFilter = database:get(bot_id.."NightRang:Filter:Reply1"..msg.sender_user_id_..msg.chat_id_)  
 if SetFilter and SetFilter == "SetFilter" then   
 send(msg.chat_id_, msg.id_,"• ارسل التحذير عند ارسال الكلمه")  
 database:set(bot_id.."NightRang:Filter:Reply1"..msg.sender_user_id_..msg.chat_id_,"WirngFilter")  
@@ -6937,7 +6937,7 @@ database:del(bot_id..'Get:Welcome:Group'..msg.chat_id_)
 send(msg.chat_id_, msg.id_,'💠| تم ازالة ترحيب المجموعه') 
 end
 if text == "مسح قائمة المنع" and SudoBot(msg) then   
-local list = redis:smembers(bot_id.."NightRang:List:Filter"..msg.chat_id_)  
+local list = database:smembers(bot_id.."NightRang:List:Filter"..msg.chat_id_)  
 for k,v in pairs(list) do  
 database:del(bot_id.."NightRang:Filter:Reply1"..msg.sender_user_id_..msg.chat_id_)  
 database:del(bot_id.."NightRang:Filter:Reply2"..v..msg.chat_id_)  
