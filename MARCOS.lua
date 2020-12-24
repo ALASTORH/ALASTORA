@@ -8772,7 +8772,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, FunctionStatus, nil)
 end
 if text == 'تفعيل الانذار' and SudoBot(msg) then   
-database:set(bot_id..'NightRang:inthar:group'..msg.chat_id_) 
+database:del(bot_id..'NightRang:inthar:group'..msg.chat_id_) 
 Text = '\n تم تفعيل الانذارات' 
 send(msg.chat_id_, msg.id_,Text) 
 end
