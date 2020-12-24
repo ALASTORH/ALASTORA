@@ -1500,7 +1500,7 @@ local WirngFilter = database:get(bot_id.."NightRang:Filter:Reply1"..msg.sender_u
 if WirngFilter and WirngFilter == "WirngFilter" then  
 send(msg.chat_id_, msg.id_,"• تم منع الكلمه مع التحذير")  
 database:del(bot_id.."NightRang:Filter:Reply1"..msg.sender_user_id_..msg.chat_id_)  
-local test = redis:get(bot_id.."NightRang:Filter:Reply:Status"..msg.sender_user_id_..msg.chat_id_)  
+local test = database:get(bot_id.."NightRang:Filter:Reply:Status"..msg.sender_user_id_..msg.chat_id_)  
 if text then   
 database:set(bot_id.."NightRang:Filter:Reply2"..test..msg.chat_id_, text)  
 end  
