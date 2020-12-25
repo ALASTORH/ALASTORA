@@ -7740,7 +7740,7 @@ t = t..""..k.."- {"..v.."}\n"
 end
 end
 if #list == 0 then
-t = " ▫️⁝لايـوجـد وزراء "
+t = " ▫️⁝ لا يوجد وزيريه"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -8727,42 +8727,59 @@ send(msg.chat_id_, msg.id_,texting[Textes])
 end
 end
 -------------------------------
-if text == "اضف سوال كت تويت" and SudoBot(msg) then
-database:set(bot_id.."Storm:gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
-return send(msg.chat_id_, msg.id_,"ارسل السؤال الان ")
+if text and text:match("^انذار @(.*)$") and SudoBot(msg) and not database:get(bot_id..'NightRang:inthar:group'..msg.chat_id_) then
+function(arg,data) 
+if (result.id_) then
+if Can_or_NotCan(result.id_, msg.chat_id_) == true then
+return send(msg.chat_id_, msg.id_, "\nلا تستطيع  حظر , طرد , كتم , تقييد , انذار: "..Rutba(result.id_,msg.chat_id_).." ")
 end
-if text == "حذف سوال كت تويت" and SudoBot(msg) then
-database:del(bot_id.."Storm:gamebot:List:Manager"..msg.chat_id_.."")
-return send(msg.chat_id_, msg.id_,"تم حذف الاسئله")
+local numinthar = tonumber(database:get(bot_id.."NightRang:inthar"..msg.chat_id_..result.id_) or 0)
+if numinthar == 0 then
+database:set(bot_id.."NightRang:inthar"..msg.chat_id_..result.id_,'1')
+send(msg,result.id_,"reply","تم اعطائه انذار : 1")  
+elseif numinthar == 1 then
+send(msg,result.id_,"reply","تم اعطائه انذار : 2")  
+database:set(bot_id.."NightRang:inthar"..msg.chat_id_..result.id_,'2')
+elseif numinthar == 2 then
+send(msg,result.id_,"reply","تم اعطائه انذار : 2 وتم كتمه")  
+database:del(bot_id.."NightRang:inthar"..msg.chat_id_..result.id_)
+database:sadd(bot_id.."NightRang:Mute:User:Group"..msg.chat_id_, result.id_)
 end
-if text and text:match("^(.*)$") then
-if database:get(bot_id.."Storm:gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
-send(msg.chat_id_, msg.id_, '\nتم حفظ السؤال بنجاح')
-database:set(bot_id.."Storm:gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true1uu")
-database:sadd(bot_id.."Storm:gamebot:List:Manager"..msg.chat_id_.."", text)
-return false end
+else
+send(msg.chat_id_, msg.id_,"المعرف غلط ")
 end
-
-if text == "اضف سوال كت تويت" and SudoBot(msg) then
-database:set(bot_id.."Storm:gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
-return send(msg.chat_id_, msg.id_,"ارسل السؤال الان ")
 end
-if text == "حذف سوال كت تويت" and SudoBot(msg) then
-database:del(bot_id.."Storm:gamebot:List:Manager")
-return send(msg.chat_id_, msg.id_,"تم حذف الاسئله")
+tdcli_function ({ID = "SearchPublicChat",username_ = text:match("^انذار @(.*)$") }, FunctionStatus, nil)
 end
-if text and text:match("^(.*)$") then
-if database:get(bot_id.."Storm:gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
-send(msg.chat_id_, msg.id_, '\nتم حفظ السؤال بنجاح')
-database:set(bot_id.."Storm:gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true1uu")
-database:sadd(bot_id.."Storm:gamebot:List:Manager", text)
-return false end
+if text == ("انذار") and tonumber(msg.reply_to_message_id_) ~= 0 and SudoBot(msg) and not database:get(bot_id..'NightRang:inthar:group'..msg.chat_id_) then
+function(arg,data) 
+if Can_or_NotCan(result.sender_user_id_, msg.chat_id_) == true then
+return send(msg.chat_id_, msg.id_, "\nلا تستطيع  حظر , طرد , كتم , تقييد , انذار: "..Rutba(result.sender_user_id_,msg.chat_id_).." ")
 end
-if text == 'كت تويت' then
-if database:get(bot_id..'Lock:Games'..msg.chat_id_) then
-local list = database:smembers(bot_id.."Storm:gamebot:List:Manager")
-if #list ~= 0 then
-send(msg.chat_id_, msg.id_,quschen)
+local numinthar = tonumber(database:get(bot_id.."NightRang:inthar"..msg.chat_id_..result.sender_user_id_) or 0)
+if numinthar == 0 then
+database:set(bot_id.."NightRang:inthar"..msg.chat_id_..result.sender_user_id_,'1')
+send(msg,result.sender_user_id_,"reply","تم اعطائه انذار : 1")  
+elseif numinthar == 1 then
+send(msg,result.sender_user_id_,"reply","تم اعطائه انذار : 2")  
+database:set(bot_id.."NightRang:inthar"..msg.chat_id_..result.sender_user_id_,'2')
+elseif numinthar == 2 then
+send(msg,result.sender_user_id_,"reply","تم اعطائه انذار : 2 وتم كتمه")  
+database:del(bot_id.."NightRang:inthar"..msg.chat_id_..result.sender_user_id_)
+database:sadd(bot_id.."NightRang:Mute:User:Group"..msg.chat_id_, result.sender_user_id_)
+end
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, FunctionStatus, nil)
+end
+if text == 'تفعيل الانذار' and SudoBot(msg) then   
+database:del(bot_id..'NightRang:inthar:group'..msg.chat_id_) 
+Text = '\n تم تفعيل الانذارات' 
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == 'تعطيل الانذار' and SudoBot(msg) then  
+database:set(bot_id..'NightRang:inthar:group'..msg.chat_id_,true) 
+Text = '\nتم تعطيل الانذارات' 
+send(msg.chat_id_, msg.id_,Text) 
 end
 if text == ""..(database:get(bot_id..'Name:Bot') or 'الاسطورة').."مغاداره" or text == 'مغاندره' or text == 'مةنغادرة' then  
 if Sudo(msg) and not database:get(bot_id..'Left:Bot'..msg.chat_id_)  then 
