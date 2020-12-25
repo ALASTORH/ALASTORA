@@ -6915,8 +6915,7 @@ if Mod(msg) then
 database:del(bot_id..'Get:Welcome:Group'..msg.chat_id_) 
 send(msg.chat_id_, msg.id_,'💠| تم ازالة ترحيب المجموعه') 
 end
-
-if text == "مسح قائمه المنع" and Addictive(msg) then   
+if text == "مسح قائمه المنع" and Manager(msg) then   
 local list = database:smembers(bot_id.."Tshake:List:Filter"..msg.chat_id_)  
 for k,v in pairs(list) do  
 database:del(bot_id.."Tshake:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
@@ -6926,7 +6925,7 @@ end
 send(msg.chat_id_, msg.id_,"☑┇تم مسح قائمه المنع")  
 end
 
-if text == "قائمه المنع" and Addictive(msg) then   
+if text == "قائمه المنع" and Manager(msg) then   
 local list = database:smembers(bot_id.."Tshake:List:Filter"..msg.chat_id_)  
 t = "\n⛔┇قائمة المنع \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
 for k,v in pairs(list) do  
@@ -6938,7 +6937,7 @@ t = "📬┇لا يوجد كلمات ممنوعه"
 end  
 send(msg.chat_id_, msg.id_,t)  
 end  
-if text and text == "منع" and msg.reply_to_message_id_ == 0 and Addictive(msg) then       
+if text and text == "منع" and msg.reply_to_message_id_ == 0 and Manager(msg) then       
 send(msg.chat_id_, msg.id_,"📛┇ارسل الكلمه لمنعها")  
 database:set(bot_id.."Tshake:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"rep")  
 return false  
@@ -6965,7 +6964,7 @@ database:del(bot_id.."Tshake:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_i
 return false  end  
 end
 
-if text == "الغاء منع" and msg.reply_to_message_id_ == 0 and Addictive(msg) then    
+if text == "الغاء منع" and msg.reply_to_message_id_ == 0 and Manager(msg) then    
 send(msg.chat_id_, msg.id_,"🔖┇ارسل الكلمه الان")  
 database:set(bot_id.."Tshake:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"reppp")  
 return false  end
