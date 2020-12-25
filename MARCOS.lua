@@ -6915,68 +6915,69 @@ if Mod(msg) then
 database:del(bot_id..'Get:Welcome:Group'..msg.chat_id_) 
 send(msg.chat_id_, msg.id_,'💠| تم ازالة ترحيب المجموعه') 
 end
-if text == "مسح قائمه المنع" and Manager(msg) then   
-local list = database:smembers(bot_id.."MARCOS:List:Filter"..msg.chat_id_)  
+if text == "مسح قائمه المنع" and Mod(msg) then   
+local list = database:smembers(bot_id.."Tshake:List:Filter"..msg.chat_id_)  
 for k,v in pairs(list) do  
-database:del(bot_id.."MARCOS:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
-database:del(bot_id.."MARCOS:Add:Filter:Rp2"..v..msg.chat_id_)  
-database:srem(bot_id.."MARCOS:List:Filter"..msg.chat_id_,v)  
+database:del(bot_id.."Tshake:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+database:del(bot_id.."Tshake:Add:Filter:Rp2"..v..msg.chat_id_)  
+database:srem(bot_id.."Tshake:List:Filter"..msg.chat_id_,v)  
 end  
 send(msg.chat_id_, msg.id_,"☑┇تم مسح قائمه المنع")  
 end
 
-if text == "قائمه المنع" and Manager(msg) then   
-local list = database:smembers(bot_id.."MARCOS:List:Filter"..msg.chat_id_)  
+if text == "قائمه المنع" and Mod(msg) then   
+local list = database:smembers(bot_id.."Tshake:List:Filter"..msg.chat_id_)  
 t = "\n⛔┇قائمة المنع \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
 for k,v in pairs(list) do  
-local MARCOS_Msg = database:get(bot_id.."MARCOS:Add:Filter:Rp2"..v..msg.chat_id_)   
-t = t..""..k.."- "..v.." » {"..MARCOS_Msg.."}\n"    
+local Tshake_Msg = database:get(bot_id.."Tshake:Add:Filter:Rp2"..v..msg.chat_id_)   
+t = t..""..k.."- "..v.." » {"..Tshake_Msg.."}\n"    
 end  
 if #list == 0 then  
 t = "📬┇لا يوجد كلمات ممنوعه"  
 end  
 send(msg.chat_id_, msg.id_,t)  
 end  
-if text and text == "منع" and msg.reply_to_message_id_ == 0 and Manager(msg) then       
+if text and text == "منع" and msg.reply_to_message_id_ == 0 and Mod(msg) then       
 send(msg.chat_id_, msg.id_,"📛┇ارسل الكلمه لمنعها")  
-database:set(bot_id.."MARCOS:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"rep")  
+database:set(bot_id.."Tshake:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"rep")  
 return false  
 end    
 if text then   
-local tsssst = database:get(bot_id.."MARCOS:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+local tsssst = database:get(bot_id.."Tshake:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 if tsssst == "rep" then   
 send(msg.chat_id_, msg.id_,"📫┇ارسل التحذير عند ارسال الكلمه")  
-database:set(bot_id.."MARCOS:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"repp")  
-database:set(bot_id.."MARCOS:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_, text)  
-database:sadd(bot_id.."MARCOS:List:Filter"..msg.chat_id_,text)  
+database:set(bot_id.."Tshake:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"repp")  
+database:set(bot_id.."Tshake:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_, text)  
+database:sadd(bot_id.."Tshake:List:Filter"..msg.chat_id_,text)  
 return false  end  
 end
 if text then  
-local test = database:get(bot_id.."MARCOS:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+local test = database:get(bot_id.."Tshake:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 if test == "repp" then  
 send(msg.chat_id_, msg.id_,"🔖┇تم منع الكلمه مع التحذير")  
-database:del(bot_id.."MARCOS:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
-local test = database:get(bot_id.."MARCOS:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_)  
+database:del(bot_id.."Tshake:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+local test = database:get(bot_id.."Tshake:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_)  
 if text then   
-database:set(bot_id.."MARCOS:Add:Filter:Rp2"..test..msg.chat_id_, text)  
+database:set(bot_id.."Tshake:Add:Filter:Rp2"..test..msg.chat_id_, text)  
 end  
-database:del(bot_id.."MARCOS:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_)  
+database:del(bot_id.."Tshake:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_)  
 return false  end  
 end
 
-if text == "الغاء منع" and msg.reply_to_message_id_ == 0 and Manager(msg) then    
+if text == "الغاء منع" and msg.reply_to_message_id_ == 0 and Mod(msg) then    
 send(msg.chat_id_, msg.id_,"🔖┇ارسل الكلمه الان")  
-database:set(bot_id.."MARCOS:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"reppp")  
+database:set(bot_id.."Tshake:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"reppp")  
 return false  end
 if text then 
-local test = database:get(bot_id.."MARCOS:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+local test = database:get(bot_id.."Tshake:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 if test and test == "reppp" then   
 send(msg.chat_id_, msg.id_,"📮┇تم الغاء منعها ")  
-database:del(bot_id.."MARCOS:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
-database:del(bot_id.."MARCOS:Add:Filter:Rp2"..text..msg.chat_id_)  
-database:srem(bot_id.."MARCOS:List:Filter"..msg.chat_id_,text)  
+database:del(bot_id.."Tshake:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+database:del(bot_id.."Tshake:Add:Filter:Rp2"..text..msg.chat_id_)  
+database:srem(bot_id.."Tshake:List:Filter"..msg.chat_id_,text)  
 return false  end  
 end
+
 if text == 'منع' and tonumber(msg.reply_to_message_id_) > 0 and Manager(msg) then     
 function cb(a,b,c) 
 textt = '📮| تم منع '
