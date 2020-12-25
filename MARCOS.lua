@@ -7740,7 +7740,7 @@ t = t..""..k.."- {"..v.."}\n"
 end
 end
 if #list == 0 then
-t = " ▫️⁝ لا يوجد وزيريه"
+t = " ▫️⁝لايـوجـد وزراء "
 end
 send(msg.chat_id_, msg.id_, t)
 end
