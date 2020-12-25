@@ -2193,7 +2193,7 @@ end
 return false  
 end
 
-if text:match("^source$") or text:match("^اصدار$") or text:match("^الاصدار$") or  text:match("^السورس$") or text:match("^سورس$") and faeder11(msg) then 
+if text = " سورس" or text = "السورس" or text = " ياسورس" then
 local inline = {
 {{text="- قناة السورس ،",url="t.me/ASTORHBOTS"},
 {text="- مبرمج السورس،",url="t.me/AST0RH"}},
