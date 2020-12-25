@@ -1474,14 +1474,14 @@ return false
 end
 end 
 --------------------------------------------------------------------------------------------------------------
-if database:get(bot_id.."ASTORH:KLISH:ID:Group"..msg.chat_id_..""..msg.sender_user_id_) then 
+if database:get(bot_id.."CHENG:ID:Group"..msg.chat_id_..""..msg.sender_user_id_) then 
 if text == 'الغاء' then 
 send(msg.chat_id_,msg.id_, "\n• تم الغاء امر تعيين الايدي") 
-database:del(bot_id.."ASTORH:KLISH:ID:Group"..msg.chat_id_..""..msg.sender_user_id_) 
+database:del(bot_id.."CHENG:ID:Group"..msg.chat_id_..""..msg.sender_user_id_) 
 return false  
 end 
-database:del(bot_id.."ASTORH:KLISH:ID:Group"..msg.chat_id_..""..msg.sender_user_id_) 
-database:set(bot_id.."ASTROH:Set:Id:Group"..msg.chat_id_,text:match("(.*)"))
+database:del(bot_id.."CHENG:ID:Group"..msg.chat_id_..""..msg.sender_user_id_) 
+database:set(bot_id.."KLISH:ID:Group"..msg.chat_id_,text:match("(.*)"))
 send(msg.chat_id_, msg.id_,'• تم تعيين الايدي الجديد')    
 end
 --------------------------------------------------------------------------------------------------------------
@@ -10363,7 +10363,7 @@ local ns = {
 "ۿۿـ℘ﹻۧـ๋͜ـﻶٌُوٰ୭ًٌَّّٳټٴ ͢⁽✨☻₎♤ عمري 🙊😍😘",
 "هــلــℌelℓoووات عمـ°😻°ــري🙊😋",
 ": ٰٰهٌٰــٌـٓٓٓ:hand:ــٰـٰـٰ😍ــٰـٰـٰلـٰـٰوُٰـوُٰـوُات",
-"هْـٌﮩٌﮧٌ﴿??﴾ﮩٌـ୭ٌ୭ـْلوُّات†😻☝️",
+"هْـٌﮩٌﮧٌ﴿🙃﴾ﮩٌـ୭ٌ୭ـْلوُّات†😻☝️",
 "كل الهلاهل 😻نورتنة 👐",
 "هلوات عمري ☺😘",
 }
