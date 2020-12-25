@@ -8677,6 +8677,45 @@ database:sadd(bot_id..'Spam:Texting'..msg.sender_user_id_,text)
 end  
 end
 end
+if text == 'تحويل ملصق' and tonumber(msg.reply_to_message_id_) > 0 then
+tdcli_function({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},function(arg,data)
+if data.content_.ID == 'MessagePhoto' then
+if data.content_.photo_ then
+if data.content_.photo_.sizes_[0] then
+photo_in_group = data.content_.photo_.sizes_[0].photo_.persistent_id_
+end
+if data.content_.photo_.sizes_[1] then
+photo_in_group = data.content_.photo_.sizes_[1].photo_.persistent_id_
+end
+if data.content_.photo_.sizes_[2] then
+photo_in_group = data.content_.photo_.sizes_[2].photo_.persistent_id_
+end	
+if data.content_.photo_.sizes_[3] then
+photo_in_group = data.content_.photo_.sizes_[3].photo_.persistent_id_
+end
+end
+local File = json:decode(https.request('https://api.telegram.org/bot' .. token .. '/getfile?file_id='..photo_in_group) ) 
+local Name_File = download_to_file('https://api.telegram.org/file/bot'..token..'/'..File.result.file_path, './'..msg.id_..'.webp') 
+sendSticker(msg.chat_id_,msg.id_,Name_File)
+os.execute('rm -rf '..Name_File) 
+else
+send(msg.chat_id_,msg.id_,'هذه ليست صوره')
+end
+end, nil)
+end
+if text == 'صوره' and tonumber(msg.reply_to_message_id_) > 0 then
+tdcli_function({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},function(arg,data)
+if data.content_.ID == "MessageSticker" then    
+local File = json:decode(https.request('https://api.telegram.org/bot' .. token .. '/getfile?file_id='..data.content_.sticker_.sticker_.persistent_id_) ) 
+local Name_File = download_to_file('https://api.telegram.org/file/bot'..token..'/'..File.result.file_path, './'..msg.id_..'.jpg') 
+sendPhoto(msg.chat_id_,msg.id_,Name_File,'')
+os.execute('rm -rf '..Name_File) 
+else
+send(msg.chat_id_,msg.id_,'هذا ليس ملصق')
+end
+end, nil)
+end
+
 if text and text:match("^(.*)$") then
 if database:get(bot_id.."botss:NightRang:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
 send(msg.chat_id_, msg.id_, '\n ✓ : ارسل لي الكلمه الان')
