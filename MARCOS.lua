@@ -1474,14 +1474,14 @@ return false
 end
 end 
 --------------------------------------------------------------------------------------------------------------
-if database:get(bot_id.."CHENG:ID:Group"..msg.chat_id_..""..msg.sender_user_id_) then 
+if database:get(bot_id.."astorh:Redis:Id:Group"..msg.chat_id_..""..msg.sender_user_id_) then 
 if text == 'الغاء' then 
 send(msg.chat_id_,msg.id_, "\n• تم الغاء امر تعيين الايدي") 
-database:del(bot_id.."CHENG:ID:Group"..msg.chat_id_..""..msg.sender_user_id_) 
+database:del(bot_id.."astorh:Redis:Id:Group"..msg.chat_id_..""..msg.sender_user_id_) 
 return false  
 end 
-database:del(bot_id.."CHENG:ID:Group"..msg.chat_id_..""..msg.sender_user_id_) 
-database:set(bot_id.."KLISH:ID:Group"..msg.chat_id_,text:match("(.*)"))
+database:del(bot_id.."astorh:Redis:Id:Group"..msg.chat_id_..""..msg.sender_user_id_) 
+database:set(bot_id.."astorh:Set:Id:Group"..msg.chat_id_,text:match("(.*)"))
 send(msg.chat_id_, msg.id_,'• تم تعيين الايدي الجديد')    
 end
 --------------------------------------------------------------------------------------------------------------
@@ -7114,7 +7114,7 @@ send(msg.chat_id_, msg.id_,'🔖| لا تستطيع استخدام البوت ي
 end
 return false
 end
-database:setex(bot_id.."CHENG:ID"..msg.chat_id_..""..msg.sender_user_id_,240,true)  
+database:setex(bot_id.."CHENG:ID:bot"..msg.chat_id_..""..msg.sender_user_id_,240,true)  
 local Text= [[
 🔘| ارسل الان النص
 🔘| يمكنك اضافه :
@@ -7142,21 +7142,21 @@ send(msg.chat_id_, msg.id_,'🔖| لا تستطيع استخدام البوت ي
 end
 return false
 end
-database:del(bot_id.."KLISH:ID"..msg.chat_id_)
+database:del(bot_id.."KLISH:ID:bot"..msg.chat_id_)
 send(msg.chat_id_, msg.id_, '📌| تم ازالة كليشة الايدي ')
 end
 return false  
 end 
 
-if database:get(bot_id.."CHENG:ID"..msg.chat_id_..""..msg.sender_user_id_) then 
+if database:get(bot_id.."CHENG:ID:bot"..msg.chat_id_..""..msg.sender_user_id_) then 
 if text == 'الغاء' then 
 send(msg.chat_id_, msg.id_,"⚠️| تم الغاء تعين الايدي") 
-database:del(bot_id.."CHENG:ID"..msg.chat_id_..""..msg.sender_user_id_) 
+database:del(bot_id.."CHENG:ID:bot"..msg.chat_id_..""..msg.sender_user_id_) 
 return false  
 end 
-database:del(bot_id.."CHENG:ID"..msg.chat_id_..""..msg.sender_user_id_) 
+database:del(bot_id.."CHENG:ID:bot"..msg.chat_id_..""..msg.sender_user_id_) 
 local CHENGER_ID = text:match("(.*)")  
-database:set(bot_id.."KLISH:ID"..msg.chat_id_,CHENGER_ID)
+database:set(bot_id.."KLISH:ID:bot"..msg.chat_id_,CHENGER_ID)
 send(msg.chat_id_, msg.id_,'📌| تم تعين الايدي بنجاح')    
 end
 
@@ -7283,7 +7283,7 @@ local List = {[[
 𝙼𝚜𝚐𝚎 ✯ #msgs
 ]]}
 local Text_Rand = List[math.random(#List)]
-database:set(bot_id.."ASTORH:Set:Id:Group"..msg.chat_id_,Text_Rand)
+database:set(bot_id.."astorh:Set:Id:Group"..msg.chat_id_,Text_Rand)
 send(msg.chat_id_, msg.id_,'܁تم تغيير الايدي قم بالتجربه ')
 end
 if text == 'ضع قوانين' or text == 'وضع قوانين' then 
@@ -9262,7 +9262,7 @@ local tahaa = {
 
 local rdphoto = tahaa[math.random(#tahaa)]
 if not database:get(bot_id..'Bot:Id:Photo'..msg.chat_id_) then      
-local get_id_text = database:get(bot_id.."KLISH:ID"..msg.chat_id_)
+local get_id_text = database:get(bot_id.."KLISH:ID:bot"..msg.chat_id_)
 if get_id_text then
 if result.username_ then
 username = '@'..result.username_ 
@@ -9304,7 +9304,7 @@ end
 end
 end
 else
-local get_id_text = database:get(bot_id.."KLISH:ID"..msg.chat_id_)
+local get_id_text = database:get(bot_id.."KLISH:ID:bot"..msg.chat_id_)
 if get_id_text then
 get_id_text = get_id_text:gsub('#rdphoto',rdphoto) 
 get_id_text = get_id_text:gsub('#id',iduser) 
