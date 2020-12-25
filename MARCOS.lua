@@ -7272,7 +7272,7 @@ local List = {[[
 𝙼𝚜𝚐𝚎 ✯ #msgs
 ]]}
 local Text_Rand = List[math.random(#List)]
-redis:set(bot_id.."NightRang:Set:Id:Group"..msg.chat_id_,Text_Rand)
+database:set(bot_id.."NightRang:Set:Id:Group"..msg.chat_id_,Text_Rand)
 send(msg.chat_id_, msg.id_,'܁تم تغيير الايدي قم بالتجربه ')
 end
 if text == 'ضع قوانين' or text == 'وضع قوانين' then 
