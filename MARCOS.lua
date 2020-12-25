@@ -1474,6 +1474,17 @@ return false
 end
 end 
 --------------------------------------------------------------------------------------------------------------
+if database:get(bot_id.."ASTORH:KLISH:ID:Group"..msg.chat_id_..""..msg.sender_user_id_) then 
+if text == 'الغاء' then 
+send(msg.chat_id_,msg.id_, "\n• تم الغاء امر تعيين الايدي") 
+database:del(bot_id.."ASTORH:KLISH:ID:Group"..msg.chat_id_..""..msg.sender_user_id_) 
+return false  
+end 
+database:del(bot_id.."ASTORH:KLISH:ID:Group"..msg.chat_id_..""..msg.sender_user_id_) 
+database:set(bot_id.."ASTROH:Set:Id:Group"..msg.chat_id_,text:match("(.*)"))
+send(msg.chat_id_, msg.id_,'• تم تعيين الايدي الجديد')    
+end
+--------------------------------------------------------------------------------------------------------------
 if not Special(msg) and msg.content_.ID ~= "MessageChatAddMembers" and database:hget(bot_id.."flooding:settings:"..msg.chat_id_,"flood") then 
 floods = database:hget(bot_id.."flooding:settings:"..msg.chat_id_,"flood") or 'nil'
 NUM_MSG_MAX = database:hget(bot_id.."flooding:settings:"..msg.chat_id_,"floodmax") or 5
@@ -7231,7 +7242,7 @@ send(msg.chat_id_, msg.id_,"*🔘| تم حفظ قوانين المجموعه*")
 database:del(bot_id.."Set:Rules:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end  
 if text == 'تغيير الايدي' then
-if not Admin(msg) then 
+if not SudoBot(msg) then 
 send(msg.chat_id_,msg.id_,'اهلا عزيزي \n الامر يخص - الادمن - مدير فقط')
 return false
 end 
@@ -7272,7 +7283,7 @@ local List = {[[
 𝙼𝚜𝚐𝚎 ✯ #msgs
 ]]}
 local Text_Rand = List[math.random(#List)]
-database:set(bot_id.."NightRang:Set:Id:Group"..msg.chat_id_,Text_Rand)
+database:set(bot_id.."ASTORH:Set:Id:Group"..msg.chat_id_,Text_Rand)
 send(msg.chat_id_, msg.id_,'܁تم تغيير الايدي قم بالتجربه ')
 end
 if text == 'ضع قوانين' or text == 'وضع قوانين' then 
@@ -10352,7 +10363,7 @@ local ns = {
 "ۿۿـ℘ﹻۧـ๋͜ـﻶٌُوٰ୭ًٌَّّٳټٴ ͢⁽✨☻₎♤ عمري 🙊😍😘",
 "هــلــℌelℓoووات عمـ°😻°ــري🙊😋",
 ": ٰٰهٌٰــٌـٓٓٓ:hand:ــٰـٰـٰ😍ــٰـٰـٰلـٰـٰوُٰـوُٰـوُات",
-"هْـٌﮩٌﮧٌ﴿🙃﴾ﮩٌـ୭ٌ୭ـْلوُّات†😻☝️",
+"هْـٌﮩٌﮧٌ﴿??﴾ﮩٌـ୭ٌ୭ـْلوُّات†😻☝️",
 "كل الهلاهل 😻نورتنة 👐",
 "هلوات عمري ☺😘",
 }
