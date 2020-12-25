@@ -8572,7 +8572,7 @@ end
 end
 if text and text:match("^(.*)$") then
 if database:get(bot_id..'Set:Manager:rd'..msg.sender_user_id_..':'..msg.chat_id_) == 'true' then
-send(msg.chat_id_, msg.id_,'\n📥| ✔️ حلوو الحين ارسل شتبي يكون \nعلى الكلمه الي قلتها فوق 😊👇🏻 \n{صوره,فيديو,متحركه,ملصق,بصمه,صوت}\nملاحظة عند ارسال معرف\nيحتوي علئ _ كمثال KOKIS_BOT\nعليك ارساله بالشكل الاتي\n⇐[@KOKIS_BOT]⇒')
+send(msg.chat_id_, msg.id_,'\n📥| ✔️ حلوو الحين ارسل شتبي يكون \nعلى الكلمه الي قلتها فوق 😊👇🏻 \n{صوره,فيديو,متحركه,ملصق,بصمه,صوت}\n')
 database:set(bot_id..'Set:Manager:rd'..msg.sender_user_id_..':'..msg.chat_id_,'true1')
 database:set(bot_id..'Text:Manager'..msg.sender_user_id_..':'..msg.chat_id_, text)
 database:del(bot_id.."Add:Rd:Manager:Gif"..text..msg.chat_id_)   
@@ -8998,40 +8998,128 @@ Text = '\n💠| بالتاكيد تم تعطيل الرفع'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'ايدي' and tonumber(msg.reply_to_message_id_) > 0 then
-function start_function(extra, result, success)
-tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(extra,data) 
-local Msguser = tonumber(database:get(bot_id..'Msg_User'..msg.chat_id_..':'..result.sender_user_id_) or 1) 
-local Contact = tonumber(database:get(bot_id..'Add:Contact'..msg.chat_id_..':'..result.sender_user_id_) or 0) 
-local NUMPGAME = tonumber(database:get(bot_id..'NUM:GAMES'..msg.chat_id_..result.sender_user_id_) or 0)
-local edit = tonumber(database:get(bot_id..'edits'..msg.chat_id_..result.sender_user_id_) or 0)
-local rtp = Rutba(result.sender_user_id_,msg.chat_id_)
-local username = ('[@'..data.username_..']' or 'لا يوجد')
-local iduser = result.sender_user_id_
-send(msg.chat_id_, msg.id_,'🎟️| ايديه »(`'..iduser..'`)\n🎭| معرفه »('..username..')\n📌| رتبته »('..rtp..')\n✏| تعديلاته »('..edit..')\n🗳️| النقاط »('..NUMPGAME..')\n🔖| جهاته »('..Contact..')\n📨| رسائله »('..Msguser..')')
-end,nil)
-end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
-end
-if text and text:match("^ايدي @(.*)$") then
-local username = text:match("^ايدي @(.*)$")
-function start_function(extra, result, success)
-if result.id_ then
-tdcli_function ({ID = "GetUser",user_id_ = result.id_},function(extra,data) 
-local Msguser = tonumber(database:get(bot_id..'Msg_User'..msg.chat_id_..':'..result.id_) or 1) 
-local Contact = tonumber(database:get(bot_id..'Add:Contact'..msg.chat_id_..':'..result.id_) or 0) 
-local NUMPGAME = tonumber(database:get(bot_id..'NUM:GAMES'..msg.chat_id_..result.id_) or 0)
-local edit = tonumber(database:get(bot_id..'edits'..msg.chat_id_..result.id_) or 0)
-local rtp = Rutba(result.id_,msg.chat_id_)
-local username = ('[@'..data.username_..']' or 'لا يوجد')
-local iduser = result.id_
-send(msg.chat_id_, msg.id_,'🎟️| ايديه »(`'..iduser..'`)\n🎭| معرفه »('..username..')\n📌| رتبته »('..rtp..')\n✏| تعديلاته »('..edit..')\n🗳️| النقاط »('..NUMPGAME..')\n🔖| جهاته »('..Contact..')\n📨| رسائله »('..Msguser..')')
-end,nil)
+if text == 'ايدي' and tonumber(msg.reply_to_message_id_) == 0 or text == 'ID' and tonumber(msg.reply_to_message_id_) == 0 or text == 'Id' and tonumber(msg.reply_to_message_id_) == 0 or text == 'id' and tonumber(msg.reply_to_message_id_) == 0 and not database:get(bot_id..'NightRang:Lock:Id:Photo'..msg.chat_id_) then
+tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = msg.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,yazon,success) 
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
+if data.username_ then
+UserName_User = '@'..data.username_
 else
-send(msg.chat_id_, msg.id_,'⚠| المعرف غير صحيح ')
+UserName_User = 'لا يوجد'
+end
+local Ctitle = json:decode(https.request("https://api.telegram.org/bot"..token.."/getChatMember?chat_id="..msg.chat_id_.."&user_id="..msg.sender_user_id_))
+if Ctitle.result.status == "administrator" and Ctitle.result.custom_title or Ctitle.result.status == "creator" and Ctitle.result.custom_title then
+lakbk = Ctitle.result.custom_title
+else
+lakbk = 'لا يوجد'
+end
+local Id = msg.sender_user_id_
+local NumMsg = database:get(bot_id..'NightRang:Num:Message:User'..msg.chat_id_..':'..msg.sender_user_id_) or 0
+local TotalMsg = Total_message(NumMsg)
+local Status_Gps = Get_Rank(Id,msg.chat_id_)
+local NumMessageEdit = database:get(bot_id..'NightRang:Num:Message:Edit'..msg.chat_id_..msg.sender_user_id_) or 0
+local Num_Games = database:get(bot_id.."NightRang:Num:Add:Games"..msg.chat_id_..msg.sender_user_id_) or 0
+local Add_Mem = database:get(bot_id.."NightRang:Num:Add:Memp"..msg.chat_id_..":"..msg.sender_user_id_) or 0
+local Total_Photp = (yazon.total_count_ or 0)
+local Texting = {
+'ملاك وناسيك بكروبنه😟',
+"حلغوم والله☹️ ",
+"اطلق صوره🐼❤️",
+"كيكك والله🥺",
+"لازك بيها غيرها عاد",
+}
+local Description = Texting[math.random(#Texting)]
+local Get_Is_Id = database:get(bot_id.."KLISH:ID:bot") or database:get(bot_id.."NightRang:Set:Id:Group"..msg.chat_id_)
+if not database:get(bot_id..'NightRang:Lock:Id:Py:Photo'..msg.chat_id_) then
+if yazon.photos_[0] then
+if Get_Is_Id then
+local Get_Is_Id = Get_Is_Id:gsub('#AddMem',Add_Mem) 
+local Get_Is_Id = Get_Is_Id:gsub('#id',Id) 
+local Get_Is_Id = Get_Is_Id:gsub('#username',UserName_User) 
+local Get_Is_Id = Get_Is_Id:gsub('#msgs',NumMsg) 
+local Get_Is_Id = Get_Is_Id:gsub('#edit',NumMessageEdit) 
+local Get_Is_Id = Get_Is_Id:gsub('#stast',Status_Gps) 
+local Get_Is_Id = Get_Is_Id:gsub('#auto',TotalMsg) 
+local Get_Is_Id = Get_Is_Id:gsub('#Description',Description) 
+local Get_Is_Id = Get_Is_Id:gsub('#game',Num_Games) 
+local Get_Is_Id = Get_Is_Id:gsub('#photos',Total_Photp) 
+sendPhoto(msg.chat_id_,msg.id_,yazon.photos_[0].sizes_[1].photo_.persistent_id_,Get_Is_Id)
+else
+sendPhoto(msg.chat_id_,msg.id_,yazon.photos_[0].sizes_[1].photo_.persistent_id_,'\n•  iD 𖦹 '..Id..'\n•  User Name 𖦹 '..UserName_User..'\n•  Rank 𖦹 '..Status_Gps..'\n•  Msg 𖦹 '..NumMsg..'\n•  Your Title 𖦹 '..lakbk)
+end
+else
+send(msg.chat_id_, msg.id_,'\n•  iD 𖦹 '..Id..'\n•  User Name 𖦹 ['..UserName_User..']\n•  Rank 𖦹 '..Status_Gps..'\n•  Msg 𖦹 '..NumMsg..'\n•  Your Title 𖦹 '..lakbk) 
+end
+else
+if Get_Is_Id then
+local Get_Is_Id = Get_Is_Id:gsub('#AddMem',Add_Mem) 
+local Get_Is_Id = Get_Is_Id:gsub('#id',Id) 
+local Get_Is_Id = Get_Is_Id:gsub('#username',UserName_User) 
+local Get_Is_Id = Get_Is_Id:gsub('#msgs',NumMsg) 
+local Get_Is_Id = Get_Is_Id:gsub('#edit',NumMessageEdit) 
+local Get_Is_Id = Get_Is_Id:gsub('#stast',Status_Gps) 
+local Get_Is_Id = Get_Is_Id:gsub('#auto',TotalMsg) 
+local Get_Is_Id = Get_Is_Id:gsub('#Description',Description) 
+local Get_Is_Id = Get_Is_Id:gsub('#game',Num_Games) 
+local Get_Is_Id = Get_Is_Id:gsub('#photos',Total_Photp) 
+send(msg.chat_id_, msg.id_,'['..Get_Is_Id..']') 
+else
+send(msg.chat_id_, msg.id_,'\n•  iD 𖦹 '..Id..'\n•  User Name 𖦹 ['..UserName_User..']\n•  Rank 𖦹 '..Status_Gps..'\n•  Msg 𖦹 '..NumMsg..'\n•  Your Title 𖦹 '..lakbk) 
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
+end,nil)   
+end,nil)   
+end
+
+if text == 'ايدي' and tonumber(msg.reply_to_message_id_) > 0 and not database:get(bot_id..'NightRang:Lock:Id:Photo'..msg.chat_id_) or text == 'كشف' and tonumber(msg.reply_to_message_id_) > 0 and not database:get(bot_id..'NightRang:Lock:Id:Photo'..msg.chat_id_) then
+function Function_Status(extra, result, success)
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+if data.first_name_ == false then
+send(msg.chat_id_, msg.id_,'• الحساب محذوف لا توجد معلوماته ')
+return false
+end
+if data.username_ then
+UserName_User = '@'..data.username_
+else
+UserName_User = 'لا يوجد'
+end
+local Id = data.id_
+local NumMsg = database:get(bot_id..'NightRang:Num:Message:User'..msg.chat_id_..':'..data.id_) or 0
+local TotalMsg = Total_message(NumMsg)
+local Status_Gps = Get_Rank(Id,msg.chat_id_)
+local NumMessageEdit = database:get(bot_id..'NightRang:Num:Message:Edit'..msg.chat_id_..data.id_) or 0
+local Num_Games = database:get(bot_id.."NightRang:Msg_User"..msg.chat_id_..":"..data.id_) or 0
+local Add_Mem = database:get(bot_id.."NightRang:Num:Add:Memp"..msg.chat_id_..":"..data.id_) or 0
+send(msg.chat_id_, msg.id_,'\n*•  iD 𖦹 '..Id..'\n•  Msg 𖦹  '..NumMsg..'\n•  User 𖦹  ← *['..UserName_User..']*\n•  Rank 𖦹  ← '..Status_Gps..'*') 
+end,nil)   
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Status, nil)
+return false
+end
+if text and text:match("^ايدي @(.*)$") and not database:get(bot_id..'NightRang:Lock:Id:Photo'..msg.chat_id_) or text and text:match("^كشف @(.*)$") and not database:get(bot_id..'NightRang:Lock:Id:Photo'..msg.chat_id_) then
+local username = text:match("^ايدي @(.*)$") or text:match("^كشف @(.*)$")
+function Function_Status(extra, result, success)
+if result.id_ then
+tdcli_function ({ID = "GetUser",user_id_ = result.id_},function(arg,data) 
+if data.username_ then
+UserName_User = '@'..data.username_
+else
+UserName_User = 'لا يوجد'
+end
+local Id = data.id_
+local NumMsg = database:get(bot_id..'NightRang:Num:Message:User'..msg.chat_id_..':'..data.id_) or 0
+local TotalMsg = Total_message(NumMsg)
+local Status_Gps = Get_Rank(Id,msg.chat_id_)
+local NumMessageEdit = database:get(bot_id..'NightRang:Num:Message:Edit'..msg.chat_id_..data.id_) or 0
+local Num_Games = database:get(bot_id.."NightRang:Msg_User"..msg.chat_id_..":"..data.id_) or 0
+local Add_Mem = database:get(bot_id.."NightRang:Num:Add:Memp"..msg.chat_id_..":"..data.id_) or 0
+send(msg.chat_id_, msg.id_,'\n*•  iD 𖦹 '..Id..'\n•  Msg 𖦹  '..NumMsg..'\n•  User 𖦹  ← *['..UserName_User..']*\n•  Rank 𖦹  ← '..Status_Gps..'') 
+end,nil)   
+else
+send(msg.chat_id_, msg.id_,'• لا يوجد حساب بهاذا المعرف')
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Status, nil)
+return false
 end
 if text == 'رتبتي' then
 local rtp = Rutba(msg.sender_user_id_,msg.chat_id_)
