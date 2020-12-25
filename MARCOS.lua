@@ -2197,20 +2197,19 @@ if text == 'السورس' or text == 'يا سورس' then
 Text = [[
 🕹️︙اهلا بكـ في سورس الاسطورة 🦅
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
+➥
+📮︙⇚ [قناة سورس الاسطورة](t.me/ASTORHBOTS)
+➥
+📮︙⇚ [قناة سورس اللـهـب](t.me/LSLHB)
+➥
+👲︙⇚ [مطور السورس](t.me/AST0RH)
+➥
+💌︙⇚ [لـتنـصيب بوتكـ](t.me/TWSLASTBOT)
+➥
+●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
 ]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'قناة سورس الاسطوره', callback_data="/help1"},{text = '⓶', callback_data="/help2"},{text = '⓷', callback_data="/help3"},
-},
-{
-{text = 'قناة سورس اللهب', callback_data="/help4"},
-},
-{
-{text = 'الاوامر الرئيسيه', callback_data="/help"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+send(msg.chat_id_, msg.id_,Text)
+return false
 end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
@@ -8573,7 +8572,7 @@ end
 end
 if text and text:match("^(.*)$") then
 if database:get(bot_id..'Set:Manager:rd'..msg.sender_user_id_..':'..msg.chat_id_) == 'true' then
-send(msg.chat_id_, msg.id_,'\n📥| ✔️ حلوو الحين ارسل شتبي يكون \nعلى الكلمه الي قلتها فوق 😊👇🏻 \n{صوره,فيديو,متحركه,ملصق,بصمه,صوت}\n')
+send(msg.chat_id_, msg.id_,'\n📥| ✔️ حلوو الحين ارسل شتبي يكون \nعلى الكلمه الي قلتها فوق 😊👇🏻 \n{صوره,فيديو,متحركه,ملصق,بصمه,صوت}\nملاحظة عند ارسال معرف\nيحتوي علئ _ كمثال KOKIS_BOT\nعليك ارساله بالشكل الاتي\n⇐[@KOKIS_BOT]⇒')
 database:set(bot_id..'Set:Manager:rd'..msg.sender_user_id_..':'..msg.chat_id_,'true1')
 database:set(bot_id..'Text:Manager'..msg.sender_user_id_..':'..msg.chat_id_, text)
 database:del(bot_id.."Add:Rd:Manager:Gif"..text..msg.chat_id_)   
