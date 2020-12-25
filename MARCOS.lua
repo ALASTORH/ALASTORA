@@ -7230,7 +7230,51 @@ database:set(bot_id.."Set:Rules:Group" .. msg.chat_id_,text)
 send(msg.chat_id_, msg.id_,"*🔘| تم حفظ قوانين المجموعه*") 
 database:del(bot_id.."Set:Rules:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end  
-
+if text == 'تغيير الايدي' then
+if not Admin(msg) then 
+send(msg.chat_id_,msg.id_,'اهلا عزيزي \n الامر يخص - الادمن - مدير فقط')
+return false
+end 
+local List = {[[
+𖡋 𝐔𝐒𝐄 ⌯ #username 𖥲 .
+𖡋 𝐌𝐒𝐆 ⌯ #msgs 𖥲 .
+𖡋 𝐒𝐓𝐀 ⌯ #stast 𖥲 .
+𖡋 𝐈𝐃 ⌯ #id 𖥲 .
+]],
+[[
+-›   𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 ¦ #username .
+-›   𝙸𝙳 ¦ #msgs .
+-›   𝚂𝚃𝙰𝚂𝚃 ¦ #stast .
+-›   𝙼𝚂𝙶𝚂 ¦ #id .
+]],
+[[
+𝐔𝐬𝐞𝐫  : #username  .
+𝐌𝐬𝐠𝐞 :  #msgs  .
+𝐒𝐭𝐚 :#stast  .
+𝐈𝐝 : #id  .
+]],
+[[
+𝗨𝗦𝗘𝗥??𝗔𝗠??: #username  .
+𝗠𝗦𝗚: #msgs  .
+𝗦𝗧𝗔𝗧 :#stast  .
+𝗜𝗗: #id  .
+]],
+[[
+𝗨𝗦𝗘𝗥 : #username  .
+𝗠𝗦𝗚 : #msgs  .
+𝗦𝗧𝗔𝗧 : #stast  .
+𝗜𝗗 : #id  .
+]],
+[[
+𝚄𝚜𝚎𝚛 ✯ #username  
+𝚂𝚝𝚊  ✯ #stast  
+𝙸𝚍   ✯ #id  
+𝙼𝚜𝚐𝚎 ✯ #msgs
+]]}
+local Text_Rand = List[math.random(#List)]
+redis:set(bot_id.."NightRang:Set:Id:Group"..msg.chat_id_,Text_Rand)
+send(msg.chat_id_, msg.id_,'܁تم تغيير الايدي قم بالتجربه ')
+end
 if text == 'ضع قوانين' or text == 'وضع قوانين' then 
 if Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
