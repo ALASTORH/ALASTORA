@@ -2201,19 +2201,16 @@ Text = [[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⓵', callback_data="/help1"},{text = '⓶', callback_data="/help2"},{text = '⓷', callback_data="/help3"},
+{text = 'قناة سورس الاسطوره', callback_data="/help1"},{text = '⓶', callback_data="/help2"},{text = '⓷', callback_data="/help3"},
 },
 {
-{text = '⓸', callback_data="/help4"},
+{text = 'قناة سورس اللهب', callback_data="/help4"},
 },
 {
 {text = 'الاوامر الرئيسيه', callback_data="/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-send(msg.chat_id_, msg.id_,Text)
-return false
 end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
