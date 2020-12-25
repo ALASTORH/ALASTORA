@@ -2192,17 +2192,23 @@ send(msg.chat_id_, msg.id_, "📮| لا يوجد قناة في الاشتراك 
 end
 return false  
 end
-
-if text = " سورس" or text = "السورس" or text = " ياسورس" then
-local inline = {
-{{text="- قناة السورس ،",url="t.me/ASTORHBOTS"},
-{text="- مبرمج السورس،",url="t.me/AST0RH"}},
-{{text="- اضغط هنا لتنصيب السورس ،",url="t.me/AST0RH"}},
-{{text="- كروب المبرمجين ،",url="https://t.me/ASSSS"},
-{text="- شروحات السورس ،",url="t.me/Learn_Faeder"}}
-}
-send_inline(msg.chat_id_,'✦┋مرحبا بك في سورس فايدر┋FAEDER ،\n✦┋اضغط على الازرار بالاسفل ⬇️ ،',nil,inline) 
-return false 
+if text == 'السورس' or text == 'يا سورس' then
+Text = [[
+🕹️︙اهلا بكـ في سورس الاسطورة 🦅
+●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
+➥
+📮︙⇚ [قناة سورس الاسطورة](t.me/ASTORHBOTS)
+➥
+📮︙⇚ [قناة سورس اللـهـب](t.me/LSLHB)
+➥
+👲︙⇚ [مطور السورس](t.me/AST0RH)
+➥
+💌︙⇚ [لـتنـصيب بوتكـ](t.me/TWSLASTBOT)
+➥
+●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
+]]
+send(msg.chat_id_, msg.id_,Text)
+return false
 end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
@@ -2687,7 +2693,7 @@ end,nil)
 elseif text == 'قفل الصوت بالتقييد' and Mod(msg) and msg.reply_to_message_id_ == 0 then 
 database:set(bot_id.."lock:vico"..msg.chat_id_,'ked')  
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
-send(msg.chat_id_, msg.id_,'👤| بواسطه ← ['..utf8.sub(data.first_name_,0,60)..'](T.ME/'..(data.username_ or 'ASTORHBOTS')..') \n🔘| تـم قفـل الصوت بالتقييد\n⛔| الحاله ←التقييد')  
+send(msg.chat_id_, msg.id_,'??| بواسطه ← ['..utf8.sub(data.first_name_,0,60)..'](T.ME/'..(data.username_ or 'ASTORHBOTS')..') \n🔘| تـم قفـل الصوت بالتقييد\n⛔| الحاله ←التقييد')  
 end,nil)   
 elseif text == 'قفل الصوت بالكتم' and Mod(msg) and msg.reply_to_message_id_ == 0 then 
 database:set(bot_id.."lock:vico"..msg.chat_id_,'ktm')  
@@ -8041,7 +8047,15 @@ Text = '\n💠| بالتاكيد تم تعطيل البوت الخدمي'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text and text:match('^تنظيف (%d+)$') and Manager(msg) then
+if text == 'فتح التنظيف' and Manager(msg) then   
+database:del(bot_id..'lock:del'..msg.chat_id_) 
+send(msg.chat_id_, msg.id_,'☑┇تم فتح التنظيف') 
+end
+if text == 'قفل التنظيف' and Manager(msg) then  
+database:set(bot_id..'lock:del'..msg.chat_id_,true) 
+send(msg.chat_id_, msg.id_,'☑┇تم قفل التنظيف') 
+end
+if text and text:match('^تنظيف (%d+)$') and Manager(msg) and not database:get(bot_id..'lock:del'..msg.chat_id_) then    
 local num = tonumber(text:match('^تنظيف (%d+)$')) 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
