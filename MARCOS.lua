@@ -9346,10 +9346,10 @@ else
 username = 'لا يوجد '
 end
 if result.status_.ID == "UserStatusRecently" and result.profile_photo_ ~= false then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, taha.photos_[0].sizes_[1].photo_.persistent_id_,''..rdphoto..'\n🎟️| ايديك←'..msg.sender_user_id_..'\n🎭| معرفك←'..username..'\n📌| رتبتك بالبوت←'..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n🌟| رتبتك بالقروب←'..rtpa..'\n🎲| تفاعلك←'..Total_Msg(Msguser)..'\n💌| رسائلك← '..Msguser..'\n✏️| نسبه تفاعلك←'..string.sub(nspatfa, 1,5)..' %\n📧| التعديلات←'..edit..'\n💰| نقاطك←'..NUMPGAME..'\n')   
+sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, BOYKA.photos_[0].sizes_[1].photo_.persistent_id_,''..rdphoto..'\n ❃∫ ايديك ~⪼ '..msg.sender_user_id_..'\n ❃∫ معرفك ~⪼ '..username..'\n ❃∫ رتبتك ~⪼ '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n ❃∫ موقعك ~⪼ '..rtpa..'\n ❃∫ تفاعلك ~⪼ '..Total_Msg(Msguser)..'\n ❃∫ رسائلك ~⪼ '..Msguser..'\n ❃∫ نسبه تفاعلك ~⪼ '..string.sub(nspatfa, 1,5)..' %\n ❃∫ السحكات ~⪼ '..edit..'\n ❃∫ نقاطك ~⪼ '..NUMPGAME..'\n')
 else 
 if result.status_.ID == "UserStatusEmpty" and result.profile_photo_ == false then
-send(msg.chat_id_, msg.id_,'[\n🎟| ايديك←'..msg.sender_user_id_..'\n🎭| معرفك←'..username..'\n📌| رتبتك بالبوت←'..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n🌟| رتبتك بالقروب← '..rtpa..'\n🎲| تفاعلك←'..Total_Msg(Msguser)..'\n💌| رسائلك←'..Msguser..'\n✏️| نسبه تفاعلك←'..string.sub(nspatfa, 1,5)..' %\n📧| التعديلات←'..edit..'\n💰| نقاطك←'..NUMPGAME..']\n')   
+send(msg.chat_id_, msg.id_,'[\n ❃∫ ايديك ~⪼ '..msg.sender_user_id_..'\n ❃∫ معرفك ~⪼ '..username..'\n ❃∫ رتبتك ~⪼ '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n ❃∫ موقعك ~⪼ '..rtpa..'\n ❃∫ تفاعلك ~⪼ '..Total_Msg(Msguser)..'\n ❃∫ رسائلك ~⪼ '..Msguser..'\n ❃∫ نسبه تفاعلك ~⪼ '..string.sub(nspatfa, 1,5)..' %\n ❃∫ السحكات ~⪼ '..edit..'\n ❃∫ نقاطك ~⪼ '..NUMPGAME..']\n')
 else
 send(msg.chat_id_, msg.id_, '\n⚠️| الصوره ←  ليس لديك صور في حسابك 🍃'..'[\n🎟| ايديك←'..msg.sender_user_id_..'\n🎭| معرفك←'..username..'\n📌| رتبتك بالبوت←'..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n🌟| رتبتك بالقروب← '..rtpa..'\n🎲| تفاعلك←'..Total_Msg(Msguser)..'\n💌| رسائلك←'..Msguser..'\n✏️| نسبه تفاعلك←'..string.sub(nspatfa, 1,5)..' %\n📧| التعديلات←'..edit..'\n💰| نقاطك←'..NUMPGAME..']\n')   
 end 
@@ -9369,7 +9369,7 @@ get_id_text = get_id_text:gsub('النقاط',NUMPGAME)
 get_id_text = get_id_text:gsub('الصور',photps) 
 send(msg.chat_id_, msg.id_,'['..get_id_text..']')   
 else
-send(msg.chat_id_, msg.id_,'[\n🎟️| ايديك←'..msg.sender_user_id_..'\n🎭| معرفك←'..username..'\n📌| رتبتك بالبوت←'..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n🌟| رتبتك بالقروب← '..rtpa..'\n🎲| تفاعلك←'..Total_Msg(Msguser)..'\n💌| رسائلك←'..Msguser..'\n✏️| نسبه تفاعلك←'..string.sub(nspatfa, 1,5)..' %\n📧| التعديلات←'..edit..'\n💰| نقاطك←'..NUMPGAME..']\n')   
+send(msg.chat_id_, msg.id_,'[\n ❃∫ ايديك ~⪼ '..msg.sender_user_id_..'\n ❃∫ معرفك ~⪼ '..username..'\n ❃∫ رتبتك ~⪼ '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n ❃∫ موقعك ~⪼ '..rtpa..'\n ❃∫ تفاعلك ~⪼ '..Total_Msg(Msguser)..'\n ❃∫ رسائلك ~⪼ '..Msguser..'\n ❃∫ نسبه تفاعلك ~⪼ '..string.sub(nspatfa, 1,5)..' %\n ❃∫ السحكات ~⪼ '..edit..'\n ❃∫ نقاطك ~⪼ '..NUMPGAME..']\n')
 end
 end
 
@@ -10900,23 +10900,23 @@ send(msg.chat_id_, msg.id_,Text)
 end 
 if text and text:match('^(.*) بصمه$') and not database:get(bot_id..'dw:bot:api'..msg.chat_id_) then            
 local Ttext = text:match('^(.*) بصمه$') 
-local ytddl = https.request('https://harmof.ml/Youtuop/Youtapi.php?search='..URL.escape(Ttext))
+local ytddl = https.request('https://devstorm.ml/sr.php?search='..URL.escape(Ttext))
 local zxe = JSON.decode(ytddl)
 for k,v in pairs(zxe.results) do
 if k == 1 then
 local msgin = msg.id_/2097152/0.5 
-https.request('https://harmof.ml/Youtuop/Youtapi.php?url='..v.url..'&token='..token..'&chat='..msg.chat_id_..'&type=mp3&msg='..msgin)
+https.request('https://devstorm.ml/yt.php?url='..v.url..'&token='..token..'&chat='..msg.chat_id_..'&type=mp3&msg='..msgin)
 end
 end
 end
 if text and text:match('^(.*) صوت$') and not database:get(bot_id..'dw:bot:api'..msg.chat_id_) then            
 local Ttext = text:match('^(.*) صوت$') 
-local ytddl = https.request('https://harmof.ml/Youtuop/Youtapi.php?search='..URL.escape(Ttext))
+local ytddl = https.request('https://devstorm.ml/sr.php?search='..URL.escape(Ttext))
 local zxe = JSON.decode(ytddl)
 for k,v in pairs(zxe.results) do
 if k == 1 then
 local msgin = msg.id_/2097152/0.5 
-https.request('https://harmof.ml/Youtuop/Youtapi.php?search='..token..'&chat='..msg.chat_id_..'&type=ogg&msg='..msgin)
+https.request('https://devstorm.ml/yt.php?url='..v.url..'&token='..token..'&chat='..msg.chat_id_..'&type=ogg&msg='..msgin)
 end
 end
 end
