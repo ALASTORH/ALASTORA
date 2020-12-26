@@ -10102,6 +10102,7 @@ Text = [[
 🔷| تفعيل/تعطيل الحظر
 🔷| تفعيل/تعطيل الرفع 
 🔷| تفعيل/تعطيل التنظيف
+🔷| تفعيل/تعطيل معاني الاسماء
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
 📮| [Channel ALASTORH](t.me/ASTORHBOTS)
 ]]
@@ -10770,15 +10771,15 @@ end
 send(msg.chat_id_, msg.id_, t..'┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n⚡︙اضغط على الاسم ليتم نسخه')
 end
 if text == "تعطيل معاني الاسماء" and Mod(msg) then
-send(msg.chat_id_, msg.id_, '⋆ ⇽ تم تعطيل معاني الاسماء')
+send(msg.chat_id_, msg.id_, '🚫 | تم تعطيل معاني الاسماء')
 database:set(bot_id.."Tshake:Name_Bots"..msg.chat_id_,"close")
 end
 if text == "تفعيل معاني الاسماء" and Mod(msg) then
-send(msg.chat_id_, msg.id_,'⋆ ⇽ تم تفعيل معاني الاسماء')
+send(msg.chat_id_, msg.id_,'✅ | تم تفعيل معاني الاسماء')
 database:set(bot_id.."Tshake:Name_Bots"..msg.chat_id_,"open")
 end
-if text and text:match("^معني (.*)$") and database:get(bot_id.."Tshake:Name_Bots"..msg.chat_id_) == "open" then
-local TextName = text:match("^معني (.*)$")
+if text and text:match("^معنى (.*)$") and database:get(bot_id.."Tshake:Name_Bots"..msg.chat_id_) == "open" then
+local TextName = text:match("^معنى (.*)$")
 gk = https.request('http://sonicx.ml/Api/Name.php?Name='..URL.escape(TextName)..'')
 br = JSON.decode(gk)
 send(msg.chat_id_, msg.id_,br.meaning)
