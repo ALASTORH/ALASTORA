@@ -7103,15 +7103,19 @@ database:setex(bot_id.."CHENG:ID"..msg.chat_id_..""..msg.sender_user_id_,240,tru
 local Text= [[
 🔘| ارسل الان النص
 🔘| يمكنك اضافه :
-- #rdphoto > تعليق الصوره
-- #username > اسم المستخدم
-- #msgs > عدد رسائل المستخدم
-- #photos > عدد صور المستخدم
-- #id > ايدي المستخدم
-- #auto > تفاعل المستخدم
-- #stast > موقع المستخدم 
-- #edit > عدد التعديلات
-- #game > النقاط
+ـــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+1 - {تعليق الصوره} > تعليق الصوره
+ 2 - {الاسم} > اسم المستخدم
+3 - {الرسائل} > عدد رسائل المستخدم
+4 - {الصور} > عدد صور المستخدم
+5 - {ايدي} > ايدي المستخدم
+6 - {التفاعل} > تفاعل المستخدم
+7 - {الرتبه} > موقع المستخدم 
+8 - {التعديل} > عدد التعديلات
+9 - {النقاط} > النقاط
+ـــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+قناة خاصة بكلايش الايدي
+@ksax4
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false  
@@ -9218,15 +9222,15 @@ username = '@'..result.username_
 else
 username = 'لا يوجد '
 end
-get_id_text = get_id_text:gsub('#rdphoto',rdphoto) 
-get_id_text = get_id_text:gsub('#id',iduser) 
-get_id_text = get_id_text:gsub('#username',username) 
-get_id_text = get_id_text:gsub('#msgs',Msguser) 
-get_id_text = get_id_text:gsub('#edit',edit) 
-get_id_text = get_id_text:gsub('#stast',rtp) 
-get_id_text = get_id_text:gsub('#auto',interaction) 
-get_id_text = get_id_text:gsub('#game',NUMPGAME) 
-get_id_text = get_id_text:gsub('#photos',photps) 
+get_id_text = get_id_text:gsub('تعليق الصوره',rdphoto) 
+get_id_text = get_id_text:gsub('ايدي',iduser) 
+get_id_text = get_id_text:gsub('الاسم',username) 
+get_id_text = get_id_text:gsub('الرسائل',Msguser) 
+get_id_text = get_id_text:gsub('التعديل',edit) 
+get_id_text = get_id_text:gsub('الرتبه',rtp) 
+get_id_text = get_id_text:gsub('التفاعل',interaction) 
+get_id_text = get_id_text:gsub('النقاط',NUMPGAME) 
+get_id_text = get_id_text:gsub('الصور',photps) 
 if result.status_.ID == "UserStatusRecently" and result.profile_photo_ ~= false then   
 sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, taha.photos_[0].sizes_[1].photo_.persistent_id_,get_id_text)       
 else 
@@ -9255,15 +9259,15 @@ end
 else
 local get_id_text = database:get(bot_id.."KLISH:ID"..msg.chat_id_)
 if get_id_text then
-get_id_text = get_id_text:gsub('#rdphoto',rdphoto) 
-get_id_text = get_id_text:gsub('#id',iduser) 
-get_id_text = get_id_text:gsub('#username',username) 
-get_id_text = get_id_text:gsub('#msgs',Msguser) 
-get_id_text = get_id_text:gsub('#edit',edit) 
-get_id_text = get_id_text:gsub('#stast',rtp) 
-get_id_text = get_id_text:gsub('#auto',interaction) 
-get_id_text = get_id_text:gsub('#game',NUMPGAME) 
-get_id_text = get_id_text:gsub('#photos',photps) 
+get_id_text = get_id_text:gsub('تعليق الصوره',rdphoto) 
+get_id_text = get_id_text:gsub('ايدي',iduser) 
+get_id_text = get_id_text:gsub('الاسم',username) 
+get_id_text = get_id_text:gsub('الرسائل',Msguser) 
+get_id_text = get_id_text:gsub('التعديل',edit) 
+get_id_text = get_id_text:gsub('الرتبه',rtp) 
+get_id_text = get_id_text:gsub('التفاعل',interaction) 
+get_id_text = get_id_text:gsub('النقاط',NUMPGAME) 
+get_id_text = get_id_text:gsub('الصور',photps) 
 send(msg.chat_id_, msg.id_,'['..get_id_text..']')   
 else
 send(msg.chat_id_, msg.id_,'[\n🎟️| ايديك←'..msg.sender_user_id_..'\n🎭| معرفك←'..username..'\n📌| رتبتك بالبوت←'..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n🌟| رتبتك بالقروب← '..rtpa..'\n🎲| تفاعلك←'..Total_Msg(Msguser)..'\n💌| رسائلك←'..Msguser..'\n✏️| نسبه تفاعلك←'..string.sub(nspatfa, 1,5)..' %\n📧| التعديلات←'..edit..'\n💰| نقاطك←'..NUMPGAME..']\n')   
