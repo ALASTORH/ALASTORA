@@ -9191,6 +9191,27 @@ local List = {
 ➭- 𝒊𝒅 𓂅 ايدي 𓍯. 💕
 ]],
 [[
+🔘• 𝐘𝐎𝐔𝐑 𝐈𝐃 𖠰 الايدي .
+🔘• 𝐌𝐒𝐆𝐒 𖠰 الرسائل .
+🔘• 𝐔𝐒𝐄𝐑 𖠰 المعرف .
+🔘• 𝐒𝐓𝐀𝐒𝐓 𖠰 الرتبه .
+🔘• 𝐀𝐔𝐓𝐎 𖠰 التفاعل .
+🔘• 𝗘𝗗𝗜𝗧 𖠰 التعديل .
+]],
+[[
+𝐘𝐨𝐮𝐫 𝐈𝐃 ☤♔ - الايدي 
+𝐔𝐬𝐞𝐫𝐍𝐚☤♔ - المعرف 
+𝐒𝐭𝐚𝐬𝐓 ☤♔ - الرتبه 
+𝐌𝐬𝐠𝐒☤♔ - الرسائل
+]],
+[[
+‎⿻┊Yor iD 𖠄 الايدي ☆
+‌‎⿻┊UsEr 𖠄 الاسم ☆
+‌‎⿻┊MsGs 𖠄 الرسائل ☆
+‌‎⿻┊StAtS 𖠄 الرتبه ☆
+‌‎⿻┊‌‎EdiT 𖠄 التعديل ☆
+]],
+[[
 ⚕ 𓆰 𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝑻𝒐 𝑮𝒓𝒐𝒖𝒑 ★
 • 🖤 | 𝑼𝑬𝑺 : الاسم ‌‌‏⚚
 • 🖤 | 𝑺𝑻𝑨 : الرتبه 🧙🏻‍♂ ☥
@@ -10810,6 +10831,46 @@ end,nil)
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
 return false
+end
+if text == 'تعطيل اليوتيوب' and Constructor(msg) then  
+send(msg.chat_id_,msg.id_,'\n• تم الامر بنجاح')  
+database:set(bot_id.."dl_yt_dl"..msg.chat_id_,"close") 
+return false  
+end 
+if text == 'تفعيل اليوتيوب' and Constructor(msg) then  
+send(msg.chat_id_,msg.id_,'\n• تم الامر بنجاح')  
+database:set(bot_id.."dl_yt_dl"..msg.chat_id_,"open") 
+return false  
+end
+if text and text:match('^بصمه (.*)$')  and database:get(bot_id.."dl_yt_dl"..msg.chat_id_) == "open" then            
+local Ttext = text:match('^بصمه (.*)$') 
+local InfoSearch = https.request('https://alsh-bg.ml/api/Search_MP3.php?Search='..URL.escape(Ttext))
+local JsonSearch = JSON.decode(InfoSearch)
+for k,vv in pairs(JsonSearch.results) do
+if k == 1 then
+local GetStart = io.popen('downloadsh '..vv.url):read('*all')
+if GetStart and GetStart:match('(.*)oksend(.*)') then
+print('download Mp3 done ...\nName : '..vv.title..'\nIdLink : '..vv.url)
+sendVoice(msg.chat_id_, msg.id_, 0, 1, nil,'./'..vv.url..'.mp3',vv.title,'- '..vv.title..'\n- @ASTORHBOTS','@ASTORHBOTS')  
+os.execute('rm -rf ./'..vv.url..'.mp3') 
+end
+end
+end
+end
+if text and text:match('^صوت (.*)$')  and database:get(bot_id.."dl_yt_dl"..msg.chat_id_) == "open" then            
+local Ttext = text:match('^صوت (.*)$') 
+local InfoSearch = https.request('https://alsh-bg.ml/api/Search_MP3.php?Search='..URL.escape(Ttext))
+local JsonSearch = JSON.decode(InfoSearch)
+for k,vv in pairs(JsonSearch.results) do
+if k == 1 then
+local GetStart = io.popen('downloadsh '..vv.url):read('*all')
+if GetStart and GetStart:match('(.*)oksend(.*)') then
+print('download Mp3 done ...\nName : '..vv.title..'\nIdLink : '..vv.url)
+sendAudio(msg.chat_id_,msg.id_,'./'..vv.url..'.mp3',vv.title,'- '..vv.title..'\n- @ASTORHBOTS','@ASTORHBOTS')
+os.execute('rm -rf ./'..vv.url..'.mp3') 
+end
+end
+end
 end
 if text == 'تفعيل التنزيل' and Manager(msg) then   
 database:del(bot_id..'dw:bot:api'..msg.chat_id_) 
