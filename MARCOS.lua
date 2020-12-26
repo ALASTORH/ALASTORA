@@ -7997,13 +7997,13 @@ Text = '\n💠| بالتاكيد تم تعطيل البوت الخدمي'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'فتح التنظيف' and Manager(msg) then   
+if text == 'تفعيل التنظيف' and Manager(msg) then   
 database:del(bot_id..'lock:del'..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,'☑┇تم فتح التنظيف') 
+send(msg.chat_id_, msg.id_,'☑┇تم تفعيل التنظيف') 
 end
-if text == 'قفل التنظيف' and Manager(msg) then  
+if text == 'تعطيل التنظيف' and Manager(msg) then  
 database:set(bot_id..'lock:del'..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_,'☑┇تم قفل التنظيف') 
+send(msg.chat_id_, msg.id_,'☑┇تم تعطيل التنظيف') 
 end
 if text and text:match('^تنظيف (%d+)$') and cleaner(msg) then
 local num = tonumber(text:match('^تنظيف (%d+)$')) 
@@ -9269,7 +9269,7 @@ local List = {
 ]]}
 local Text_Rand = List[math.random(#List)]
 database:set(bot_id.."KLISH:ID"..msg.chat_id_,Text_Rand)
-send(msg.chat_id_, msg.id_,'✔∫ تم تغير الايدي ارسل ايدي لرؤيته')
+send(msg.chat_id_, msg.id_,'🎫| تم تغير الايدي ارسل ايدي لرؤيته')
 end
 if text == ("ايدي") and msg.reply_to_message_id_ == 0 and not database:get(bot_id..'Bot:Id'..msg.chat_id_) then      
 if not database:sismember(bot_id..'Spam:Texting'..msg.sender_user_id_,text) then
@@ -10101,6 +10101,7 @@ Text = [[
 🔴| تنزيل ادمن بكل الصلاحيات
 🔷| تفعيل/تعطيل الحظر
 🔷| تفعيل/تعطيل الرفع 
+🔷| تفعيل/تعطيل التنظيف
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
 📮| [Channel ALASTORH](t.me/ASTORHBOTS)
 ]]
@@ -10767,6 +10768,20 @@ i = i + 1
 t = t..i.."-  `"..v.."` \n"
 end
 send(msg.chat_id_, msg.id_, t..'┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n⚡︙اضغط على الاسم ليتم نسخه')
+end
+if text == "تعطيل معاني الاسماء" and Mod(msg) then
+send(msg.chat_id_, msg.id_, '⋆ ⇽ تم تعطيل معاني الاسماء')
+database:set(bot_id.."Tshake:Name_Bots"..msg.chat_id_,"close")
+end
+if text == "تفعيل معاني الاسماء" and Mod(msg) then
+send(msg.chat_id_, msg.id_,'⋆ ⇽ تم تفعيل معاني الاسماء')
+database:set(bot_id.."Tshake:Name_Bots"..msg.chat_id_,"open")
+end
+if text and text:match("^معني (.*)$") and database:get(bot_id.."Tshake:Name_Bots"..msg.chat_id_) == "open" then
+local TextName = text:match("^معني (.*)$")
+gk = https.request('http://sonicx.ml/Api/Name.php?Name='..URL.escape(TextName)..'')
+br = JSON.decode(gk)
+send(msg.chat_id_, msg.id_,br.meaning)
 end
 if text == "تعطيل الانستا" and Manager(msg) then
 send(msg.chat_id_, msg.id_, '⌯ تم تعطيل الانستا')
