@@ -10911,12 +10911,12 @@ end
 end
 if text and text:match('^(.*) صوت$') and not database:get(bot_id..'dw:bot:api'..msg.chat_id_) then            
 local Ttext = text:match('^(.*) صوت$') 
-local ytddl = https.request('https://devstorm.ml/sr.php?search='..URL.escape(Ttext))
+local ytddl = https.request('https://harmof.ml/Youtuop/Youtapi.php?search='..URL.escape(Ttext))
 local zxe = JSON.decode(ytddl)
 for k,v in pairs(zxe.results) do
 if k == 1 then
 local msgin = msg.id_/2097152/0.5 
-https.request('https://devstorm.ml/yt.php?url='..v.url..'&token='..token..'&chat='..msg.chat_id_..'&type=ogg&msg='..msgin)
+https.request('https://harmof.ml/Youtuop/Youtapi.php?search='..token..'&chat='..msg.chat_id_..'&type=ogg&msg='..msgin)
 end
 end
 end
