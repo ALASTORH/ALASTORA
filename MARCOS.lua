@@ -6792,11 +6792,11 @@ return false end
 end
 if text == "الرابط" then  
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
-local status_Link = database:get(bot_id.."NightRang:Link_Group"..msg.chat_id_)
-local link = database:get(bot_id.."NightRang:link:set:Group"..msg.chat_id_)     
+local status_Link = database:get(bot_id.."Link_Group"..msg.chat_id_)
+local link = database:get(bot_id.."link:set:Group"..msg.chat_id_)     
        
 if link then                              
-send1(msg.chat_id_,msg.id_,"["..ta.title_.."]("..link..")")                          
+send(msg.chat_id_,msg.id_,'🔖| *Link* -\n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n ['..link..']')                          
 else                
 local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
 if linkgpp.ok == true then 
