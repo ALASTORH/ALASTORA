@@ -6790,24 +6790,23 @@ database:del(bot_id.."my_photo:status"..msg.chat_id_)
 send(msg.chat_id_, msg.id_,"📌┇ تم تعطيل الصوره") 
 return false end
 end
-if text == "الرابط" then 
-local status_Link = database:get(bot_id.."Link_Group:status"..msg.chat_id_)
-if not status_Link then
-send(msg.chat_id_, msg.id_,"⚠️| الرابط معطل") 
-return false  
-end
-local link = database:get(bot_id.."Private:Group:Link"..msg.chat_id_)            
+if text == "الرابط" then  
+tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
+local status_Link = redis:get(bot_id.."NightRang:Link_Group"..msg.chat_id_)
+local link = redis:get(bot_id.."NightRang:link:set:Group"..msg.chat_id_)     
+       
 if link then                              
-send(msg.chat_id_,msg.id_,'🔖| *Link* -\n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n ['..link..']')                          
+send1(msg.chat_id_,msg.id_,"["..ta.title_.."]("..link..")")                          
 else                
 local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
 if linkgpp.ok == true then 
-linkgp = '🔖| *Link* -\n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n ['..linkgpp.result..']'
+send1(msg.chat_id_,msg.id_,"["..ta.title_.."]("..linkgpp.result..")")                          
 else
-linkgp = '⚠️| لا يوجد رابط ارسل ضع رابط'
-end  
-send(msg.chat_id_, msg.id_,linkgp)              
+send(msg.chat_id_, msg.id_,"• لا يوجد رابط للمجموعه")              
 end            
+end
+end,nil)
+return false 
 end
 if text == 'مسح الرابط' or text == 'حذف الرابط' then
 if Mod(msg) then     
@@ -8943,7 +8942,7 @@ local edit = tonumber(database:get(bot_id..'edits'..msg.chat_id_..result.id_) or
 local rtp = Rutba(result.id_,msg.chat_id_)
 local username = ('[@'..data.username_..']' or 'لا يوجد')
 local iduser = result.id_
-send(msg.chat_id_, msg.id_,'🎟️| ايديه »(`'..iduser..'`)\n🎭| معرفه »('..username..')\n📌| رتبته »('..rtp..')\n✏| تعديلاته »('..edit..')\n🗳️| النقاط »('..NUMPGAME..')\n🔖| جهاته »('..Contact..')\n📨| رسائله »('..Msguser..')')
+send(msg.chat_id_, msg.id_,'🎟️| ايديه »(`'..iduser..'`)\n🎭| معرفه »('..username..')\n📌| رتبته »('..rtp..')\n✏| تعديلاته »('..edit..')\n🗳️| النقاط »('..NUMPGAME..')\n??| جهاته »('..Contact..')\n📨| رسائله »('..Msguser..')')
 end,nil)
 else
 send(msg.chat_id_, msg.id_,'⚠| المعرف غير صحيح ')
