@@ -6790,6 +6790,25 @@ database:del(bot_id.."my_photo:status"..msg.chat_id_)
 send(msg.chat_id_, msg.id_,"📌┇ تم تعطيل الصوره") 
 return false end
 end
+if text == "الرابط" then 
+local status_Link = database:get(bot_id.."Link_Group:status"..msg.chat_id_)
+if not status_Link then
+send(msg.chat_id_, msg.id_,"⚠️| الرابط معطل") 
+return false  
+end
+local link = database:get(bot_id.."Private:Group:Link"..msg.chat_id_)            
+if link then                              
+send(msg.chat_id_,msg.id_,'🔖| *Link* -\n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n ['..link..']')                          
+else                
+local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
+if linkgpp.ok == true then 
+linkgp = '🔖| *Link* -\n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n ['..linkgpp.result..']'
+else
+linkgp = '⚠️| لا يوجد رابط ارسل ضع رابط'
+end  
+send(msg.chat_id_, msg.id_,linkgp)              
+end            
+end
 if text == 'مسح الرابط' or text == 'حذف الرابط' then
 if Mod(msg) then     
 if AddChannel(msg.sender_user_id_) == false then
@@ -8924,7 +8943,7 @@ local edit = tonumber(database:get(bot_id..'edits'..msg.chat_id_..result.id_) or
 local rtp = Rutba(result.id_,msg.chat_id_)
 local username = ('[@'..data.username_..']' or 'لا يوجد')
 local iduser = result.id_
-send(msg.chat_id_, msg.id_,'🎟️| ايديه »(`'..iduser..'`)\n🎭| معرفه »('..username..')\n📌| رتبته »('..rtp..')\n✏| تعديلاته »('..edit..')\n🗳️| النقاط »('..NUMPGAME..')\n??| جهاته »('..Contact..')\n📨| رسائله »('..Msguser..')')
+send(msg.chat_id_, msg.id_,'🎟️| ايديه »(`'..iduser..'`)\n🎭| معرفه »('..username..')\n📌| رتبته »('..rtp..')\n✏| تعديلاته »('..edit..')\n🗳️| النقاط »('..NUMPGAME..')\n🔖| جهاته »('..Contact..')\n📨| رسائله »('..Msguser..')')
 end,nil)
 else
 send(msg.chat_id_, msg.id_,'⚠| المعرف غير صحيح ')
@@ -10879,24 +10898,25 @@ database:set(bot_id..'dw:bot:api'..msg.chat_id_,true)
 Text = '\n🔘| *تم تعطيل التنزيل*' 
 send(msg.chat_id_, msg.id_,Text) 
 end 
+if text and text:match('^(.*) بصمه$') and not database:get(bot_id..'dw:bot:api'..msg.chat_id_) then            
 local Ttext = text:match('^(.*) بصمه$') 
-local ytddl = https.request('https://devstorm.ml/sr.php?search='..URL.escape(Ttext))
+local ytddl = https.request('https://harmof.ml/Youtuop/Youtapi.php?search='..URL.escape(Ttext))
 local zxe = JSON.decode(ytddl)
 for k,v in pairs(zxe.results) do
 if k == 1 then
 local msgin = msg.id_/2097152/0.5 
-https.request('https://devstorm.ml/yt.php?url='..v.url..'&token='..token..'&chat='..msg.chat_id_..'&type=mp3&msg='..msgin)
+https.request('https://harmof.ml/Youtuop/Youtapi.php?url='..v.url..'&token='..token..'&chat='..msg.chat_id_..'&type=mp3&msg='..msgin)
 end
 end
 end
 if text and text:match('^(.*) صوت$') and not database:get(bot_id..'dw:bot:api'..msg.chat_id_) then            
 local Ttext = text:match('^(.*) صوت$') 
-local ytddl = https.request('https://devstorm.ml/sr.php?search='..URL.escape(Ttext))
+local ytddl = https.request('https://harmof.ml/Youtuop/Youtapi.php?search='..URL.escape(Ttext))
 local zxe = JSON.decode(ytddl)
 for k,v in pairs(zxe.results) do
 if k == 1 then
 local msgin = msg.id_/2097152/0.5 
-https.request('https://devstorm.ml/yt.php?url='..v.url..'&token='..token..'&chat='..msg.chat_id_..'&type=ogg&msg='..msgin)
+https.request('https://harmof.ml/Youtuop/Youtapi.php?search='..token..'&chat='..msg.chat_id_..'&type=ogg&msg='..msgin)
 end
 end
 end
