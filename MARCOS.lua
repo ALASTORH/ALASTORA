@@ -6790,24 +6790,6 @@ database:del(bot_id.."my_photo:status"..msg.chat_id_)
 send(msg.chat_id_, msg.id_,"📌┇ تم تعطيل الصوره") 
 return false end
 end
-if text == "الرابط" then  
-tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
-local status_Link = database:get(bot_id.."Link_Group"..msg.chat_id_)
-local link = database:get(bot_id.."link:set:Group"..msg.chat_id_)     
-       
-if link then                              
-send(msg.chat_id_,msg.id_,'🔖| *Link* -\n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n ['..link..']')                          
-else                
-local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
-if linkgpp.ok == true then 
-send1(msg.chat_id_,msg.id_,"["..ta.title_.."]("..linkgpp.result..")")                          
-else
-send(msg.chat_id_, msg.id_,"• لا يوجد رابط للمجموعه")              
-end            
-end
-end,nil)
-return false 
-end
 if text == 'مسح الرابط' or text == 'حذف الرابط' then
 if Mod(msg) then     
 if AddChannel(msg.sender_user_id_) == false then
