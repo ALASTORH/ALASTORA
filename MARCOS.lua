@@ -11088,19 +11088,20 @@ send(msg.chat_id_, msg.id_,xl)
 database:del(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_)
 end
 if text == "نسبه الجمال" or text == "نسبه جمال" and msg.reply_to_message_id_ ~= 0 and Mod(msg) then
-if not database:get(bot_id..'Cick:jml'..msg.chat_id_) then
-database:set(bot_id..":"..msg.sender_user_id_..":jml_Bots"..msg.chat_id_,"sendajmle")
+if not database:get(bot_id..'Cick:anoo'..msg.chat_id_) then
+database:set(bot_id..":"..msg.sender_user_id_..":anoo_Bots"..msg.chat_id_,"sendanooe")
 Text = 'ارسل اسم الشخص الذي تريد قياس نسبه جماله\n مثال نونه'
 send(msg.chat_id_, msg.id_,Text) 
 end
 end
-if text and text ~="نسبه جمال" and database:get(bot_id..":"..msg.sender_user_id_..":jml_Bots"..msg.chat_id_) == "sendajmle" then
-jmal = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
-sendjml = jmal[math.random(#jmal)]
-xl = 'نسبه جمال'..text..' هي : \n '..sendjmal..'%'
-send(msg.chat_id_, msg.id_,xl) 
-database:del(bot_id..":"..msg.sender_user_id_..":jml_Bots"..msg.chat_id_)
+if text and text ~="نسبه الجمال" and database:get(bot_id..":"..msg.sender_user_id_..":anoo_Bots"..msg.chat_id_) == "sendanooe" then
+numjj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
+sendnujj = numjj[math.random(#numjj)]
+xll = 'نسبه الجمال'..text..' هي : \n '..sendnujj..'%'
+send(msg.chat_id_, msg.id_,xll) 
+database:del(bot_id..":"..msg.sender_user_id_..":anoo_Bots"..msg.chat_id_)
 end
+
 --------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------
 if msg.sender_user_id_ and Muted_User(msg.chat_id_,msg.sender_user_id_) then 
