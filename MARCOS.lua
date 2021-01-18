@@ -11096,8 +11096,8 @@ end
 end
 if text and text ~="نسبه الجمال" and database:get(bot_id..":"..msg.sender_user_id_..":anoo_Bots"..msg.chat_id_) == "sendanooe" then
 numjj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
-sendnujj = numjj[math.random(#numjj)]
-xll = 'نسبه الجمال'..text..' هي : \n '..sendnujj..'%'
+sendnumjj = numjj[math.random(#numjj)]
+xll = 'نسبه الجمال'..text..' هي : \n '..sendnumjj..'%'
 send(msg.chat_id_, msg.id_,xll) 
 database:del(bot_id..":"..msg.sender_user_id_..":anoo_Bots"..msg.chat_id_)
 end
