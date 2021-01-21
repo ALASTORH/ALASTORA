@@ -11104,7 +11104,7 @@ end
 if text == "نسبه الهنجمه" or text == "نسبه هنجمه" and msg.reply_to_message_id_ ~= 0 and Mod(msg) then
 if not database:get(bot_id..'Cick:hnjmh'..msg.chat_id_) then
 database:set(bot_id..":"..msg.sender_user_id_..":hnjmh_Bots"..msg.chat_id_,"sendhnjmhe")
-Text = 'ارسل اسم الشخص الذي تريد قياس نسبه انوثتها \n مثال نونه'
+Text = 'ارسل اسم الشخص الذي تريد قياس نسبه الهنجمه 😂 \n مثال وهيب 😂'
 send(msg.chat_id_, msg.id_,Text) 
 end
 end
