@@ -10109,6 +10109,8 @@ Text = [[
 🔷| تفعيل/تعطيل الحظر
 🔷| تفعيل/تعطيل الرفع 
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
+⚜️¦ للمزيد من المعلومات راسلنا  ࿈
+🗯¦ مطور البوت »* []] ..SUDOUSERNAME..[[]
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
@@ -10188,6 +10190,8 @@ Text = [[
 🔆| تنظيف المشتركين
 🔆| تنظيف القروبات
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
+⚜️¦ للمزيد من المعلومات راسلنا  ࿈
+🗯¦ مطور البوت »* []] ..SUDOUSERNAME..[[]
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
@@ -10250,6 +10254,8 @@ Text = [[
 ❤️| رفـع + تنزيل ⇐ لقلبي
 ❤️| تنزيل قلبي ⇐ تاك لقلبي
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
+⚜️¦ للمزيد من المعلومات راسلنا  ࿈
+🗯¦ مطور البوت »* []] ..SUDOUSERNAME..[[]
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
@@ -11101,20 +11107,7 @@ xll = 'نسبه الجمال'..text..' هي : \n '..sendnumjj..'%'
 send(msg.chat_id_, msg.id_,xll) 
 database:del(bot_id..":"..msg.sender_user_id_..":anoo_Bots"..msg.chat_id_)
 end
-if text == "نسبه الهنجمه" or text == "نسبه هنجمه" and msg.reply_to_message_id_ ~= 0 and Mod(msg) then
-if not database:get(bot_id..'Cick:hnjmh'..msg.chat_id_) then
-database:set(bot_id..":"..msg.sender_user_id_..":hnjmh_Bots"..msg.chat_id_,"sendhnjmhe")
-Text = 'ارسل اسم الشخص الذي تريد قياس نسبه الهنجمه 😂 \n مثال وهيب 😂'
-send(msg.chat_id_, msg.id_,Text) 
-end
-end
-if text and text ~="نسبه الهنجمه" and database:get(bot_id..":"..msg.sender_user_id_..":hnjmh_Bots"..msg.chat_id_) == "sendhnjmhe" then
-numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
-sendnuj = numj[math.random(#numj)]
-xl = 'نسبه الهنجمه '..text..' هي : \n '..sendnuj..'%'
-send(msg.chat_id_, msg.id_,xl) 
-database:del(bot_id..":"..msg.sender_user_id_..":hnjmh_Bots"..msg.chat_id_)
-end
+
 --------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------
 if msg.sender_user_id_ and Muted_User(msg.chat_id_,msg.sender_user_id_) then 
