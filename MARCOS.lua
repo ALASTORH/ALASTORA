@@ -370,7 +370,7 @@ user_id_ = user,
 status_ = {ID = "ChatMemberStatusKicked"},},function(arg,data) end,nil)
 end
 function send(chat_id, reply_to_message_id, text)
-local TextParseMode = {ID = "TextParseModeMarkdown"}
+local TextParseMode = {ID = "TextParseModemarkdown"}
 tdcli_function ({ID = "SendMessage",chat_id_ = chat_id,reply_to_message_id_ = reply_to_message_id,disable_notification_ = 1,from_background_ = 1,reply_markup_ = nil,input_message_content_ = {ID = "InputMessageText",text_ = text,disable_web_page_preview_ = 1,clear_draft_ = 0,entities_ = {},parse_mode_ = TextParseMode,},}, dl_cb, nil)
 end
 function DeleteMessage(chat,id)
@@ -10109,8 +10109,6 @@ Text = [[
 🔷| تفعيل/تعطيل الحظر
 🔷| تفعيل/تعطيل الرفع 
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
-⚜️¦ للمزيد من المعلومات راسلنا  ࿈
-🗯¦ مطور البوت »* []] ..SUDOUSERNAME..[[]
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
@@ -10190,8 +10188,6 @@ Text = [[
 🔆| تنظيف المشتركين
 🔆| تنظيف القروبات
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
-⚜️¦ للمزيد من المعلومات راسلنا  ࿈
-🗯¦ مطور البوت »* []] ..SUDOUSERNAME..[[]
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
@@ -10254,8 +10250,6 @@ Text = [[
 ❤️| رفـع + تنزيل ⇐ لقلبي
 ❤️| تنزيل قلبي ⇐ تاك لقلبي
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
-⚜️¦ للمزيد من المعلومات راسلنا  ࿈
-🗯¦ مطور البوت »* []] ..SUDOUSERNAME..[[]
 ]]
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
