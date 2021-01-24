@@ -6941,7 +6941,34 @@ send(msg.chat_id_,msg.id_,"💠| ليست لدي صلاحية التثبيت ي�
 end
 end,nil)
 end
-
+if text == 'الغاء تثبيت الكل' and Mod(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,' ❃∫ لا تستطيع استخدام البوت \n  ❃∫ يرجى الاشتراك بالقناه اولا \n  ❃∫ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+if database:sismember(bot_id..'lock:pin',msg.chat_id_) and not Constructor(msg) then
+send(msg.chat_id_,msg.id_," ❃∫ عذرآ تم قفل الثبيت")  
+return false  
+end
+tdcli_function({ID="UnpinChannelMessage",channel_id_ = msg.chat_id_:gsub('-100','')},function(arg,data) 
+if data.ID == "Ok" then
+send(msg.chat_id_, msg.id_,"❃∫ تم الغاء تثبيت الكل")   
+https.request('https://api.telegram.org/bot'..token..'/unpinAllChatMessages?chat_id='..msg.chat_id_)
+database:del(bot_id..'Pin:Id:Msg'..msg.chat_id_)
+elseif data.code_ == 6 then
+send(msg.chat_id_,msg.id_," ❃∫ انا لست ادمن هنا يرجى ترقيتي ادمن ثم اعد المحاوله")  
+elseif data.message_ == "CHAT_NOT_MODIFIED" then
+send(msg.chat_id_,msg.id_," ❃∫ لا توجد رساله مثبته")  
+elseif data.message_ == "CHAT_ADMIN_REQUIRED" then
+send(msg.chat_id_,msg.id_," ❃∫ ليست لدي صلاحية التثبيت يرجى التحقق من الصلاحيات")  
+end
+end,nil)
+end
 if text and text:match('^ضع تكرار (%d+)$') and Mod(msg) then   
 local Num = text:match('ضع تكرار (.*)')
 database:hset(bot_id.."flooding:settings:"..msg.chat_id_ ,"floodmax" ,Num) 
@@ -7168,7 +7195,7 @@ database:del(bot_id.."filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_)
 return false  end  
 end
 
-if text == 'الغااء منع' and msg.reply_to_message_id_ == 0 and Manager(msg) then    
+if text == 'الغاء منع' and msg.reply_to_message_id_ == 0 and Manager(msg) then    
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
