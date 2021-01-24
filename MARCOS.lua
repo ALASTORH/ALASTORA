@@ -7006,6 +7006,7 @@ send(msg.chat_id_,msg.id_,'🔖| *Link* -\n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ�
 else                
 local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
 if linkgpp.ok == true then 
+database:set(bot_id.."Private:Group:Link"..msg.chat_id_,linkgpp.result)
 linkgp = '🔖| *Link* -\n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n ['..linkgpp.result..']'
 else
 linkgp = '⚠️| لا يوجد رابط ارسل ضع رابط'
