@@ -8392,6 +8392,57 @@ msgm = msgm - 1048576
 end
 send(msg.chat_id_,msg.id_,'🔘| تم حذف *{'..num..'}* من رسائل القروب')  
 end
+if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) and msg.reply_to_message_id_ == 0 then      
+database:sadd(bot_id.."allM"..msg.chat_id_, msg.id_)
+end
+if text == ("مسح الميديا") and Constructor(msg) or text == ("تنظيف الميديا") and Constructor(msg) or text == ("حذف الميديا") and Constructor(msg) then  
+local list = database:smembers(bot_id.."allM"..msg.chat_id_)
+for k,v in pairs(list) do
+local Message = v
+if Message then
+t = "✔┇ تم مسح "..k.." من الوسائط الموجوده"
+DeleteMessage(msg.chat_id_,{[0]=Message})
+database:del(bot_id.."allM"..msg.chat_id_)
+end
+end
+if #list == 0 then
+t = "✔┇ لا يوجد ميديا في المجموعه"
+end
+send(msg.chat_id_, msg.id_, t)
+end
+if text == ("عدد الميديا") and Constructor(msg) then  
+local num = database:smembers(bot_id.."allM"..msg.chat_id_)
+for k,v in pairs(num) do
+local numl = v
+if numl then
+l = "✔┇ عدد الميديا الموجود هو "..k
+end
+end
+if #num == 0 then
+l = "✔┇ لا يوجد ميديا في المجموعه"
+end
+send(msg.chat_id_, msg.id_, l)
+end
+if text == "تنظيف التعديل" and Constructor(msg) or text == "حذف التعديل" and Constructor(msg) or text == "مسح التعديل" and Constructor(msg) then
+Msgs = {[0]=msg.id_}
+local Message = msg.id_
+for i=1,100 do
+Message = Message - 1048576
+Msgs[i] = Message
+end
+tdcli_function({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = Msgs},function(arg,data)
+new = 0
+Msgs2 = {}
+for i=0 ,data.total_count_ do
+if data.messages_[i] and (not data.messages_[i].edit_date_ or data.messages_[i].edit_date_ ~= 0) then
+Msgs2[new] = data.messages_[i].id_
+new = new + 1
+end
+end
+DeleteMessage(msg.chat_id_,Msgs2)
+end,nil)  
+send(msg.chat_id_, msg.id_,'✔┇ تم حذف جميع الرسائل المعدله')
+end
 if text == "تغير اسم البوت" or text == "تغيير اسم البوت" then 
 if SudoBot(msg) then
 if AddChannel(msg.sender_user_id_) == false then
@@ -9751,7 +9802,7 @@ get_id_text = get_id_text:gsub('النقاط',NUMPGAME)
 get_id_text = get_id_text:gsub('الصور',photps) 
 send(msg.chat_id_, msg.id_,'['..get_id_text..']')   
 else
-send(msg.chat_id_, msg.id_,'[\n༻┉𖦹┉┉𖦹┉┉𖦹┉┉𖦹┉༺\n• |𝗜𝗗  ⁞ '..msg.sender_user_id_..'\n• |𝗨𝗦𝗘 ⁞ '..username..'\n• |𝗦𝗧𝗔  ⁞ '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n• |𝗦𝗧𝗔  ⁞ '..rtpa..'\n• |𝗔𝗨𝗧𝗢 ⁞'..Total_Msg(Msguser)..'\n• |𝗠𝗦𝗚  ⁞ '..Msguser..'\n• |𝗣𝗢𝗜𝗡𝗧𝗦 ⁞ '..NUMPGAME..']\n༻┉𖦹┉┉𖦹┉┉𖦹┉┉𖦹┉༺\n')   
+send(msg.chat_id_, msg.id_,'[\n༻┉𖦹┉┉𖦹┉┉𖦹┉┉𖦹┉༺\n• |𝗜𝗗  ⁞ '..msg.sender_user_id_..'\n• |𝗨??𝗘 ⁞ '..username..'\n• |𝗦𝗧𝗔  ⁞ '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n• |𝗦𝗧𝗔  ⁞ '..rtpa..'\n• |𝗔𝗨𝗧𝗢 ⁞'..Total_Msg(Msguser)..'\n• |𝗠𝗦𝗚  ⁞ '..Msguser..'\n• |𝗣𝗢𝗜𝗡𝗧𝗦 ⁞ '..NUMPGAME..']\n༻┉𖦹┉┉𖦹┉┉𖦹┉┉𖦹┉༺\n')   
 end
 end
 
@@ -11053,57 +11104,6 @@ end,nil)
 end
 end,nil)
 end,nil)
-end
-if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) and msg.reply_to_message_id_ == 0 then
-database:sadd(bot_id.."VVVZVV:allM"..msg.chat_id_, msg.id_)
-end
-if text == ("امسح") and cleaner(msg) then  
-local list = database:smembers(bot_id.."VVVZVV:allM"..msg.chat_id_)
-for k,v in pairs(list) do
-local Message = v
-if Message then
-t = "❃∫ تم مسح "..k.." من الوسائط الموجوده"
-DeleteMessage(msg.chat_id_,{[0]=Message})
-database:del(bot_id.."VVVZVV:allM"..msg.chat_id_)
-end
-end
-if #list == 0 then
-t = "❃∫ لا يوجد ميديا في المجموعه"
-end
-send(msg.chat_id_, msg.id_, t)
-end
-if text == ("عدد الميديا") and cleaner(msg) then  
-local num = database:smembers(bot_id.."VVVZVV:allM"..msg.chat_id_)
-for k,v in pairs(num) do
-local numl = v
-if numl then
-l = "❃∫ عدد الميديا الموجود هو "..k
-end
-end
-if #num == 0 then
-l = "❃∫ لا يوجد ميديا في المجموعه"
-end
-send(msg.chat_id_, msg.id_, l)
-end
-if text == "تنظيف التعديل" and Manager(msg) then
-Msgs = {[0]=msg.id_}
-local Message = msg.id_
-for i=1,100 do
-Message = Message - 1048576
-Msgs[i] = Message
-end
-tdcli_function({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = Msgs},function(arg,data)
-new = 0
-Msgs2 = {}
-for i=0 ,data.total_count_ do
-if data.messages_[i] and (not data.messages_[i].edit_date_ or data.messages_[i].edit_date_ ~= 0) then
-Msgs2[new] = data.messages_[i].id_
-new = new + 1
-end
-end
-DeleteMessage(msg.chat_id_,Msgs2)
-end,nil)  
-send(msg.chat_id_, msg.id_,'❃∫ تم تنظيف جميع الرسائل المعدله')
 end
 if text == "تعطيل الابراج" and Manager(msg) then
 send(msg.chat_id_, msg.id_, '*✓| اهلا عزيزي تم تعطيل الابراج*')
