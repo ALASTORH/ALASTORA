@@ -2219,7 +2219,7 @@ end
 return false  
 end
 
-if text == 'السورس' or text == 'يا سورس' then
+if text == 'السوgرس' or text == 'يا سhورس' then
 Text = [[
 🙋︙اهلا بكـ في سورس الاسطورة 🦅
 🕹 : السـورس الاقوئ في الوطن العربي
@@ -2236,6 +2236,25 @@ Text = [[
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
+end
+if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then
+local Text =[[
+🙋︙اهلا بكـ في سورس الاسطورة 🦅
+🕹 : السـورس الاقوئ في الوطن العربي
+●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+
+{
+{text = 'مطـور السـورس', url = "https://t.me/PFPFF"}
+},
+{
+{text = 'قـنـاة السـورس', url = "https://t.me/LSLHB"}
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
@@ -10298,42 +10317,7 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 end
-if text == 'تعطيل تحقق' and Mod(msg) then   
-    database:del(bot_id..'nwe:mem:group'..msg.chat_id_) 
-    send(msg.chat_id_, msg.id_,'\n تم تعطيل تحقق' ) 
-    end
-    if text == 'تفعيل تحقق' and Mod(msg) then  
-    database:set(bot_id..'nwe:mem:group'..msg.chat_id_,'true') 
-    send(msg.chat_id_, msg.id_,'\nتم تفعيل تحقق' ) 
-    end 
-    
-    if msg.content_.ID == "MessageChatJoinByLink" and database:get(bot_id..'nwe:mem:group'..msg.chat_id_) == 'true'then
-    numphoto = {'3','8','9','6'}
-    numphotoid = numphoto[math.random(#numphoto)]
-    local numjoine = (numphotoid + 3)
-    local Texti = 'اختر اللجابه الصحيحه \n'..numphotoid..' + 3 ='
-    local num1 = (5 + numphotoid)
-    local num2 = (7 + numphotoid)
-    local num3 = (1 + numphotoid)
-    
-    keyboard = {} 
-    keyboard.inline_keyboard = {
-    {
-    {text = num1, callback_data=msg.sender_user_id_.."/lockjoine"},{text = num2, callback_data=msg.sender_user_id_.."/unlockjoine"},
-    },
-    {
-    {text =numjoine, callback_data=msg.sender_user_id_.."/UnKed@"..numjoine..":"..numjoine},{text = num3, callback_data=msg.sender_user_id_.."/unlockjoine"},
-    },
-    }
-    local msg_id = msg.id_/2097152/0.5
-    https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Texti).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-    https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..msg.sender_user_id_)
-    return false
-    end
-if msg.sender_user_id_ and Muted_Groups(msg.chat_id_,msg.sender_user_id_) then 
-DeleteMessage(msg.chat_id_, {[0] = msg.id_})  
-return false  
-end
+
 if text == 'الاوامر' then
 if not Mod(msg) then
 send(msg.chat_id_, msg.id_,'⚠️| هاذا الامر خاص بالادمنيه\n🔖| ارسل {م8} لعرض اوامر الاعضاء') 
