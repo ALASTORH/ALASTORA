@@ -10810,6 +10810,334 @@ Text = [[
 send(msg.chat_id_, msg.id_,(help_text or Text)) 
 return false
 end
+function tdcli_update_callback(data)
+    if data.ID == "UpdateNewCallbackQuery" then
+    SJJJJj = data
+    local Chat_id = data.chat_id_
+    local Msg_id = data.message_id_
+    local msg_idd = Msg_id/2097152/0.5
+    local Text = data.payload_.data_
+    if Text and Text:match('(.*)/help1') and Addictive(SJJJJj) then
+    if tonumber(Text:match('(.*)/help1')) == tonumber(data.sender_user_id_) then
+    local Teext =[[
+    ◈︙ قائمة اوامر الحماية .
+    - - - - -
+    قفل او فتح + الامر
+    قفل او فتح الامر بالتقييد
+    قفل او فتح الامر بالطرد
+    قفل او فتح الامر بالكتم
+    - - - - -
+    - الروابط .
+    - المعرف .
+    - التاك .
+    - الشارحة .
+    - التعديل .
+    - التثبيت .
+    - المتحركة .
+    - الملفات .
+    - الصور .
+    - - - - -
+    - الملصقات .
+    - الفيديو .
+    - الانلاين .
+    - الدردشة .
+    - التوجيه .
+    - الاغاني .
+    - الصوت .
+    - الجهات .
+    - الاشعارات .
+    - - - - -
+    - الماركداون .
+    - البوتات .
+    - التكرار .
+    - الكلايش .
+    - السيلفي .
+    ]]
+    keyboard = {} 
+    keyboard.inline_keyboard = {
+    {
+    {text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
+    },
+    {
+    {text = 'م4', callback_data=data.sender_user_id_.."/help4"},
+    },
+    {
+    {text = 'م5', callback_data=data.sender_user_id_.."/help5"},
+    },
+    {
+    {text = 'الاوامر الرئيسية', callback_data=data.sender_user_id_.."/help"},
+    },
+    {
+{text = '- Source Alex .', url = "https://t.me/JJJJJ9"}
+},
+    }
+    return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+    end
+    end
+    if Text and Text:match('(.*)/help2') and Addictive(SJJJJj) then
+    if tonumber(Text:match('(.*)/help2')) == tonumber(data.sender_user_id_) then
+    local Teext =[[
+    ◈︙ قائمة اوامر الادمنية .
+    - - - - -
+    - رفع او تنزيل مميز .
+    - تاك للكل .
+    - عدد الكروب .
+    - كتم .
+    - حظر .
+    - طرد .
+    - منع .
+    - تقييد .
+    - الغاء حظر .
+    - الغاء كتم .
+    - الغاء تقييد .
+    - الغاء منع .
+    - المحظورين .
+    - المكتومين .
+    - المميزين .
+    - الصلاحيات .
+    - قائمة المنع .
+    - - - - -
+    - تثبيت .
+    - الفاء تثبيت .
+    - الاعدادات .
+    - الرابط .
+    - القوانين .
+    - - - - -
+    - الترحيب .
+    - تفعيل او تعطيل الترحيب .
+    - اضف او مسح صلاحية . 
+    - وضع التكرار + العدد .
+    - ايدي .
+    - جهاتي .
+    - سحكاتي .
+    - رسائلي .
+    - كشف البوتات .
+    - - - - -
+    - وضع + الامر .
+    - اسم .
+    - رابط .
+    - صورة .
+    - وصف .
+    - قوانين .
+    - ترحيب .
+    - - - - -
+    - مسح + الامر
+    - قائمة المنع .
+    - المحظورين .
+    - المميزين .
+    - المكتومين .
+    - المطرودين .
+    - القوانين .
+    - البوتات .
+    - الصورة .
+    - الصلاحيات .
+    - الرابط .
+    ]]
+    keyboard = {} 
+    keyboard.inline_keyboard = {
+    {
+    {text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
+    },
+    {
+    {text = 'م4', callback_data=data.sender_user_id_.."/help4"},
+    },
+    {
+    {text = 'م5', callback_data=data.sender_user_id_.."/help5"},
+    },
+    {
+    {text = 'الاوامر الرئيسية', callback_data=data.sender_user_id_.."/help"},
+    },
+    {
+{text = '- Source Alex .', url = "https://t.me/JJJJJ9"}
+},
+    }
+    return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+    end
+    end
+    if Text and Text:match('(.*)/help3') and Owner(SJJJJj) then
+    if tonumber(Text:match('(.*)/help3')) == tonumber(data.sender_user_id_) then
+    local Teext =[[
+    ◈︙ قائمة اوامر المدراء .
+    - - - - -
+    - رفع او تنزيل ادمن .
+    - رفع او كشف القيود .
+    - تنزيل الكل .
+    - - - - -
+    - تفعيل او تعطيل الايدي بالصورة .
+    - تفعيل او تعطيل الايدي .
+    - تفعيل او تعطيل ردود المدير .
+    - تفعيل او تعطيل الالعاب .
+    - تفعيل او تعطيل اطردني .
+    - تفعيل او تعطيل الرفع .
+    - تفعيل او تعطيل الحظر .
+    - تفعيل او تعطيل الطرد .
+    - تفعيل او تعطيل جلب الرابط .
+    - تفعيل او تعطيل اوامر التحشيش .
+    - تفعيل او تعطيل التنزيل .
+    - تعيين او مسح الايدي .
+    - اضف او حذف رد .
+    - اضف او حذف رد متعدد .
+    - - - - -
+    - رفع الادمنية .
+    - الادمنية .
+    - ردود المدير .
+    - تنظيف + عدد .
+    - مسح الادمنية .
+    - مسح الميديا .
+    - مسح ردود المدير .
+    ]]
+    keyboard = {} 
+    keyboard.inline_keyboard = {
+    {
+    {text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
+    },
+    {
+    {text = 'م4', callback_data=data.sender_user_id_.."/help4"},
+    },
+    {
+    {text = 'م5', callback_data=data.sender_user_id_.."/help5"},
+    },
+    {
+    {text = 'الاوامر الرئيسية', callback_data=data.sender_user_id_.."/help"},
+    },
+    {
+{text = '- Source Alex .', url = "https://t.me/JJJJJ9"}
+},
+    }
+    return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+    end
+    end
+    if Text and Text:match('(.*)/help4') and Constructor(SJJJJj) then
+    if tonumber(Text:match('(.*)/help4')) == tonumber(data.sender_user_id_) then
+    local Teext =[[
+    ◈︙ قائمة اوامر المنشئين الاساسيين .
+    - - - - -
+    - رفع او تنزيل منشئ .
+    - المنشئين .
+    - مسح المنشئين .
+    - - - - -
+    ◈︙ قائمة اوامر المنشئين .
+    - - - - -
+    - رفع او تنزيل مدير .
+    - المدراء .
+    - مسح المدراء .
+    - تعيين او مسح الايدي .
+    - اضف او حذف امر .
+    - الاوامر المضافة .
+    - مسح الاوامر المضافة .
+    - اضف رسائل + العدد بالرد .
+    - اضف مجوهرات + العدد بالرد .
+    ]]
+    keyboard = {} 
+    keyboard.inline_keyboard = {
+    {
+    {text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
+    },
+    {
+    {text = 'م4', callback_data=data.sender_user_id_.."/help4"},
+    },
+    {
+    {text = 'م5', callback_data=data.sender_user_id_.."/help5"},
+    },
+    {
+    {text = 'الاوامر الرئيسية', callback_data=data.sender_user_id_.."/help"},
+    },
+    {
+{text = '- Source Alex .', url = "https://t.me/JJJJJ9"}
+},
+    }
+    return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+    end
+    end
+    if Text and Text:match('(.*)/help5') and DevBot(SJJJJj) then
+    if tonumber(Text:match('(.*)/help5')) == tonumber(data.sender_user_id_) then
+    local Teext =[[
+    [In reply to BROK]
+◈︙ قائمة اوامر المطور الاساسي .
+- - - - -
+- حظر عام .
+- الغاء العام .
+- مسح قائمة العام .
+- تغيير اسم البوت .
+- رفع او تنزيل مطور . 
+- المطورين .
+- مسح المطورين .
+- اضف او حذف رد للكل .
+- مسح ردود المطور .
+- ردود المطور .
+- وضع او حذف كليشة المطور .
+- تحديث السورس . 
+- تفعيل او تعطيل البوت الخدمي .
+- تعيين عدد الاعضاء + العدد .
+- تفعيل او تعطيل المغادرة .
+- تفعيل او تعطيل الاذاعة .
+◈︙ قائمة اوامر المطورين . 
+- - - - -
+- تفعيل او تعطيل .
+- رفع او تنزيل مالك .
+- رفع او تنزيل منشئ اساسي .
+- رفع منشئ .
+- مسح المنشئين الاساسيين .
+- المنشئين الاساسيين .
+- غادر .
+- اذاعة .
+- اذاعة بالتجويه .
+- اذاعة خاص .
+- اذاعة بالتثبيت .
+- الاحصائيات .
+    ]]
+    keyboard = {} 
+    keyboard.inline_keyboard = {
+    {
+    {text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
+    },
+    {
+    {text = 'م4', callback_data=data.sender_user_id_.."/help4"},
+    },
+    {
+    {text = 'م5', callback_data=data.sender_user_id_.."/help5"},
+    },
+    {
+    {text = 'الاوامر الرئيسية', callback_data=data.sender_user_id_.."/help"},
+    },
+    {
+{text = '- Source Alex .', url = "https://t.me/JJJJJ9"}
+},
+    }
+    return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+    end
+    end
+    if Text and Text:match('(.*)/help') and Addictive(SJJJJj) then
+    if tonumber(Text:match('(.*)/help')) == tonumber(data.sender_user_id_) then
+    local Teext =[[
+◈︙م1 : اوامر الحماية .
+◈︙م2 : اوامر الادمنية .
+◈︙م3 : اوامر المدراء .
+◈︙م4 : اوامر المنشئين .
+◈︙م5 : اوامر المطورين .
+    ]]
+    keyboard = {} 
+    keyboard.inline_keyboard = {
+    {
+    {text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
+    },
+    {
+    {text = 'م4', callback_data=data.sender_user_id_.."/help4"},
+    },
+    {
+    {text = 'م5', callback_data=data.sender_user_id_.."/help5"},
+    },
+    {
+    {text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddrem"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/homelocks"},
+    },
+    {
+{text = '- Source Alex .', url = "https://t.me/JJJJJ9"}
+},
+    }
+    return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+    end
+    end
+    
 if text == "وش رايك بهاذا" or text == "وش رايك بهاذ" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
 local texting = {"حبيب '..Namebot..' ♥"," نشبه وماعنده سالفه😂😶","كثير كلام😹","والنعم والله♥","كفوووو ♥"}
@@ -11274,332 +11602,6 @@ send(msg.chat_id_, msg.id_,xl)
 database:del(bot_id..":"..msg.sender_user_id_..":hnjmh_Bots"..msg.chat_id_)
 end
 --------------------------------------------------------------------------------------------------------------
-function tdcli_update_callback(data)
-    if data.ID == "UpdateNewCallbackQuery" then
-    SJJJJj = data
-    local Chat_id = data.chat_id_
-    local Msg_id = data.message_id_
-    local msg_idd = Msg_id/2097152/0.5
-    local Text = data.payload_.data_
-    if Text and Text:match('(.*)/help1') and Mod(SJJJJj) then
-    if tonumber(Text:match('(.*)/help1')) == tonumber(data.sender_user_id_) then
-    local Teext =[[
-    ◈︙ قائمة اوامر الحماية .
-    - - - - -
-    قفل او فتح + الامر
-    قفل او فتح الامر بالتقييد
-    قفل او فتح الامر بالطرد
-    قفل او فتح الامر بالكتم
-    - - - - -
-    - الروابط .
-    - المعرف .
-    - التاك .
-    - الشارحة .
-    - التعديل .
-    - التثبيت .
-    - المتحركة .
-    - الملفات .
-    - الصور .
-    - - - - -
-    - الملصقات .
-    - الفيديو .
-    - الانلاين .
-    - الدردشة .
-    - التوجيه .
-    - الاغاني .
-    - الصوت .
-    - الجهات .
-    - الاشعارات .
-    - - - - -
-    - الماركداون .
-    - البوتات .
-    - التكرار .
-    - الكلايش .
-    - السيلفي .
-    ]]
-    keyboard = {} 
-    keyboard.inline_keyboard = {
-    {
-    {text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
-    },
-    {
-    {text = 'م4', callback_data=data.sender_user_id_.."/help4"},
-    },
-    {
-    {text = 'م5', callback_data=data.sender_user_id_.."/help5"},
-    },
-    {
-    {text = 'الاوامر الرئيسية', callback_data=data.sender_user_id_.."/help"},
-    },
-    {
-{text = '- Source astorh .', url = "https://t.me/lslhb"}
-},
-    }
-    return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-    end
-    end
-    if Text and Text:match('(.*)/help2') and Mod(SJJJJj) then
-    if tonumber(Text:match('(.*)/help2')) == tonumber(data.sender_user_id_) then
-    local Teext =[[
-    ◈︙ قائمة اوامر الادمنية .
-    - - - - -
-    - رفع او تنزيل مميز .
-    - تاك للكل .
-    - عدد الكروب .
-    - كتم .
-    - حظر .
-    - طرد .
-    - منع .
-    - تقييد .
-    - الغاء حظر .
-    - الغاء كتم .
-    - الغاء تقييد .
-    - الغاء منع .
-    - المحظورين .
-    - المكتومين .
-    - المميزين .
-    - الصلاحيات .
-    - قائمة المنع .
-    - - - - -
-    - تثبيت .
-    - الفاء تثبيت .
-    - الاعدادات .
-    - الرابط .
-    - القوانين .
-    - - - - -
-    - الترحيب .
-    - تفعيل او تعطيل الترحيب .
-    - اضف او مسح صلاحية . 
-    - وضع التكرار + العدد .
-    - ايدي .
-    - جهاتي .
-    - سحكاتي .
-    - رسائلي .
-    - كشف البوتات .
-    - - - - -
-    - وضع + الامر .
-    - اسم .
-    - رابط .
-    - صورة .
-    - وصف .
-    - قوانين .
-    - ترحيب .
-    - - - - -
-    - مسح + الامر
-    - قائمة المنع .
-    - المحظورين .
-    - المميزين .
-    - المكتومين .
-    - المطرودين .
-    - القوانين .
-    - البوتات .
-    - الصورة .
-    - الصلاحيات .
-    - الرابط .
-    ]]
-    keyboard = {} 
-    keyboard.inline_keyboard = {
-    {
-    {text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
-    },
-    {
-    {text = 'م4', callback_data=data.sender_user_id_.."/help4"},
-    },
-    {
-    {text = 'م5', callback_data=data.sender_user_id_.."/help5"},
-    },
-    {
-    {text = 'الاوامر الرئيسية', callback_data=data.sender_user_id_.."/help"},
-    },
-    {
-{text = '- Source Astorh .', url = "https://t.me/lslhb"}
-},
-    }
-    return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-    end
-    end
-    if Text and Text:match('(.*)/help3') and Mod(SJJJJj) then
-    if tonumber(Text:match('(.*)/help3')) == tonumber(data.sender_user_id_) then
-    local Teext =[[
-    ◈︙ قائمة اوامر المدراء .
-    - - - - -
-    - رفع او تنزيل ادمن .
-    - رفع او كشف القيود .
-    - تنزيل الكل .
-    - - - - -
-    - تفعيل او تعطيل الايدي بالصورة .
-    - تفعيل او تعطيل الايدي .
-    - تفعيل او تعطيل ردود المدير .
-    - تفعيل او تعطيل الالعاب .
-    - تفعيل او تعطيل اطردني .
-    - تفعيل او تعطيل الرفع .
-    - تفعيل او تعطيل الحظر .
-    - تفعيل او تعطيل الطرد .
-    - تفعيل او تعطيل جلب الرابط .
-    - تفعيل او تعطيل اوامر التحشيش .
-    - تفعيل او تعطيل التنزيل .
-    - تعيين او مسح الايدي .
-    - اضف او حذف رد .
-    - اضف او حذف رد متعدد .
-    - - - - -
-    - رفع الادمنية .
-    - الادمنية .
-    - ردود المدير .
-    - تنظيف + عدد .
-    - مسح الادمنية .
-    - مسح الميديا .
-    - مسح ردود المدير .
-    ]]
-    keyboard = {} 
-    keyboard.inline_keyboard = {
-    {
-    {text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
-    },
-    {
-    {text = 'م4', callback_data=data.sender_user_id_.."/help4"},
-    },
-    {
-    {text = 'م5', callback_data=data.sender_user_id_.."/help5"},
-    },
-    {
-    {text = 'الاوامر الرئيسية', callback_data=data.sender_user_id_.."/help"},
-    },
-    {
-{text = '- Source lslhb .', url = "https://t.me/lslhb"}
-},
-    }
-    return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-    end
-    end
-    if Text and Text:match('(.*)/help4') and Constructor(SJJJJj) then
-    if tonumber(Text:match('(.*)/help4')) == tonumber(data.sender_user_id_) then
-    local Teext =[[
-    ◈︙ قائمة اوامر المنشئين الاساسيين .
-    - - - - -
-    - رفع او تنزيل منشئ .
-    - المنشئين .
-    - مسح المنشئين .
-    - - - - -
-    ◈︙ قائمة اوامر المنشئين .
-    - - - - -
-    - رفع او تنزيل مدير .
-    - المدراء .
-    - مسح المدراء .
-    - تعيين او مسح الايدي .
-    - اضف او حذف امر .
-    - الاوامر المضافة .
-    - مسح الاوامر المضافة .
-    - اضف رسائل + العدد بالرد .
-    - اضف مجوهرات + العدد بالرد .
-    ]]
-    keyboard = {} 
-    keyboard.inline_keyboard = {
-    {
-    {text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
-    },
-    {
-    {text = 'م4', callback_data=data.sender_user_id_.."/help4"},
-    },
-    {
-    {text = 'م5', callback_data=data.sender_user_id_.."/help5"},
-    },
-    {
-    {text = 'الاوامر الرئيسية', callback_data=data.sender_user_id_.."/help"},
-    },
-    {
-{text = '- Source astorh .', url = "https://t.me/lslhb"}
-},
-    }
-    return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-    end
-    end
-    if Text and Text:match('(.*)/help5') and SudoBot(SJJJJj) then
-    if tonumber(Text:match('(.*)/help5')) == tonumber(data.sender_user_id_) then
-    local Teext =[[
-◈︙ قائمة اوامر المطور الاساسي .
-- - - - -
-- حظر عام .
-- الغاء العام .
-- مسح قائمة العام .
-- تغيير اسم البوت .
-- رفع او تنزيل مطور . 
-- المطورين .
-- مسح المطورين .
-- اضف او حذف رد للكل .
-- مسح ردود المطور .
-- ردود المطور .
-- وضع او حذف كليشة المطور .
-- تحديث السورس . 
-- تفعيل او تعطيل البوت الخدمي .
-- تعيين عدد الاعضاء + العدد .
-- تفعيل او تعطيل المغادرة .
-- تفعيل او تعطيل الاذاعة .
-◈︙ قائمة اوامر المطورين . 
-- - - - -
-- تفعيل او تعطيل .
-- رفع او تنزيل مالك .
-- رفع او تنزيل منشئ اساسي .
-- رفع منشئ .
-- مسح المنشئين الاساسيين .
-- المنشئين الاساسيين .
-- غادر .
-- اذاعة .
-- اذاعة بالتجويه .
-- اذاعة خاص .
-- اذاعة بالتثبيت .
-- الاحصائيات .
-    ]]
-    keyboard = {} 
-    keyboard.inline_keyboard = {
-    {
-    {text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
-    },
-    {
-    {text = 'م4', callback_data=data.sender_user_id_.."/help4"},
-    },
-    {
-    {text = 'م5', callback_data=data.sender_user_id_.."/help5"},
-    },
-    {
-    {text = 'الاوامر الرئيسية', callback_data=data.sender_user_id_.."/help"},
-    },
-    {
-{text = '- Source astorh .', url = "https://t.me/lslhb"}
-},
-    }
-    return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-    end
-    end
-    if Text and Text:match('(.*)/help') and Mod(SJJJJj) then
-    if tonumber(Text:match('(.*)/help')) == tonumber(data.sender_user_id_) then
-    local Teext =[[
-◈︙م1 : اوامر الحماية .
-◈︙م2 : اوامر الادمنية .
-◈︙م3 : اوامر المدراء .
-◈︙م4 : اوامر المنشئين .
-◈︙م5 : اوامر المطورين .
-    ]]
-    keyboard = {} 
-    keyboard.inline_keyboard = {
-    {
-    {text = 'م1', callback_data=data.sender_user_id_.."/help1"},{text = 'م2', callback_data=data.sender_user_id_.."/help2"},{text = 'م3', callback_data=data.sender_user_id_.."/help3"},
-    },
-    {
-    {text = 'م4', callback_data=data.sender_user_id_.."/help4"},
-    },
-    {
-    {text = 'م5', callback_data=data.sender_user_id_.."/help5"},
-    },
-    {
-    {text = 'اوامر التعطيل', callback_data=data.sender_user_id_.."/homeaddrem"},{text = 'اوامر القفل', callback_data=data.sender_user_id_.."/homelocks"},
-    },
-    {
-{text = '- Source astorh .', url = "https://t.me/lslhb"}
-},
-    }
-    return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-    end
-    end
 --------------------------------------------------------------------------------------------------------------
 if msg.sender_user_id_ and Muted_User(msg.chat_id_,msg.sender_user_id_) then 
 DeleteMessage(msg.chat_id_, {[0] = msg.id_})  
