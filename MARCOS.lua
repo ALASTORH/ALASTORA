@@ -10299,15 +10299,15 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 end
 end
 if text == 'تعطيل تحقق' and Mod(msg) then   
-    database:del(bot_id..'Alex:nwe:mem:group'..msg.chat_id_) 
+    database:del(bot_id..'nwe:mem:group'..msg.chat_id_) 
     send(msg.chat_id_, msg.id_,'\n تم تعطيل تحقق' ) 
     end
     if text == 'تفعيل تحقق' and Mod(msg) then  
-    database:set(bot_id..'Alex:nwe:mem:group'..msg.chat_id_,'true') 
+    database:set(bot_id..'nwe:mem:group'..msg.chat_id_,'true') 
     send(msg.chat_id_, msg.id_,'\nتم تفعيل تحقق' ) 
     end 
     
-    if msg.content_.ID == "MessageChatJoinByLink" and database:get(bot_id..'Alex:nwe:mem:group'..msg.chat_id_) == 'true'then
+    if msg.content_.ID == "MessageChatJoinByLink" and database:get(bot_id..'nwe:mem:group'..msg.chat_id_) == 'true'then
     numphoto = {'3','8','9','6'}
     numphotoid = numphoto[math.random(#numphoto)]
     local numjoine = (numphotoid + 3)
