@@ -10261,6 +10261,34 @@ database:set(bot_id..'help8'..msg.sender_user_id_,'true')
 return false 
 end
 
+if text == 'القائمة' or text == 'القائمه' or text == 'مساعده' then
+if Mod(msg) then
+local Text =[[
+    ◈︙ اهلا بك في قسم الاوامر .
+    ◈︙ اختر الامر الذي تريده من الازرار بلاسفل .
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '- اوامر الحماية .', callback_data=msg.sender_user_id_.."/help1"},{text = '- اوامر الادمنية .', callback_data=msg.sender_user_id_.."/help2"},
+},
+{
+{text = '- اوامر المدراء .', callback_data=msg.sender_user_id_.."/help3"},
+},
+{
+{text = '- اوامر المنشئين .', callback_data=msg.sender_user_id_.."/help4"},{text = '- اوامر المطورين .', callback_data=msg.sender_user_id_.."/help5"},
+},
+{
+{text = '- اوامر التعطيل .', callback_data=msg.sender_user_id_.."/homeaddrem"},{text = '- اوامر القفل .', callback_data=msg.sender_user_id_.."/homelocks"},
+},
+{
+{text = '- Source astorh.', url = "https://t.me/lslhb"}
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
 
 if text == 'الاوامر' then
 if not Mod(msg) then
