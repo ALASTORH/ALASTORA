@@ -10282,26 +10282,30 @@ local Text =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'م1 ◐ ', callback_data=msg.sender_user_id_.."/help1"},{text = 'م1 ◐', callback_data=msg.sender_user_id_.."/help2"},
+{text = 'م1', callback_data=msg.sender_user_id_.."/help1"},{text = 'م2', callback_data=msg.sender_user_id_.."/help2"},{text = 'م3', callback_data=msg.sender_user_id_.."/help3"},
 },
 {
-{text = '- اوامر المدراء .', callback_data=msg.sender_user_id_.."/help3"},
+{text = 'م4', callback_data=msg.sender_user_id_.."/help4"},{text = 'م5', callback_data=msg.sender_user_id_.."/help5"},{text = 'م6', callback_data=msg.sender_user_id_.."/help6"},
 },
 {
-{text = '- اوامر المنشئين .', callback_data=msg.sender_user_id_.."/help4"},{text = '- اوامر المطورين .', callback_data=msg.sender_user_id_.."/help5"},
+{text = 'م7', callback_data=msg.sender_user_id_.."/help7"},{text = 'م8', callback_data=msg.sender_user_id_.."/help8"},
 },
 {
-{text = '- اوامر التعطيل .', callback_data=msg.sender_user_id_.."/homeaddrem"},{text = '- اوامر القفل .', callback_data=msg.sender_user_id_.."/homelocks"},
-},
-{
-{text = '- Source astorh.', url = "https://t.me/lslhb"}
+{text = 'الالعاب', url = "https://t.me/lslhb"}
 },
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 end
-if Text and Text:match('(.*)/help1') and Mod(msg) then
+function tdcli_update_callback(data)
+    if data.ID == "UpdateNewCallbackQuery" then
+    SJJJJj = data
+    local Chat_id = data.chat_id_
+    local Msg_id = data.message_id_
+    local msg_idd = Msg_id/2097152/0.5
+    local Text = data.payload_.data_
+    if Text and Text:match('(.*)/help1') and Mod(SJJJJj) then
     if tonumber(Text:match('(.*)/help1')) == tonumber(data.sender_user_id_) then
     local Teext =[[
 🎗️| اهلا بك عزيزي √
