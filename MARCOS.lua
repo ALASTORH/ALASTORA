@@ -2219,7 +2219,7 @@ end
 return false  
 end
 
-if text == 'السوgرس' or text == 'يا سhورس' then
+if text == 'السورس' or text == 'يا سورس' then
 Text = [[
 🙋︙اهلا بكـ في سورس الاسطورة 🦅
 🕹 : السـورس الاقوئ في الوطن العربي
@@ -2236,25 +2236,6 @@ Text = [[
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
-end
-if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then
-local Text =[[
-🙋︙اهلا بكـ في سورس الاسطورة 🦅
-🕹 : السـورس الاقوئ في الوطن العربي
-●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-
-{
-{text = 'مطـور السـورس', url = "https://t.me/PFPFF"}
-},
-{
-{text = 'قـنـاة السـورس', url = "https://t.me/LSLHB"}
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
@@ -9041,6 +9022,8 @@ local photo = database:get(bot_id.."Add:Rd:Manager:Photo"..text..msg.chat_id_)
 local video = database:get(bot_id.."Add:Rd:Manager:Video"..text..msg.chat_id_)
 local document = database:get(bot_id.."Add:Rd:Manager:File"..text..msg.chat_id_)
 local audio = database:get(bot_id.."Add:Rd:Manager:Audio"..text..msg.chat_id_)
+------------------------------------------------------------------------
+------------------------------------------------------------------------
 if text1 then 
 send(msg.chat_id_, msg.id_, text1)
 database:sadd(bot_id..'Spam:Texting'..msg.sender_user_id_,text) 
@@ -10278,43 +10261,6 @@ database:set(bot_id..'help8'..msg.sender_user_id_,'true')
 return false 
 end
 
-if text == 'الاوامر' or text == 'القائمه' or text == 'مساعده' then
-if Mod(msg) then
-local Text =[[
-🔴| اهلا بك في اوامر البوت  
-●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
-🔖| م1 » اوامر الحمايه 
-🔖| م2 » اوامر الادمنيه 
-🔖| م3 » اوامر المدراء 
-🔖| م4 » اوامر المنشئين
-🔖| م5 » اوامر مطور اساسي
-🔖| م6 » اوامر التحشيش
-🔖| م7 » اوامر مطورين البوت
-🔖| م8 » اوامر الاعضاء
-🔖| الالعاب » لعرض العاب السورس
-🔖|المطور » مـطـور البـوت
-🔖|السورس » سورس البوت
-●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'م1', callback_data=msg.sender_user_id_.."/help1"},{text = 'م2', callback_data=msg.sender_user_id_.."/help2"},{text = 'م3', callback_data=msg.sender_user_id_.."/help3"},
-},
-{
-{text = 'م4', callback_data=msg.sender_user_id_.."/help4"},{text = 'م5', callback_data=msg.sender_user_id_.."/help5"},{text = 'م6', callback_data=msg.sender_user_id_.."/help6"},
-},
-{
-{text = 'م7', callback_data=msg.sender_user_id_.."/help7"},{text = 'م8', callback_data=msg.sender_user_id_.."/help8"},
-},
-{
-{text = 'الالعاب', url = "https://t.me/lslhb"}
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-end
 
 if text == 'الاوامر' then
 if not Mod(msg) then
