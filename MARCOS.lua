@@ -9057,12 +9057,6 @@ send(msg.chat_id_, msg.id_, Text)
 database:sadd(bot_id.."Spam:Group"..msg.sender_user_id_,text) 
 end,nil)
 end
-------------------------------------------------------------------------
-------------------------------------------------------------------------
-if text1 then 
-send(msg.chat_id_, msg.id_, text1)
-database:sadd(bot_id..'Spam:Texting'..msg.sender_user_id_,text) 
-end
 if stekr then 
 sendSticker(msg.chat_id_, msg.id_, 0, 1, nil, stekr)   
 database:sadd(bot_id..'Spam:Texting'..msg.sender_user_id_,text) 
