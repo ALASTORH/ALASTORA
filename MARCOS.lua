@@ -2219,23 +2219,28 @@ end
 return false  
 end
 
-if text == 'السورس' or text == 'يا سورس' then
-Text = [[
+if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then
+local Text =[[
 🙋︙اهلا بكـ في سورس الاسطورة 🦅
 🕹 : السـورس الاقوئ في الوطن العربي
 ●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
-➥
-📮︙⇚ [قناة سورس الاسطوره](t.me/ASTORHBOTS)
-➥
-📮︙⇚ [قناة سورس اللهب](t.me/lslhb)
-➥
-👲︙⇚ [مـطـور السـورس](t.me/AST0RH)
-➥
-💌︙⇚ [لـتـنـصـيب بـوت](t.me/AST0RH)
-●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
+
 ]]
-send(msg.chat_id_, msg.id_,Text)
-return false
+keyboard = {} 
+keyboard.inline_keyboard = {
+
+{
+{text = '📮︙⇚ قناة السورس', url = "https://t.me/Lslhb"}
+},
+{
+{text = '👲︙⇚ الدعم الفني', url = "https://t.me/chtlhb"}
+},
+{
+{text = '👲︙⇚ مبرمج السورس', url = "https://t.me/Sand_1999"}
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
@@ -3734,7 +3739,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'🔖| لا تستطيع استخدام البوت يرجى الاشتراك في القناة حتى تتمكن من استخدام الاوامر \n 📌| اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'??| لا تستطيع استخدام البوت يرجى الاشتراك في القناة حتى تتمكن من استخدام الاوامر \n 📌| اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
