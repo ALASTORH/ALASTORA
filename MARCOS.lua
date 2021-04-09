@@ -10383,23 +10383,32 @@ end
 local Text =[[
 🔴| اهلا بك في اوامر البوت  
 ●ـ▬ـ▬▬ஜ۩۞۩ஜ▬▬ـ▬ـ●
-🔖| اهلا بك في قسم الاوامر .
-🔖| اختر الامر الذي تريده من الازرار بلاسفل .
+🔖| م1 » لـعــرض اوامر الحمايه 
+🔖| م2 » لـعــرض اوامر الادمنيه 
+🔖| م3 » لـعــرض اوامر المدراء 
+🔖| م4 » لـعــرض اوامر المنشئين
+🔖| م5 » لـعــرض اوامر مطور اساسي
+🔖| م6 » لـعــرض اوامر التحشيش
+🔖| م7 » لـعــرض اوامر مطورين البوت
+🔖| م8 » لـعــرض اوامر الاعضاء
 ●ـ▬ـ▬▬ஜ۩۞۩ஜ▬▬ـ▬ـ●
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '◐اوامر الحماية◐', callback_data="/help1"},{text = '◐اوامر الادمنية◐', callback_data="/help2"},
+{text = 'م⓵', callback_data="/help1"},{text = 'م⓶', callback_data="/help2"},{text = 'م⓷', callback_data="/help3"},
 },
 {
-{text = '◐اوامر المدراء◐', callback_data="/help3"},{text = '◐اوامر المنشئين◐', callback_data="/help4"},
+{text = 'م⓸', callback_data="/help4"},{text = 'م⓹', callback_data="/help5"},{text = 'م⓺', callback_data="/help6"},
 },
 {
-{text = '◐اوامر التسليه◐', callback_data="/help6"},{text = '◐اوامر الاعضاء◐', callback_data="/help8"},
+{text = 'م⓻', callback_data="/help7"},{text = 'م⓼', callback_data="/help8"}
 },
 {
-{text = '◐اوامر مطور اساسي◐', callback_data="/help5"},{text = '◐اوامر مطورين البوت◐', callback_data="/help7"},
+{text = 'الالعاب', callback_data="/help10"},
+},
+{
+{text = 'اغلاق اللوحة', callback_data="/clos"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -11303,19 +11312,22 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⓵', callback_data="/help1"},{text = '⓶', callback_data="/help2"},{text = '⓷', callback_data="/help3"},
+{text = 'م⓵', callback_data="/help1"},{text = 'م⓶', callback_data="/help2"},{text = 'م⓷', callback_data="/help3"},
 },
 {
-{text = '⓸', callback_data="/help4"},{text = '⓹', callback_data="/help5"},{text = '⓺', callback_data="/help6"},
+{text = 'م⓸', callback_data="/help4"},{text = 'م⓹', callback_data="/help5"},{text = 'م⓺', callback_data="/help6"},
 },
 {
-{text = '⓻', callback_data="/help7"},{text = '⓼', callback_data="/help8"}
+{text = 'م⓻', callback_data="/help7"},{text = 'م⓼', callback_data="/help8"}
 },
 {
 {text = 'الالعاب', callback_data="/help10"},
 },
 {
 {text = 'القائمة الرئيسية', callback_data="/help9"},
+},
+{
+{text = 'اغلاق اللوحة', callback_data="/clos"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -11383,19 +11395,22 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⓵', callback_data="/help1"},{text = '⓶', callback_data="/help2"},{text = '⓷', callback_data="/help3"},
+{text = 'م⓵', callback_data="/help1"},{text = 'م⓶', callback_data="/help2"},{text = 'م⓷', callback_data="/help3"},
 },
 {
-{text = '⓸', callback_data="/help4"},{text = '⓹', callback_data="/help5"},{text = '⓺', callback_data="/help6"},
+{text = 'م⓸', callback_data="/help4"},{text = 'م⓹', callback_data="/help5"},{text = 'م⓺', callback_data="/help6"},
 },
 {
-{text = '⓻', callback_data="/help7"},{text = '⓼', callback_data="/help8"}
+{text = 'م⓻', callback_data="/help7"},{text = 'م⓼', callback_data="/help8"}
 },
 {
 {text = 'الالعاب', callback_data="/help10"},
 },
 {
 {text = 'القائمة الرئيسية', callback_data="/help9"},
+},
+{
+{text = 'اغلاق اللوحة', callback_data="/clos"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -11444,7 +11459,7 @@ local Teext =[[
 📮| تعطيل/تفعيل ردود المدير
 📮| تعطيل/تفعيل ردود المطور
 📮| تعطيل/تفعيل الايدي
-📮| تعطيل/تفعيل الايدي بالصوره
+??| تعطيل/تفعيل الايدي بالصوره
 📮| تعطيل/تفعيل الالعاب
 🔴| تعطيل/تفعيل اطردني
 🔴| تعطيل/تفعيل صيح
@@ -11455,19 +11470,22 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⓵', callback_data="/help1"},{text = '⓶', callback_data="/help2"},{text = '⓷', callback_data="/help3"},
+{text = 'م⓵', callback_data="/help1"},{text = 'م⓶', callback_data="/help2"},{text = 'م⓷', callback_data="/help3"},
 },
 {
-{text = '⓸', callback_data="/help4"},{text = '⓹', callback_data="/help5"},{text = '⓺', callback_data="/help6"},
+{text = 'م⓸', callback_data="/help4"},{text = 'م⓹', callback_data="/help5"},{text = 'م⓺', callback_data="/help6"},
 },
 {
-{text = '⓻', callback_data="/help7"},{text = '⓼', callback_data="/help8"}
+{text = 'م⓻', callback_data="/help7"},{text = 'م⓼', callback_data="/help8"}
 },
 {
 {text = 'الالعاب', callback_data="/help10"},
 },
 {
 {text = 'القائمة الرئيسية', callback_data="/help9"},
+},
+{
+{text = 'اغلاق اللوحة', callback_data="/clos"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -11515,19 +11533,22 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⓵', callback_data="/help1"},{text = '⓶', callback_data="/help2"},{text = '⓷', callback_data="/help3"},
+{text = 'م⓵', callback_data="/help1"},{text = 'م⓶', callback_data="/help2"},{text = 'م⓷', callback_data="/help3"},
 },
 {
-{text = '⓸', callback_data="/help4"},{text = '⓹', callback_data="/help5"},{text = '⓺', callback_data="/help6"},
+{text = 'م⓸', callback_data="/help4"},{text = 'م⓹', callback_data="/help5"},{text = 'م⓺', callback_data="/help6"},
 },
 {
-{text = '⓻', callback_data="/help7"},{text = '⓼', callback_data="/help8"}
+{text = 'م⓻', callback_data="/help7"},{text = 'م⓼', callback_data="/help8"}
 },
 {
 {text = 'الالعاب', callback_data="/help10"},
 },
 {
 {text = 'القائمة الرئيسية', callback_data="/help9"},
+},
+{
+{text = 'اغلاق اللوحة', callback_data="/clos"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -11602,19 +11623,22 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⓵', callback_data="/help1"},{text = '⓶', callback_data="/help2"},{text = '⓷', callback_data="/help3"},
+{text = 'م⓵', callback_data="/help1"},{text = 'م⓶', callback_data="/help2"},{text = 'م⓷', callback_data="/help3"},
 },
 {
-{text = '⓸', callback_data="/help4"},{text = '⓹', callback_data="/help5"},{text = '⓺', callback_data="/help6"},
+{text = 'م⓸', callback_data="/help4"},{text = 'م⓹', callback_data="/help5"},{text = 'م⓺', callback_data="/help6"},
 },
 {
-{text = '⓻', callback_data="/help7"},{text = '⓼', callback_data="/help8"}
+{text = 'م⓻', callback_data="/help7"},{text = 'م⓼', callback_data="/help8"}
 },
 {
 {text = 'الالعاب', callback_data="/help10"},
 },
 {
 {text = 'القائمة الرئيسية', callback_data="/help9"},
+},
+{
+{text = 'اغلاق اللوحة', callback_data="/clos"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -11671,19 +11695,22 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⓵', callback_data="/help1"},{text = '⓶', callback_data="/help2"},{text = '⓷', callback_data="/help3"},
+{text = 'م⓵', callback_data="/help1"},{text = 'م⓶', callback_data="/help2"},{text = 'م⓷', callback_data="/help3"},
 },
 {
-{text = '⓸', callback_data="/help4"},{text = '⓹', callback_data="/help5"},{text = '⓺', callback_data="/help6"},
+{text = 'م⓸', callback_data="/help4"},{text = 'م⓹', callback_data="/help5"},{text = 'م⓺', callback_data="/help6"},
 },
 {
-{text = '⓻', callback_data="/help7"},{text = '⓼', callback_data="/help8"}
+{text = 'م⓻', callback_data="/help7"},{text = 'م⓼', callback_data="/help8"}
 },
 {
 {text = 'الالعاب', callback_data="/help10"},
 },
 {
 {text = 'القائمة الرئيسية', callback_data="/help9"},
+},
+{
+{text = 'اغلاق اللوحة', callback_data="/clos"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -11711,19 +11738,22 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⓵', callback_data="/help1"},{text = '⓶', callback_data="/help2"},{text = '⓷', callback_data="/help3"},
+{text = 'م⓵', callback_data="/help1"},{text = 'م⓶', callback_data="/help2"},{text = 'م⓷', callback_data="/help3"},
 },
 {
-{text = '⓸', callback_data="/help4"},{text = '⓹', callback_data="/help5"},{text = '⓺', callback_data="/help6"},
+{text = 'م⓸', callback_data="/help4"},{text = 'م⓹', callback_data="/help5"},{text = 'م⓺', callback_data="/help6"},
 },
 {
-{text = '⓻', callback_data="/help7"},{text = '⓼', callback_data="/help8"}
+{text = 'م⓻', callback_data="/help7"},{text = 'م⓼', callback_data="/help8"}
 },
 {
 {text = 'الالعاب', callback_data="/help10"},
 },
 {
 {text = 'القائمة الرئيسية', callback_data="/help9"},
+},
+{
+{text = 'اغلاق اللوحة', callback_data="/clos"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -11771,19 +11801,38 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⓵', callback_data="/help1"},{text = '⓶', callback_data="/help2"},{text = '⓷', callback_data="/help3"},
+{text = 'م⓵', callback_data="/help1"},{text = 'م⓶', callback_data="/help2"},{text = 'م⓷', callback_data="/help3"},
 },
 {
-{text = '⓸', callback_data="/help4"},{text = '⓹', callback_data="/help5"},{text = '⓺', callback_data="/help6"},
+{text = 'م⓸', callback_data="/help4"},{text = 'م⓹', callback_data="/help5"},{text = 'م⓺', callback_data="/help6"},
 },
 {
-{text = '⓻', callback_data="/help7"},{text = '⓼', callback_data="/help8"}
+{text = 'م⓻', callback_data="/help7"},{text = 'م⓼', callback_data="/help8"}
 },
 {
 {text = 'الالعاب', callback_data="/help10"},
 },
 {
 {text = 'القائمة الرئيسية', callback_data="/help9"},
+},
+{
+{text = 'اغلاق اللوحة', callback_data="/clos"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if Text == '/clos' then
+if not Mod(data) then
+local notText = '• عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Teext =[[*تـم اغـلاق الـلـوحـة*
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '', callback_data="/clos"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -11810,16 +11859,19 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⓵', callback_data="/help1"},{text = '⓶', callback_data="/help2"},{text = '⓷', callback_data="/help3"},
+{text = 'م⓵', callback_data="/help1"},{text = 'م⓶', callback_data="/help2"},{text = 'م⓷', callback_data="/help3"},
 },
 {
-{text = '⓸', callback_data="/help4"},{text = '⓹', callback_data="/help5"},{text = '⓺', callback_data="/help6"},
+{text = 'م⓸', callback_data="/help4"},{text = 'م⓹', callback_data="/help5"},{text = 'م⓺', callback_data="/help6"},
 },
 {
-{text = '⓻', callback_data="/help7"},{text = '⓼', callback_data="/help8"}
+{text = 'م⓻', callback_data="/help7"},{text = 'م⓼', callback_data="/help8"}
 },
 {
 {text = 'الالعاب', callback_data="/help10"},
+},
+{
+{text = 'اغلاق اللوحة', callback_data="/clos"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -11860,19 +11912,22 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⓵', callback_data="/help1"},{text = '⓶', callback_data="/help2"},{text = '⓷', callback_data="/help3"},
+{text = 'م⓵', callback_data="/help1"},{text = 'م⓶', callback_data="/help2"},{text = 'م⓷', callback_data="/help3"},
 },
 {
-{text = '⓸', callback_data="/help4"},{text = '⓹', callback_data="/help5"},{text = '⓺', callback_data="/help6"},
+{text = 'م⓸', callback_data="/help4"},{text = 'م⓹', callback_data="/help5"},{text = 'م⓺', callback_data="/help6"},
 },
 {
-{text = '⓻', callback_data="/help7"},{text = '⓼', callback_data="/help8"}
+{text = 'م⓻', callback_data="/help7"},{text = 'م⓼', callback_data="/help8"}
 },
 {
 {text = 'الالعاب', callback_data="/help10"},
 },
 {
 {text = 'القائمة الرئيسية', callback_data="/help9"},
+},
+{
+{text = 'اغلاق اللوحة', callback_data="/clos"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
