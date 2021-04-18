@@ -11018,7 +11018,7 @@ database:set(bot_id.."ASTORHBOTS:zhrf_Bots"..msg.chat_id_,"open")
 end
 if text and text:match("^زخرفه (.*)$") and database:get(bot_id.."ASTORHBOTS:zhrf_Bots"..msg.chat_id_) == "open" then
 local TextZhrfa = text:match("^زخرفه (.*)$")
-zh = https.request('https://ali-apii.ml/api/zhrfa_nizk.php?en='..URL.escape(TextZhrfa)..'')
+zh = https.request('https://a?en='..URL.escape(TextZhrfa)..'')
 zx = JSON.decode(zh)
 t = "\n⚡︙قائمه الزخرفه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
 i = 0
@@ -11105,6 +11105,129 @@ end,nil)
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
 return false
+end
+if text == 'تعطيل اليوتيوبا' and Constructor(msg) then  
+send(msg.chat_id_,msg.id_,'\n• تم الامر بنجاح')  
+database:set(bot_id.."dl_yt_dl"..msg.chat_id_,"close") 
+return false  
+end 
+if text == 'تفعيل اليوتيوبا' and Constructor(msg) then  
+send(msg.chat_id_,msg.id_,'\n• تم الامر بنجاح')  
+database:set(bot_id.."dl_yt_dl"..msg.chat_id_,"open") 
+return false  
+end
+if text and text:match('^بصمه (.*)$')  and database:get(bot_id.."dl_yt_dl"..msg.chat_id_) == "open" then            
+local Ttext = text:match('^بصمه (.*)$') 
+local InfoSearch = https.request('https://alsh-bg.ml/api/Search_MP3.php?Search='..URL.escape(Ttext))
+local JsonSearch = JSON.decode(InfoSearch)
+for k,vv in pairs(JsonSearch.results) do
+if k == 1 then
+local GetStart = io.popen('downloadsh '..vv.url):read('*all')
+if GetStart and GetStart:match('(.*)oksend(.*)') then
+print('download Mp3 done ...\nName : '..vv.title..'\nIdLink : '..vv.url)
+sendVoice(msg.chat_id_, msg.id_, 0, 1, nil,'./'..vv.url..'.mp3',vv.title,'- '..vv.title..'\n- @ASTORHBOTS','@ASTORHBOTS')  
+os.execute('rm -rf ./'..vv.url..'.mp3') 
+end
+end
+end
+end
+if text and text:match('^صوت (.*)$')  and database:get(bot_id.."dl_yt_dl"..msg.chat_id_) == "open" then            
+local Ttext = text:match('^صوت (.*)$') 
+local InfoSearch = https.request('https://alsh-bg.ml/api/Search_MP3.php?Search='..URL.escape(Ttext))
+local JsonSearch = JSON.decode(InfoSearch)
+for k,vv in pairs(JsonSearch.results) do
+if k == 1 then
+local GetStart = io.popen('downloadsh '..vv.url):read('*all')
+if GetStart and GetStart:match('(.*)oksend(.*)') then
+print('download Mp3 done ...\nName : '..vv.title..'\nIdLink : '..vv.url)
+sendAudio(msg.chat_id_,msg.id_,'./'..vv.url..'.mp3',vv.title,'- '..vv.title..'\n- @ASTORHBOTS','@ASTORHBOTS')
+os.execute('rm -rf ./'..vv.url..'.mp3') 
+end
+end
+end
+end
+if text == 'تفعيل التنزيل' and Manager(msg) then   
+database:del(bot_id..'dw:bot:api'..msg.chat_id_) 
+Text = '\n🔰| *تم تفعيل التنزيل*' 
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == 'تعطيل التنزيل' and Manager(msg) then  
+database:set(bot_id..'dw:bot:api'..msg.chat_id_,true) 
+Text = '\n🔘| *تم تعطيل التنزيل*' 
+send(msg.chat_id_, msg.id_,Text) 
+end 
+if text and text:match('^(.*) بصمه$') and not database:get(bot_id..'dw:bot:api'..msg.chat_id_) then            
+local Ttext = text:match('^(.*) بصمه$') 
+local ytddl = https.request('https://devstorm.ml/sr.php?search='..URL.escape(Ttext))
+local zxe = JSON.decode(ytddl)
+for k,v in pairs(zxe.results) do
+if k == 1 then
+local msgin = msg.id_/2097152/0.5 
+https.request('https://devstorm.ml/yt.php?url='..v.url..'&token='..token..'&chat='..msg.chat_id_..'&type=mp3&msg='..msgin)
+end
+end
+end
+if text and text:match('^(.*) صوت$') and not database:get(bot_id..'dw:bot:api'..msg.chat_id_) then            
+local Ttext = text:match('^(.*) صوت$') 
+local ytddl = https.request('https://devstorm.ml/sr.php?search='..URL.escape(Ttext))
+local zxe = JSON.decode(ytddl)
+for k,v in pairs(zxe.results) do
+if k == 1 then
+local msgin = msg.id_/2097152/0.5 
+https.request('https://devstorm.ml/yt.php?url='..v.url..'&token='..token..'&chat='..msg.chat_id_..'&type=ogg&msg='..msgin)
+end
+end
+end
+if text and text:match('^(.*) فيديو$') and not database:get(bot_id..'dw:bot:api'..msg.chat_id_) then            
+local Ttext = text:match('^(.*) فيديو$') 
+local ytddl = https.request('https://devstorm.ml/sr.php?search='..URL.escape(Ttext))
+local zxe = JSON.decode(ytddl)
+for k,v in pairs(zxe.results) do
+if k == 1 then
+local msgin = msg.id_/2097152/0.5 
+https.request('https://devstorm.ml/yt.php?url='..v.url..'&token='..token..'&chat='..msg.chat_id_..'&type=mp4&msg='..msgin)
+end
+end
+end
+if text == 'تعطيل اليوتيوب' and Constructor(msg) then  
+send(msg.chat_id_,msg.id_,'\n• تم الامر بنجاح')  
+database:set(bot_id.."dl_yt_dl"..msg.chat_id_,"close") 
+return false  
+end 
+if text == 'تفعيل اليوتيوب' and Constructor(msg) then  
+send(msg.chat_id_,msg.id_,'\n• تم الامر بنجاح')  
+database:set(bot_id.."dl_yt_dl"..msg.chat_id_,"open") 
+return false  
+end
+if text and text:match('^بصمه (.*)$')  and database:get(bot_id.."dl_yt_dl"..msg.chat_id_) == "open" then            
+local Ttext = text:match('^بصمه (.*)$') 
+local InfoSearch = https.request('https://mode-dev.tk/tg/search.php?search='..URL.escape(Ttext))
+local JsonSearch = JSON.decode(InfoSearch)
+for k,vv in pairs(JsonSearch.results) do
+if k == 1 then
+local GetStart = io.popen('downloadsh '..vv.url):read('*all')
+if GetStart and GetStart:match('(.*)oksend(.*)') then
+print('download Mp3 done ...\nName : '..vv.title..'\nIdLink : '..vv.url)
+sendVoice(msg.chat_id_, msg.id_, 0, 1, nil,'./'..vv.url..'.mp3',vv.title,'- '..vv.title..'\n- @LSLHB','@LSLHB')  
+os.execute('rm -rf ./'..vv.url..'.mp3') 
+end
+end
+end
+end
+if text and text:match('^صوت (.*)$')  and database:get(bot_id.."dl_yt_dl"..msg.chat_id_) == "open" then            
+local Ttext = text:match('^صوت (.*)$') 
+local InfoSearch = https.request('https://mode-dev.tk/tg/search.php?search='..URL.escape(Ttext))
+local JsonSearch = JSON.decode(InfoSearch)
+for k,vv in pairs(JsonSearch.results) do
+if k == 1 then
+local GetStart = io.popen('downloadsh '..vv.url):read('*all')
+if GetStart and GetStart:match('(.*)oksend(.*)') then
+print('download Mp3 done ...\nName : '..vv.title..'\nIdLink : '..vv.url)
+sendAudio(msg.chat_id_,msg.id_,'./'..vv.url..'.mp3',vv.title,'- '..vv.title..'\n- @LSLHB','@LSLHB')
+os.execute('rm -rf ./'..vv.url..'.mp3') 
+end
+end
+end
 end
 if text == 'تفعيل الردود' and Manager(msg) then   
 database:del(bot_id..'lock:reply'..msg.chat_id_)  
@@ -11798,9 +11921,6 @@ keyboard.inline_keyboard = {
 {text = 'م⓻', callback_data="/help7"},{text = 'م⓼', callback_data="/help8"}
 },
 {
-{text = 'الالعاب', callback_data="/help10"},
-},
-{
 {text = 'القائمة الرئيسية', callback_data="/help9"},
 },
 {
@@ -12069,6 +12189,64 @@ database:set(bot_id..'user:Name'..msg.sender_user_id_,(data.username_))
 end
 -----------------------------------------------
 --------------------------------------------------------------------------------------------------------------
+if tonumber(data.id_) == tonumber(bot_id) then
+return false
+end
+local Get_Re_Name = database:get(bot_id.."Chen:Name"..msg.sender_user_id_) 
+if Get_Re_Name then 
+if Get_Re_Name ~= data.first_name_ then 
+tahan = '['..(Get_Re_Name or '')..']'
+taham = '['..data.first_name_..']'
+local taha ={ 
+'\n ليش غيرت اسمك  يا حلو 😹🌚',
+'\n شهل اسم الفيطي '..taham.. ' \n رجعه ؏ قديم \n '..tahan..'',
+'\n  ها ها ليش غيرت اسمك 🤔??',
+'\n ليش غيرت اسمك شنو قطيت وحده جديده 😹😹🌚',
+'\n ليش غيرت اسمك شنو تعاركت ويه الحب ؟😹🌞',
+'\n ها ولك مو جان  اسمك   '..tahan..'  ليش غيرته ',
+'\n ليش غيرت اسمك شسالفه ؟؟ 🤔🌞'
+}
+send(msg.chat_id_,msg.id_,taha[math.random(#taha)])
+database:set(bot_id.."Chen:Name"..msg.sender_user_id_, data.first_name_) 
+return false
+end  
+end
+--------------------------------------------------------------------------------------------------------------
+local Getredis = database:get(bot_id.."Chen:User:Name"..msg.sender_user_id_)
+if data.username_ then  
+if Getredis and Getredis ~= data.username_ then 
+tahan = '['..(database:get(bot_id.."Chen:User:Name"..msg.sender_user_id_) or '')..']'
+local taha ={ 
+'\n ليش غيرت معرفك  يا حلو 😹🌚',
+'\n  ها ها ليش غيرت معرفك 🤔😹',
+'\n ليش غيرت معرفك شنو قطيت وحده جديده 😹😹🌚',
+'\n ليش غيرت معرفك شنو تعاركت ويه الحب ؟😹🌞',
+'\n ها ولك مو جان  معرفك   '..tahan..'  ليش غيرته ',
+'\n ليش غيرت معرفك شسالفه ؟؟ 🤔🌞'
+}
+send(msg.chat_id_,msg.id_,taha[math.random(#taha)])
+database:set(bot_id.."Chen:User:Name"..msg.sender_user_id_, data.username_) 
+return false
+end
+end
+--------------------------------------------------------------------------------------------------------------
+local Getredis = database:get(bot_id.."Chen:Photo"..msg.sender_user_id_)
+if data.profile_photo_ then  
+if Getredis and Getredis ~= data.profile_photo_.id_ then 
+local taha ={ 
+'\n ليش غيرت صورتك  يا حلو 😹🌚',
+'\n  ها ها ليش غيرت صورتك 🤔😹',
+'\n ليش غيرت صورتك شنو قطيت وحده جديده 😹😹🌚',
+'\n ليش غيرت صورتك شنو تعاركت ويه الحب ؟😹🌞',
+'\n ليش غيرت صورتك شسالفه ؟؟ 🤔🌞'
+}
+send(msg.chat_id_,msg.id_,taha[math.random(#taha)])
+database:set(bot_id.."Chen:Photo"..msg.sender_user_id_, data.profile_photo_.id_) 
+return false
+end
+end
+end,nil)   
+end
 elseif (data.ID == "UpdateMessageEdited") then
 local msg = data
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.message_id_)},function(extra, result, success)
