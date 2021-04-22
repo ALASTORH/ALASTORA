@@ -2218,7 +2218,153 @@ send(msg.chat_id_, msg.id_, "📮| لا يوجد قناة في الاشتراك 
 end
 return false  
 end
+if text == "الاضافات" and Constructor(msg) then
+local Xx = database:get(bot_id.."AL:Sre:stats") or "لم يتم التحديد"
+TextAdd = [[
+📯┇ اهلا بك عزيزي 💞
+📯┇ اوامر الاضافات كتالي⟱
+●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
+📪┇ كتم الاسماء
+1- كتم اسم +(اسم)
+2- الغاء كتم اسم +(اسم)
+3- الاسماء المكتومه
+4- مسح الاسماء المكتومه
+5- تفعيل كتم الاسم
+6- تعطيل كتم الاسم
+●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
+📋┇ وضع توحيد
+1- وضع توحيد +(التوحيد)
+2- تعين عدد الكتم+(العدد)
+3- التوحيد
+4- تفعيل التوحيد
+5- تعطيل التوحيد 
+●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
+📌┇ اهلا بك عزيزي 💞
+📌┇ اوامر التنبيه كتالي⟱
+●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
+📳┇ تنبيه الاسماء 💗
+1- تفعيل تنبيه الاسماء 
+2- تعطيل تنبيه الاسماء
+🆔┇ تنبيه المعرف 💗
+1- تفعيل تنبيه المعرف
+2- تعطيل تنبيه المعرف
+🏞┇ تنبيه الصور 💗
+1- تفعيل تنبيه الصور 
+2- تعطيل تنبيه الصور 
+●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
+]]
+send(msg.chat_id_, msg.id_,(TextAdd)) 
+end
+function bnnaGet(user_id, cb)
+tdcli_function ({
+ID = "GetUser",
+user_id_ = user_id
+}, cb, nil)
+end
 
+if database:get(bot_id.."block:name:stats"..msg.chat_id_) == "open" then
+if text and text:match("^كتم اسم (.*)$") and Constructor(msg) and database:get(bot_id.."block:name:stats"..msg.chat_id_) == "open" then
+local BlNe = text:match("^كتم اسم (.*)$")
+send(msg.chat_id_, msg.id_, '⌯┇ تم كتم الاسم '..BlNe)
+database:sadd(bot_id.."MaRcoS:blocname"..msg.chat_id_, BlNe)
+end
+
+if text and text:match("^الغاء كتم اسم (.*)$") and Constructor(msg) and database:get(bot_id.."block:name:stats"..msg.chat_id_) == "open" then
+local delBn = text:match("^الغاء كتم اسم (.*)$")
+send(msg.chat_id_, msg.id_, '⌯┇ تم الغاء كتم الاسم '..delBn)
+database:srem(bot_id.."MaRcoS:blocname"..msg.chat_id_, delBn)
+end
+
+if text == "مسح الاسماء المكتومه" and Constructor(msg) and database:get(bot_id.."block:name:stats"..msg.chat_id_) == "open" then
+database:del(bot_id.."MaRcoS:blocname"..msg.chat_id_)
+texts = "⌯┇ تم مسح الاسماء المكتومه "
+send(msg.chat_id_, msg.id_, texts)
+end
+if text == "الاسماء المكتومه" and Constructor(msg) and database:get(bot_id.."block:name:stats"..msg.chat_id_) == "open" then
+local All_name = database:smembers(bot_id.."MaRcoS:blocname"..msg.chat_id_)
+t = "\n⌯┇ قائمة الاسماء المكتومه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
+for k,v in pairs(All_name) do
+t = t..""..k.."- (["..v.."])\n"
+end
+if #All_name == 0 then
+t = "⌯┇ لا يوجد اسماء مكتومه"
+end
+send(msg.chat_id_, msg.id_, t)
+end
+end
+if text == "تفعيل كتم الاسم" and Constructor(msg) then
+send(msg.chat_id_, msg.id_, '⌯┇ تم التفعيل الاسماء المكتومه')
+database:set(bot_id.."block:name:stats"..msg.chat_id_,"open")
+end
+if text == "تعطيل كتم الاسم" and Constructor(msg) then
+send(msg.chat_id_, msg.id_, '⌯┇ تم تعطيل الاسماء المكتومه')
+database:set(bot_id.."block:name:stats"..msg.chat_id_,"close")
+end
+if not Constructor(msg) and database:get(bot_id.."block:name:stats"..msg.chat_id_) == "open" then
+function RA0AD_name(t1,t2)
+if t2.id_ then 
+name_MaRcoS = ((t2.first_name_ or "") .. (t2.last_name_ or ""))
+if name_MaRcoS then 
+names_MaRcoS = database:smembers(bot_id.."MaRcoS:blocname"..msg.chat_id_) or ""
+if names_MaRcoS and names_MaRcoS[1] then 
+for i=1,#names_MaRcoS do 
+if name_MaRcoS:match("(.*)("..names_MaRcoS[i]..")(.*)") then 
+DeleteMessage_(msg.chat_id_,{[0] = msg.id_}) 
+end
+end
+end
+end
+end
+end
+bnnaGet(msg.sender_user_id_, RA0AD_name)
+end
+if database:get(bot_id.."kt:twh:stats"..msg.chat_id_) == "open" then
+if text and text:match("^وضع توحيد (.*)$") and Constructor(msg) and database:get(bot_id.."kt:twh:stats"..msg.chat_id_) == "open" then
+local teh = text:match("^وضع توحيد (.*)$")
+send(msg.chat_id_, msg.id_,'⌯┇ تم تعيين '..teh..' كتوحيد للمجموعه')
+database:set(bot_id.."MaRcoS:teh"..msg.chat_id_,teh)
+end
+if text and text:match("^تعين عدد الكتم (.*)$") and Constructor(msg) and database:get(bot_id.."kt:twh:stats"..msg.chat_id_) == "open" then
+local nump = text:match("^تعين عدد الكتم (.*)$")
+send(msg.chat_id_, msg.id_,'⌯┇ تم تعين  '..nump..' عدد الكتم')
+database:set(bot_id.."MaRcoS:nump"..msg.chat_id_,nump)
+end
+if text == "التوحيد" then
+local s1 = database:get(bot_id.."MaRcoS:teh"..msg.chat_id_) or "لا يوجد توحيد"
+local s2 = database:get(bot_id.."MaRcoS:nump"..msg.chat_id_) or 5
+send(msg.chat_id_, msg.id_,'⌯┇ التوحيد '..s1..'\n ⌯┇ عدد الكتم  : '..s2)
+end
+end
+if text == "تفعيل التوحيد" and Constructor(msg) then
+send(msg.chat_id_, msg.id_, '⌯┇ تم تفعيل التوحيد')
+database:set(bot_id.."kt:twh:stats"..msg.chat_id_,"open")
+end
+if text == "تعطيل التوحيد" and Constructor(msg) then
+send(msg.chat_id_, msg.id_, '⌯┇ تم تعطيل التوحيد')
+database:set(bot_id.."kt:twh:stats"..msg.chat_id_,"close")
+end
+if not Constructor(msg) then
+if database:get(bot_id.."kt:twh:stats"..msg.chat_id_) == "open"  and database:get(bot_id.."MaRcoS:teh"..msg.chat_id_) then 
+id = msg.sender_user_id_
+function amir_MaRcoSa_new(MaRcoS1,MaRcoS2)
+if MaRcoS2 and MaRcoS2.first_name_ then 
+if MaRcoS2.first_name_:match("(.*)"..database:get(bot_id.."MaRcoS:teh"..msg.chat_id_).."(.*)") then 
+database:srem(bot_id.."MaRcoS:Muted:User"..msg.chat_id_, msg.sender_user_id_)
+else
+local MaRcoS_nnn = database:get(bot_id.."MaRcoS:nump"..msg.chat_id_) or 5
+local MaRcoS_nnn2 = database:get(bot_id.."MaRcoS:nump22"..msg.chat_id_..msg.sender_user_id_) or 0
+if (tonumber(MaRcoS_nnn2) == tonumber(MaRcoS_nnn) or tonumber(MaRcoS_nnn2) > tonumber(MaRcoS_nnn)) then 
+database:sadd(bot_id..'Muted:User'..msg.chat_id_, msg.sender_user_id_)
+else 
+database:incrby(bot_id.."MaRcoS:nump22"..msg.chat_id_..msg.sender_user_id_,1)
+send(msg.chat_id_, msg.id_, "⌯┇ عزيزي >>["..MaRcoS2.username_.."](https://t.me/"..(MaRcoS2.username_ or "ASTORHBOTS")..")\n⌯┇ عليك وضع التوحيد ⪼ {"..database:get(bot_id.."MaRcoS:teh"..msg.chat_id_).."} بجانب اسمك\n⌯┇ عدد المحاولات المتبقيه {"..(tonumber(MaRcoS_nnn) - tonumber(MaRcoS_nnn2)).."}")
+end
+end
+end
+end
+bnnaGet(id, amir_MaRcoSa_new)
+end
+end
 if text == "تفعيل تنبيه الاسماء" and Manager(msg) then
 send(msg.chat_id_, msg.id_, '•تم تفعيل تنبيه الاسماء')
 database:set(bot_id.."Ttn:BBE:stats"..msg.chat_id_,"open")
@@ -10405,7 +10551,7 @@ keyboard.inline_keyboard = {
 {text = 'م⓻', callback_data="/help7"},{text = 'م⓼', callback_data="/help8"}
 },
 {
-{text = 'الالعاب', callback_data="/help10"},
+{text = 'الالعاب', callback_data="/help10"},{text = 'الاضافات', callback_data="/help11"},
 },
 {
 {text = 'اغلاق اللوحة', callback_data="/clos"},
@@ -11321,7 +11467,7 @@ keyboard.inline_keyboard = {
 {text = 'م⓻', callback_data="/help7"},{text = 'م⓼', callback_data="/help8"}
 },
 {
-{text = 'الالعاب', callback_data="/help10"},
+{text = 'الالعاب', callback_data="/help10"},{text = 'الاضافات', callback_data="/help11"},
 },
 {
 {text = 'القائمة الرئيسية', callback_data="/help9"},
@@ -11404,7 +11550,7 @@ keyboard.inline_keyboard = {
 {text = 'م⓻', callback_data="/help7"},{text = 'م⓼', callback_data="/help8"}
 },
 {
-{text = 'الالعاب', callback_data="/help10"},
+{text = 'الالعاب', callback_data="/help10"},{text = 'الاضافات', callback_data="/help11"},
 },
 {
 {text = 'القائمة الرئيسية', callback_data="/help9"},
@@ -11479,7 +11625,7 @@ keyboard.inline_keyboard = {
 {text = 'م⓻', callback_data="/help7"},{text = 'م⓼', callback_data="/help8"}
 },
 {
-{text = 'الالعاب', callback_data="/help10"},
+{text = 'الالعاب', callback_data="/help10"},{text = 'الاضافات', callback_data="/help11"},
 },
 {
 {text = 'القائمة الرئيسية', callback_data="/help9"},
@@ -11542,7 +11688,69 @@ keyboard.inline_keyboard = {
 {text = 'م⓻', callback_data="/help7"},{text = 'م⓼', callback_data="/help8"}
 },
 {
-{text = 'الالعاب', callback_data="/help10"},
+{text = 'الالعاب', callback_data="/help10"},{text = 'الاضافات', callback_data="/help11"},
+},
+{
+{text = 'القائمة الرئيسية', callback_data="/help9"},
+},
+{
+{text = 'اغلاق اللوحة', callback_data="/clos"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if Text == '/help11' then
+if not Mod(data) then
+local notText = '• عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Teext =[[
+📯┇ اهلا بك عزيزي 💞
+📯┇ اوامر الاضافات كتالي⟱
+●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
+📪┇ كتم الاسماء
+1- كتم اسم +(اسم)
+2- الغاء كتم اسم +(اسم)
+3- الاسماء المكتومه
+4- مسح الاسماء المكتومه
+5- تفعيل كتم الاسم
+6- تعطيل كتم الاسم
+●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
+📋┇ وضع توحيد
+1- وضع توحيد +(التوحيد)
+2- تعين عدد الكتم+(العدد)
+3- التوحيد
+4- تفعيل التوحيد
+5- تعطيل التوحيد 
+●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
+📌┇ اهلا بك عزيزي 💞
+📌┇ اوامر التنبيه كتالي⟱
+●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
+📳┇ تنبيه الاسماء 💗
+1- تفعيل تنبيه الاسماء 
+2- تعطيل تنبيه الاسماء
+🆔┇ تنبيه المعرف 💗
+1- تفعيل تنبيه المعرف
+2- تعطيل تنبيه المعرف
+🏞┇ تنبيه الصور 💗
+1- تفعيل تنبيه الصور 
+2- تعطيل تنبيه الصور 
+●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'م⓵', callback_data="/help1"},{text = 'م⓶', callback_data="/help2"},{text = 'م⓷', callback_data="/help3"},
+},
+{
+{text = 'م⓸', callback_data="/help4"},{text = 'م⓹', callback_data="/help5"},{text = 'م⓺', callback_data="/help6"},
+},
+{
+{text = 'م⓻', callback_data="/help7"},{text = 'م⓼', callback_data="/help8"}
+},
+{
+{text = 'الالعاب', callback_data="/help10"},{text = 'الاضافات', callback_data="/help11"},
 },
 {
 {text = 'القائمة الرئيسية', callback_data="/help9"},
@@ -11632,7 +11840,7 @@ keyboard.inline_keyboard = {
 {text = 'م⓻', callback_data="/help7"},{text = 'م⓼', callback_data="/help8"}
 },
 {
-{text = 'الالعاب', callback_data="/help10"},
+{text = 'الالعاب', callback_data="/help10"},{text = 'الاضافات', callback_data="/help11"},
 },
 {
 {text = 'القائمة الرئيسية', callback_data="/help9"},
@@ -11704,7 +11912,7 @@ keyboard.inline_keyboard = {
 {text = 'م⓻', callback_data="/help7"},{text = 'م⓼', callback_data="/help8"}
 },
 {
-{text = 'الالعاب', callback_data="/help10"},
+{text = 'الالعاب', callback_data="/help10"},{text = 'الاضافات', callback_data="/help11"},
 },
 {
 {text = 'القائمة الرئيسية', callback_data="/help9"},
@@ -11747,7 +11955,7 @@ keyboard.inline_keyboard = {
 {text = 'م⓻', callback_data="/help7"},{text = 'م⓼', callback_data="/help8"}
 },
 {
-{text = 'الالعاب', callback_data="/help10"},
+{text = 'الالعاب', callback_data="/help10"},{text = 'الاضافات', callback_data="/help11"},
 },
 {
 {text = 'القائمة الرئيسية', callback_data="/help9"},
@@ -11810,7 +12018,7 @@ keyboard.inline_keyboard = {
 {text = 'م⓻', callback_data="/help7"},{text = 'م⓼', callback_data="/help8"}
 },
 {
-{text = 'الالعاب', callback_data="/help10"},
+{text = 'الالعاب', callback_data="/help10"},{text = 'الاضافات', callback_data="/help11"},
 },
 {
 {text = 'القائمة الرئيسية', callback_data="/help9"},
@@ -11868,7 +12076,7 @@ keyboard.inline_keyboard = {
 {text = 'م⓻', callback_data="/help7"},{text = 'م⓼', callback_data="/help8"}
 },
 {
-{text = 'الالعاب', callback_data="/help10"},
+{text = 'الالعاب', callback_data="/help10"},{text = 'الاضافات', callback_data="/help11"},
 },
 {
 {text = 'اغلاق اللوحة', callback_data="/clos"},
@@ -11919,6 +12127,9 @@ keyboard.inline_keyboard = {
 },
 {
 {text = 'م⓻', callback_data="/help7"},{text = 'م⓼', callback_data="/help8"}
+},
+{
+{text = 'الالعاب', callback_data="/help10"},{text = 'الاضافات', callback_data="/help11"},
 },
 {
 {text = 'القائمة الرئيسية', callback_data="/help9"},
