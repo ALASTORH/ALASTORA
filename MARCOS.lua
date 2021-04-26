@@ -2489,7 +2489,7 @@ keyboard.inline_keyboard = {
 {text = '👲︙⇚ الدعم الفني', url = "https://t.me/chtlhb"}
 },
 {
-{text = '👲︙⇚ مبرمج السورس', url = "https://t.me/Sand_1999"}
+{text = '👲︙⇚ مبرمج السورس', url = "https://t.me/pfpff"}
 },
 }
 local msg_id = msg.id_/2097152/0.5
