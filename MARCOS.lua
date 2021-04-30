@@ -11604,25 +11604,26 @@ ge = https.request('https://forhassan.ml/Black/age.php?age='..URL.escape(Textage
 ag = JSON.decode(ge)
 send(msg.chat_id_, msg.id_, ag.ok.hso)
 end
+
 if text == "تعطيل الزخرفه" and Manager(msg) then
-send(msg.chat_id_, msg.id_, '*✓| اهلا عزيزي تم تعطيل الزخرفه*')
-database:set(bot_id.."ASTORHBOTS:zhrf_Bots"..msg.chat_id_,"close")
+send(msg.chat_id_, msg.id_, '❎︙ تم تعطيل الزغرفه')
+database:set(bot_id.." sofi:zhrf_Bots"..msg.chat_id_,"close")
 end
 if text == "تفعيل الزخرفه" and Manager(msg) then
-send(msg.chat_id_, msg.id_,'*✓| اهلا عزيزي تم تفعيل الزخرفه*')
-database:set(bot_id.."ASTORHBOTS:zhrf_Bots"..msg.chat_id_,"open")
+send(msg.chat_id_, msg.id_,'✅︙ تم تفعيل الزخرفه')
+database:set(bot_id.." sofi:zhrf_Bots"..msg.chat_id_,"open")
 end
-if text and text:match("^زخرفه (.*)$") and database:get(bot_id.."ASTORHBOTS:zhrf_Bots"..msg.chat_id_) == "open" then
-local TextZhrfa = text:match("^زخرفه (.*)$")
-zh = https.request('https://a?en='..URL.escape(TextZhrfa)..'')
+if text and text:match("^زخرفه (.*)$") and database:get(bot_id.." sofi:zhrf_Bots"..msg.chat_id_) == "open" then
+local TextZhrfa = text:match("^زخرفه(.*)$")
+zh = https.request('https://rudi-dev.tk/Amir1/Boyka.php?en='..URL.escape(TextZhrfa)..'')
 zx = JSON.decode(zh)
-t = "\n⚡︙قائمه الزخرفه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+t = "\n🔥︙ قائمه الزخرفه \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
 i = 0
 for k,v in pairs(zx.ok) do
 i = i + 1
-t = t..i.."-  `"..v.."` \n"
+t = t..i.."-  "..v.." \n"
 end
-send(msg.chat_id_, msg.id_, t..'┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n⚡︙اضغط على الاسم ليتم نسخه')
+send(msg.chat_id_, msg.id_, t..'●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n🔥︙ ➫ .[🖨┇𝗟𝗛𝗕 𝗦𝗢𝗨𝗥𝗖𝗘 🔥](https://t.me/LSLHB)➤ ')
 end
 if text == "تعطيل معاني الاسماء" and Mod(msg) then
 send(msg.chat_id_, msg.id_, '🚫 | تم تعطيل معاني الاسماء')
