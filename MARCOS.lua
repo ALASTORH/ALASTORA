@@ -3408,7 +3408,7 @@ end
 database:sadd(bot_id..'Gmute:User', result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},
 function(arg,data) 
-usertext = '\n👤| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'pvv_v')..')'
+usertext = '\n👤| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'LSLHB')..')'
 status  = '\n⚠️| تم كتمه عام من القروبات'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -3441,7 +3441,7 @@ if result.id_ == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, "⚠️| لا يمكنك كتم المطور الاساسي \n")
 return false 
 end
-usertext = '\n👤| العضو » ['..result.title_..'](t.me/'..(username or 'pvv_v')..')'
+usertext = '\n👤| العضو » ['..result.title_..'](t.me/'..(username or 'lslhb')..')'
 status  = '\n⚠️| تم كتمه عام من القروبات'
 texts = usertext..status
 database:sadd(bot_id..'Gmute:User', result.id_)
@@ -3476,7 +3476,7 @@ database:sadd(bot_id..'Gmute:User', userid)
 
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 if data.first_name_ then
-usertext = '\n👤| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'pvv_v')..')'
+usertext = '\n👤| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'LSLHB')..')'
 status  = '\n⚠️| تم كتمه عام من القروبات'
 send(msg.chat_id_, msg.id_, usertext..status)
 else
@@ -3868,7 +3868,7 @@ end
 function start_function(extra, result, success)
 database:sadd(bot_id..'CoSu'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n 🔷| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'pvv_v')..')'
+usertext = '\n 🔷| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'LSLHB')..')'
 status  = '\n 🔷| تم ترقيته مالك'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -3894,7 +3894,7 @@ send(msg.chat_id_,msg.id_," 🔷| عذرا عزيزي المستخدم هاذا 
 return false 
 end      
 database:sadd(bot_id..'CoSu'..msg.chat_id_, result.id_)
-usertext = '\n 🔷| العضو » ['..result.title_..'](t.me/'..(username or 'pvv_v')..')'
+usertext = '\n 🔷| العضو » ['..result.title_..'](t.me/'..(username or 'LSLHB')..')'
 status  = '\n 🔷| تم ترقيته مالك'
 texts = usertext..status
 else
@@ -3919,7 +3919,7 @@ end
 database:sadd(bot_id..'CoSu'..msg.chat_id_, userid)
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 if data.first_name_ then
-usertext = '\n 🔷| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'pvv_v')..')'
+usertext = '\n 🔷| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'LSLHB')..')'
 status  = '\n 🔷| تم ترقيته مالك'
 send(msg.chat_id_, msg.id_, usertext..status)
 else
@@ -3942,7 +3942,7 @@ end
 function start_function(extra, result, success)
 database:srem(bot_id..'CoSu'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n 🔷| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'pvv_v')..')'
+usertext = '\n 🔷| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'LSLHB')..')'
 status  = '\n 🔷| تم تنزيله من المالكين'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -3964,7 +3964,7 @@ end
 function start_function(extra, result, success)
 if result.id_ then
 database:srem(bot_id..'CoSu'..msg.chat_id_, result.id_)
-usertext = '\n 🔷| العضو » ['..result.title_..'](t.me/'..(username or 'pvv_v')..')'
+usertext = '\n 🔷| العضو » ['..result.title_..'](t.me/'..(username or 'LSLHB')..')'
 status  = '\n 🔷| تم تنزيله من المالكين'
 texts = usertext..status
 else
@@ -3989,7 +3989,7 @@ end
 database:srem(bot_id..'CoSu'..msg.chat_id_, userid)
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 if data.first_name_ then
-usertext = '\n 🔷| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'pvv_v')..')'
+usertext = '\n 🔷| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'LSLHB')..')'
 status  = '\n 🔷| تم تنزيله من المالكين'
 send(msg.chat_id_, msg.id_, usertext..status)
 else
@@ -4030,7 +4030,7 @@ Srrt = https.request('https://black-source.tk/BlackTeAM/ImageInfo.php?token='..t
 Sto = JSON.decode(Srrt)
 if Sto.ok.Info == "Indecent" then
 local list = database:smembers(bot_id.."Basic:Constructor"..msg.chat_id_)
-t = "℘︙ المنشئين الاساسين تعالو مخرب \nٴ≪┉ ┉ ┉ ┉ ┉ 𝐃𝐑𝐠 ┉  ┉ ┉ ┉ ┉≫ٴ\n"
+t = "🙋‍♂️︙ المنشئين الاساسين تعالو مخرب \nٴ≪┉ ┉ ┉ ┉ ┉ 𝐃𝐑𝐠 ┉  ┉ ┉ ┉ ┉≫ٴ\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -4040,7 +4040,7 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "℘︙ ماكو منششئين يشوفولك جاره"
+t = "❌︙ ماكو منششئين يشوفولك جاره"
 end
 Reply_Status(msg,msg.sender_user_id_,"reply","℘︙ قام بنشر صوره اباحيه\n"..t)  
 DeleteMessage(msg.chat_id_,{[0] = tonumber(msg.id_),msg.id_})   
@@ -4048,19 +4048,19 @@ end
 end
 if text == 'تفعيل التحويل' and CoSu(msg) then   
 if database:get(bot_id..'DRAGOON:change:sofi'..msg.chat_id_) then
-Text = 'تم تفعيل تحويل الصيغ'
+Text = '✅︙تم تفعيل تحويل الصيغ'
 database:del(bot_id..'DRAGOON:change:sofi'..msg.chat_id_)  
 else
-Text = ' ℘︙ بالتاكيد تم تفعيل امر تحويل'
+Text = ' ✅︙ بالتاكيد تم تفعيل امر تحويل'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تعطيل التحويل' and CoSu(msg) then  
 if not database:get(bot_id..'DRAGOON:change:sofi'..msg.chat_id_) then
 database:set(bot_id..'DRAGOON:change:sofi'..msg.chat_id_,true)  
-Text = '\n ℘︙ تم تعطيل امر تحويل'
+Text = '\n ❎︙ تم تعطيل امر تحويل'
 else
-Text = '\n ℘︙ بالتاكيد تم تعطيل امر تحويل'
+Text = '\n ❎︙ بالتاكيد تم تعطيل امر تحويل'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
@@ -7640,7 +7640,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'🔖| لا تستطيع استخدام البوت يرجى الاشتراك في القناة حتى تتمكن من استخدام الاوامر \n 📌| اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'??| لا تستطيع استخدام البوت يرجى الاشتراك في القناة حتى تتمكن من استخدام الاوامر \n 📌| اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
