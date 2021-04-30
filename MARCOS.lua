@@ -11576,35 +11576,62 @@ local STO = {
 send(msg.chat_id_, msg.id_,'['..STO[math.random(#STO)]..']') 
 return false
 end
-if text == "تعطيل الابراج" and Manager(msg) then
+if text == "تعطيل الابراجا" and Manager(msg) then
 send(msg.chat_id_, msg.id_, '*✓| اهلا عزيزي تم تعطيل الابراج*')
 database:set(bot_id.."ASTORHBOTS:brj_Bots"..msg.chat_id_,"close")
 end
-if text == "تفعيل الابراج" and Manager(msg) then
+if text == "تفعيل الابراجا" and Manager(msg) then
 send(msg.chat_id_, msg.id_,'*✓| اهلا عزيزي تم تفعيل الابراج*')
 database:set(bot_id.."ASTORHBOTS:brj_Bots"..msg.chat_id_,"open")
 end
-if text and text:match("^برج (.*)$") and database:get(bot_id.."ASTORHBOTS:brj_Bots"..msg.chat_id_) == "open" then
-local Textbrj = text:match("^برج (.*)$")
+if text and text:match("^برجا (.*)$") and database:get(bot_id.."ASTORHBOTS:brj_Bots"..msg.chat_id_) == "open" then
+local Textbrj = text:match("^برجا (.*)$")
 gk = https.request('https://forhassan.ml/Black/br.php?br='..URL.escape(Textbrj)..'')
 br = JSON.decode(gk)
 send(msg.chat_id_, msg.id_, br.ok.hso)
 end
+if text == "تعطيل الابراج" and Manager(msg) then
+send(msg.chat_id_, msg.id_, '❎︙ تم تعطيل الابراج')
+database:set(bot_id.." sofi:brj_Bots"..msg.chat_id_,"close")
+end
+if text == "تفعيل الابراج" and Manager(msg) then
+send(msg.chat_id_, msg.id_,'✅︙ تم تفعيل الابراج')
+database:set(bot_id.." sofi:brj_Bots"..msg.chat_id_,"open")
+end
+if text and text:match("^برج (.*)$") and database:get(bot_id.." sofi:brj_Bots"..msg.chat_id_) == "open" then
+local Textbrj = text:match("^برج (.*)$")
+gk = https.request('https://rudi-dev.tk/Amir2/Boyka.php?br='..URL.escape(Textbrj)..'')
+br = JSON.decode(gk)
+i = 0
+for k,v in pairs(br.ok) do
+i = i + 1
+t = v.."\n"
+end
+send(msg.chat_id_, msg.id_, t)
+end
 if text == "تعطيل حساب العمر" and Manager(msg) then
-send(msg.chat_id_, msg.id_, '*✓| اهلا عزيزي تم تعطيل حساب العمر*')
-database:set(bot_id.."ASTORHBOTS:age_Bots"..msg.chat_id_,"close")
+send(msg.chat_id_, msg.id_, '℘︙ تم تعطيل حساب العمر')
+database:set(bot_id.." sofi:age_Bots"..msg.chat_id_,"close")
+end
+if text == "تعطيل حساب العمر" and Manager(msg) then
+send(msg.chat_id_, msg.id_, '❎︙ تم تعطيل حساب العمر')
+database:set(bot_id.." sofi:age_Bots"..msg.chat_id_,"close")
 end
 if text == "تفعيل حساب العمر" and Manager(msg) then
-send(msg.chat_id_, msg.id_,'*✓| اهلا عزيزي تم تفعيل حساب العمر*')
-database:set(bot_id.."ASTORHBOTS:age_Bots"..msg.chat_id_,"open")
+send(msg.chat_id_, msg.id_,'✅︙ تم تفعيل حساب العمر')
+database:set(bot_id.." sofi:age_Bots"..msg.chat_id_,"open")
 end
-if text and text:match("^احسب (.*)$") and database:get(bot_id.."ASTORHBOTS:age_Bots"..msg.chat_id_) == "open" then
+if text and text:match("^احسب (.*)$") and database:get(bot_id.." sofi:age_Bots"..msg.chat_id_) == "open" then
 local Textage = text:match("^احسب (.*)$")
-ge = https.request('https://forhassan.ml/Black/age.php?age='..URL.escape(Textage)..'')
+ge = https.request('https://rudi-dev.tk/Amir3/Boyka.php?age='..URL.escape(Textage)..'')
 ag = JSON.decode(ge)
-send(msg.chat_id_, msg.id_, ag.ok.hso)
+i = 0
+for k,v in pairs(ag.ok) do
+i = i + 1
+t = v.."\n"
 end
-
+send(msg.chat_id_, msg.id_, t)
+end
 if text == "تعطيل الزخرفه" and Manager(msg) then
 send(msg.chat_id_, msg.id_, '❎︙ تم تعطيل الزغرفه')
 database:set(bot_id.." sofi:zhrf_Bots"..msg.chat_id_,"close")
