@@ -8808,8 +8808,8 @@ if text == 'تعطيل التنظيف' and Manager(msg) then
 database:set(bot_id..'lock:del'..msg.chat_id_,true) 
 send(msg.chat_id_, msg.id_,'☑┇تم تعطيل التنظيف') 
 end
-if text and text:match('^تنظيف (%d+)$') and cleaner(msg) then
-local num = tonumber(text:match('^تنظيف (%d+)$')) 
+if text and text:match('^مسح (%d+)$') and cleaner(msg) then
+local num = tonumber(text:match('^مسح (%d+)$')) 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
