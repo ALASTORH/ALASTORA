@@ -12966,7 +12966,7 @@ database:set(bot_id..'user:Name'..msg.sender_user_id_,(data.username_))
 end
 -----------------------------------------------
 --------------------------------------------------------------------------------------------------------------
-if Text and Text:match('(.*)/lockjoine') and Admin(data) then
+if Text and Text:match('(.*)/lockjoine') and Mod(data) then
 if tonumber(Text:match('(.*)/lockjoine')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم قفل الاضافه '
 redis:set(bot_id.."NightRang:Lock:AddMempar"..Chat_id,"kick")  
@@ -12977,7 +12977,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/lockchat') and Admin(data) then
+elseif Text and Text:match('(.*)/lockchat') and Mod(data) then
 if tonumber(Text:match('(.*)/lockchat')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم قفل الدردشه '
 redis:set(bot_id.."NightRang:Lock:text"..Chat_id,true) 
@@ -12988,7 +12988,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/lock_joine') and Admin(data) then
+elseif Text and Text:match('(.*)/lock_joine') and Mod(data) then
 if tonumber(Text:match('(.*)/lock_joine')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم قفل الدخول '
 redis:set(bot_id.."NightRang:Lock:Join"..Chat_id,"kick")  
@@ -12999,7 +12999,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/lockbots') and Admin(data) then
+elseif Text and Text:match('(.*)/lockbots') and Mod(data) then
 if tonumber(Text:match('(.*)/lockbots')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم قفل البوتات '
 redis:set(bot_id.."NightRang:Lock:Bot:kick"..Chat_id,"del")  
@@ -13010,7 +13010,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/locktags') and Admin(data) then
+elseif Text and Text:match('(.*)/locktags') and Mod(data) then
 if tonumber(Text:match('(.*)/locktags')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم قفل الاشعارات '
 redis:set(bot_id.."NightRang:Lock:tagservr"..Chat_id,true)  
@@ -13021,7 +13021,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/lockedit') and Admin(data) then
+elseif Text and Text:match('(.*)/lockedit') and Mod(data) then
 if tonumber(Text:match('(.*)/lockedit')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم قفل التعديل '
 redis:set(bot_id.."NightRang:Lock:edit"..Chat_id,true) 
@@ -13032,7 +13032,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/locklink') and Admin(data) then
+elseif Text and Text:match('(.*)/locklink') and Mod(data) then
 if tonumber(Text:match('(.*)/locklink')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم قفل الروابط '
 redis:set(bot_id.."NightRang:Lock:Link"..Chat_id,"del")  
@@ -13043,7 +13043,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/lockusername') and Admin(data) then
+elseif Text and Text:match('(.*)/lockusername') and Mod(data) then
 if tonumber(Text:match('(.*)/lockusername')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم قفل المعرفات '
 redis:set(bot_id.."NightRang:Lock:User:Name"..Chat_id,"del")  
@@ -13054,7 +13054,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/lockusername') and Admin(data) then
+elseif Text and Text:match('(.*)/lockusername') and Mod(data) then
 if tonumber(Text:match('(.*)/lockusername')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم قفل التاك '
 redis:set(bot_id.."NightRang:Lock:hashtak"..Chat_id,"del")  
@@ -13065,7 +13065,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/locksticar') and Admin(data) then
+elseif Text and Text:match('(.*)/locksticar') and Mod(data) then
 if tonumber(Text:match('(.*)/locksticar')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم قفل الملصقات '
 redis:set(bot_id.."NightRang:Lock:Sticker"..Chat_id,'del')  
@@ -13077,7 +13077,7 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
 
-elseif Text and Text:match('(.*)/lockgif') and Admin(data) then
+elseif Text and Text:match('(.*)/lockgif') and Mod(data) then
 if tonumber(Text:match('(.*)/lockgif')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم قفل المتحركات '
 redis:set(bot_id.."NightRang:Lock:Animation"..Chat_id,'del')  
@@ -13088,7 +13088,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/lockvideo') and Admin(data) then
+elseif Text and Text:match('(.*)/lockvideo') and Mod(data) then
 if tonumber(Text:match('(.*)/lockvideo')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم قفل الفيديو '
 redis:set(bot_id.."NightRang:Lock:Video"..Chat_id,'del')  
@@ -13099,7 +13099,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/lockphoto') and Admin(data) then
+elseif Text and Text:match('(.*)/lockphoto') and Mod(data) then
 if tonumber(Text:match('(.*)/lockphoto')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم قفل الصور '
 redis:set(bot_id.."NightRang:Lock:Photo"..Chat_id,'del')  
@@ -13110,7 +13110,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/lockvoise') and Admin(data) then
+elseif Text and Text:match('(.*)/lockvoise') and Mod(data) then
 if tonumber(Text:match('(.*)/lockvoise')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم قفل الاغاني '
 redis:set(bot_id.."NightRang:Lock:Audio"..Chat_id,'del')  
@@ -13121,7 +13121,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/lockaudo') and Admin(data) then
+elseif Text and Text:match('(.*)/lockaudo') and Mod(data) then
 if tonumber(Text:match('(.*)/lockaudo')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم قفل الصوت '
 redis:set(bot_id.."NightRang:Lock:vico"..Chat_id,'del')  
@@ -13132,7 +13132,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/lockfwd') and Admin(data) then
+elseif Text and Text:match('(.*)/lockfwd') and Mod(data) then
 if tonumber(Text:match('(.*)/lockfwd')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم قفل التوجيه '
 redis:set(bot_id.."NightRang:Lock:forward"..Chat_id,'del')  
@@ -13143,7 +13143,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/lockfile') and Admin(data) then
+elseif Text and Text:match('(.*)/lockfile') and Mod(data) then
 if tonumber(Text:match('(.*)/lockfile')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم قفل الملفات '
 redis:set(bot_id.."NightRang:Lock:Document"..Chat_id,'del')  
@@ -13154,7 +13154,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/lockphone') and Admin(data) then
+elseif Text and Text:match('(.*)/lockphone') and Mod(data) then
 if tonumber(Text:match('(.*)/lockphone')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم قفل الجهات '
 redis:set(bot_id.."NightRang:Lock:Contact"..Chat_id,'del')  
@@ -13165,7 +13165,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/lockposts') and Admin(data) then
+elseif Text and Text:match('(.*)/lockposts') and Mod(data) then
 if tonumber(Text:match('(.*)/lockposts')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم قفل الكلايش '
 redis:set(bot_id.."NightRang:Lock:Spam"..Chat_id,'del')  
@@ -13176,7 +13176,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/lockflood') and Admin(data) then
+elseif Text and Text:match('(.*)/lockflood') and Mod(data) then
 if tonumber(Text:match('(.*)/lockflood')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم قفل التكرار '
 redis:hset(bot_id.."NightRang:Spam:Group:User"..Chat_id ,"Spam:User",'del')  
@@ -13187,7 +13187,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/lockfarse') and Admin(data) then
+elseif Text and Text:match('(.*)/lockfarse') and Mod(data) then
 if tonumber(Text:match('(.*)/lockfarse')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم قفل الفارسيه '
 redis:set(bot_id..'lock:Fars'..Chat_id,true) 
@@ -13198,7 +13198,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/lockfshar') and Admin(data) then
+elseif Text and Text:match('(.*)/lockfshar') and Mod(data) then
 if tonumber(Text:match('(.*)/lockfshar')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم قفل السب '
 redis:set(bot_id..'lock:Fshar'..Chat_id,true) 
@@ -13209,7 +13209,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/lockenglish') and Admin(data) then
+elseif Text and Text:match('(.*)/lockenglish') and Mod(data) then
 if tonumber(Text:match('(.*)/lockenglish')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم قفل الانجليزيه '
 keyboard = {} 
@@ -13219,7 +13219,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/lockinlene') and Admin(data) then
+elseif Text and Text:match('(.*)/lockinlene') and Mod(data) then
 if tonumber(Text:match('(.*)/lockinlene')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم قفل الانلاين '
 redis:set(bot_id.."NightRang:Lock:Inlen"..Chat_id,"del")  
@@ -13231,7 +13231,7 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
 end
-if Text and Text:match('(.*)/unlockjoine') and Admin(data) then
+if Text and Text:match('(.*)/unlockjoine') and Mod(data) then
 if tonumber(Text:match('(.*)/unlockjoine')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم فتح الاضافه '
 redis:del(bot_id.."NightRang:Lock:AddMempar"..Chat_id)
@@ -13242,7 +13242,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/unlockchat') and Admin(data) then
+elseif Text and Text:match('(.*)/unlockchat') and Mod(data) then
 if tonumber(Text:match('(.*)/unlockchat')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم فتح الدردشه '
 redis:del(bot_id.."NightRang:Lock:text"..Chat_id) 
@@ -13253,7 +13253,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/unlock_joine') and Admin(data) then
+elseif Text and Text:match('(.*)/unlock_joine') and Mod(data) then
 if tonumber(Text:match('(.*)/unlock_joine')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم فتح الدخول '
 redis:del(bot_id.."NightRang:Lock:Join"..Chat_id)  
@@ -13264,7 +13264,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/unlockbots') and Admin(data) then
+elseif Text and Text:match('(.*)/unlockbots') and Mod(data) then
 if tonumber(Text:match('(.*)/unlockbots')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم فتح البوتات '
 redis:del(bot_id.."NightRang:Lock:Bot:kick"..Chat_id)  
@@ -13275,7 +13275,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/unlocktags') and Admin(data) then
+elseif Text and Text:match('(.*)/unlocktags') and Mod(data) then
 if tonumber(Text:match('(.*)/unlocktags')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم فتح الاشعارات '
 redis:del(bot_id.."NightRang:Lock:tagservr"..Chat_id)  
@@ -13286,7 +13286,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/unlockedit') and Admin(data) then
+elseif Text and Text:match('(.*)/unlockedit') and Mod(data) then
 if tonumber(Text:match('(.*)/unlockedit')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم فتح التعديل '
 redis:del(bot_id.."NightRang:Lock:edit"..Chat_id)
@@ -13297,7 +13297,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/unlocklink') and Admin(data) then
+elseif Text and Text:match('(.*)/unlocklink') and Mod(data) then
 if tonumber(Text:match('(.*)/unlocklink')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم فتح الروابط '
 redis:del(bot_id.."NightRang:Lock:Link"..Chat_id)
@@ -13308,7 +13308,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/unlockusername') and Admin(data) then
+elseif Text and Text:match('(.*)/unlockusername') and Mod(data) then
 if tonumber(Text:match('(.*)/unlockusername')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم فتح المعرفات '
 redis:del(bot_id.."NightRang:Lock:User:Name"..Chat_id)  
@@ -13319,7 +13319,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/unlocktag') and Admin(data) then
+elseif Text and Text:match('(.*)/unlocktag') and Mod(data) then
 if tonumber(Text:match('(.*)/unlocktag')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم فتح التاك '
 redis:del(bot_id.."NightRang:Lock:hashtak"..Chat_id)  
@@ -13330,7 +13330,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/unlocksticar') and Admin(data) then
+elseif Text and Text:match('(.*)/unlocksticar') and Mod(data) then
 if tonumber(Text:match('(.*)/unlocksticar')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم فتح الملصقات '
 redis:del(bot_id.."NightRang:Lock:Sticker"..Chat_id)  
@@ -13341,7 +13341,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/unlockgif') and Admin(data) then
+elseif Text and Text:match('(.*)/unlockgif') and Mod(data) then
 if tonumber(Text:match('(.*)/unlockgif')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم فتح المتحركات '
 redis:del(bot_id.."NightRang:Lock:Animation"..Chat_id)  
@@ -13352,7 +13352,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/unlockvideo') and Admin(data) then
+elseif Text and Text:match('(.*)/unlockvideo') and Mod(data) then
 if tonumber(Text:match('(.*)/unlockvideo')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم فتح الفيديو '
 redis:del(bot_id.."NightRang:Lock:Video"..Chat_id)  
@@ -13363,7 +13363,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/unlockphoto') and Admin(data) then
+elseif Text and Text:match('(.*)/unlockphoto') and Mod(data) then
 if tonumber(Text:match('(.*)/unlockphoto')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم فتح الصور '
 redis:del(bot_id.."NightRang:Lock:Photo"..Chat_id)  
@@ -13374,7 +13374,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/unlockvoise') and Admin(data) then
+elseif Text and Text:match('(.*)/unlockvoise') and Mod(data) then
 if tonumber(Text:match('(.*)/unlockvoise')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم فتح الاغاني '
 redis:del(bot_id.."NightRang:Lock:Audio"..Chat_id)  
@@ -13385,7 +13385,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/unlockaudo') and Admin(data) then
+elseif Text and Text:match('(.*)/unlockaudo') and Mod(data) then
 if tonumber(Text:match('(.*)/unlockaudo')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم فتح الصوت '
 redis:del(bot_id.."NightRang:Lock:vico"..Chat_id)  
@@ -13396,7 +13396,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/unlockfwd') and Admin(data) then
+elseif Text and Text:match('(.*)/unlockfwd') and Mod(data) then
 if tonumber(Text:match('(.*)/unlockfwd')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم فتح التوجيه '
 redis:del(bot_id.."NightRang:Lock:forward"..Chat_id)  
@@ -13407,7 +13407,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/unlockfile') and Admin(data) then
+elseif Text and Text:match('(.*)/unlockfile') and Mod(data) then
 if tonumber(Text:match('(.*)/unlockfile')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم فتح الملفات '
 redis:del(bot_id.."NightRang:Lock:Document"..Chat_id)  
@@ -13418,7 +13418,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/unlockphone') and Admin(data) then
+elseif Text and Text:match('(.*)/unlockphone') and Mod(data) then
 if tonumber(Text:match('(.*)/unlockphone')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم فتح الجهات '
 redis:del(bot_id.."NightRang:Lock:Contact"..Chat_id)  
@@ -13429,7 +13429,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/unlockposts') and Admin(data) then
+elseif Text and Text:match('(.*)/unlockposts') and Mod(data) then
 if tonumber(Text:match('(.*)/unlockposts')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم فتح الكلايش '
 redis:del(bot_id.."NightRang:Lock:Spam"..Chat_id) 
@@ -13440,7 +13440,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/unlockflood') and Admin(data) then
+elseif Text and Text:match('(.*)/unlockflood') and Mod(data) then
 if tonumber(Text:match('(.*)/unlockflood')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم فتح التكرار '
 redis:hdel(bot_id.."NightRang:Spam:Group:User"..Chat_id ,"Spam:User")  
@@ -13451,7 +13451,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/unlockfarse') and Admin(data) then
+elseif Text and Text:match('(.*)/unlockfarse') and Mod(data) then
 if tonumber(Text:match('(.*)/unlockfarse')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم فتح الفارسيه '
 redis:del(bot_id..'lock:Fars'..Chat_id) 
@@ -13463,7 +13463,7 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
 
-elseif Text and Text:match('(.*)/unlockfshar') and Admin(data) then
+elseif Text and Text:match('(.*)/unlockfshar') and Mod(data) then
 if tonumber(Text:match('(.*)/unlockfshar')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم فتح السب '
 redis:del(bot_id..'lock:Fshar'..Chat_id) 
@@ -13474,7 +13474,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/unlockenglish') and Admin(data) then
+elseif Text and Text:match('(.*)/unlockenglish') and Mod(data) then
 if tonumber(Text:match('(.*)/unlockenglish')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم فتح الانجليزيه '
 redis:del(bot_id..'lock:Fars'..Chat_id) 
@@ -13485,7 +13485,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/unlockinlene') and Admin(data) then
+elseif Text and Text:match('(.*)/unlockinlene') and Mod(data) then
 if tonumber(Text:match('(.*)/unlockinlene')) == tonumber(data.sender_user_id_) then
 local Textedit = '• تم فتح الانلاين '
 redis:del(bot_id.."NightRang:Lock:Inlen"..Chat_id)  
@@ -13496,7 +13496,7 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
-elseif Text and Text:match('(.*)/homelocks') and Admin(data) then
+elseif Text and Text:match('(.*)/homelocks') and Mod(data) then
 if tonumber(Text:match('(.*)/homelocks')) == tonumber(data.sender_user_id_) then
 local Texti = 'تستطيع قفل وفتح عبر الازرار'
 keyboard = {} 
