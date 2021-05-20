@@ -806,6 +806,8 @@ local keyboard = {
 {'تغير رساله الاشتراك','حذف رساله الاشتراك 🚫','تغير الاشتراك'},
 {'اذاعه بالتوجيه 🔖','اذاعه بالتوجيه خاص 📯'},
 {'اذاعه بالتثبيت'},
+{'اضف نصيحه ➕','حذف النصائح 🗑'},
+{'اضف مقالات ➕','حذف المقالات 🗑'},
 {'تفعيل الاشتراك الاجباري 📥','تعطيل الاشتراك الاجباري 📤'},
 {'الاشتراك الاجباري 🚸','تفعيل الاشتراك الاول🌟'},
 {'تفعيل البوت الخدمي 🔓','تعطيل البوت الخدمي🔏'},
@@ -985,7 +987,7 @@ echo '*———————————~*\n✺✔{ الــدخــول } ⇎\n
 echo '*———————————~*\n✺✔{ مـده تـشغيـل الـسـيـرفـر }⇎\n*»» '"$uptime"'*'
 ]]):read('*all'))  
 end
-if text == "اضف مقالات" then
+if text == "اضف مقالات ➕" then
 if not SudoBot(msg) then
 send(msg.chat_id_,msg.id_,' هذا الامر خاص بالمطور الاساسي فقط')
 return false
@@ -993,7 +995,7 @@ end
 database:set(bot_id.."makal:bots:set"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return send(msg.chat_id_, msg.id_,"ارسل المقاله الان")
 end
-if text == "حذف المقالات" then
+if text == "حذف المقالات 🗑" then
 if not SudoBot(msg) then
 send(msg.chat_id_,msg.id_,' هذا الامر خاص بالمطور الاساسي فقط')
 return false
@@ -1008,7 +1010,7 @@ database:set(bot_id.."makal:bots:set"..msg.sender_user_id_..":"..msg.chat_id_,"t
 database:sadd(bot_id.."makal:bots", text)
 return false end
 end
-if text == "اضف نصيحه" then
+if text == "اضف نصيحه ➕" then
 if not SudoBot(msg) then
 send(msg.chat_id_,msg.id_,' هذا الامر خاص بالمطور الاساسي فقط')
 return false
@@ -1016,7 +1018,7 @@ end
 database:set(bot_id.."nsih:bots:set"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return send(msg.chat_id_, msg.id_,"ارسل النصيحه الان")
 end
-if text == "حذف النصائح" then
+if text == "حذف النصائح 🗑" then
 if not SudoBot(msg) then
 send(msg.chat_id_,msg.id_,' هذا الامر خاص بالمطور الاساسي فقط')
 return false
@@ -2568,7 +2570,7 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
-if text == 'مقالات' then
+if text == 'مقالات' or text == 'مقالة' or text == 'مقالة' then
 local list = database:smembers(bot_id.."makal:bots")
 if #list ~= 0 then
 quschen = list[math.random(#list)]
@@ -2651,7 +2653,7 @@ end
 database:del(bot_id.."makal:bots:qus"..msg.sender_user_id_..":"..msg.chat_id_)
 database:del(bot_id.."mkal:setex:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 end
-if text == 'انصحني' then
+if text == 'انصحني' or text == 'نصيحه' or text == 'انصحيني' then
 local list = database:smembers(bot_id.."nsih:bots")
 if #list ~= 0 then
 quschen = list[math.random(#list)]
