@@ -2778,7 +2778,7 @@ end
 end
 if text == ""..(database:get(bot_id.."srah:bots:qus"..msg.chat_id_) or '').."" then
 local timemkall = database:ttl(bot_id.."sah:setex:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
-local timemkal = (60 - timesahh)
+local timemkal = (60 - timesah)
 if tonumber(timemkal) == 1 then
 send(msg.chat_id_, msg.id_,'  استمر ي وحش ! \n عدد الثواني {'..timesah..'}')
 elseif tonumber(timesah) == 2 then
@@ -6404,7 +6404,7 @@ end
 database:sadd(bot_id..'Ban:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n👤| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..')'
-status  = '\n📮| الايدي » `'..result.sender_user_id_..'`\n🔘| تم حظره من المجموعه'
+status  = '\n??| الايدي » `'..result.sender_user_id_..'`\n🔘| تم حظره من المجموعه'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 chat_kick(result.chat_id_, result.sender_user_id_)
