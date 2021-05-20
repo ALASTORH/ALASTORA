@@ -985,27 +985,50 @@ echo '*———————————~*\n✺✔{ الــدخــول } ⇎\n
 echo '*———————————~*\n✺✔{ مـده تـشغيـل الـسـيـرفـر }⇎\n*»» '"$uptime"'*'
 ]]):read('*all'))  
 end
-if text == "اضف سوال مقالات" then
+if text == "اضف مقالات" then
 if not SudoBot(msg) then
-send(msg.chat_id_,msg.id_,' هذا الامر خاص Carbon فقط')
+send(msg.chat_id_,msg.id_,' هذا الامر خاص بالمطور الاساسي فقط')
 return false
 end
 database:set(bot_id.."makal:bots:set"..msg.sender_user_id_..":"..msg.chat_id_,true)
-return send(msg.chat_id_, msg.id_,"ارسل السؤال الان ")
+return send(msg.chat_id_, msg.id_,"ارسل المقاله الان")
 end
-if text == "حذف سوال مقالات" then
+if text == "حذف المقالات" then
 if not SudoBot(msg) then
-send(msg.chat_id_,msg.id_,' هذا الامر خاص Carbon فقط')
+send(msg.chat_id_,msg.id_,' هذا الامر خاص بالمطور الاساسي فقط')
 return false
 end
 database:del(bot_id.."makal:bots")
-return send(msg.chat_id_, msg.id_,"تم حذف الاسئله")
+return send(msg.chat_id_, msg.id_,"تم حذف المقالات")
 end
 if text and text:match("^(.*)$") then
 if database:get(bot_id.."makal:bots:set"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
-send(msg.chat_id_, msg.id_, '\nتم حفظ السؤال بنجاح')
+send(msg.chat_id_, msg.id_, '\nتم حفظ المقالات بنجاح')
 database:set(bot_id.."makal:bots:set"..msg.sender_user_id_..":"..msg.chat_id_,"true1uu")
 database:sadd(bot_id.."makal:bots", text)
+return false end
+end
+if text == "اضف نصيحه" then
+if not SudoBot(msg) then
+send(msg.chat_id_,msg.id_,' هذا الامر خاص بالمطور الاساسي فقط')
+return false
+end
+database:set(bot_id.."nsih:bots:set"..msg.sender_user_id_..":"..msg.chat_id_,true)
+return send(msg.chat_id_, msg.id_,"ارسل النصيحه الان")
+end
+if text == "حذف النصائح" then
+if not SudoBot(msg) then
+send(msg.chat_id_,msg.id_,' هذا الامر خاص بالمطور الاساسي فقط')
+return false
+end
+database:del(bot_id.."nsih:bots")
+return send(msg.chat_id_, msg.id_,"تم حذف النصائح")
+end
+if text and text:match("^(.*)$") then
+if database:get(bot_id.."nsih:bots:set"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
+send(msg.chat_id_, msg.id_, '\nتم حفظ النصيحه بنجاح')
+database:set(bot_id.."nsih:bots:set"..msg.sender_user_id_..":"..msg.chat_id_,"true1uu")
+database:sadd(bot_id.."nsih:bots", text)
 return false end
 end
 if text == 'معلومات الكيبورد 💬' and SudoBot(msg) then 
@@ -2628,7 +2651,22 @@ end
 database:del(bot_id.."makal:bots:qus"..msg.sender_user_id_..":"..msg.chat_id_)
 database:del(bot_id.."mkal:setex:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 end
-
+if text == 'انصحني' then
+local list = database:smembers(bot_id.."nsih:bots")
+if #list ~= 0 then
+quschen = list[math.random(#list)]
+quschen1 = string.gsub(quschen,"-"," ")
+quschen1 = string.gsub(quschen1,"*"," ")
+quschen1 = string.gsub(quschen1,"•"," ")
+quschen1 = string.gsub(quschen1,"_"," ")
+quschen1 = string.gsub(quschen1,","," ")
+quschen1 = string.gsub(quschen1,"/"," ")
+print(quschen1)
+send(msg.chat_id_, msg.id_,'['..quschen..']')
+database:set(bot_id.."nsih:bots:qus"..msg.chat_id_,quschen1)
+database:setex(bot_id.."nih:setex:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 60, true) 
+end
+end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
 if text == 'رفع النسخه الاحتياطيه' and SudoBot(msg) then   
