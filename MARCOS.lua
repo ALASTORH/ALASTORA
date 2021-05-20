@@ -2500,7 +2500,6 @@ end
 end
 end,nil)   
 end
-
 if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then
 local Text =[[
 🙋︙اهلا بكـ في سورس الاسطورة 🦅
@@ -2559,7 +2558,6 @@ return false
 end
 GetFile_Bot(msg)
 end
-
 if text == 'الاوامر المضافه' and Constructor(msg) then
 local list = database:smembers(bot_id..'List:Cmd:Group:New'..msg.chat_id_..'')
 t = "📮| قائمه الاوامر المضافه  \n●ـ▬ـ▬ஜ۩۞۩ஜ▬ـ▬ـ●\n"
@@ -2852,7 +2850,7 @@ end,nil)
 elseif text == 'فتح التاك' and Mod(msg) and msg.reply_to_message_id_ == 0 then 
 database:del(bot_id.."lock:hashtak"..msg.chat_id_)  
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
-send(msg.chat_id_, msg.id_,'👤| بواسطه ← ['..utf8.sub(data.first_name_,0,60)..'](T.ME/'..(data.username_ or 'ASTORHBOTS')..') \n??| تـم فتح التاك ')  
+send(msg.chat_id_, msg.id_,'👤| بواسطه ← ['..utf8.sub(data.first_name_,0,60)..'](T.ME/'..(data.username_ or 'ASTORHBOTS')..') \n🔘| تـم فتح التاك ')  
 end,nil)   
 end
 if text == 'قفل الشارحه' and Mod(msg) and msg.reply_to_message_id_ == 0 then 
@@ -6464,7 +6462,7 @@ database:sadd(bot_id..'Muted:User'..msg.chat_id_, userid)
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 if data.first_name_ then
 usertext = '\n👤| العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'ASTORHBOTS')..')'
-status  = '\n🔘| تم كتمه وداعا رح افتقد خواطرك ??'
+status  = '\n🔘| تم كتمه وداعا رح افتقد خواطرك 💔'
 send(msg.chat_id_, msg.id_, usertext..status)
 else
 usertext = '\n👤| العضو » '..userid..''
@@ -12882,6 +12880,64 @@ database:set(bot_id..'user:Name'..msg.sender_user_id_,(data.username_))
 end
 -----------------------------------------------
 --------------------------------------------------------------------------------------------------------------
+if tonumber(data.id_) == tonumber(bot_id) then
+return false
+end
+local Get_Re_Name = database:get(bot_id.."Chen:Name"..msg.sender_user_id_) 
+if Get_Re_Name then 
+if Get_Re_Name ~= data.first_name_ then 
+tahan = '['..(Get_Re_Name or '')..']'
+taham = '['..data.first_name_..']'
+local taha ={ 
+'\n ليش غيرت اسمك  يا حلو 😹🌚',
+'\n شهل اسم الفيطي '..taham.. ' \n رجعه ؏ قديم \n '..tahan..'',
+'\n  ها ها ليش غيرت اسمك 🤔??',
+'\n ليش غيرت اسمك شنو قطيت وحده جديده 😹😹🌚',
+'\n ليش غيرت اسمك شنو تعاركت ويه الحب ؟😹🌞',
+'\n ها ولك مو جان  اسمك   '..tahan..'  ليش غيرته ',
+'\n ليش غيرت اسمك شسالفه ؟؟ 🤔🌞'
+}
+send(msg.chat_id_,msg.id_,taha[math.random(#taha)])
+database:set(bot_id.."Chen:Name"..msg.sender_user_id_, data.first_name_) 
+return false
+end  
+end
+--------------------------------------------------------------------------------------------------------------
+local Getredis = database:get(bot_id.."Chen:User:Name"..msg.sender_user_id_)
+if data.username_ then  
+if Getredis and Getredis ~= data.username_ then 
+tahan = '['..(database:get(bot_id.."Chen:User:Name"..msg.sender_user_id_) or '')..']'
+local taha ={ 
+'\n ليش غيرت معرفك  يا حلو 😹🌚',
+'\n  ها ها ليش غيرت معرفك 🤔😹',
+'\n ليش غيرت معرفك شنو قطيت وحده جديده 😹😹🌚',
+'\n ليش غيرت معرفك شنو تعاركت ويه الحب ؟😹🌞',
+'\n ها ولك مو جان  معرفك   '..tahan..'  ليش غيرته ',
+'\n ليش غيرت معرفك شسالفه ؟؟ 🤔🌞'
+}
+send(msg.chat_id_,msg.id_,taha[math.random(#taha)])
+database:set(bot_id.."Chen:User:Name"..msg.sender_user_id_, data.username_) 
+return false
+end
+end
+--------------------------------------------------------------------------------------------------------------
+local Getredis = database:get(bot_id.."Chen:Photo"..msg.sender_user_id_)
+if data.profile_photo_ then  
+if Getredis and Getredis ~= data.profile_photo_.id_ then 
+local taha ={ 
+'\n ليش غيرت صورتك  يا حلو 😹🌚',
+'\n  ها ها ليش غيرت صورتك 🤔😹',
+'\n ليش غيرت صورتك شنو قطيت وحده جديده 😹😹🌚',
+'\n ليش غيرت صورتك شنو تعاركت ويه الحب ؟😹🌞',
+'\n ليش غيرت صورتك شسالفه ؟؟ 🤔🌞'
+}
+send(msg.chat_id_,msg.id_,taha[math.random(#taha)])
+database:set(bot_id.."Chen:Photo"..msg.sender_user_id_, data.profile_photo_.id_) 
+return false
+end
+end
+end,nil)   
+end
 elseif (data.ID == "UpdateMessageEdited") then
 local msg = data
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.message_id_)},function(extra, result, success)
