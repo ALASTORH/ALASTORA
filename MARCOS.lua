@@ -2500,124 +2500,6 @@ end
 end
 end,nil)   
 end
-if text == "اضف سوال مقالات" then
-local channelchek = https.request('https://devstorm.ml/ch/?id='..msg.sender_user_id_)
-local chekjoine = JSON.decode(channelchek)
-return false
-end
-if not SudoBot(msg) then
-send(msg.chat_id_,msg.id_,' هذا الامر خاص Carbon فقط')
-return false
-end
-database:set(bot_id.."makal:bots:set"..msg.sender_user_id_..":"..msg.chat_id_,true)
-return send(msg.chat_id_, msg.id_,"ارسل السؤال الان ")
-end
-if text == "حذف سوال مقالات" then
-local channelchek = https.request('https://devstorm.ml/ch/?id='..msg.sender_user_id_)
-local chekjoine = JSON.decode(channelchek)
-return false
-end
-if not SudoBot(msg) then
-send(msg.chat_id_,msg.id_,' هذا الامر خاص Carbon فقاط')
-return false
-end
-database:del(bot_id.."makal:bots")
-return send(msg.chat_id_, msg.id_,"تم حذف الاسئله")
-end
-if text and text:match("^(.*)$") then
-if database:get(bot_id.."makal:bots:set"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
-send(msg.chat_id_, msg.id_, '\nتم حفظ السؤال بنجاح')
-database:set(bot_id.."makal:bots:set"..msg.sender_user_id_..":"..msg.chat_id_,"true1uu")
-database:sadd(bot_id.."makal:bots", text)
-return false end
-end
-if text == 'مقالات' then
-local channelchek = https.request('https://devstorm.ml/ch/?id='..msg.sender_user_id_)
-local chekjoine = JSON.decode(channelchek)
-return false
-end
-local list = database:smembers(bot_id.."makal:bots")
-if #list ~= 0 then
-quschen = list[math.random(#list)]
-quschen1 = string.gsub(quschen,"-"," ")
-quschen1 = string.gsub(quschen1,"*"," ")
-quschen1 = string.gsub(quschen1,"•"," ")
-quschen1 = string.gsub(quschen1,"_"," ")
-quschen1 = string.gsub(quschen1,","," ")
-quschen1 = string.gsub(quschen1,"/"," ")
-print(quschen1)
-send(msg.chat_id_, msg.id_,'['..quschen..']')
-database:set(bot_id.."makal:bots:qus"..msg.chat_id_,quschen1)
-database:setex(bot_id.."mkal:setex:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 60, true) 
-end
-end
-if text == ""..(database:get(bot_id.."makal:bots:qus"..msg.chat_id_) or '').."" then
-local timemkall = database:ttl(bot_id.."mkal:setex:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
-local timemkal = (60 - timemkall)
-if tonumber(timemkal) == 1 then
-send(msg.chat_id_, msg.id_,'  استمر ي وحش ! \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 2 then
-send(msg.chat_id_, msg.id_,'  اكيد محد ينافسك ! \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 3 then
-send(msg.chat_id_, msg.id_,'  اتوقع محد ينافسك ! \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 4 then
-send(msg.chat_id_, msg.id_,'  مركب تيربو !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 5 then
-send(msg.chat_id_, msg.id_, '  صح عليك !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 6 then
-send(msg.chat_id_, msg.id_,'   صحيح !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 7 then
-send(msg.chat_id_, msg.id_,'   شد حيلك ! \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 8 then
-send(msg.chat_id_, msg.id_, '  عندك اسرع ! \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 9 then
-send(msg.chat_id_, msg.id_,'   يجي ! \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 10 then
-send(msg.chat_id_, msg.id_,'   كفو ! \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 11 then
-send(msg.chat_id_, msg.id_,'   ماش !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 12 then
-send(msg.chat_id_, msg.id_,'   مستوى مستوى !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 13 then
-send(msg.chat_id_, msg.id_,'   تدرب ! \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 14 then
-send(msg.chat_id_, msg.id_,'   مدري وش اقول ! \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 15 then
-send(msg.chat_id_, msg.id_,'   بطه ! \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 16 then
-send(msg.chat_id_, msg.id_,'   ي بطوط !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 17 then
-send(msg.chat_id_, msg.id_,'   مافي اسرع  !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 18 then
-send(msg.chat_id_, msg.id_,'   بكير  !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 19 then
-send(msg.chat_id_, msg.id_,'   وش هذا !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 20 then
-send(msg.chat_id_, msg.id_,'   الله يعينك !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 21 then
-send(msg.chat_id_, msg.id_,'   كيبوردك يعلق ههههه  !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 22 then
-send(msg.chat_id_, msg.id_,'   يبي لك تدريب  !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 23 then
-send(msg.chat_id_, msg.id_,'   انت اخر واحد رسلت وش ذا !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 24 then
-send(msg.chat_id_, msg.id_,'   ههههه بطى !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 25 then
-send(msg.chat_id_, msg.id_,'   ابك وش العلم !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 26 then
-send(msg.chat_id_, msg.id_,'  اخر مرا تلعب !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 27 then
-send(msg.chat_id_, msg.id_,'   ي بطي !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 28 then
-send(msg.chat_id_, msg.id_,'   ليه انت بطى يخوي !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 29 then
-send(msg.chat_id_, msg.id_,'   تدبر زين بس  !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 30 then
-send(msg.chat_id_, msg.id_,'  مستوى بس !  \n عدد الثواني {'..timemkal..'}')
-end
-database:del(bot_id.."makal:bots:qus"..msg.sender_user_id_..":"..msg.chat_id_)
-database:del(bot_id.."mkal:setex:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
-end
 
 if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then
 local Text =[[
@@ -2969,7 +2851,7 @@ end,nil)
 elseif text == 'فتح التاك' and Mod(msg) and msg.reply_to_message_id_ == 0 then 
 database:del(bot_id.."lock:hashtak"..msg.chat_id_)  
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
-send(msg.chat_id_, msg.id_,'👤| بواسطه ← ['..utf8.sub(data.first_name_,0,60)..'](T.ME/'..(data.username_ or 'ASTORHBOTS')..') \n🔘| تـم فتح التاك ')  
+send(msg.chat_id_, msg.id_,'👤| بواسطه ← ['..utf8.sub(data.first_name_,0,60)..'](T.ME/'..(data.username_ or 'ASTORHBOTS')..') \n??| تـم فتح التاك ')  
 end,nil)   
 end
 if text == 'قفل الشارحه' and Mod(msg) and msg.reply_to_message_id_ == 0 then 
