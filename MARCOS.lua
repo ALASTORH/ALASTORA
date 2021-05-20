@@ -13580,11 +13580,12 @@ database:set(bot_id..'user:Name'..msg.sender_user_id_,(data.username_))
 end
 -----------------------------------------------
 --------------------------------------------------------------------------------------------------------------
-elseif (data.ID == "UpdateMessageEdited") then
-local msg = data
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.message_id_)},function(extra, result, success)
-database:incr(bot_id..'edits'..result.chat_id_..result.sender_user_id_)
-local Text = result.content_.text_
+elseif data.ID == ("UpdateMessageEdited") then
+tdcli_function ({ID = "GetMessage",chat_id_ = data.chat_id_,message_id_ = tonumber(data.message_id_)},function(extra, result, success)
+if tonumber(result.sender_user_id_) == tonumber(bot_id) then
+return false 
+end
+local textedit = result.content_.text_
 if database:get(bot_id.."lock:edit"..msg.chat_id_) and not Text and not BasicConstructor(result) then
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 local username = data.username_
