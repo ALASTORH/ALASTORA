@@ -2669,67 +2669,67 @@ end
 end
 if text == ""..(database:get(bot_id.."nsih:bots:qus"..msg.chat_id_) or '').."" then
 local timemkall = database:ttl(bot_id.."nih:setex:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
-local timemkal = (60 - timemkall)
+local timemkal = (60 - timenihh)
 if tonumber(timemkal) == 1 then
-send(msg.chat_id_, msg.id_,'  استمر ي وحش ! \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 2 then
-send(msg.chat_id_, msg.id_,'  اكيد محد ينافسك ! \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 3 then
-send(msg.chat_id_, msg.id_,'  اتوقع محد ينافسك ! \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 4 then
-send(msg.chat_id_, msg.id_,'  مركب تيربو !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 5 then
-send(msg.chat_id_, msg.id_, '  صح عليك !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 6 then
-send(msg.chat_id_, msg.id_,'   صحيح !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 7 then
-send(msg.chat_id_, msg.id_,'   شد حيلك ! \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 8 then
-send(msg.chat_id_, msg.id_, '  عندك اسرع ! \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 9 then
-send(msg.chat_id_, msg.id_,'   يجي ! \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 10 then
-send(msg.chat_id_, msg.id_,'   كفو ! \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 11 then
-send(msg.chat_id_, msg.id_,'   ماش !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 12 then
-send(msg.chat_id_, msg.id_,'   مستوى مستوى !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 13 then
-send(msg.chat_id_, msg.id_,'   تدرب ! \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 14 then
-send(msg.chat_id_, msg.id_,'   مدري وش اقول ! \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 15 then
-send(msg.chat_id_, msg.id_,'   بطه ! \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 16 then
-send(msg.chat_id_, msg.id_,'   ي بطوط !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 17 then
-send(msg.chat_id_, msg.id_,'   مافي اسرع  !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 18 then
-send(msg.chat_id_, msg.id_,'   بكير  !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 19 then
-send(msg.chat_id_, msg.id_,'   وش هذا !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 20 then
-send(msg.chat_id_, msg.id_,'   الله يعينك !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 21 then
-send(msg.chat_id_, msg.id_,'   كيبوردك يعلق ههههه  !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 22 then
-send(msg.chat_id_, msg.id_,'   يبي لك تدريب  !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 23 then
-send(msg.chat_id_, msg.id_,'   انت اخر واحد رسلت وش ذا !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 24 then
-send(msg.chat_id_, msg.id_,'   ههههه بطى !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 25 then
-send(msg.chat_id_, msg.id_,'   ابك وش العلم !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 26 then
-send(msg.chat_id_, msg.id_,'  اخر مرا تلعب !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 27 then
-send(msg.chat_id_, msg.id_,'   ي بطي !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 28 then
-send(msg.chat_id_, msg.id_,'   ليه انت بطى يخوي !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 29 then
-send(msg.chat_id_, msg.id_,'   تدبر زين بس  !  \n عدد الثواني {'..timemkal..'}')
-elseif tonumber(timemkal) == 30 then
-send(msg.chat_id_, msg.id_,'  مستوى بس !  \n عدد الثواني {'..timemkal..'}')
+send(msg.chat_id_, msg.id_,'  استمر ي وحش ! \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 2 then
+send(msg.chat_id_, msg.id_,'  اكيد محد ينافسك ! \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 3 then
+send(msg.chat_id_, msg.id_,'  اتوقع محد ينافسك ! \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 4 then
+send(msg.chat_id_, msg.id_,'  مركب تيربو !  \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 5 then
+send(msg.chat_id_, msg.id_, '  صح عليك !  \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 6 then
+send(msg.chat_id_, msg.id_,'   صحيح !  \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 7 then
+send(msg.chat_id_, msg.id_,'   شد حيلك ! \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 8 then
+send(msg.chat_id_, msg.id_, '  عندك اسرع ! \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 9 then
+send(msg.chat_id_, msg.id_,'   يجي ! \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 10 then
+send(msg.chat_id_, msg.id_,'   كفو ! \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 11 then
+send(msg.chat_id_, msg.id_,'   ماش !  \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 12 then
+send(msg.chat_id_, msg.id_,'   مستوى مستوى !  \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 13 then
+send(msg.chat_id_, msg.id_,'   تدرب ! \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 14 then
+send(msg.chat_id_, msg.id_,'   مدري وش اقول ! \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 15 then
+send(msg.chat_id_, msg.id_,'   بطه ! \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 16 then
+send(msg.chat_id_, msg.id_,'   ي بطوط !  \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 17 then
+send(msg.chat_id_, msg.id_,'   مافي اسرع  !  \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 18 then
+send(msg.chat_id_, msg.id_,'   بكير  !  \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 19 then
+send(msg.chat_id_, msg.id_,'   وش هذا !  \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 20 then
+send(msg.chat_id_, msg.id_,'   الله يعينك !  \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 21 then
+send(msg.chat_id_, msg.id_,'   كيبوردك يعلق ههههه  !  \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 22 then
+send(msg.chat_id_, msg.id_,'   يبي لك تدريب  !  \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 23 then
+send(msg.chat_id_, msg.id_,'   انت اخر واحد رسلت وش ذا !  \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 24 then
+send(msg.chat_id_, msg.id_,'   ههههه بطى !  \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 25 then
+send(msg.chat_id_, msg.id_,'   ابك وش العلم !  \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 26 then
+send(msg.chat_id_, msg.id_,'  اخر مرا تلعب !  \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 27 then
+send(msg.chat_id_, msg.id_,'   ي بطي !  \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 28 then
+send(msg.chat_id_, msg.id_,'   ليه انت بطى يخوي !  \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 29 then
+send(msg.chat_id_, msg.id_,'   تدبر زين بس  !  \n عدد الثواني {'..timenih..'}')
+elseif tonumber(timenih) == 30 then
+send(msg.chat_id_, msg.id_,'  مستوى بس !  \n عدد الثواني {'..timenih..'}')
 end
 database:del(bot_id.."nsih:bots:qus"..msg.sender_user_id_..":"..msg.chat_id_)
 database:del(bot_id.."nih:setex:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
