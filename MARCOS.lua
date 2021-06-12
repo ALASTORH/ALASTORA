@@ -809,6 +809,7 @@ local keyboard = {
 {'اضف نصيحه ➕','حذف النصائح 🗑'},
 {'اضف مقالات ➕','حذف المقالات 🗑'},
 {'اضف صراحة ➕','حذف الصراحة 🗑'},
+{'اضف نكت ➕','حذف النكت 🗑'},
 {'تفعيل الاشتراك الاجباري 📥','تعطيل الاشتراك الاجباري 📤'},
 {'الاشتراك الاجباري 🚸','تفعيل الاشتراك الاول🌟'},
 {'تفعيل البوت الخدمي 🔓','تعطيل البوت الخدمي🔏'},
@@ -1055,6 +1056,29 @@ if database:get(bot_id.."srah:bots:set"..msg.sender_user_id_..":"..msg.chat_id_)
 send(msg.chat_id_, msg.id_, '\nتم حفظ سوال الصراحة')
 database:set(bot_id.."srah:bots:set"..msg.sender_user_id_..":"..msg.chat_id_,"true1uu")
 database:sadd(bot_id.."srah:bots", text)
+return false end
+end
+if text == "اضف نكت ➕" then
+if not SudoBot(msg) then
+send(msg.chat_id_,msg.id_,' هذا الامر خاص بالمطور الاساسي فقط')
+return false
+end
+database:set(bot_id.."nkth:bots:set"..msg.sender_user_id_..":"..msg.chat_id_,true)
+return send(msg.chat_id_, msg.id_,"ارسل سوال الصراحة")
+end
+if text == "حذف النكت 🗑" then
+if not SudoBot(msg) then
+send(msg.chat_id_,msg.id_,' هذا الامر خاص بالمطور الاساسي فقط')
+return false
+end
+database:del(bot_id.."nkth:bots")
+return send(msg.chat_id_, msg.id_,"تم حذف اسئلة الصراحة")
+end
+if text and text:match("^(.*)$") then
+if database:get(bot_id.."nkth:bots:set"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
+send(msg.chat_id_, msg.id_, '\nتم حفظ سوال الصراحة')
+database:set(bot_id.."nkth:bots:set"..msg.sender_user_id_..":"..msg.chat_id_,"true1uu")
+database:sadd(bot_id.."nkth:bots", text)
 return false end
 end
 if text == 'معلومات الكيبورد 💬' and SudoBot(msg) then 
@@ -2842,6 +2866,89 @@ send(msg.chat_id_, msg.id_,'  مستوى بس !  \n عدد الثواني {'..ti
 end
 database:del(bot_id.."srah:bots:qus"..msg.sender_user_id_..":"..msg.chat_id_)
 database:del(bot_id.."sah:setex:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
+end
+if text == 'نكته' or text == 'نكت' or text == 'نكتة' then
+local list = database:smembers(bot_id.."nkth:bots")
+if #list ~= 0 then
+quschen = list[math.random(#list)]
+quschen1 = string.gsub(quschen,"-"," ")
+quschen1 = string.gsub(quschen1,"*"," ")
+quschen1 = string.gsub(quschen1,"•"," ")
+quschen1 = string.gsub(quschen1,"_"," ")
+quschen1 = string.gsub(quschen1,","," ")
+quschen1 = string.gsub(quschen1,"/"," ")
+print(quschen1)
+send(msg.chat_id_, msg.id_,'['..quschen..']')
+database:set(bot_id.."srah:bots:qus"..msg.chat_id_,quschen1)
+database:setex(bot_id.."nth:setex:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 60, true) 
+end
+end
+if text == ""..(database:get(bot_id.."nkth:bots:qus"..msg.chat_id_) or '').."" then
+local timemkall = database:ttl(bot_id.."nth:setex:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
+local timemkal = (60 - timenth)
+if tonumber(timemkal) == 1 then
+send(msg.chat_id_, msg.id_,'  استمر ي وحش ! \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 2 then
+send(msg.chat_id_, msg.id_,'  اكيد محد ينافسك ! \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 3 then
+send(msg.chat_id_, msg.id_,'  اتوقع محد ينافسك ! \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 4 then
+send(msg.chat_id_, msg.id_,'  مركب تيربو !  \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 5 then
+send(msg.chat_id_, msg.id_, '  صح عليك !  \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 6 then
+send(msg.chat_id_, msg.id_,'   صحيح !  \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 7 then
+send(msg.chat_id_, msg.id_,'   شد حيلك ! \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 8 then
+send(msg.chat_id_, msg.id_, '  عندك اسرع ! \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 9 then
+send(msg.chat_id_, msg.id_,'   يجي ! \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 10 then
+send(msg.chat_id_, msg.id_,'   كفو ! \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 11 then
+send(msg.chat_id_, msg.id_,'   ماش !  \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 12 then
+send(msg.chat_id_, msg.id_,'   مستوى مستوى !  \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 13 then
+send(msg.chat_id_, msg.id_,'   تدرب ! \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 14 then
+send(msg.chat_id_, msg.id_,'   مدري وش اقول ! \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 15 then
+send(msg.chat_id_, msg.id_,'   بطه ! \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 16 then
+send(msg.chat_id_, msg.id_,'   ي بطوط !  \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 17 then
+send(msg.chat_id_, msg.id_,'   مافي اسرع  !  \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 18 then
+send(msg.chat_id_, msg.id_,'   بكير  !  \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 19 then
+send(msg.chat_id_, msg.id_,'   وش هذا !  \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 20 then
+send(msg.chat_id_, msg.id_,'   الله يعينك !  \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 21 then
+send(msg.chat_id_, msg.id_,'   كيبوردك يعلق ههههه  !  \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 22 then
+send(msg.chat_id_, msg.id_,'   يبي لك تدريب  !  \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 23 then
+send(msg.chat_id_, msg.id_,'   انت اخر واحد رسلت وش ذا !  \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 24 then
+send(msg.chat_id_, msg.id_,'   ههههه بطى !  \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 25 then
+send(msg.chat_id_, msg.id_,'   ابك وش العلم !  \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 26 then
+send(msg.chat_id_, msg.id_,'  اخر مرا تلعب !  \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 27 then
+send(msg.chat_id_, msg.id_,'   ي بطي !  \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 28 then
+send(msg.chat_id_, msg.id_,'   ليه انت بطى يخوي !  \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 29 then
+send(msg.chat_id_, msg.id_,'   تدبر زين بس  !  \n عدد الثواني {'..timenth..'}')
+elseif tonumber(timenth) == 30 then
+send(msg.chat_id_, msg.id_,'  مستوى بس !  \n عدد الثواني {'..timenth..'}')
+end
+database:del(bot_id.."nkth:bots:qus"..msg.sender_user_id_..":"..msg.chat_id_)
+database:del(bot_id.."nth:setex:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
