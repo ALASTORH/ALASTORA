@@ -1064,7 +1064,7 @@ send(msg.chat_id_,msg.id_,' هذا الامر خاص بالمطور الاساس
 return false
 end
 database:set(bot_id.."nkth:bots:set"..msg.sender_user_id_..":"..msg.chat_id_,true)
-return send(msg.chat_id_, msg.id_,"ارسل سوال الصراحة")
+return send(msg.chat_id_, msg.id_,"ارسل النكته الان 😛")
 end
 if text == "حذف النكت 🗑" then
 if not SudoBot(msg) then
@@ -1072,11 +1072,11 @@ send(msg.chat_id_,msg.id_,' هذا الامر خاص بالمطور الاساس
 return false
 end
 database:del(bot_id.."nkth:bots")
-return send(msg.chat_id_, msg.id_,"تم حذف اسئلة الصراحة")
+return send(msg.chat_id_, msg.id_,"تم حذف النكت بنجاح 😔")
 end
 if text and text:match("^(.*)$") then
 if database:get(bot_id.."nkth:bots:set"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
-send(msg.chat_id_, msg.id_, '\nتم حفظ سوال الصراحة')
+send(msg.chat_id_, msg.id_, '\nتم حفظ النكته بنجاح 😍')
 database:set(bot_id.."nkth:bots:set"..msg.sender_user_id_..":"..msg.chat_id_,"true1uu")
 database:sadd(bot_id.."nkth:bots", text)
 return false end
