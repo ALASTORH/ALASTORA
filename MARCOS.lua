@@ -736,18 +736,6 @@ end
 end
 send(msg.chat_id_, msg.id_,pre_msg)  
 end
-function GetBio(chat_id)
-local Check = https.request('https://api.telegram.org/bot'..TokenBot..'/getChat?chat_id='..chat_id)
-local GetInfo = JSON.decode(Check)
-if GetInfo.ok == true then
-if GetInfo.result.bio then 
-Abs = GetInfo.result.bio
-else 
-Abs = "لا يوجد"
-end
-end
-return Abs
-end
 --------------------------------------------------------------------------------------------------------------
 function SourceMARCOS(msg,data) -- بداية العمل
 if msg then
@@ -10693,7 +10681,6 @@ get_id_text = get_id_text:gsub('الاسم',username)
 get_id_text = get_id_text:gsub('الرسائل',Msguser) 
 get_id_text = get_id_text:gsub('التعديل',edit) 
 get_id_text = get_id_text:gsub('الرتبه',rtp) 
-get_id_text = get_id_text:gsub('البايو',(GetBio(msg.sender_user_id_) or 'لا يوجد'))
 get_id_text = get_id_text:gsub('التفاعل',interaction) 
 get_id_text = get_id_text:gsub('النقاط',NUMPGAME) 
 get_id_text = get_id_text:gsub('الصور',photps) 
@@ -10731,7 +10718,6 @@ get_id_text = get_id_text:gsub('الاسم',username)
 get_id_text = get_id_text:gsub('الرسائل',Msguser) 
 get_id_text = get_id_text:gsub('التعديل',edit) 
 get_id_text = get_id_text:gsub('الرتبه',rtp) 
-get_id_text = get_id_text:gsub('البايو',(GetBio(msg.sender_user_id_) or 'لا يوجد')
 get_id_text = get_id_text:gsub('التفاعل',interaction) 
 get_id_text = get_id_text:gsub('النقاط',NUMPGAME) 
 get_id_text = get_id_text:gsub('الصور',photps) 
