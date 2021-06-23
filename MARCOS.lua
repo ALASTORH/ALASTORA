@@ -430,7 +430,16 @@ function s_api(web)
 local info, res = https.request(web) local req = json:decode(info) if res ~= 200 then return false end if not req.ok then return false end return req 
 end 
 local function sendText(chat_id, text, reply_to_message_id, markdown) 
-send_api = "https://api.telegram.org/bot"..token local url = send_api..'/sendMessage?chat_id=' .. chat_id .. '&text=' .. URL.escape(text) if reply_to_message_id ~= 0 then url = url .. '&reply_to_message_id=' .. reply_to_message_id  end if markdown == 'md' or markdown == 'markdown' then url = url..'&parse_mode=Markdown' elseif markdown == 'html' then url = url..'&parse_mode=HTML' end return s_api(url)  
+send_api = "https://api.telegram.org/bot"..token 
+local url = send_api..'/sendMessage?chat_id=' .. chat_id .. '&text=' .. URL.escape(text)
+if reply_to_message_id ~= 0 then url = url .. '&reply_to_message_id=' .. reply_to_message_id
+end 
+if markdown == "md" or markdown == "markdown" then 
+url = url.."&parse_mode=Markdown&disable_web_page_preview=true" 
+elseif markdown == "html" then 
+url = url.."&parse_mode=HTML" 
+end 
+return s_api(url)  
 end
 local function Send(chat_id, reply_to_message_id, text)
 local TextParseMode = {ID = "TextParseModeMarkdown"}
@@ -727,7 +736,18 @@ end
 end
 send(msg.chat_id_, msg.id_,pre_msg)  
 end
-
+function GetBio(chat_id)
+local Check = https.request('https://api.telegram.org/bot'..TokenBot..'/getChat?chat_id='..chat_id)
+local GetInfo = JSON.decode(Check)
+if GetInfo.ok == true then
+if GetInfo.result.bio then 
+Abs = GetInfo.result.bio
+else 
+Abs = "لا يوجد"
+end
+end
+return Abs
+end
 --------------------------------------------------------------------------------------------------------------
 function SourceMARCOS(msg,data) -- بداية العمل
 if msg then
@@ -989,6 +1009,7 @@ echo '*———————————~*\n✺✔{ الــدخــول } ⇎\n
 echo '*———————————~*\n✺✔{ مـده تـشغيـل الـسـيـرفـر }⇎\n*»» '"$uptime"'*'
 ]]):read('*all'))  
 end
+
 if text == "اضف مقالات ➕" then
 if not SudoBot(msg) then
 send(msg.chat_id_,msg.id_,' هذا الامر خاص بالمطور الاساسي فقط')
@@ -10672,6 +10693,7 @@ get_id_text = get_id_text:gsub('الاسم',username)
 get_id_text = get_id_text:gsub('الرسائل',Msguser) 
 get_id_text = get_id_text:gsub('التعديل',edit) 
 get_id_text = get_id_text:gsub('الرتبه',rtp) 
+get_id_text = get_id_text:gsub('البايو',(GetBio(msg.sender_user_id_) or 'لا يوجد'))
 get_id_text = get_id_text:gsub('التفاعل',interaction) 
 get_id_text = get_id_text:gsub('النقاط',NUMPGAME) 
 get_id_text = get_id_text:gsub('الصور',photps) 
@@ -10709,6 +10731,7 @@ get_id_text = get_id_text:gsub('الاسم',username)
 get_id_text = get_id_text:gsub('الرسائل',Msguser) 
 get_id_text = get_id_text:gsub('التعديل',edit) 
 get_id_text = get_id_text:gsub('الرتبه',rtp) 
+get_id_text = get_id_text:gsub('البايو',(GetBio(msg.sender_user_id_) or 'لا يوجد')
 get_id_text = get_id_text:gsub('التفاعل',interaction) 
 get_id_text = get_id_text:gsub('النقاط',NUMPGAME) 
 get_id_text = get_id_text:gsub('الصور',photps) 
@@ -12172,12 +12195,12 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
 return false
 end
-if text == 'تعطيل اليوتيوبا' and Constructor(msg) then  
+if text == 'تعطيل اليوتيوب' and Constructor(msg) then  
 send(msg.chat_id_,msg.id_,'\n• تم الامر بنجاح')  
 database:set(bot_id.."dl_yt_dl"..msg.chat_id_,"close") 
 return false  
 end 
-if text == 'تفعيل اليوتيوبا' and Constructor(msg) then  
+if text == 'تفعيل اليوتيوب' and Constructor(msg) then  
 send(msg.chat_id_,msg.id_,'\n• تم الامر بنجاح')  
 database:set(bot_id.."dl_yt_dl"..msg.chat_id_,"open") 
 return false  
